@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Read-only structural inspector for Huawei HG630-family firmware packages."""
 from __future__ import annotations
+
 import argparse
 import hashlib
 import json
@@ -12,6 +13,7 @@ from typing import Any
 UIMAGE_MAGIC = 0x27051956
 SQUASHFS_MAGIC = b"hsqs"
 
+
 def find_all(data: bytes, marker: bytes) -> list[int]:
     offsets, start = [], 0
     while True:
@@ -20,6 +22,7 @@ def find_all(data: bytes, marker: bytes) -> list[int]:
             return offsets
         offsets.append(offset)
         start = offset + 1
+
 
 def parse_uimage(data: bytes, offset: int) -> dict[str, Any]:
     if offset + 64 > len(data):
@@ -42,8 +45,10 @@ def parse_uimage(data: bytes, offset: int) -> dict[str, Any]:
         "header_crc_valid": (zlib.crc32(header) & 0xffffffff) == hcrc,
         "data_crc_valid": (zlib.crc32(payload) & 0xffffffff) == dcrc,
         "os_id": osid, "architecture_id": arch, "image_type_id": kind,
-        "compression_id": comp, "name": raw_name.split(b"\0", 1)[0].decode("ascii", "replace")
+        "compression_id": comp,
+        "name": raw_name.split(b"\0", 1)[0].decode("ascii", "replace"),
     }
+
 
 def parse_squashfs(data: bytes, offset: int) -> dict[str, Any]:
     if offset + 96 > len(data):
@@ -62,23 +67,31 @@ def parse_squashfs(data: bytes, offset: int) -> dict[str, Any]:
         "filesystem_end": offset + bytes_used,
         "filesystem_within_input": offset + bytes_used <= len(data),
         "inode_table_start_relative": inode_start,
-        "directory_table_start_relative": dir_start
+        "directory_table_start_relative": dir_start,
     }
+
 
 def inspect(path: Path) -> dict[str, Any]:
     data = path.read_bytes()
-    out = {"file": path.name, "size_bytes": len(data),
-           "sha256": hashlib.sha256(data).hexdigest(), "squashfs": [],
-           "uimage": [], "markers": {}}
+    out: dict[str, Any] = {
+        "file": path.name, "size_bytes": len(data),
+        "sha256": hashlib.sha256(data).hexdigest(),
+        "squashfs": [], "uimage": [], "markers": {},
+    }
     for off in find_all(data, SQUASHFS_MAGIC):
-        try: out["squashfs"].append(parse_squashfs(data, off))
-        except (ValueError, struct.error) as e: out["squashfs"].append({"offset": off, "error": str(e)})
+        try:
+            out["squashfs"].append(parse_squashfs(data, off))
+        except (ValueError, struct.error) as exc:
+            out["squashfs"].append({"offset": off, "error": str(exc)})
     for off in find_all(data, struct.pack(">I", UIMAGE_MAGIC)):
-        try: out["uimage"].append(parse_uimage(data, off))
-        except (ValueError, struct.error) as e: out["uimage"].append({"offset": off, "error": str(e)})
+        try:
+            out["uimage"].append(parse_uimage(data, off))
+        except (ValueError, struct.error) as exc:
+            out["uimage"].append({"offset": off, "error": str(exc)})
     for marker in (b"board_id=", b"hgw_softversion=", b"HG630V2", b"Linux-2.6.30"):
         out["markers"][marker.decode()] = [f"0x{x:x}" for x in find_all(data, marker)]
     return out
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
@@ -87,8 +100,10 @@ def main() -> int:
     args = ap.parse_args()
     if not args.firmware.is_file():
         ap.error(f"input file does not exist: {args.firmware}")
-    print(json.dumps(inspect(args.firmware), indent=2))
+    report = inspect(args.firmware)
+    print(json.dumps(report, indent=2))
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
