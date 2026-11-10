@@ -2,25 +2,32 @@
 
 Current phase: offline reverse engineering. This is not a completed firmware port.
 
-## Delivered in repository
-- Device identity and limitations documented.
-- OEM firmware SHA-256 and observed embedded section offsets documented.
-- Read-only Python parser for legacy uImage and SquashFS headers.
-- Unit tests and GitHub Actions workflow.
+## Delivered
+- Device identity, feasibility, DSL and recovery requirements documented.
+- OEM update package SHA-256 and embedded offsets documented.
+- Read-only Python parser for U-Boot uImage and SquashFS superblock metadata.
+- Unit tests and GitHub Actions CI.
+- Latest CI run completed successfully: 3 unit tests and Python syntax check passed.
 
-## Verification
-- Three unit tests pass locally in the development workspace.
-- The parser validates uImage header and payload CRCs.
-- It is deliberately not a firmware extractor, image builder or flasher.
+## Verified from the supplied image
+- Size: 7,563,600 bytes.
+- SHA-256: d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222.
+- SquashFS v4 superblock at 0x305cf; LZMA compression ID 4; 1,257 inodes; 1 MiB block size; bytes_used 5,930,917.
+- uImage at 0x5d85cf; kernel name Linux-2.6.30; payload size 1,434,088 bytes; load and entry address 0x81208000.
+- Both uImage header and payload CRCs validate.
+- Package string board_id=1212 is observed but is not proven to equal the physical CFE board ID.
 
-## Not delivered yet
+## Not delivered
 - Extracted root filesystem.
 - Kernel source/config matching the OEM build.
-- DSL driver/firmware/daemon inventory.
-- Verified exact VER.B PCB, CFE board ID and flash partition map.
-- Device Tree / board support.
-- DSL-preserving replacement kernel or userspace.
-- Flashable firmware.
+- DSL driver/firmware/daemon dependency inventory.
+- Verified exact VER.B PCB, CFE board ID or flash partition layout.
+- Working DSL-preserving replacement kernel/userspace.
+- Device Tree or board support.
+- Any flashable firmware.
+
+## Current blocker
+The available local execution environment has no SquashFS extractor installed. The image uses SquashFS v4 with LZMA compression (compression ID 4). Extraction should be performed with a compatible trusted extractor in an isolated Linux environment. A generic upstream unsquashfs build may not support every vendor LZMA variant; tool compatibility must be verified before declaring extraction successful.
 
 ## Next engineering task
-Extract the SquashFS v4 LZMA filesystem in an isolated local workspace. Inventory ELF architecture, shared-library dependencies, kernel modules and DSL initialization. Do not publish proprietary binaries or the router configuration backup.
+Extract and inventory the root filesystem locally. Identify DSL kernel modules, firmware blobs, control daemons, shared libraries and init scripts. Do not publish proprietary binaries or the router configuration backup.
