@@ -1,0 +1,21 @@
+# Proprietary firmware and private router data
+firmware/original/*
+!firmware/original/.gitkeep
+*.bin
+*.img
+*.trx
+*.conf
+*.backup
+*.cfg
+*.dump
+*.rom
+*.key
+*.pem
+*.crt
+analysis/local/
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+dist/
+build/output/
