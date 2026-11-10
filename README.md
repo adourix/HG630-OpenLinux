@@ -43,6 +43,7 @@ The `board_id=1212` string found in the update package is not proof of the CFE b
 
 - `docs/` — evidence, hardware notes, DSL feasibility and recovery requirements
 - `tools/` — read-only firmware inspection utilities
+- `docs/ANALYSIS.md` — current binary findings and layout arithmetic
 - `analysis/` — generated local analysis output (do not commit vendor firmware)
 - `firmware/original/` — local-only input location, ignored by Git
 - `build/` — future reproducible build environment; no flashable target yet
