@@ -79,3 +79,14 @@ No credentials, serial numbers, configuration backups, private keys, or vendor f
 A firmware inspection and porting investigation is justified. A working DSL-preserving replacement firmware is **not yet demonstrated**. The main feasibility risk is the proprietary Broadcom DSL stack tied to the vendor's Linux 2.6.30 kernel and userspace ABI.
 
 See [docs/FEASIBILITY.md](docs/FEASIBILITY.md) and [docs/NEXT_STEPS.md](docs/NEXT_STEPS.md).
+
+## Read-only firmware inspection tool
+
+The repository includes a standalone Python parser for the vendor package container. It reports SquashFS and uImage candidates, hashes the input, and validates the legacy uImage CRCs. It does not extract proprietary content or create a flashable image.
+
+Run:
+
+```bash
+python3 tools/firmware_inspect.py /path/to/HG630V2-12V100R001.bin --json
+python3 -m unittest discover -s tests -v
+```
