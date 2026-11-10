@@ -1,134 +1,94 @@
 #!/usr/bin/env python3
-"""Read-only inspector for common Huawei/Broadcom firmware container markers.
-
-This is an initial triage tool, not a complete Huawei firmware unpacker.
-It does not execute extracted code, modify the input, or produce flashable images.
-"""
+"""Read-only structural inspector for Huawei HG630-family firmware packages."""
 from __future__ import annotations
-
 import argparse
 import hashlib
 import json
 import struct
-import sys
 import zlib
 from pathlib import Path
 from typing import Any
 
-UIMAGE_MAGIC = b"\x27\x05\x19\x56"
-SQUASHFS_LE_MAGIC = b"hsqs"
-SQUASHFS_BE_MAGIC = b"qshs"
-UIMAGE_HEADER_SIZE = 64
+UIMAGE_MAGIC = 0x27051956
+SQUASHFS_MAGIC = b"hsqs"
 
-
-def find_all(data: bytes, needle: bytes) -> list[int]:
-    offsets: list[int] = []
-    start = 0
+def find_all(data: bytes, marker: bytes) -> list[int]:
+    offsets, start = [], 0
     while True:
-        pos = data.find(needle, start)
-        if pos < 0:
+        offset = data.find(marker, start)
+        if offset < 0:
             return offsets
-        offsets.append(pos)
-        start = pos + 1
-
+        offsets.append(offset)
+        start = offset + 1
 
 def parse_uimage(data: bytes, offset: int) -> dict[str, Any]:
-    if offset < 0 or offset + UIMAGE_HEADER_SIZE > len(data):
-        return {"offset": offset, "valid_header_bounds": False}
-
-    header = data[offset : offset + UIMAGE_HEADER_SIZE]
-    fields = struct.unpack(">7I4B32s", header)
-    (
-        magic, header_crc, timestamp, image_size, load, entry,
-        data_crc, os_id, arch_id, image_type, compression, name,
-    ) = fields
-    header_for_crc = bytearray(header)
-    header_for_crc[4:8] = b"\x00\x00\x00\x00"
-    computed_header_crc = zlib.crc32(header_for_crc) & 0xFFFFFFFF
-
-    payload_start = offset + UIMAGE_HEADER_SIZE
-    payload_end = payload_start + image_size
-    payload_bounds_valid = payload_end <= len(data)
-    computed_data_crc = None
-    if payload_bounds_valid:
-        computed_data_crc = zlib.crc32(data[payload_start:payload_end]) & 0xFFFFFFFF
-
+    if offset + 64 > len(data):
+        raise ValueError("Truncated uImage header")
+    f = struct.unpack(">7I4B32s", data[offset:offset + 64])
+    magic, hcrc, timestamp, size, load, entry, dcrc, osid, arch, kind, comp, raw_name = f
+    if magic != UIMAGE_MAGIC:
+        raise ValueError("Invalid uImage magic")
+    header = bytearray(data[offset:offset + 64])
+    header[4:8] = b"\0" * 4
+    payload_start, payload_end = offset + 64, offset + 64 + size
+    if payload_end > len(data):
+        raise ValueError("uImage payload extends beyond input file")
+    payload = data[payload_start:payload_end]
     return {
-        "offset": offset,
-        "magic": f"0x{magic:08x}",
-        "header_crc_expected": f"0x{header_crc:08x}",
-        "header_crc_computed": f"0x{computed_header_crc:08x}",
-        "header_crc_valid": header_crc == computed_header_crc,
-        "timestamp_unix": timestamp,
-        "image_size": image_size,
-        "load_address": f"0x{load:08x}",
-        "entry_point": f"0x{entry:08x}",
-        "data_crc_expected": f"0x{data_crc:08x}",
-        "data_crc_computed": (
-            f"0x{computed_data_crc:08x}" if computed_data_crc is not None else None
-        ),
-        "data_crc_valid": (
-            data_crc == computed_data_crc if computed_data_crc is not None else False
-        ),
-        "os_id": os_id,
-        "arch_id": arch_id,
-        "image_type": image_type,
-        "compression": compression,
-        "name": name.split(b"\x00", 1)[0].decode("ascii", "replace"),
-        "payload_start": payload_start,
-        "payload_end": payload_end,
-        "payload_bounds_valid": payload_bounds_valid,
+        "offset": offset, "header_size": 64, "timestamp": timestamp,
+        "payload_size": size, "payload_offset": payload_start, "payload_end": payload_end,
+        "load_address": load, "entry_address": entry,
+        "header_crc32": f"{hcrc:08x}", "data_crc32": f"{dcrc:08x}",
+        "header_crc_valid": (zlib.crc32(header) & 0xffffffff) == hcrc,
+        "data_crc_valid": (zlib.crc32(payload) & 0xffffffff) == dcrc,
+        "os_id": osid, "architecture_id": arch, "image_type_id": kind,
+        "compression_id": comp, "name": raw_name.split(b"\0", 1)[0].decode("ascii", "replace")
     }
 
+def parse_squashfs(data: bytes, offset: int) -> dict[str, Any]:
+    if offset + 96 > len(data):
+        raise ValueError("Truncated SquashFS superblock")
+    f = struct.unpack_from("<5I6H2Q5Q", data, offset)
+    (magic, inodes, mkfs, block, fragments, compression, block_log, flags,
+     no_ids, major, minor, root_inode, bytes_used, id_start, xattr_start,
+     inode_start, dir_start, frag_start) = f
+    if magic != 0x73717368:
+        raise ValueError("Invalid SquashFS magic")
+    return {
+        "offset": offset, "version": f"{major}.{minor}", "inode_count": inodes,
+        "mkfs_time": mkfs, "block_size": block, "fragment_count": fragments,
+        "compression_id": compression, "block_log": block_log, "flags": flags,
+        "id_count": no_ids, "bytes_used": bytes_used,
+        "filesystem_end": offset + bytes_used,
+        "filesystem_within_input": offset + bytes_used <= len(data),
+        "inode_table_start_relative": inode_start,
+        "directory_table_start_relative": dir_start
+    }
 
 def inspect(path: Path) -> dict[str, Any]:
     data = path.read_bytes()
-    result: dict[str, Any] = {
-        "file": path.name,
-        "size_bytes": len(data),
-        "sha256": hashlib.sha256(data).hexdigest(),
-        "signatures": {
-            "squashfs_le": [hex(x) for x in find_all(data, SQUASHFS_LE_MAGIC)],
-            "squashfs_be": [hex(x) for x in find_all(data, SQUASHFS_BE_MAGIC)],
-            "uimage": [hex(x) for x in find_all(data, UIMAGE_MAGIC)],
-        },
-    }
-    result["uimages"] = [
-        parse_uimage(data, offset) for offset in find_all(data, UIMAGE_MAGIC)
-    ]
-    return result
-
+    out = {"file": path.name, "size_bytes": len(data),
+           "sha256": hashlib.sha256(data).hexdigest(), "squashfs": [],
+           "uimage": [], "markers": {}}
+    for off in find_all(data, SQUASHFS_MAGIC):
+        try: out["squashfs"].append(parse_squashfs(data, off))
+        except (ValueError, struct.error) as e: out["squashfs"].append({"offset": off, "error": str(e)})
+    for off in find_all(data, struct.pack(">I", UIMAGE_MAGIC)):
+        try: out["uimage"].append(parse_uimage(data, off))
+        except (ValueError, struct.error) as e: out["uimage"].append({"offset": off, "error": str(e)})
+    for marker in (b"board_id=", b"hgw_softversion=", b"HG630V2", b"Linux-2.6.30"):
+        out["markers"][marker.decode()] = [f"0x{x:x}" for x in find_all(data, marker)]
+    return out
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("image", type=Path, help="local firmware image to inspect")
-    parser.add_argument("--json", action="store_true", help="print machine-readable JSON")
-    args = parser.parse_args()
-
-    if not args.image.is_file():
-        parser.error(f"file does not exist: {args.image}")
-    try:
-        report = inspect(args.image)
-    except OSError as exc:
-        print(f"error: {exc}", file=sys.stderr)
-        return 2
-
-    if args.json:
-        print(json.dumps(report, indent=2))
-    else:
-        print(f"File: {report['file']}")
-        print(f"Size: {report['size_bytes']} bytes")
-        print(f"SHA-256: {report['sha256']}")
-        for kind, offsets in report["signatures"].items():
-            print(f"{kind}: {', '.join(offsets) if offsets else 'not found'}")
-        for image in report["uimages"]:
-            print(f"\nuImage at {hex(image['offset'])}: {image['name']}")
-            print(f"  payload size: {image['image_size']}")
-            print(f"  header CRC valid: {image['header_crc_valid']}")
-            print(f"  data CRC valid: {image['data_crc_valid']}")
-            print(f"  load / entry: {image['load_address']} / {image['entry_point']}")
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("firmware", type=Path)
+    ap.add_argument("--json", action="store_true")
+    args = ap.parse_args()
+    if not args.firmware.is_file():
+        ap.error(f"input file does not exist: {args.firmware}")
+    print(json.dumps(inspect(args.firmware), indent=2))
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
