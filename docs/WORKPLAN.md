@@ -2,8 +2,10 @@
 
 ## Milestone 1 — Static analysis
 - [x] Record firmware SHA-256 and embedded structure offsets.
-- [x] Add read-only uImage/SquashFS inspector.
-- [x] Add parser unit tests.
+- [x] Parse uImage header and validate header/payload CRCs.
+- [x] Parse SquashFS superblock metadata.
+- [x] Add read-only Python inspector.
+- [x] Add parser unit tests and CI.
 - [ ] Extract SquashFS in an isolated host environment.
 - [ ] Inventory ELF files, libraries, kernel modules and init scripts.
 - [ ] Identify DSL module, firmware image and control daemons.
@@ -15,7 +17,7 @@
 - [ ] Map calibration/NVRAM/bootloader protected regions.
 
 ## Milestone 3 — Architecture decision
-- [ ] Compare OpenWrt bmips support with OEM BSP.
+- [ ] Compare maintained OpenWrt bmips support with OEM BSP.
 - [ ] Establish DSL driver kernel ABI and licensing.
 - [ ] Decide upstream kernel port vs vendor-derived Linux.
 - [ ] Build reproducible host tools and non-flashable artifacts.
