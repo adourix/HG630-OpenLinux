@@ -19,3 +19,18 @@ __pycache__/
 venv/
 dist/
 build/output/
+# Proprietary inputs and generated analysis/build output.
+firmware/original/*
+!firmware/original/.gitkeep
+artifacts/
+analysis/generated/
+build-output/
+*.bin
+*.img
+*.trx
+*.uimage
+*.squashfs
+*.ko
+__pycache__/
+*.py[cod]
+.pytest_cache/

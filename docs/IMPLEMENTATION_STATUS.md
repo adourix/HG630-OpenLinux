@@ -2,6 +2,10 @@
 
 Current phase: offline reverse engineering. This is not a completed firmware port.
 
+## Current Debian-server limitation
+
+The expected firmware input and `~/build-output/` directory are not present on the migrated server. The branch contains reproducible extraction, inventory, ABI-detection, and Docker tooling, but no new firmware extraction or DSL inventory can be verified until the original input is made available at a local path.
+
 ## Delivered
 - Device identity, feasibility, DSL and recovery requirements documented.
 - OEM update package SHA-256 and embedded offsets documented.

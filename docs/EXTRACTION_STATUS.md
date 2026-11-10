@@ -1,8 +1,12 @@
 # Extraction status — 2026-11-10
 
+## Debian migration verification
+
+On the Debian development server, the requested paths `/root/firmware-input/HG630V2-12V100R001.bin` and `/root/build-output/` are absent. No matching firmware copy was found under the available `/root`, `/tmp`, or `/mnt` trees. Therefore the historical values below were not re-hashed or re-extracted in this run.
+
 ## Completed on the supplied OEM image
 
-The supplied file was read locally and carved without modifying it.
+The supplied file was previously reported as read locally and carved without modifying it. Those values are retained as historical evidence only until the input is restored.
 
 - OEM image size: 7,563,600 bytes
 - OEM image SHA-256: `d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222`
