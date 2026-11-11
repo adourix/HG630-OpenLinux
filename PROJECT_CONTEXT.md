@@ -152,3 +152,20 @@ python3 tools/validate_firmware.py /home/ayad/firmware-input/HG630V2-12V100R001.
 ```
 
 Next task: investigate metadata range address-space semantics through exact offset arithmetic, independent image carving, and comparison with any available trusted board/flash documentation. Do not infer a physical partition map from names alone.
+
+## Metadata address-space arithmetic — initial investigation
+
+### VERIFIED
+
+- The nonzero table entries chain contiguously in an apparent address range from `0x000000` through `0xfd0000` (15.8125 MiB maximum end).
+- `[20011]` main `0x0+0x20000` ends where `[20003]` main begins; `[20003]` main/slave then meet at `0x40000`; `[20002]` main ends at `0x1a0000`, where `[20001]` main begins; `[20001]` main ends at `0x7c0000`, where `[20002]` slave begins; the latter ends at `0x920000`, where `[20001]` slave begins.
+- `[20001]` slave ends at `0xf40000`, where zero-size IDs `[20100]` and `[20101]` are recorded, followed by entries ending at `0xfa0000` and `0xfd0000`.
+- The package itself is only `0x736950` bytes. Thus its table values cannot all be direct byte offsets into this update file. The observed SquashFS/uImage data occupies package offsets `0x305cf..0x5d8574` and `0x5d85cf..0x7367f7`; metadata extents do not directly correspond to those embedded package offsets.
+
+### INFERRED
+
+- The regular, contiguous `0x0..0xfd0000` arithmetic is consistent with a larger address space than the update file, such as an intended device layout, but does not establish physical flash addresses or actual partition boundaries. Section IDs, update selection rules, and how component payloads map onto these ranges remain unknown.
+
+### Next evidence needed
+
+- Trusted documentation or source for this exact firmware parser/upgrade implementation, or a verified full flash map from the exact HG630 V2 board. Until then these remain metadata ranges and no reconstruction offset should be derived from them.
