@@ -48,4 +48,21 @@
 - [ ] Build a non-flashable development artifact first.
 - [ ] Define recovery plan before any device write.
 
-Current phase: Phase 1 — static firmware analysis.
+## V1.1 evidence-driven blockers
+
+- [ ] Obtain an exact-board passive UART capture without interrupting boot.
+- [ ] Record `/proc/cpuinfo`, `/proc/meminfo`, `/proc/mtd`, `/proc/cmdline`,
+      mounts, loaded modules, and read-only DSL/Wi-Fi inventory.
+- [ ] Obtain matching Huawei GPL source/configuration, if available, and
+      compare the SD5610x machine setup and SquashFS XZ options.
+- [ ] Identify the installed Wi-Fi module from hardware or live module state;
+      do not choose among the bundled candidates by filename.
+- [ ] Establish flash part, erase geometry, MTD partitions, root MTD, and
+      protected calibration/board-data regions from independent evidence.
+- [ ] Resolve the OEM signature format and legitimate acceptance path; do not
+      bypass authentication or invent credentials.
+- [ ] Verify an independent recovery and rollback procedure before any write.
+- [ ] Only then evaluate a target-compatible RootFS and signed package.
+
+Current phase: V1.1 platform, boot-chain, flash-layout, DSL-preservation, and
+OEM-authentication research. No flashable image is authorized.

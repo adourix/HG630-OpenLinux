@@ -1,0 +1,15 @@
+{
+  "classification_legend": ["VERIFIED", "PARTIALLY VERIFIED", "UNKNOWN", "BLOCKED"],
+  "package_components": [
+    {"name": "metadata/header inspection span", "offset": "0x0", "size": "0x600", "status": "VERIFIED"},
+    {"name": "SquashFS", "offset": "0x305cf", "bytes_used": 5930917, "status": "VERIFIED"},
+    {"name": "gap", "offset": "0x5d8574", "size": 91, "status": "VERIFIED", "meaning": "UNKNOWN"},
+    {"name": "uImage", "offset": "0x5d85cf", "size": 1434152, "status": "VERIFIED"},
+    {"name": "suffix", "offset": "0x7368b7", "size": 345, "status": "VERIFIED", "meaning": "UNKNOWN"}
+  ],
+  "physical_flash": {"capacity": "UNKNOWN", "erase_geometry": "UNKNOWN", "mtd_partition_map": "UNKNOWN"},
+  "protected_regions": {"bootloader": "UNKNOWN", "environment": "UNKNOWN", "calibration": "UNKNOWN", "board_data": "UNKNOWN"},
+  "metadata_extents": {"status": "UNKNOWN", "reason": "main/slave extents reach 0xfd0000 and exceed the 0x736950 package size"},
+  "main_slave_semantics": "UNKNOWN",
+  "no_physical_mtd_access": true
+}

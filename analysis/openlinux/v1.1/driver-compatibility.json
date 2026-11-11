@@ -1,0 +1,21 @@
+{
+  "classification_legend": ["VERIFIED", "PARTIALLY VERIFIED", "UNKNOWN", "BLOCKED"],
+  "kernel_abi": {"status": "VERIFIED_STATIC", "vermagic": "2.6.30 SMP preempt mod_unload ARMv7"},
+  "dsl": {
+    "status": "VERIFIED_STATIC",
+    "modules": ["ipcdrv.ko", "tri_ctl.ko"],
+    "userspace": ["xdslcmd", "tridiag", "tricmd", "triboot"],
+    "firmware_or_data": ["etc/tri_image.bin"],
+    "vendor": "Triductor strings and module metadata",
+    "ioctl_and_runtime_hardware": "UNKNOWN"
+  },
+  "ethernet": {"status": "VERIFIED_STATIC", "modules": ["hi_keth.ko", "hi_kphy.ko", "hi_kphy_ar8035.ko", "hi_sdk_l0.ko", "hi_sdk_l1.ko", "hi_sdk_l2.ko"]},
+  "wifi": {
+    "status": "PARTIALLY VERIFIED",
+    "candidate_modules": ["rtl8192cd.ko", "hi_kcfe_srv_ifwifi_bcm43217.ko", "hi_kcfe_srv_ifwifi_ralink3593.ko", "hi_kcfe_srv_ifwifi_rt5392.ko", "hi_kcfe_srv_ifwifi_qualcomma9880.ko"],
+    "selected_device": "UNKNOWN",
+    "calibration": "UNKNOWN"
+  },
+  "replacement_kernel": {"status": "BLOCKED_FOR_SELECTION", "reason": "no upstream kernel with verified SD5610x DSL/PHY support and no target boot protocol"},
+  "hybrid_vendor_kernel": {"status": "RECOMMENDED_RESEARCH_PATH", "reason": "preserves vendor DSL and board-specific modules while userspace is modernized conservatively"}
+}

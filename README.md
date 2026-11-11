@@ -77,7 +77,17 @@ No credentials, serial numbers, configuration backups, private keys, or vendor f
 
 ## Current conclusion
 
-A firmware inspection and porting investigation is justified. A working DSL-preserving replacement firmware is **not yet demonstrated**. The main feasibility risk is the proprietary Broadcom DSL stack tied to the vendor's Linux 2.6.30 kernel and userspace ABI.
+A firmware inspection and porting investigation is justified. V1.1 verifies a
+HiSilicon SD56xx/SD5610x family and a Triductor DSL stack in the preserved
+RootFS; it does not verify the exact silicon, flash map, boot handoff, active
+Wi-Fi chipset, or runtime DSL behavior. A working DSL-preserving replacement
+firmware is **not yet demonstrated**. The original kernel and vendor stack
+remain the conservative integration base.
+
+V1.1 release classification: **RESEARCH_ONLY**. The OEM authentication path,
+physical MTD mapping, recovery path, and target boot remain unresolved. The
+release gate in `tools/validate_release_classification.py` rejects
+`FLASHABLE` unless all mandatory gates are explicitly `VERIFIED`.
 
 See [docs/FEASIBILITY.md](docs/FEASIBILITY.md) and [docs/NEXT_STEPS.md](docs/NEXT_STEPS.md).
 

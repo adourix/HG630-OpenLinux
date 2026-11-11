@@ -1,0 +1,40 @@
+{
+  "classification_legend": ["VERIFIED", "PARTIALLY VERIFIED", "UNKNOWN", "BLOCKED"],
+  "firmware": {
+    "path": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+    "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+    "software_version": "V100R001C298B010",
+    "package_board_field": {"value": "1212", "status": "VERIFIED", "semantics": "UNKNOWN"}
+  },
+  "platform": {
+    "architecture": "ARM EABI5 / ARMv7",
+    "kernel": "Linux 2.6.30",
+    "soc_family": {"value": "HiSilicon SD56xx/SD5610x", "status": "VERIFIED"},
+    "exact_soc_revision": "UNKNOWN",
+    "pcb_revision": {"value": "VER.B", "status": "PARTIALLY VERIFIED", "source": "owner-supplied device identity; no PCB inspection artifact"},
+    "ram": "UNKNOWN",
+    "flash_capacity_and_geometry": "UNKNOWN",
+    "bootloader": "UNKNOWN; legacy U-Boot image format is verified, bootloader identity is not",
+    "machine_id_or_fdt": "UNKNOWN",
+    "command_line": "UNKNOWN"
+  },
+  "drivers": {
+    "dsl": {"status": "VERIFIED_STATIC", "evidence": ["lib/extra/ipcdrv.ko", "lib/extra/tri_ctl.ko", "bin/xdslcmd", "etc/tri_image.bin", "var/dslinit.sh reference in hsanportinit"]},
+    "ethernet_switch": {"status": "VERIFIED_STATIC", "evidence": ["hi_sdk_l0.ko", "hi_sdk_l1.ko", "hi_sdk_l2.ko", "hi_keth.ko", "hi_kphy*.ko", "hsanportinit"]},
+    "wifi": {"status": "PARTIALLY VERIFIED", "evidence": ["rtl8192cd.ko", "hi_kcfe_srv_ifwifi_bcm43217.ko", "hi_kcfe_srv_ifwifi_ralink3593.ko", "hi_kcfe_srv_ifwifi_rt5392.ko", "hi_kcfe_srv_ifwifi_qualcomma9880.ko"], "active_chipset": "UNKNOWN"},
+    "calibration": {"status": "PARTIALLY VERIFIED", "evidence": ["/dev/caldata -> /dev/mtd9 in vendor profile"], "contents_and_partition_map": "UNKNOWN"}
+  },
+  "update_and_safety": {
+    "metadata_to_mtd": "UNKNOWN",
+    "rootfs_only_update": "UNKNOWN",
+    "oem_signature": "BLOCKED",
+    "outer_checksum": "UNKNOWN",
+    "recovery": "UNKNOWN",
+    "physical_access": "BLOCKED_BY_POLICY"
+  },
+  "external_source_search": {
+    "exact_hg630v2_ver_b_gpl_source": "UNKNOWN; no matching official source package was located in the searched public results",
+    "related_hg630b_uart_profile": "NOT_TRANSFERABLE; public report identifies a different Broadcom BCM63168/MIPS device",
+    "official_huawei_gpl_contact": "The search found Huawei's general open-source notice/offer, but not an HG630 V2-specific source archive"
+  }
+}

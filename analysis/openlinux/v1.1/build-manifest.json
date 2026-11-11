@@ -1,0 +1,16 @@
+{
+  "release_classification": "RESEARCH_ONLY",
+  "flashable": false,
+  "new_image_built": false,
+  "reason": "V1.1 resolved no mandatory target boot, flash-map, authentication, or recovery gate; no unchanged experimental image was rebuilt",
+  "preserved_artifacts": ["V0.1", "V0.2", "V0.3", "V0.4", "V0.9", "V1.0 experimental"],
+  "gates": {
+    "oem_signature": "BLOCKED",
+    "metadata_to_mtd": "UNKNOWN",
+    "target_boot": "BLOCKED",
+    "recovery": "UNKNOWN",
+    "rootfs_compatibility": "UNKNOWN"
+  },
+  "original_kernel": {"status": "VERIFIED_PRESERVED", "uimage_sha256": "13a3432e8d2bbce07c5d0a49e157d77c3c183cad445dfb16be3c3bcaaa75ebc7"},
+  "safety": "No router, physical MTD, bootloader environment, or updater was accessed"
+}
