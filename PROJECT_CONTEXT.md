@@ -2,6 +2,27 @@
 
 Updated: 2026-11-10 20:00 America/New_York
 
+## RootFS size and compatibility investigation — 2026-11-10
+
+### VERIFIED
+
+- Added `analysis/server-run/rootfs-size-investigation.md` covering ABI, overlay, size, compression, Linux 2.6.30 compatibility evidence and blockers.
+- Current branch was clean at commit `4da095caa79038cf3018207efbd919d654d9be8b` before the report/context edits.
+- The ABI report covers 227 ELF32 little-endian ARM binaries. EABI5 is recorded, but float calling convention remains ambiguous. OEM libc symlinks resolve to uClibc 0.9.32.1-git and the OEM dynamic interpreter.
+- Per-file ordinary-XZ tests show `openlinuxctl` is the largest individual size contributor; the full overlay is over the 5,931,008-byte reserved span. No overlay code or OEM component was changed.
+- A no-controller test image has no missing or changed OEM files. The comparison mismatch is caused by expected new parent directories being listed as extras.
+- Dictionary experiments 100/75/50/25 percent all extracted on the host and all exceeded the span; smaller dictionaries worsened size. Ordinary XZ remains the evidence-backed compatibility choice. ARM BCJ support in the target kernel remains UNKNOWN.
+- Existing output artifacts were preserved; new diagnostic outputs are in `/home/ayad/build-output/custom-build/run-investigation-*`.
+- `python3 -m unittest discover -s tests -v`: 69/69 passed. No tests were added because no code changed.
+
+### INFERRED
+
+- Timestamp normalization is one contributor to non-reproducibility: preserving source timestamps yielded 5,929,517 internal bytes versus normalized baseline 5,929,345, but the OEM is 5,930,917. Exact OEM compressor/version/order recipe remains unknown.
+
+### UNKNOWN / BLOCKED
+
+- No integrated ordinary-XZ candidate presently fits. Keep `EXPERIMENTAL_NON_FLASHABLE`; updater acceptance, target boot/mount, flash mapping, and recovery requirements are unproven.
+
 ## Historical recovery status
 
 - Recovered after the previous Codex session exited.
