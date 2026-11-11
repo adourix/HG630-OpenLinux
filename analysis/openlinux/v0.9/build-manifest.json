@@ -1,0 +1,47 @@
+{
+  "artifacts": {
+    "dtb": {
+      "path": "/home/ayad/build-output/openlinux-v09/image-v09/openlinux-v0.9-vexpress-a9.dtb",
+      "sha256": "cb35d197143510bcdadf022f925c23735c4e453f4aa7a207cfbc2b6fb99cb24d",
+      "size": 14329
+    },
+    "initramfs": {
+      "format": "gzip-compressed newc cpio initramfs",
+      "path": "/home/ayad/build-output/openlinux-v09/image-v09/openlinux-v0.9-vexpress-a9.initramfs.cpio.gz",
+      "sha256": "84b8e52875f2831f57a58b7bd6fad2634e01e18db99b850907f00fe83d83b98c",
+      "size": 1184101
+    },
+    "kernel": {
+      "path": "/home/ayad/build-output/openlinux-v09/image-v09/openlinux-v0.9-vexpress-a9.zImage",
+      "sha256": "b7ec99aa772542c52e85bdc2ffd04065a18e6b0b16c3ec519beb5fca2366aca1",
+      "size": 5958208
+    }
+  },
+  "command": "qemu-system-arm -M vexpress-a9 -m 256M -kernel openlinux-v0.9-vexpress-a9.zImage -dtb openlinux-v0.9-vexpress-a9.dtb -initrd openlinux-v0.9-vexpress-a9.initramfs.cpio.gz -append 'console=ttyAMA0,115200 rdinit=/init' -serial stdio -monitor none -display none -audio driver=none -no-reboot",
+  "hardware_compatibility": "UNKNOWN; this target does not emulate HiSilicon SD5610x",
+  "inputs": {
+    "busybox": {
+      "path": "/home/ayad/build-output/openlinux-v09/busybox-build/busybox",
+      "sha256": "f0ec78e99da5e6d12dc9d5cdcfa8df5c579c6e340b4e34aacc673b60befb5a6d",
+      "size": 2168608
+    },
+    "kernel": {
+      "path": "/home/ayad/build-output/openlinux-v09/kernel-vexpress/arch/arm/boot/zImage",
+      "sha256": "b7ec99aa772542c52e85bdc2ffd04065a18e6b0b16c3ec519beb5fca2366aca1",
+      "size": 5958208
+    },
+    "openlinuxctl": {
+      "path": "build/experimental/openlinux-overlay/rootfs/usr/sbin/openlinuxctl",
+      "sha256": "b0b3306857fa2b37eca97a597d67d6ca2330e505489cb1f4a2ddb6dc134a010a",
+      "size": 9273
+    }
+  },
+  "status": "BOOTABLE_EMULATOR_TARGET",
+  "target": {
+    "boot_protocol": "QEMU kernel + initramfs",
+    "console": "ttyAMA0,115200",
+    "cpu": "ARMv7 Cortex-A9",
+    "machine": "vexpress-a9",
+    "ram_mb": 256
+  }
+}

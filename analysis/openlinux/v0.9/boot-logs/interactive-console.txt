@@ -1,0 +1,16 @@
+V0.9 interactive console evidence (QEMU vexpress-a9)
+
+After the kernel reached OPENLINUX_READY:
+
+  /bin/sh: can't access tty; job control turned off
+  ~ # echo SHELL_ACCESS_OK
+  SHELL_ACCESS_OK
+  ~ # /usr/sbin/openlinuxctl status
+  network=disabled
+  dns=disabled
+  ssh=disabled
+  firewall=disabled
+  web=disabled
+
+The emulator was then terminated from the host. No router or physical MTD was
+accessed.

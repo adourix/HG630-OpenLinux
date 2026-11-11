@@ -447,3 +447,27 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - Exact meaning of `main_*`/`slave_*`, dual-image behavior, section-to-MTD mapping, RootFS-only update support, root MTD/mount parameters, OEM signature/outer checksum, and recovery behavior remain UNKNOWN/BLOCKED.
 - Original-kernel ARM BCJ support remains UNKNOWN; V0.4 used ARM BCJ and is not claimed kernel-compatible.
 - Recommended current architecture is Approach C: non-persistent, operator-controlled userspace development while preserving the OEM RootFS. No Approach A/B deployment is authorized.
+
+## OpenLinux V0.9 first bootable emulator image — 2026-11-10
+
+### VERIFIED
+
+- Current HEAD at milestone start was `36bfe23`; original firmware and V0.1–V0.8 artifacts were preserved.
+- Installed a Debian ARM EABI5 cross-toolchain and Linux source externally under `/home/ayad/build-output/openlinux-v09`.
+- Built Linux 6.12.116 ARM `vexpress_defconfig`, a V2P-CA9 DTB, and a static ARM BusyBox 1.37.0.
+- Added `tools/build_qemu_image.py` and tests. It creates a standalone gzip-newc-cpio initramfs with BusyBox init, OpenLinux status/monitor/logging, and all services disabled by default.
+- Booted the bundle with QEMU 10.0.13 `vexpress-a9`, 256 MiB RAM, the V2P-CA9 DTB, and PL011 `ttyAMA0`. The kernel unpacked the initramfs, executed init, ran OpenLinux status/monitor/logging, reached `OPENLINUX_READY`, and provided an interactive shell. Full log: [analysis/openlinux/v0.9/boot-logs/vexpress-a9-boot.log](analysis/openlinux/v0.9/boot-logs/vexpress-a9-boot.log).
+- V0.9 kernel SHA256: `b7ec99aa772542c52e85bdc2ffd04065a18e6b0b16c3ec519beb5fca2366aca1`.
+- V0.9 initramfs SHA256: `84b8e52875f2831f57a58b7bd6fad2634e01e18db99b850907f00fe83d83b98c`.
+- V0.9 DTB SHA256: `cb35d197143510bcdadf022f925c23735c4e453f4aa7a207cfbc2b6fb99cb24d`.
+- Added [analysis/openlinux/v0.9/report.md](analysis/openlinux/v0.9/report.md), [boot-targets.md](analysis/openlinux/v0.9/boot-targets.md), [build-manifest.json](analysis/openlinux/v0.9/build-manifest.json), and [hg630-compatibility.md](analysis/openlinux/v0.9/hg630-compatibility.md).
+
+### PARTIALLY VERIFIED
+
+- The emulator image provides shell, status, memory/uptime/mount reporting, and bounded logging. Network, SSH, DHCP, DNS, firewall, and web services remain disabled and were not hardware-tested.
+- The emulator's `poweroff` command did not terminate QEMU reliably; clean shutdown is not claimed.
+
+### UNKNOWN / BLOCKED
+
+- This image targets QEMU `vexpress-a9`, not HiSilicon SD5610x. It proves no HG630 kernel, RootFS mount, DSL, Ethernet, Wi-Fi, calibration, OEM update, or router hardware behavior.
+- Actual HG630 boot remains blocked by unknown machine handoff, RAM, root MTD, command line, BCJ support, OEM signature, and recovery evidence. No router-specific bootable image was produced.
