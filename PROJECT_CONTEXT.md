@@ -291,3 +291,17 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - OEM update acceptance remains UNKNOWN: signature, outer checksum/authentication, and metadata-to-MTD semantics are unresolved.
 - Kernel boot arguments, root device, mount parameters, QEMU boot, and actual HG630 V2 hardware boot remain UNKNOWN/BLOCKED.
 - The generated image is explicitly `EXPERIMENTAL_NON_FLASHABLE`; no flashing, MTD access, or cryptographic bypass was attempted.
+
+## Kernel/boot feasibility follow-up — 2026-11-10
+
+### VERIFIED
+
+- Preserved kernel is a legacy U-Boot ARM uImage named `Linux-2.6.30`, LZMA-compressed, with load and entry address `0x81208000`, payload size 1,434,088 bytes, and valid header/data CRC32.
+- The extracted RootFS uses BusyBox for `/init` and `/sbin/init`; `/etc/inittab` invokes `/etc/init.d/rcS`, and the current `rcS` only sets `PATH` and prints `RCS DONE`.
+- The extracted RootFS contains three kernel modules under `lib/kernel`; the broader inventory records the vendor DSL/network module set. No kernel module loading or service initialization was executed.
+
+### UNKNOWN / BLOCKED
+
+- `qemu-system-arm`, `qemu-arm`, and `mkimage` are unavailable in the current host environment.
+- No compatible QEMU machine model, kernel boot arguments, root device, or mount parameters were established. The vendor kernel and DSL stack are hardware-specific.
+- Kernel boot, RootFS mount during kernel boot, service initialization, and hardware boot remain unvalidated. Static uImage/RootFS checks must not be treated as boot evidence.
