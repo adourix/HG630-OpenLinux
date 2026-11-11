@@ -190,3 +190,31 @@ Next task: investigate metadata range address-space semantics through exact offs
 - Exact physical flash chip/model/capacity, erase geometry, bootloader type/version, MTD names and boundaries, and the meaning of region section IDs remain unverified. These proposals are not a verified partition map.
 - Required next evidence: exact-board source/config with MTD declarations, or trusted live `/proc/mtd` and boot command line from the exact VER.B hardware, ideally corroborated by chip markings.
 - Next implementation task after delivery: statically inspect the identified upgrade binary and libraries for metadata parsing, validation calls, component selection, and write targets.
+
+## OEM `upg` static-analysis milestone — 2026-11-10
+
+### VERIFIED
+
+- Added `tools/analyze_upgrade_binary.py`, a read-only ELF32 ARM analyzer. It parses section/dynamic-symbol metadata, decodes ARM `B`/`BL` instructions, follows one level of literal-pool pointers into `.rodata`, and maps direct PLT calls to imported API names without executing the binary.
+- Added four synthetic helper tests. The complete repository suite passes 31 tests with `python3 -m unittest discover -s tests -v`.
+- The analyzed executable is `/home/ayad/build-output/rootfs/bin/upg`, SHA-256 `73ea3d4711d481599e58e5737ab80ce08e032ddd7ca48803063df4dedb6ba385`, 27,648 bytes, ELF32 little-endian ARM EABI5, entry `0x9780`.
+- The analyzer decoded 448 direct ARM call instructions, identified 31 function-start candidates, and recorded 88 imported APIs with direct call sites. Local generated results are preserved outside Git at `analysis/generated/upg-static/upg-analysis.json` and `analysis/generated/upg-static/report.md`.
+- Direct call-site evidence confirms use of security APIs including `ATP_SEC_CreateData`, `ATP_SEC_CreateSignatureContext`, `ATP_SEC_KM_GetKey`, `ATP_SEC_VerifyData`, and `ATP_SEC_DeleteContext`.
+- Direct call-site evidence confirms use of flash/MTD APIs including `ATP_MTD_Getfd`, `ATP_MTD_Erase`, `ATP_MTD_WriteBufToOffset_Upg`, `ATP_FLASH_Write`, `ATP_FLASH_WriteArea`, `ATP_FLASH_Upgrade`, `ATP_FLASH_UpgradeCfg`, `ATP_FLASH_UpgradeBootloader`, and `BSP_FLASH_UnProtect`.
+- Directly referenced strings include `main_offset`, `main_size`, `slave_offset`, `slave_size`, `Erase Flash Error`, `Write Flash Error`, and messages distinguishing kernel/image single-system handling.
+
+### INFERRED
+
+- The executable contains distinct internal helper paths around the security calls (`0xc304..0xc370`) and flash/MTD calls (`0xb06c..0xb4d0`), but imported-library semantics and exact argument meanings remain external to this binary.
+- The presence of separate `ATP_FLASH_UpgradeBootloader`, `ATP_FLASH_UpgradeCfg`, and `ATP_FLASH_Upgrade` imports suggests separate upgrade modes exist; the analyzer does not yet prove which metadata section selects each mode.
+
+### UNKNOWN / BLOCKED
+
+- CRC/checksum algorithm: UNKNOWN. No CRC-named import or self-contained CRC implementation was identified by this first-pass scan.
+- Signature algorithm and key format: UNKNOWN. Security calls are proven, but implementations are in linked libraries that have not yet been recovered and analyzed. High-entropy `.rodata` is recorded only as candidate data, not identified key material.
+- Exact firmware-header parser control flow, board-ID/version comparisons, MTD number selection, erase/write ordering, rollback/recovery behavior, and cryptographic acceptance rules remain unresolved.
+- No ARM executable was run, no host MTD was accessed, and no router was contacted.
+
+### Next concrete task
+
+Analyze the linked `libupgapi`, security, flash, and configuration libraries statically if preserved in the extracted RootFS; correlate their call contracts with the `upg` call sites and update the report with only directly supported argument/branch evidence. If the required library is absent, document that evidence gap and continue with static analysis of available bootloader/rootfs binaries.
