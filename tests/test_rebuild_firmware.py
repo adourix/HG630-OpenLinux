@@ -33,8 +33,20 @@ def make_uimage(payload=b"kernel-payload"):
 
 def make_package():
     package = bytearray(b"\xA5" * OEM_SIZE)
-    package[ROOTFS_OFFSET:ROOTFS_OFFSET + 96] = make_squashfs()
+    package[:4] = b"\x10\x32\x54\x76"
     kernel = make_uimage()
+    records = [
+        (2, 17, 0x5CF, 0x20000, b"HG630V2V100R001C298B010"),
+        (2, 3, 0x205CF, 0x10000, b"v1.0"),
+        (2, 1, ROOTFS_OFFSET, ROOTFS_RESERVED, b"HG630V2V100R001C298B010"),
+        (2, 2, KERNEL_OFFSET, len(kernel), b"HG630V2V100R001C298B010"),
+    ]
+    for index, (kind, component_id, offset, size, name) in enumerate(records):
+        struct.pack_into(
+            ">HHII32s", package, 0x7C + index * 44,
+            kind, component_id, offset, size, name.ljust(32, b"\0"),
+        )
+    package[ROOTFS_OFFSET:ROOTFS_OFFSET + 96] = make_squashfs()
     package[KERNEL_OFFSET:KERNEL_OFFSET + len(kernel)] = kernel
     return bytes(package)
 
