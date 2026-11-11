@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "status": "EXPERIMENTAL_NON_FLASHABLE",
+  "inputs": {
+    "firmware_sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+    "original_squashfs_sha256": "68dcfa5c1b53bd09fcd00ea52bdcd3fb1da25d53446915cd6fd2f3aba22bb534",
+    "source_rootfs": "/home/ayad/build-output/rootfs",
+    "reserved_span": 5931008,
+    "original": {
+      "bytes_used": 5930917,
+      "file_size": 5930917,
+      "inodes": 1257,
+      "fragments": 14,
+      "ids": 7,
+      "block_size": 1048576,
+      "compression": "xz",
+      "metadata_content_match": true
+    }
+  },
+  "tool_matrix": [
+    {"version": "4.2", "mode": "native", "bytes_used": 5930941, "difference_from_oem": 24, "file_size": 5931008, "sha256": "0a8d2f8d842961930e8568a06c060e0bf8ac778ba16e02c3b3176a4f9d24c788", "metadata_content_match": true, "normalization_supported": false},
+    {"version": "4.3", "mode": "native", "bytes_used": 5929517, "difference_from_oem": -1400, "file_size": 5931008, "sha256": "988e1f813b025d22f7b598a5699bd098d65462844a0dba66181a30e78b32613c", "metadata_content_match": true, "normalization_supported": false},
+    {"version": "4.4", "mode": "native", "bytes_used": 5929517, "difference_from_oem": -1400, "file_size": 5931008, "sha256": "f2a38ad032a47e69c5e30145b9637815d056a788f48f661c2b7d2ea0bebeb8ba", "metadata_content_match": true, "normalization_supported": true},
+    {"version": "4.4", "mode": "normalized", "timestamps": 1490771239, "bytes_used": 5929345, "difference_from_oem": -1572, "file_size": 5931008, "sha256": "8c37bd516c626041829641db07ee832c5a6e73870ff5f221c51c883de0b04bf1", "metadata_content_match": true},
+    {"version": "4.6.1", "mode": "native", "bytes_used": 5929517, "difference_from_oem": -1400, "file_size": 5931008, "sha256": "92569713ad2aba415bd7f98a821952eab52829592185058bba311dd370099e46", "metadata_content_match": true, "normalization_supported": true},
+    {"version": "4.6.1", "mode": "normalized", "timestamps": 1490771239, "bytes_used": 5929345, "difference_from_oem": -1572, "file_size": 5931008, "sha256": "8c37bd516c626041829641db07ee832c5a6e73870ff5f221c51c883de0b04bf1", "metadata_content_match": true}
+  ],
+  "overlay_matrix": {
+    "baseline_bytes_used": 5929345,
+    "complete_bytes_used": 5933497,
+    "complete_difference_from_reserved": 2489,
+    "files": {
+      "etc/init.d/openlinux": 500,
+      "etc/openlinux/openlinux.conf": 272,
+      "usr/libexec/openlinux-services/network": 272,
+      "usr/sbin/openlinuxctl": 3120
+    }
+  },
+  "build_environment": {
+    "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+    "xz_dependency": "XZ Utils 5.2.5, locally built static liblzma",
+    "source_archives": {"squashfs4.2.tar.gz": "d9e0195aa922dbb665ed322b9aaa96e04a476ee650f39bbeadb0d00b24022e96", "squashfs4.3.tar.gz": "0d605512437b1eb800b4736791559295ee5f60177e102e4d4ccd0ee241a5f3f6", "squashfs4.4.tar.gz": "a981b3f3f2054b5a2e658851a3c06a2460ad04a9a8a645e0afe063a63fdbb07e"},
+    "compatibility_patches": ["GCC 14 sys/sysmacros include and old major/minor local-variable rename for 4.2/4.3", "4.2 inline add_dir_entry made externally visible", "-fcommon for historical common-symbol definitions"]
+  },
+  "conclusion": {"best_size_candidate": "4.2 native", "oem_equivalent": false, "complete_overlay_fits": false, "remaining_uncertainty": ["OEM compressor implementation and traversal recipe", "exact XZ dictionary/filter settings", "target-kernel BCJ registration and updater acceptance"], "next_action": "Keep ordinary XZ and OEM files unchanged; seek vendor build provenance or target-kernel source/config before testing alternate filters."}
+}

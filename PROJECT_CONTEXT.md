@@ -2,6 +2,29 @@
 
 Updated: 2026-11-10 20:00 America/New_York
 
+## OEM RootFS reproduction milestone — 2026-11-10
+
+### VERIFIED
+
+- Original firmware and carved RootFS were hash-verified before use; originals were preserved.
+- Built and tested SquashFS-tools 4.2, 4.3, 4.4, and 4.6.1 in isolated temporary directories with GCC 14.2.0 and locally built XZ Utils 5.2.5. Historical GCC compatibility patches and exact build guidance are recorded in `tools/experiments/build_historical_squashfs.sh`.
+- All six generated images extract with exact path/type/content/mode/ownership/timestamp/device metadata equality against the extracted OEM RootFS, but none is byte-identical to OEM.
+- Best size candidate is 4.2 native at 5,930,941 internal bytes, 24 bytes above OEM 5,930,917. 4.3/4.4/4.6.1 native are 5,929,517; normalized 4.4/4.6.1 are 5,929,345.
+- Fresh per-file and complete overlay experiments show complete overlay 5,933,497 internal bytes, 2,489 bytes above the 5,931,008-byte reserved span. `openlinuxctl` is the largest individual measured contributor.
+- Preserved-kernel inspection proves generic XZ decoder and SquashFS XZ glue strings. ARM BCJ registration and exact dictionary support remain unproven.
+- Added `analysis/server-run/oem-reproduction-report.md`, `analysis/server-run/oem-reproduction-results.json`, `analysis/server-run/kernel-xz-compatibility.md`, historical build/matrix/kernel/overlay scripts, and automated tests.
+
+### INFERRED
+
+- SquashFS-tools 4.2 is the closest tested historical size candidate, but the +24-byte difference and differing image hash rule out OEM equivalence.
+- The remaining difference is likely a combination of OEM compressor implementation/settings, traversal/order, and metadata packing; timestamps alone do not explain it.
+
+### UNKNOWN / BLOCKED
+
+- OEM tool provenance and exact XZ encoder recipe remain unknown.
+- The Huawei kernel's `tbcj` strings do not prove ARM BCJ registration or safe support. Do not enable BCJ.
+- No host-side result proves kernel mount, boot, updater acceptance, flashability, or hardware behavior. Keep `EXPERIMENTAL_NON_FLASHABLE` / `RESEARCH_ONLY`.
+
 ## RootFS size and compatibility investigation — 2026-11-10
 
 ### VERIFIED
