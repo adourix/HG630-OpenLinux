@@ -98,6 +98,14 @@ class FirmwareRebuildTests(unittest.TestCase):
                 expected_sha256=None, expected_size=OEM_SIZE,
             )
 
+    def test_rejects_truncated_squashfs_candidate(self):
+        candidate = make_squashfs(bytes_used=4096)
+        with self.assertRaisesRegex(ValueError, "extends beyond"):
+            assemble(
+                make_package(), candidate,
+                expected_sha256=None, expected_size=OEM_SIZE,
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
