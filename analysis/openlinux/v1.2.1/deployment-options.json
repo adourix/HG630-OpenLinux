@@ -1,0 +1,40 @@
+{
+  "schema": "openlinux-runtime-deployment-discovery-v1",
+  "date": "2026-11-11",
+  "scope": "static host-side analysis only; no OEM binaries executed; no router contacted; no upload or flash/config/startup mutation",
+  "deployment_established": false,
+  "best_supported_method": null,
+  "options": [
+    {"name":"SSH server transport", "category":"transport", "status":"UNKNOWN", "evidence":"/bin/sshd exists; inspected startup files do not launch it; authorized access/configuration not established."},
+    {"name":"Telnet server transport", "category":"transport", "status":"UNKNOWN", "evidence":"/bin/telnetd exists; inspected startup files do not launch it; authorized active service not established."},
+    {"name":"FTP server transport", "category":"transport", "status":"UNKNOWN", "evidence":"/bin/bftpd exists; no launch/config/auth path established; /var/ftp is volatile because /var is tmpfs."},
+    {"name":"BusyBox wget/ftpget/ftpput/tftp clients", "category":"transport", "status":"PARTIALLY VERIFIED", "evidence":"Applets appear in OEM BusyBox strings; no network route, server, auth, or operator-authorized transfer was verified."},
+    {"name":"Admin firmware upload uploadimage.cgi", "category":"transport", "status":"BLOCKED", "evidence":"Static form identifies firmware software upgrade workflow; runtime upload is prohibited and not a general file store."},
+    {"name":"Admin configuration restore uploadconfigfile.cgi", "category":"transport", "status":"BLOCKED", "evidence":"Static form identifies configuration restore workflow; not general file storage."},
+    {"name":"Admin certificate upload uploadcertification.cgi", "category":"transport", "status":"BLOCKED", "evidence":"Static form identifies certificate upload; not general file storage."},
+    {"name":"Operator-authorized serial/service shell", "category":"access", "status":"UNKNOWN", "evidence":"inittab respawns -/bin/sh, but physical tty binding, board UART, authorization, and connection procedure are not established."},
+    {"name":"USB removable storage", "category":"transport", "status":"UNKNOWN", "evidence":"usbmount and USB UI code exist; USB host/mass-storage modules are not evident, and FAT/VFAT loading is commented out or absent."},
+    {"name":"/tmp", "category":"storage", "status":"VERIFIED", "evidence":"OEM profile configures tmpfs at /tmp; RAM-backed and volatile; target mount success/capacity unverified."},
+    {"name":"/var", "category":"storage", "status":"VERIFIED", "evidence":"OEM profile configures tmpfs at /var; RAM-backed and volatile."},
+    {"name":"/mnt", "category":"storage", "status":"VERIFIED", "evidence":"OEM profile configures tmpfs at /mnt; external filesystem mount is unknown; contents volatile absent another mount."},
+    {"name":"/config via conditional JFFS2 mtdblock7", "category":"storage", "status":"PARTIALLY VERIFIED", "evidence":"Profile mounts only if /etc/webimg1 exists; exact target condition, capacity, writable suitability, and authorization unknown."},
+    {"name":"/etc/tri_image_up via conditional JFFS2 mtdblock12", "category":"storage", "status":"PARTIALLY VERIFIED", "evidence":"Profile mounts only if directory exists; image-upgrade purpose indicated; not approved for arbitrary runtime data."},
+    {"name":"OEM root filesystem", "category":"storage", "status":"BLOCKED", "evidence":"Original root is SquashFS and treated as immutable; no writable overlay established."},
+    {"name":"OEM BusyBox tar extraction", "category":"package extraction", "status":"PARTIALLY VERIFIED", "evidence":"BusyBox tar and gzip-related support strings exist; OEM extraction was not executed."}
+  ],
+  "package": {
+    "path": "/home/ayad/build-output/openlinux-runtime-v1.2.tar.gz",
+    "size_bytes": 4417,
+    "sha256": "727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409",
+    "sha256_status": "VERIFIED against actual artifact",
+    "manifest_status": "VERIFIED: each manifest-listed payload size and SHA-256 matches; manifest self-hash intentionally null",
+    "target_extract_status": "PARTIALLY VERIFIED: OEM BusyBox tar/gzip applet presence only; no target extraction performed",
+    "payload_status": "shell-only runtime monitor scaffold; no compiled OpenLinux service payload"
+  },
+  "persistence": {
+    "safe_persistent_writable_location_established": false,
+    "ram_locations": ["/tmp", "/var", "/mnt"],
+    "conditional_flash_mounts_not_recommended_for_runtime": ["/config", "/etc/tri_image_up"]
+  },
+  "next_operator_action": "Establish via vendor documentation or authorized service channel whether this exact HG630 V2 has an approved serial/service-console shell and connection procedure. Do not use admin upload endpoints for the runtime."
+}

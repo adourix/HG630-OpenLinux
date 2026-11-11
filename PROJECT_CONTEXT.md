@@ -23,6 +23,28 @@ Updated: 2026-11-11 America/New_York
 - No physical-router test was performed. A fresh runtime initramfs passed on QEMU VExpress A9 using the preserved non-OEM Linux 6.12 kernel/DTB and separately built static BusyBox. VExpress is not the HG630 HiSilicon platform; this QEMU pass does not prove HG630 compatibility.
 - Network, DNS/DHCP, firewall, SSH, interface ownership, routing, vendor-service interactions and runtime behavior on Linux 2.6.30 remain unverified. Keep services disabled and retain `EXPERIMENTAL_NON_FLASHABLE` / `RESEARCH_ONLY`.
 
+## V1.2.1 runtime deployment discovery — 2026-11-11
+
+### VERIFIED
+
+- Added `analysis/openlinux/v1.2.1/deployment-discovery.md` and machine-readable `deployment-options.json` after static inspection of the extracted OEM RootFS, `/etc/webimg`, `/etc/webidx`, startup files, OEM BusyBox applets, and kernel module tree.
+- The actual V1.2 archive at `/home/ayad/build-output/openlinux-runtime-v1.2.tar.gz` remains unchanged: 4,417 bytes, SHA-256 `727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409`. Host-side tar inspection confirmed each manifest-listed payload file size/hash; manifest self-hash is intentionally null.
+- `/etc/profile` configures tmpfs at `/tmp`, `/var`, and `/mnt`; these paths are volatile. Static web forms show `uploadimage.cgi` for firmware upgrade, `uploadconfigfile.cgi` for configuration restore, and `uploadcertification.cgi` for certificates. None is a general-purpose runtime file store.
+- OEM BusyBox contains `wget`, `ftpget`, `ftpput`, `tftp`, and `tar` applet evidence. `/bin/sshd`, `/bin/telnetd`, `/bin/bftpd`, and `/bin/usbmount` are present. Their presence does not prove they run or are authorized access methods.
+
+### INFERRED
+
+- BusyBox tar/gzip support makes extraction of the unchanged package plausible, but OEM extraction was not executed; target extraction remains PARTIALLY VERIFIED.
+- `/dev/caldata` symlink and respawned `/bin/sh` in inittab suggest startup shell state, but do not establish an operator-accessible console.
+
+### UNKNOWN / BLOCKED
+
+- No legitimate router transfer-and-execution path or safe persistent writable runtime location is established. USB storage host/mass-storage support is unproven; inspected kernel tree lacks evident USB host/mass-storage and FAT/VFAT modules, while filesystem module load lines are commented. SSH/Telnet/FTP daemons are not launched by inspected startup files.
+- Conditional JFFS2 mounts at `/config` and `/etc/tri_image_up` are not established as general-purpose writable storage and are not recommended for runtime data.
+- Admin upload endpoints remain firmware/configuration/certificate-specific. Do not use them to distribute the runtime, and do not exploit web behavior.
+- No OEM binary was executed; no router contacted; no artifact, firmware, flash, startup script, or configuration changed. The runtime package remains research-only and contains no OpenLinux service payload.
+- Next operator action: establish through vendor documentation or authorized service channel whether this exact HG630 V2 has an approved serial/service-console shell and connection procedure.
+
 ## OEM updater static-analysis milestone — 2026-11-10
 
 ### VERIFIED
