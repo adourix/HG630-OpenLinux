@@ -39,7 +39,7 @@ The original uImage:
 - Load and entry address: `0x81208000`
 - Header CRC32 and payload CRC32 both validate
 
-The package prefix begins with bytes `10 32 54 76` and contains repeated model/version strings and apparent component metadata. The semantics of these fields have **not** been established. They must not be edited based on guesses.
+The package prefix begins with magic bytes `10 32 54 76`. An observed four-record component table begins at `0x7C`; each record is 44 bytes and decodes as big-endian `type:u16, component_id:u16, payload_offset:u32, payload_size:u32, name[32]`. The four contiguous records are: component 17 at `0x5CF` size `0x20000`; component 3 at `0x205CF` size `0x10000`; RootFS component 1 at `0x305CF` size `0x5A8000`; and kernel component 2 at `0x5D85CF` size `0x15E228`. These values match the observed payload boundaries. The parser is intentionally scoped to this HG630 V2 package; meanings beyond the observed IDs/names are not assumed. The header fields before the table and their checksum semantics remain unknown.
 
 ## Reconstruction implementation
 
@@ -61,8 +61,8 @@ Example (run on the build host where the original and winning candidate artifact
 ```bash
 python3 tools/rebuild_firmware.py \
   /home/ayad/firmware-input/HG630V2-12V100R001.bin \
-  /home/ayad/build-output/custom-build/overlay-fit/rootfs.squashfs \
-  --expected-rootfs /home/ayad/build-output/custom-build/overlay-fit/stage-rootfs \
+  /path/to/winning/rootfs.squashfs \
+  --expected-rootfs /path/to/winning/stage-rootfs \
   --output /home/ayad/build-output/custom-build/HG630V2-OpenLinux-RESEARCH-ONLY.bin
 ```
 
