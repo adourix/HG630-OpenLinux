@@ -12,9 +12,15 @@ import hashlib
 import json
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 from typing import Any
+
+# Make `python3 tools/rebuild_firmware.py ...` work from any current directory.
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from tools.firmware_inspect import parse_hg630_component_table, parse_squashfs, parse_uimage
 
