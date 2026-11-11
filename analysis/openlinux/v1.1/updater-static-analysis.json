@@ -1,0 +1,1669 @@
+{
+  "authentication": {
+    "failure_strings": [
+      {
+        "file_offset": 2941,
+        "value": "ATP_SEC_CreateSignatureContext"
+      },
+      {
+        "file_offset": 3167,
+        "value": "ATP_SEC_VerifyData"
+      },
+      {
+        "file_offset": 24351,
+        "value": "Erase Flash Error"
+      },
+      {
+        "file_offset": 24369,
+        "value": "Write Flash Error"
+      }
+    ],
+    "private_signing_key": "Unavailable/not identified. The extracted serverkey.pem is an HTTPS server key by certificate pairing, not evidence of an OEM firmware signing credential; its bytes are intentionally not reproduced. No legitimate custom package signature can be produced from available evidence.",
+    "status": "PARTIALLY VERIFIED; legitimate custom signing BLOCKED",
+    "unknowns": [
+      "exact digest algorithm for package",
+      "signature algorithm/padding despite RSA candidate",
+      "signature size/encoding",
+      "signed bytes and excluded header fields",
+      "public-key origin and key identifier",
+      "outer container checksum",
+      "specific component/package acceptance policy"
+    ],
+    "verified": [
+      "upg calls security wrapper family; wrapper verification calls digest wrapper and unresolved callback.",
+      "libmsgapi imports RSA sizing and MD5 primitives; SHA-256 primitives were observed in symbol inventory in existing static analysis. RSA and digest family presence does not identify updater algorithm.",
+      "strings show /etc/root.pem, /etc/servercert.pem, /etc/serverkey.pem. These resolve to a root CA certificate, HTTPS server certificate, and HTTPS server private key by certificate subjects and file roles; no static reference proves /etc/root.pem is the firmware-verification trust anchor.",
+      "No embedded updater public-key object, signature length/encoding, signature padding, signed range, or package checksum coverage was established."
+    ],
+    "wrapper_functions": {
+      "signature_context": [
+        {
+          "address": 84968,
+          "name": "ATP_SEC_CreateSignatureContext",
+          "size": 324
+        }
+      ],
+      "verify": [
+        {
+          "address": 85292,
+          "name": "ATP_SEC_VerifyDataEx",
+          "size": 172
+        },
+        {
+          "address": 83528,
+          "name": "ATP_SEC_VerifyData",
+          "size": 204
+        }
+      ]
+    }
+  },
+  "classification_legend": {
+    "BLOCKED": "cannot be established safely or required credential/evidence is unavailable",
+    "PARTIALLY VERIFIED": "some mechanism is observed but end-to-end semantics are unresolved",
+    "UNKNOWN": "evidence does not establish the claim",
+    "VERIFIED": "directly observed in supplied bytes, ELF metadata, symbols, strings, static call-site analysis, or existing parsers"
+  },
+  "control_flow": {
+    "component_validation": "PARTIALLY VERIFIED: strings include Verify head error/ok and board/version/update checks; complete parser branch and bounds-validation arithmetic not recovered.",
+    "diagram": "upg -> ATP_SEC_KM_GetKey/CreateData/CreateSignatureContext -> ATP_SEC_VerifyData -> ATP_SEC_DigestDataEx -> [indirect verifier callback unresolved]\nupg -> ATP_FLASH_Upgrade / _UpgradeCfg / _UpgradeBootloader / WriteArea -> libbhalapi MTD helpers -> ATP_MTD_Getfd -> /dev/mtd0..15 -> ioctl/read/write",
+    "main_slave_selection": "UNKNOWN: strings and package metadata show fields; runtime selection and bank choice not resolved.",
+    "overview": [
+      "upg startup/CLI and firmware file path strings: /var/upg.bin; options -f (file), -m (image type), -a (multicast).",
+      "upg imports and calls ATP_SEC_KM_GetKey (0xc304), ATP_SEC_CreateData (0xc318), ATP_SEC_CreateSignatureContext (0xc33c), ATP_SEC_VerifyData (0xc35c), ATP_SEC_DeleteContext (0xc370).",
+      "Security wrapper ATP_SEC_VerifyData (libmsgapi address 0x14648, size 204) checks length and calls ATP_SEC_DigestDataEx, then dispatches through unresolved function pointer/context. ATP_SEC_VerifyDataEx at 0x14d2c size 172. ATP_SEC_CreateSignatureContext at 0x14be8 size 324.",
+      "upg references flash APIs including ATP_FLASH_Upgrade/UpgradeCfg/UpgradeBootloader, ATP_FLASH_WriteArea, ATP_MTD_Erase and ATP_MTD_WriteBufToOffset_Upg.",
+      "libbhalapi maps logical MTD index 0..15 through ATP_MTD_Getfd (0x3ce8, 480 bytes) to /dev/mtdN strings; write and erase APIs are separate."
+    ],
+    "rootfs_only": "UNKNOWN/BLOCKED as supported path: no proven component-ID 1-only command/eligibility branch. Presence of area/partition helper does not prove OEM package acceptance.",
+    "whole_package_requirement": "UNKNOWN: upg exposes file update path and several component functions, but cannot establish whether complete package is required."
+  },
+  "date": "2026-11-10",
+  "flash_mapping": {
+    "classification": "PARTIALLY VERIFIED",
+    "functions": [
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ioctl",
+            "internal": false,
+            "site": 15296,
+            "target": 10448
+          },
+          {
+            "condition": 14,
+            "import": "__errno_location",
+            "internal": false,
+            "site": 15312,
+            "target": 11612
+          },
+          {
+            "condition": 14,
+            "import": "lseek",
+            "internal": false,
+            "site": 15348,
+            "target": 10940
+          },
+          {
+            "condition": 14,
+            "import": "__errno_location",
+            "internal": false,
+            "site": 15364,
+            "target": 11612
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 15384,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": null,
+            "internal": true,
+            "site": 15420,
+            "target": 44784
+          },
+          {
+            "condition": 14,
+            "import": "putchar",
+            "internal": false,
+            "site": 15436,
+            "target": 10436
+          },
+          {
+            "condition": 14,
+            "import": "fflush",
+            "internal": false,
+            "site": 15448,
+            "target": 10916
+          },
+          {
+            "condition": 14,
+            "import": "write",
+            "internal": false,
+            "site": 15464,
+            "target": 11084
+          },
+          {
+            "condition": 14,
+            "import": "__errno_location",
+            "internal": false,
+            "site": 15476,
+            "target": 11612
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 15504,
+            "target": 10460
+          }
+        ],
+        "function": {
+          "address": 15244,
+          "name": "ATP_MTD_WriteBufToOffset_Upg",
+          "size": 348
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "open",
+            "internal": false,
+            "site": 15904,
+            "target": 11672
+          },
+          {
+            "condition": 14,
+            "import": "ioctl",
+            "internal": false,
+            "site": 15936,
+            "target": 10448
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 15952,
+            "target": 11744
+          }
+        ],
+        "function": {
+          "address": 15592,
+          "name": "ATP_MTD_Getfd",
+          "size": 480
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ioctl",
+            "internal": false,
+            "site": 15012,
+            "target": 10448
+          },
+          {
+            "condition": 14,
+            "import": "__errno_location",
+            "internal": false,
+            "site": 15028,
+            "target": 11612
+          },
+          {
+            "condition": 14,
+            "import": "lseek",
+            "internal": false,
+            "site": 15064,
+            "target": 10940
+          },
+          {
+            "condition": 14,
+            "import": "__errno_location",
+            "internal": false,
+            "site": 15080,
+            "target": 11612
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 15100,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "read",
+            "internal": false,
+            "site": 15120,
+            "target": 11204
+          },
+          {
+            "condition": 14,
+            "import": "__errno_location",
+            "internal": false,
+            "site": 15132,
+            "target": 11612
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 15160,
+            "target": 10460
+          }
+        ],
+        "function": {
+          "address": 14960,
+          "name": "ATP_MTD_ReadBuffromOffset",
+          "size": 284
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ATP_MTD_WriteBufToOffset_Ex",
+            "internal": false,
+            "site": 17260,
+            "target": 10484
+          }
+        ],
+        "function": {
+          "address": 17248,
+          "name": "ATP_MTD_WriteBufToOffset",
+          "size": 24
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ioctl",
+            "internal": false,
+            "site": 17300,
+            "target": 10448
+          },
+          {
+            "condition": 14,
+            "import": null,
+            "internal": true,
+            "site": 17324,
+            "target": 44532
+          },
+          {
+            "condition": 14,
+            "import": null,
+            "internal": true,
+            "site": 17340,
+            "target": 44784
+          },
+          {
+            "condition": 14,
+            "import": "flash_erase",
+            "internal": false,
+            "site": 17372,
+            "target": 10880
+          }
+        ],
+        "function": {
+          "address": 17272,
+          "name": "ATP_MTD_Erase",
+          "size": 136
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ATP_Norflash_WriteConfigAreaOffset",
+            "internal": false,
+            "site": 14396,
+            "target": 10592
+          },
+          {
+            "condition": 14,
+            "import": "ATP_Norflash_WriteConfigAreaOffset",
+            "internal": false,
+            "site": 14444,
+            "target": 10592
+          }
+        ],
+        "function": {
+          "address": 14288,
+          "name": "FomWriteFlashAreaByHead",
+          "size": 220
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "memset",
+            "internal": false,
+            "site": 40272,
+            "target": 11432
+          },
+          {
+            "condition": 14,
+            "import": "malloc",
+            "internal": false,
+            "site": 40280,
+            "target": 10772
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 40316,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "memset",
+            "internal": false,
+            "site": 40332,
+            "target": 11432
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Getfd",
+            "internal": false,
+            "site": 40348,
+            "target": 10556
+          },
+          {
+            "condition": 14,
+            "import": "free",
+            "internal": false,
+            "site": 40364,
+            "target": 11792
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 40376,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_ReadBuffromOffset",
+            "internal": false,
+            "site": 40400,
+            "target": 11384
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 40420,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "free",
+            "internal": false,
+            "site": 40428,
+            "target": 11792
+          },
+          {
+            "condition": 14,
+            "import": "memcpy",
+            "internal": false,
+            "site": 40448,
+            "target": 10688
+          },
+          {
+            "condition": 14,
+            "import": "snprintf",
+            "internal": false,
+            "site": 40472,
+            "target": 10532
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_WriteBufToOffset",
+            "internal": false,
+            "site": 40492,
+            "target": 11456
+          },
+          {
+            "condition": 0,
+            "import": "puts",
+            "internal": false,
+            "site": 40508,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "free",
+            "internal": false,
+            "site": 40516,
+            "target": 11792
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 40524,
+            "target": 11744
+          }
+        ],
+        "function": {
+          "address": 40248,
+          "name": "UPG_FlashPartWrite",
+          "size": 316
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Getfd",
+            "internal": false,
+            "site": 27236,
+            "target": 10556
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 27272,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Erase",
+            "internal": false,
+            "site": 27288,
+            "target": 11564
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_WriteBufToOffset_Upg",
+            "internal": false,
+            "site": 27320,
+            "target": 10508
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 27332,
+            "target": 11744
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27352,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "ATP_FLASH_CleanCfgPartition",
+            "internal": false,
+            "site": 27356,
+            "target": 11540
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27380,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27400,
+            "target": 10724
+          }
+        ],
+        "function": {
+          "address": 27188,
+          "name": "ATP_FLASH_UpgradeBootloader",
+          "size": 256
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "memset",
+            "internal": false,
+            "site": 31108,
+            "target": 11432
+          },
+          {
+            "condition": 14,
+            "import": "getpid",
+            "internal": false,
+            "site": 31112,
+            "target": 10628
+          },
+          {
+            "condition": 14,
+            "import": "snprintf",
+            "internal": false,
+            "site": 31148,
+            "target": 10532
+          },
+          {
+            "condition": 14,
+            "import": "fopen",
+            "internal": false,
+            "site": 31164,
+            "target": 11420
+          },
+          {
+            "condition": 1,
+            "import": "fclose",
+            "internal": false,
+            "site": 31172,
+            "target": 11468
+          },
+          {
+            "condition": 14,
+            "import": "unlink",
+            "internal": false,
+            "site": 31192,
+            "target": 11240
+          },
+          {
+            "condition": 14,
+            "import": "IsFlashRejectFlagSetting",
+            "internal": false,
+            "site": 31212,
+            "target": 11072
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 31232,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "unlink",
+            "internal": false,
+            "site": 31252,
+            "target": 11240
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Getfd",
+            "internal": false,
+            "site": 31288,
+            "target": 10556
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 31308,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_WriteBufToOffset",
+            "internal": false,
+            "site": 31336,
+            "target": 11456
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 31344,
+            "target": 11744
+          },
+          {
+            "condition": 14,
+            "import": "FomSearchAreaHeadByType",
+            "internal": false,
+            "site": 31356,
+            "target": 11000
+          },
+          {
+            "condition": 14,
+            "import": "unlink",
+            "internal": false,
+            "site": 31388,
+            "target": 11240
+          },
+          {
+            "condition": 14,
+            "import": "FomWriteFlashAreaByHead",
+            "internal": false,
+            "site": 31412,
+            "target": 10928
+          },
+          {
+            "condition": 14,
+            "import": "unlink",
+            "internal": false,
+            "site": 31428,
+            "target": 11240
+          },
+          {
+            "condition": 14,
+            "import": "unlink",
+            "internal": false,
+            "site": 31444,
+            "target": 11240
+          }
+        ],
+        "function": {
+          "address": 31064,
+          "name": "ATP_FLASH_WriteArea",
+          "size": 436
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Getfd",
+            "internal": false,
+            "site": 27032,
+            "target": 10556
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Erase",
+            "internal": false,
+            "site": 27068,
+            "target": 11564
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_WriteBufToOffset_Upg",
+            "internal": false,
+            "site": 27100,
+            "target": 10508
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 27112,
+            "target": 11744
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27132,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27152,
+            "target": 10724
+          }
+        ],
+        "function": {
+          "address": 26984,
+          "name": "ATP_FLASH_UpgradeCfg",
+          "size": 204
+        }
+      },
+      {
+        "calls": [
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Getfd",
+            "internal": false,
+            "site": 27496,
+            "target": 10556
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 27532,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27552,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 27568,
+            "target": 11744
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27580,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Erase",
+            "internal": false,
+            "site": 27604,
+            "target": 11564
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_WriteBufToOffset_Upg",
+            "internal": false,
+            "site": 27636,
+            "target": 10508
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27656,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 27692,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 27700,
+            "target": 11744
+          },
+          {
+            "condition": 14,
+            "import": "snprintf",
+            "internal": false,
+            "site": 27736,
+            "target": 10532
+          },
+          {
+            "condition": 14,
+            "import": "UPG_FlashPartWrite",
+            "internal": false,
+            "site": 27748,
+            "target": 11264
+          },
+          {
+            "condition": 14,
+            "import": "UPG_GetRunCurrentSystem",
+            "internal": false,
+            "site": 27764,
+            "target": 11120
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 27824,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "snprintf",
+            "internal": false,
+            "site": 27844,
+            "target": 10532
+          },
+          {
+            "condition": 14,
+            "import": "UPG_FlashPartWrite",
+            "internal": false,
+            "site": 27856,
+            "target": 11264
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 27884,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "snprintf",
+            "internal": false,
+            "site": 27904,
+            "target": 10532
+          },
+          {
+            "condition": 14,
+            "import": "UPG_FlashPartWrite",
+            "internal": false,
+            "site": 27916,
+            "target": 11264
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 27968,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_Erase",
+            "internal": false,
+            "site": 27984,
+            "target": 11564
+          },
+          {
+            "condition": 14,
+            "import": "ATP_MTD_WriteBufToOffset_Upg",
+            "internal": false,
+            "site": 28016,
+            "target": 10508
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 28036,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 28068,
+            "target": 11744
+          },
+          {
+            "condition": 14,
+            "import": "printf",
+            "internal": false,
+            "site": 28120,
+            "target": 10460
+          },
+          {
+            "condition": 14,
+            "import": "snprintf",
+            "internal": false,
+            "site": 28140,
+            "target": 10532
+          },
+          {
+            "condition": 14,
+            "import": "UPG_FlashPartWrite",
+            "internal": false,
+            "site": 28152,
+            "target": 11264
+          },
+          {
+            "condition": 14,
+            "import": "UPG_GetRunCurrentSystem",
+            "internal": false,
+            "site": 28156,
+            "target": 11120
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 28192,
+            "target": 10724
+          },
+          {
+            "condition": 14,
+            "import": "close",
+            "internal": false,
+            "site": 28216,
+            "target": 11744
+          },
+          {
+            "condition": 14,
+            "import": "puts",
+            "internal": false,
+            "site": 28228,
+            "target": 10724
+          }
+        ],
+        "function": {
+          "address": 27444,
+          "name": "ATP_FLASH_Upgrade",
+          "size": 880
+        }
+      }
+    ],
+    "logical_mtd_indices": {
+      "address": "0x3ce8",
+      "function": "ATP_MTD_Getfd",
+      "paths": [
+        {
+          "file_offset": 45497,
+          "value": "/dev/mtd1"
+        },
+        {
+          "file_offset": 45665,
+          "value": "/dev/mtd0"
+        },
+        {
+          "file_offset": 45675,
+          "value": "/dev/mtd2"
+        },
+        {
+          "file_offset": 45685,
+          "value": "/dev/mtd3"
+        },
+        {
+          "file_offset": 45695,
+          "value": "/dev/mtd4"
+        },
+        {
+          "file_offset": 45705,
+          "value": "/dev/mtd5"
+        },
+        {
+          "file_offset": 45715,
+          "value": "/dev/mtd6"
+        },
+        {
+          "file_offset": 45725,
+          "value": "/dev/mtd7"
+        },
+        {
+          "file_offset": 45735,
+          "value": "/dev/mtd8"
+        },
+        {
+          "file_offset": 45745,
+          "value": "/dev/mtd9"
+        },
+        {
+          "file_offset": 45755,
+          "value": "/dev/mtd10"
+        },
+        {
+          "file_offset": 45766,
+          "value": "/dev/mtd11"
+        },
+        {
+          "file_offset": 45777,
+          "value": "/dev/mtd12"
+        },
+        {
+          "file_offset": 45788,
+          "value": "/dev/mtd13"
+        },
+        {
+          "file_offset": 45799,
+          "value": "/dev/mtd14"
+        },
+        {
+          "file_offset": 45810,
+          "value": "/dev/mtd15"
+        }
+      ],
+      "range": "0..15"
+    },
+    "unknowns": [
+      "logical index-to-partition labels",
+      "package metadata offset address space",
+      "ID-to-MTD mapping",
+      "whether main/slave is active/inactive bank",
+      "RootFS independent write eligibility",
+      "bootloader/kernel optionality",
+      "erase geometry and sequencing",
+      "rollback/recovery behavior"
+    ]
+  },
+  "inputs": {
+    "experimental_firmware": {
+      "path": "/home/ayad/build-output/HG630V2-12V100R001-openlinux-final-experimental.bin",
+      "sha256": "222cc9cd1aa0406826dd81d5237e1634690564014fcafa4e072451193dce4e3e",
+      "size": 7563600,
+      "status": "EXPERIMENTAL_NON_FLASHABLE; static container checks are not OEM acceptance"
+    },
+    "extracted_rootfs": "/home/ayad/build-output/rootfs",
+    "original_firmware": {
+      "path": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+      "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+      "size": 7563600
+    }
+  },
+  "inventory": {
+    "core_and_dependency_files": [
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_EXEC"
+        },
+        "needed": [
+          "libcyassl.so.5",
+          "libmsgapi.so",
+          "libcfmapi.so",
+          "liblgplutil.so",
+          "libxmlapi.so",
+          "libhttpapi.so",
+          "libbhalapi.so",
+          "libm.so.0",
+          "libz.so.1",
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/bin/upg",
+        "sha256": "73ea3d4711d481599e58e5737ab80ce08e032ddd7ca48803063df4dedb6ba385",
+        "size": 27648
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libbhalapi.so",
+        "sha256": "c65abdae2c89df3054b11b3f9465f7639e985f7759ecb327f8258b41541cbcd2",
+        "size": 51548
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libgcc_s.so.1",
+          "libc.so.0",
+          "ld-uClibc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libmsgapi.so",
+        "sha256": "94afcbb979b50e7737f89055ea930310fa48b6146a19d8a5d815c05be14eb4dc",
+        "size": 154868
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libm.so.0",
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5.0.5",
+        "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463",
+        "size": 183724
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libcfmapi.so",
+        "sha256": "e1a5b6b9c7f34ece50a7bccf0e87b960929f1061790b4cf03e5600a36d1c23af",
+        "size": 102060
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/liblgplutil.so",
+        "sha256": "98d3f6cdc743f07acc02b267a941f74668a8dbe4134242c2df791a44916a7b6a",
+        "size": 7736
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libxmlapi.so",
+        "sha256": "0bb2544c7e9f2ec915dded7415894055e6d7ed355c5bb1c40decd914e3405984",
+        "size": 23180
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libhttpapi.so",
+        "sha256": "887504abf6f29f58187708a0d0246ff1f10155612c86d7bb3ec7bef0518fdce2",
+        "size": 52816
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libm.so.0",
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5",
+        "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463",
+        "size": 183724
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libm.so.0",
+        "sha256": "14c314d35005b50b7a56d409847e209acdf950570f930c5f5d4d9b2be6e9673d",
+        "size": 62316
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libz.so.1",
+        "sha256": "dec03433b70a5b899a945e6b62e454cccc1926e369ef7090c3179f79263d3756",
+        "size": 60560
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "ld-uClibc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libc.so.0",
+        "sha256": "064ea2ba84aef5f650453e9bdbc14d3fcc79c617ce7807f2ee36f05f1644510a",
+        "size": 368336
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [
+          "libc.so.0"
+        ],
+        "path": "/home/ayad/build-output/rootfs/lib/libgcc_s.so.1",
+        "sha256": "46e400c4e94142c7d6a178dfe8f7762be8dfa1e0207380895d48bba24b4f5b89",
+        "size": 42736
+      },
+      {
+        "elf": {
+          "abi_flags": "EABI5 (0x05000002)",
+          "class": "ELF32",
+          "endianness": "little",
+          "machine": "ARM",
+          "type": "ET_DYN"
+        },
+        "needed": [],
+        "path": "/home/ayad/build-output/rootfs/lib/ld-uClibc-0.9.32.1-git.so",
+        "sha256": "6028452c7cd2cd8841688059633cabd9d244766d9c2a59069231e37ac71aff55",
+        "size": 29404
+      }
+    ],
+    "dynamic_dependency_closure_note": "DT_NEEDED dependencies resolved by filename from extracted /lib; this does not prove runtime load success. upg direct dependencies include libcyassl.so.5 (provided by libcyassl.so.5.0.5), libmsgapi.so, libcfmapi.so, liblgplutil.so, libxmlapi.so, libhttpapi.so, libbhalapi.so, libm.so.0, libz.so.1, libc.so.0. The msgapi imports security APIs from surrounding vendor runtime; no separate libsec filename is established.",
+    "key_files": [
+      {
+        "classification": "root CA certificate candidate",
+        "contents_recorded": false,
+        "path": "/home/ayad/build-output/rootfs/etc/root.pem",
+        "sha256": "e0c1f577528f63b53e5930e382aa7eab3a541ea3c032c257ca683834f942260d",
+        "size": 1330,
+        "update_authentication_role": "UNKNOWN; no call-site linkage proves updater trust use"
+      },
+      {
+        "classification": "HTTPS server certificate",
+        "contents_recorded": false,
+        "path": "/home/ayad/build-output/rootfs/etc/servercert.pem",
+        "sha256": "5f4458f23298be7a2caad09a46cdfff9eb1866360d2d4b1c291af81dfe079733",
+        "size": 4816,
+        "update_authentication_role": "UNKNOWN; no call-site linkage proves updater trust use"
+      },
+      {
+        "classification": "HTTPS server private key",
+        "contents_recorded": false,
+        "path": "/home/ayad/build-output/rootfs/etc/serverkey.pem",
+        "sha256": "804684c0acb5a5e18af415e13f1165679efcbd27f1b203cc3c932aa4c701d3f3",
+        "size": 1743,
+        "update_authentication_role": "UNKNOWN; no call-site linkage proves updater trust use"
+      }
+    ],
+    "related_configs": [
+      "/home/ayad/build-output/rootfs/etc/inittab",
+      "/home/ayad/build-output/rootfs/etc/init.d/rcS",
+      "/home/ayad/build-output/rootfs/etc/profile",
+      "/home/ayad/build-output/rootfs/etc/ld.so.conf",
+      "/home/ayad/build-output/rootfs/etc/root.pem",
+      "/home/ayad/build-output/rootfs/etc/servercert.pem",
+      "/home/ayad/build-output/rootfs/etc/serverkey.pem"
+    ]
+  },
+  "package": {
+    "board_id": 1212,
+    "embedded_components": {
+      "component_names": {
+        "1": "RootFS",
+        "2": "kernel"
+      },
+      "observed_component_ids": [
+        1,
+        2
+      ],
+      "observed_component_record_count": 4,
+      "source": "provided prior firmware investigation/evidence; embedded SquashFS and uImage are independently recognizable"
+    },
+    "firmware_version": "HG630V2V100R001C298B010",
+    "header_magic": "0x76543210 (bytes 10 32 54 76)",
+    "kernel_uimage": {
+      "data_crc_stored": "88c1e0b5",
+      "data_crc_valid": true,
+      "end": 7563255,
+      "entry_address": 2166390784,
+      "header_crc_stored": "0e3295ab",
+      "header_crc_valid": true,
+      "header_hex": "270519560e3295ab58db5ce20015e1e8812080008120800088c1e0b5050202034c696e75782d322e362e33300000000000000000000000000000000000000000",
+      "header_size": 64,
+      "load_address": 2166390784,
+      "name": "Linux-2.6.30",
+      "offset": 6129103,
+      "payload_size": 1434088,
+      "within_file": true
+    },
+    "metadata_parser_source": "analysis/oem-firmware/metadata-report.json",
+    "offset_semantics": "UNKNOWN: fields are hexadecimal metadata. Several ranges extend beyond file length; they cannot all be simple package-relative spans. No proved section-ID-to-MTD mapping.",
+    "region_records": [
+      {
+        "end": 131072,
+        "kind": "main",
+        "offset": 0,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303031315d0a6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d307832303030300a",
+        "section": "20011",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 131072,
+        "size_radix": "hexadecimal",
+        "valid": true,
+        "within_file": true
+      },
+      {
+        "end": 196608,
+        "kind": "main",
+        "offset": 131072,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a",
+        "section": "20003",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 65536,
+        "size_radix": "hexadecimal",
+        "valid": true,
+        "within_file": true
+      },
+      {
+        "end": 262144,
+        "kind": "slave",
+        "offset": 196608,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a",
+        "section": "20003",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 65536,
+        "size_radix": "hexadecimal",
+        "valid": true,
+        "within_file": true
+      },
+      {
+        "end": 1703936,
+        "kind": "main",
+        "offset": 262144,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a",
+        "section": "20002",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 1441792,
+        "size_radix": "hexadecimal",
+        "valid": true,
+        "within_file": true
+      },
+      {
+        "end": 9568256,
+        "kind": "slave",
+        "offset": 8126464,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a",
+        "section": "20002",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 1441792,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      },
+      {
+        "end": 8126464,
+        "kind": "main",
+        "offset": 1703936,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a",
+        "section": "20001",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 6422528,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      },
+      {
+        "end": 15990784,
+        "kind": "slave",
+        "offset": 9568256,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a",
+        "section": "20001",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 6422528,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      },
+      {
+        "end": 15990784,
+        "kind": "main",
+        "offset": 15990784,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303130305d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a",
+        "section": "20100",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 0,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      },
+      {
+        "end": 15990784,
+        "kind": "main",
+        "offset": 15990784,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303130315d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a",
+        "section": "20101",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 0,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      },
+      {
+        "end": 16384000,
+        "kind": "main",
+        "offset": 15990784,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030355d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d307836303030300a",
+        "section": "20005",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 393216,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      },
+      {
+        "end": 16580608,
+        "kind": "main",
+        "offset": 16187392,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b32303030345d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a",
+        "section": "20004",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 393216,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      },
+      {
+        "end": 16580608,
+        "kind": "main",
+        "offset": 16187392,
+        "offset_radix": "hexadecimal",
+        "raw_section_hex": "5b33303030325d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a021000000c000000f1020100d102010000000000011000003000000098d1901576140000060201002cdc90a65400000005",
+        "section": "30002",
+        "semantics": "UNKNOWN; metadata label only",
+        "size": 393216,
+        "size_radix": "hexadecimal",
+        "valid": false,
+        "within_file": false
+      }
+    ],
+    "rootfs": {
+      "block_size": 1048576,
+      "bytes_used": 5930917,
+      "compression_id": 4,
+      "end": 6129012,
+      "inode_count": 1257,
+      "offset": 198095,
+      "superblock_hex": "68737173e9040000275ddb58000010000e00000004001400c002070004000000a71e8c1b00000000a57f5a00000000009d7f5a0000000000ffffffffffffffff6f265a000000000071495a0000000000d3765a00000000006f7f5a0000000000",
+      "version": "4.0",
+      "within_file": true
+    }
+  },
+  "recommended_next_step": "Do not produce an OEM update package. Seek Huawei/vendor-signed documentation or an authorized update service/key custody path that explicitly defines component-1 RootFS update eligibility and signature contract. In parallel, pursue only a non-flashing userspace compatibility prototype in an isolated lab using the original kernel, with a verified recovery path and explicit operator-controlled launch; keep it separate from original firmware artifacts.",
+  "safety_record": {
+    "flash_written": false,
+    "mtd_opened": false,
+    "oem_binaries_executed": false,
+    "original_firmware_modified": false,
+    "private_key_contents_disclosed": false
+  },
+  "scope": "Read-only host-side static inspection. No OEM binary execution, MTD access, flash write, firmware modification, or device validation.",
+  "source_evidence_files": [
+    "analysis/generated/upg-static/upg-analysis.json",
+    "analysis/generated/upg-static/libbhalapi-analysis.json",
+    "analysis/generated/upg-static/libmsgapi-analysis.json",
+    "analysis/generated/upgrade-re/security-report.json",
+    "analysis/generated/upgrade-re/flash-write-report.json",
+    "analysis/oem-firmware/metadata-report.json"
+  ],
+  "startup": {
+    "automatic_service_safe_point": "UNKNOWN: no dedicated hook was proven; modifying profile risks service ordering and OEM behavior. Keep OEM startup unchanged during analysis.",
+    "inittab_observation": "::sysinit:/etc/init.d/rcS and ::respawn:-/bin/sh",
+    "inittab_path": "/home/ayad/build-output/rootfs/etc/inittab",
+    "inittab_sha256": "e36c598c6c364f8e83de3fe40b1bf4f50d16ba031023e06a1934bbd91bc7b64a",
+    "manual_operator_start": "PARTIALLY VERIFIED: inittab provides respawning /bin/sh, making manual shell invocation conceivable after boot; privileges, persistence, console availability and safe coexistence are not established.",
+    "profile_observation": "mounts proc/sysfs and tmpfs, runs makedevs/startbsp, mounts optional configuration JFFS2 devices, runs hi_xpon, starts hsanportinit and insmod_all.sh, links /dev/caldata to /dev/mtd9, runs mic.",
+    "profile_path": "/home/ayad/build-output/rootfs/etc/profile",
+    "profile_sha256": "ebce1e5930054326095b6df72101d1c5690854b5750dad225064ccec4695cca2",
+    "rcS_observation": "Only prints RCS DONE.",
+    "rcS_path": "/home/ayad/build-output/rootfs/etc/init.d/rcS",
+    "rcS_sha256": "7c31a33578ddd71ebbaa8f9c79453d00d9762f020a7c035dd8bd09e9ae64e116",
+    "services_to_preserve": [
+      "startbsp",
+      "hi_xpon",
+      "hsanportinit",
+      "insmod_all.sh",
+      "mic",
+      "vendor module and board initialization"
+    ]
+  },
+  "status": {
+    "experimental_classification": "EXPERIMENTAL_NON_FLASHABLE",
+    "hardware_validation": "NOT PERFORMED",
+    "legitimate_supported_rootfs_only_update": "UNKNOWN; no supported path found/proven. Treat as unavailable for build planning.",
+    "oem_authentication_for_custom_image": "BLOCKED: signing contract and authorized private key unavailable."
+  },
+  "symbols_imports": {
+    "libbhalapi_exported_updater_symbols": [
+      {
+        "address": 15244,
+        "name": "ATP_MTD_WriteBufToOffset_Upg",
+        "size": 348
+      },
+      {
+        "address": 15592,
+        "name": "ATP_MTD_Getfd",
+        "size": 480
+      },
+      {
+        "address": 14960,
+        "name": "ATP_MTD_ReadBuffromOffset",
+        "size": 284
+      },
+      {
+        "address": 17248,
+        "name": "ATP_MTD_WriteBufToOffset",
+        "size": 24
+      },
+      {
+        "address": 17272,
+        "name": "ATP_MTD_Erase",
+        "size": 136
+      },
+      {
+        "address": 14288,
+        "name": "FomWriteFlashAreaByHead",
+        "size": 220
+      },
+      {
+        "address": 40248,
+        "name": "UPG_FlashPartWrite",
+        "size": 316
+      },
+      {
+        "address": 27188,
+        "name": "ATP_FLASH_UpgradeBootloader",
+        "size": 256
+      },
+      {
+        "address": 31064,
+        "name": "ATP_FLASH_WriteArea",
+        "size": 436
+      },
+      {
+        "address": 26984,
+        "name": "ATP_FLASH_UpgradeCfg",
+        "size": 204
+      },
+      {
+        "address": 27444,
+        "name": "ATP_FLASH_Upgrade",
+        "size": 880
+      }
+    ],
+    "libmsgapi_crypto_imports": [
+      "CyaSSL_MD5_Final",
+      "CyaSSL_MD5_Init",
+      "CyaSSL_MD5_Update",
+      "CyaSSL_RSA_free",
+      "CyaSSL_RSA_generate_key_ex",
+      "CyaSSL_RSA_new",
+      "CyaSSL_RSA_size"
+    ],
+    "upg_imports_relevant": {
+      "ATP_FLASH_Upgrade": [
+        45476,
+        45676,
+        45880
+      ],
+      "ATP_FLASH_UpgradeBootloader": [
+        46080
+      ],
+      "ATP_FLASH_UpgradeCfg": [
+        45984
+      ],
+      "ATP_FLASH_Write": [
+        46288
+      ],
+      "ATP_FLASH_WriteArea": [
+        40024,
+        40080,
+        40108,
+        43740
+      ],
+      "ATP_MTD_Erase": [
+        45196
+      ],
+      "ATP_MTD_Getfd": [
+        45164
+      ],
+      "ATP_MTD_WriteBufToOffset_Upg": [
+        45236
+      ],
+      "ATP_SEC_CreateData": [
+        49944
+      ],
+      "ATP_SEC_CreateSignatureContext": [
+        49980
+      ],
+      "ATP_SEC_DeleteContext": [
+        50032
+      ],
+      "ATP_SEC_KM_GetKey": [
+        49924
+      ],
+      "ATP_SEC_VerifyData": [
+        50012
+      ],
+      "BSP_FLASH_UnProtect": [
+        50600
+      ]
+    }
+  },
+  "title": "Static analysis of Huawei HG630 V2 OEM firmware updater"
+}

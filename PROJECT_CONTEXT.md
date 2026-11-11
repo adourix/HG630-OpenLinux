@@ -2,6 +2,31 @@
 
 Updated: 2026-11-10 20:00 America/New_York
 
+## OEM updater static-analysis milestone — 2026-11-10
+
+### VERIFIED
+
+- Added `analysis/openlinux/v1.1/updater-static-analysis.md` and companion JSON with SHA-256 inventory of `upg`, direct updater libraries/runtime dependencies, firmware, relevant RootFS configuration, and certificate/key files (private-key contents are not included).
+- Confirmed `upg` is ELF32 ARM little-endian EABI5 and directly imports security and flash APIs. Static call sites include `ATP_SEC_KM_GetKey`, `ATP_SEC_CreateData`, `ATP_SEC_CreateSignatureContext`, `ATP_SEC_VerifyData`, `ATP_FLASH_Upgrade`, `ATP_FLASH_UpgradeBootloader`, `ATP_FLASH_UpgradeCfg`, MTD erase/write helpers, and `BSP_FLASH_UnProtect`.
+- `libbhalapi.so` exports MTD selection and erase/read/write and generic/configuration/bootloader/area update helpers. `ATP_MTD_Getfd` dispatches logical indices 0–15 to static `/dev/mtd0`–`/dev/mtd15` paths.
+- `libmsgapi.so` contains `ATP_SEC_VerifyData` and related wrappers, with RSA, SHA-256, and MD5 primitive references. The verifier calls digest processing and then an unresolved indirect callback.
+- The extracted RootFS has `/etc/root.pem`, `/etc/servercert.pem`, and `/etc/serverkey.pem`; certificate inspection identifies a root/HTTPS server certificate pair. No call-site evidence links this certificate chain to firmware-update trust.
+- Startup files show `inittab` invoking `/etc/init.d/rcS` and respawning `/bin/sh`; `rcS` is minimal, while `/etc/profile` performs vendor mounts, `startbsp`, `hi_xpon`, `hsanportinit`, module initialization, calibration link setup, and `mic` launch.
+- Original firmware hash remains `d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222`; experimental image hash is `222cc9cd1aa0406826dd81d5237e1634690564014fcafa4e072451193dce4e3e` and remains `EXPERIMENTAL_NON_FLASHABLE`.
+- No OEM binary was executed; no MTD device was opened; no firmware or flash was modified.
+
+### INFERRED
+
+- RSA-family verification and SHA-256 are plausible candidates based on imports, but the exact updater algorithm and signature contract are not resolved.
+- The respawned shell suggests a manual operator-controlled launch may be possible after boot. Console access, privileges, service interactions, and safe coexistence are not verified.
+
+### UNKNOWN / BLOCKED
+
+- No supported RootFS-only update path is proven. The observed component ID and area-write API do not establish OEM acceptance of a RootFS-only package.
+- Full-package requirement, section-ID to MTD mapping, offset address-space semantics, main/slave bank selection, mandatory/optional kernel or bootloader updates, erase geometry, rollback, and recovery remain UNKNOWN.
+- No authorized OEM firmware-signing private key or documented signing path is available. Signature size/encoding/padding, digest contract, signed byte range, public-key origin, and outer checksum remain UNKNOWN; legitimate authentication of a custom image is BLOCKED.
+- Keep the existing `EXPERIMENTAL_NON_FLASHABLE` classification. The next evidence needed is vendor-authorized documentation/service access defining RootFS-only eligibility and signing; until then continue only non-flashing userspace compatibility research with the original kernel and a verified recovery path.
+
 ## OEM RootFS reproduction milestone — 2026-11-10
 
 ### VERIFIED
