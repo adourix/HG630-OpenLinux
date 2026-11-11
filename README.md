@@ -91,6 +91,24 @@ release gate in `tools/validate_release_classification.py` rejects
 
 See [docs/FEASIBILITY.md](docs/FEASIBILITY.md) and [docs/NEXT_STEPS.md](docs/NEXT_STEPS.md).
 
+## Research-only package reconstruction
+
+A size-fitting OpenLinux RootFS candidate is documented in `analysis/server-run/overlay-fit-report.md`. The repository now includes a guarded reconstruction utility:
+
+```bash
+python3 tools/rebuild_firmware.py \
+  /path/to/HG630V2-12V100R001.bin \
+  /path/to/winning/rootfs.squashfs \
+  --expected-rootfs /path/to/winning/stage-rootfs \
+  --output /path/to/output/HG630V2-OpenLinux-RESEARCH-ONLY.bin
+```
+
+The utility checks the known OEM package hash and observed component table, verifies the candidate SquashFS profile and size, replaces only the RootFS component slot, preserves the package prefix and original kernel/trailing region byte-for-byte, and rechecks uImage CRCs. It performs a host extraction check by default and can compare the extracted tree against the staged RootFS.
+
+**This output is not flashable.** The Huawei package-level checksum/signature format, updater acceptance, physical flash map, target boot, and recovery path remain unverified. The tool intentionally does not guess or rewrite unknown authentication fields. Never flash a research-only output.
+
+See [analysis/server-run/firmware-reconstruction-report.md](analysis/server-run/firmware-reconstruction-report.md) for the verified layout and limitations.
+
 ## Read-only firmware inspection tool
 
 The repository includes a standalone Python parser for the vendor package container. It reports SquashFS and uImage candidates, hashes the input, and validates the legacy uImage CRCs. It does not extract proprietary content or create a flashable image.
