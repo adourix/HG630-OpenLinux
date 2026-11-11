@@ -29,3 +29,6 @@ Status:
 
 The V0.3 component report is [v0.3-report.md](v0.3-report.md), with the small
 build summary in [v0.3-manifest.json](v0.3-manifest.json).
+
+V0.4 integration, init-order, SquashFS, compatibility, and boot-simulation
+results are documented under [v0.4](v0.4/report.md).

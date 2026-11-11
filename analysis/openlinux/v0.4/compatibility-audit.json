@@ -1,0 +1,14 @@
+{
+  "rootfs": "/home/ayad/build-output/custom-build/run-012/stage-rootfs",
+  "architecture": {"elf": "ARM EABI5", "userspace_abi": "uClibc 0.9.32.1", "status": "VERIFIED"},
+  "interpreters": {"path": "/lib/ld-uClibc.so.0", "present": true, "status": "VERIFIED"},
+  "kernel": {"version": "2.6.30", "arm": "ARMv7", "vermagic": "2.6.30 SMP preempt mod_unload ARMv7", "status": "VERIFIED"},
+  "modules": {"matching_vermagic": true, "tri_ctl_depends": ["ipcdrv"], "other_modinfo_dependencies": "empty_or_not_recorded", "load_order": "startbsp script evidence", "status": "VERIFIED_STATIC"},
+  "busybox": {"version": "1.9.1", "verified_applets": ["awk", "cat", "kill", "mkdir", "sleep", "sh", "cp", "rm", "mount", "insmod", "ifconfig", "route", "udhcpc"], "missing_or_not_listed_for_openlinux": ["sed", "wc", "mv", "tr", "timeout"], "status": "VERIFIED_FROM_USERMODE_HELP_OUTPUT"},
+  "openlinux_runtime_dependencies": {"available": ["sh", "awk", "mkdir", "kill", "sleep", "cp", "cat"], "removed_from_v04_scripts": ["sed", "wc", "mv", "tr"], "status": "VERIFIED_STATIC"},
+  "kernel_interfaces": {"required_by_oem": ["proc", "sysfs", "tmpfs", "mtdblock", "module_loading", "jffs2", "network_interfaces"], "static_kernel_evidence": ["proc strings", "mtd registration", "SquashFS XZ", "module support strings"], "status": "VERIFIED_STATIC_NOT_RUNTIME"},
+  "runtime_paths": {"dev": "created/mounted by OEM profile", "proc": "mounted by OEM profile", "sys": "mounted by OEM profile", "run": "not a required OEM path; vendor uses /var/run", "status": "VERIFIED/UNKNOWN"},
+  "firewall": {"backend": "vendor /bin/iptables present", "kernel_rule_support": "UNKNOWN without running target kernel", "status": "STATIC_ONLY"},
+  "syscalls": {"unsupported_syscalls": "UNKNOWN", "modern_kernel_api_dependencies": "none intentionally added", "status": "UNKNOWN_RUNTIME"},
+  "overall": "USERSPACE_STATIC_COMPATIBILITY_PARTIAL; KERNEL_AND_HARDWARE_COMPATIBILITY_UNKNOWN"
+}

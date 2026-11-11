@@ -1,0 +1,34 @@
+{
+  "source_rootfs": "/home/ayad/build-output/custom-build/run-007/stage-rootfs",
+  "classification": "static_evidence_only",
+  "entrypoints": [
+    {"path": "/init", "target": "bin/busybox", "status": "VERIFIED"},
+    {"path": "/sbin/init", "target": "../bin/busybox", "status": "VERIFIED"},
+    {"path": "/etc/inittab", "status": "VERIFIED"},
+    {"path": "/etc/init.d/rcS", "status": "VERIFIED"},
+    {"path": "/etc/profile", "status": "VERIFIED"}
+  ],
+  "inittab": {
+    "sysinit": "/etc/init.d/rcS",
+    "respawn": ["-/bin/sh"],
+    "ctrlaltdel": "commented_out",
+    "status": "VERIFIED"
+  },
+  "scripts": [
+    {"path": "/etc/init.d/rcS", "calls": ["PATH setup", "echo RCS DONE"], "status": "VERIFIED"},
+    {"path": "/etc/profile", "calls": ["mount tmpfs/proc/sysfs", "makedevs", "startbsp", "hi_xpon", "hsanportinit &", "/etc/insmod_all.sh &", "link /dev/caldata to /dev/mtd9", "mic"], "status": "VERIFIED"},
+    {"path": "/etc/insmod_all.sh", "calls": ["insmod optional DSL/network/USB/Wi-Fi modules", "atpsync post base", "atpsync post wlan"], "status": "VERIFIED"},
+    {"path": "/etc/insmod_eth.sh", "calls": ["conditional tc3162_dmt commands"], "status": "VERIFIED_NOT_CALLED_BY_OBSERVED_PATH"},
+    {"path": "/bin/startbsp", "calls": ["mknod hardware devices", "insmod HiSilicon/Huawei/network/Wi-Fi modules", "hi_cli flow setup"], "status": "VERIFIED_NOT_CALLED_DIRECTLY_BY_INITTAB"}
+  ],
+  "service_launch": {
+    "manager": "/bin/mic",
+    "evidence": ["/etc/profile invokes mic after hardware setup", "mic imports exec/fork/restart APIs", "mic strings name sshd, dhcps, iptables, ddns"],
+    "ordering": "INFERRED_FROM_STATIC_CALLS",
+    "exact_application_order": "UNKNOWN"
+  },
+  "shutdown": {"inittab_ctrlaltdel": "commented_out", "custom_shutdown_script": "not_found", "busybox_shutdown_handlers": "VERIFIED", "ordering": "UNKNOWN"},
+  "watchdog": {"dedicated_script_or_binary": "not_found", "vendor_watchdog_runtime": "UNKNOWN"},
+  "environment": {"PATH": "/bin:/sbin:/usr/bin:/usr/sbin", "LUA_PATH": "/etc/lua/?.lua;/html/lib/?.lua;/html/lua/?.lua", "runtime_dirs": ["/dev", "/proc", "/sys", "/var", "/tmp", "/mnt"], "status": "VERIFIED"},
+  "openlinux_hook": {"path": "/etc/init.d/openlinux", "called_by_oem_path": false, "safe_injection_point": "UNKNOWN_BLOCKED", "reason": "Adding it to rcS/profile would modify or repeat the OEM startup path; no proven safe one-shot hook exists."}
+}

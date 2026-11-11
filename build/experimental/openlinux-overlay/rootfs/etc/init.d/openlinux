@@ -1,5 +1,38 @@
 #!/bin/sh
-# Additive hook: the original rcS and vendor startup remain authoritative.
-if [ -x /usr/sbin/openlinuxctl ]; then
-    /usr/sbin/openlinuxctl boot
+# Safe additive hook. The OEM rcS does not invoke this file; it is suitable for
+# controlled simulation or a future evidence-backed integration point only.
+ROOT=${OPENLINUX_ROOT:-}
+CTL=${OPENLINUX_CTL:-${ROOT}/usr/sbin/openlinuxctl}
+CONFIG=${OPENLINUX_CONFIG:-${ROOT}/etc/openlinux/openlinux.conf}
+LOG=${OPENLINUX_LOG:-${ROOT}/var/log/openlinux.log}
+TIMEOUT=${OPENLINUX_TIMEOUT:-10}
+
+write_log() {
+    dir=${LOG%/*}; [ "$dir" = "$LOG" ] || mkdir -p "$dir" 2>/dev/null || :
+    echo "openlinux-hook: $*" >> "$LOG" 2>/dev/null || :
+}
+
+[ -x "$CTL" ] || exit 0
+[ -r "$CONFIG" ] || exit 0
+
+if ! "$CTL" validate >/dev/null 2>&1; then
+    write_log "configuration invalid; OEM startup unaffected"
+    exit 0
 fi
+
+"$CTL" boot >/dev/null 2>&1 &
+child=$!
+elapsed=0
+while kill -0 "$child" 2>/dev/null; do
+    if [ "$elapsed" -ge "$TIMEOUT" ]; then
+        kill "$child" 2>/dev/null || :
+        write_log "startup timeout after ${TIMEOUT}s; OEM startup unaffected"
+        exit 0
+    fi
+    sleep 1
+    elapsed=$((elapsed + 1))
+done
+wait "$child"
+result=$?
+[ "$result" -eq 0 ] || write_log "supervisor failed with status $result; OEM startup unaffected"
+exit 0

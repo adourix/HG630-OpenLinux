@@ -352,3 +352,30 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 
 - Actual DHCP/DNS daemon operation, firewall rule application, SSH exposure, vendor interface names, init-time service ordering, kernel SquashFS BCJ support, kernel boot, OEM update acceptance, and hardware compatibility remain UNKNOWN/BLOCKED.
 - The prior run-009/run-010 default-compressor builds exceeded the fixed span and were safely rejected by the assembly tool; those external build directories remain preserved as evidence. No previous artifact was overwritten.
+
+## OpenLinux V0.4 integration and boot-readiness milestone — 2026-11-10
+
+### VERIFIED
+
+- Current HEAD before this milestone was `7c97e49`; branch `codex/hybrid-server-work` was clean and tracked `origin`.
+- OEM init inventory follows actual calls: BusyBox `/etc/inittab` runs `/etc/init.d/rcS`, respawns `-/bin/sh`, and the shell profile performs mounts, `makedevs`, `startbsp`, `hi_xpon`, background `hsanportinit`, background `/etc/insmod_all.sh`, `/dev/caldata -> /dev/mtd9`, and `mic`. `insmod_eth.sh` is present but not called by the observed path.
+- Added [analysis/openlinux/v0.4/init-inventory.json](analysis/openlinux/v0.4/init-inventory.json), [init-order.md](analysis/openlinux/v0.4/init-order.md), and [vendor-dependencies.md](analysis/openlinux/v0.4/vendor-dependencies.md).
+- Hardened the additive OpenLinux hook with absent/invalid configuration safety, bounded timeout, failure logging, and failure isolation. The hook is not injected into OEM `rcS` or `/etc/profile`; automatic boot integration remains UNKNOWN/BLOCKED.
+- Original and V0.3/V0.4 SquashFS are version 4.0, little-endian, XZ, 1 MiB blocks. The original kernel contains SquashFS XZ and `xz_dec_*` evidence. V0.3/V0.4 ARM BCJ filter support remains UNKNOWN because no kernel config or target-kernel runtime is available.
+- Corrected the V0.3 userspace runtime dependency issue: the OEM BusyBox does not list `sed`, `wc`, `mv`, `tr`, or `timeout`; V0.4 scripts use only verified shell/BusyBox facilities.
+- Added [tools/simulate_openlinux_boot.py](tools/simulate_openlinux_boot.py) and boot-isolation tests covering OEM-only, disabled, missing/invalid config, supervisor failure, timeout, missing binary, and logging failure. The staged V0.4 simulation preserved `RCS DONE`, returned OEM status 0, and isolated the OpenLinux hook.
+- Added [analysis/openlinux/v0.4/compatibility-audit.json](analysis/openlinux/v0.4/compatibility-audit.json), [compatibility-audit.md](analysis/openlinux/v0.4/compatibility-audit.md), [squashfs-comparison.json](analysis/openlinux/v0.4/squashfs-comparison.json), and [squashfs-compatibility.md](analysis/openlinux/v0.4/squashfs-compatibility.md).
+- Built V0.4 RootFS at `/home/ayad/build-output/custom-build/run-013/rootfs.squashfs`, size `5931008`, SHA256 `db620f72a514c62cccc9cd3ae6cb7d27151abec59cb4cb58b4c1aee393777785`.
+- Assembled V0.4 experimental firmware at `/home/ayad/build-output/custom-build/firmware-run-004/HG630V2-v0.4-experimental.bin`, SHA256 `9ec2d00ffa546c7b0d3be228c0867fba7ffac2a5e354c6b22d249d1035ab5cb1`; complete manifest/hash verification passed and the label remains `EXPERIMENTAL_NON_FLASHABLE`.
+- Added [analysis/openlinux/v0.4/report.md](analysis/openlinux/v0.4/report.md) and [v0.4/manifest.json](analysis/openlinux/v0.4/manifest.json).
+
+### INFERRED
+
+- `/bin/mic` is the vendor service manager because the profile calls it after hardware setup and its static strings reference fork/exec/restart plus SSH, DHCP, DNS, firewall, and management services. Exact service ordering remains unproven.
+- The safest current integration point is no automatic integration: changing `rcS` or `/etc/profile` could replace or repeat OEM initialization. The isolated hook is ready for future evidence-backed invocation.
+
+### UNKNOWN / BLOCKED
+
+- Exact vendor service launch order, shutdown order, watchdog behavior, machine boot integration, and kernel RootFS mounting remain UNKNOWN.
+- ARM BCJ XZ filter acceptance by the original 2.6.30 SquashFS decoder remains UNKNOWN/BLOCKED; no production default was changed.
+- User-mode QEMU validated selected ARM userspace commands only. Kernel boot, mounts, modules, DSL, Wi-Fi, firewall kernel behavior, OEM update acceptance, and hardware boot remain UNKNOWN/BLOCKED.

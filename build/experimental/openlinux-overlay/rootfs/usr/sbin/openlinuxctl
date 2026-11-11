@@ -16,7 +16,10 @@ cfg() { awk -F= -v key="$1" '$1 == key { value=$2 } END { if (value != "") print
 log() {
     dir=${LOG%/*}; [ "$dir" = "$LOG" ] || mkdir -p "$dir"
     max=$(cfg LOG_MAX_BYTES); [ -n "$max" ] || max=65536
-    if [ -f "$LOG" ] && [ "$(wc -c < "$LOG")" -ge "$max" ]; then mv "$LOG" "$LOG.1" 2>/dev/null || :; fi
+    if [ -f "$LOG" ]; then
+        bytes=$(awk '{ n += length($0) + 1 } END { print n + 0 }' "$LOG")
+        if [ "$bytes" -ge "$max" ]; then cp "$LOG" "$LOG.1" 2>/dev/null || :; : > "$LOG"; fi
+    fi
     echo "openlinuxctl: $*" >> "$LOG"
 }
 
@@ -67,7 +70,7 @@ network_apply() {
     for side in LAN WAN; do
         iface=$(cfg NETWORK_${side}_IFACE); mode=$(cfg NETWORK_${side}_MODE); [ -n "$iface" ] || continue
         case "$mode" in
-            static) command="$(path /bin/ifconfig) $iface $(cfg NETWORK_${side}_ADDRESS) netmask $(cfg NETWORK_${side}_NETMASK)" ;;
+            static) command="$(path /sbin/ifconfig) $iface $(cfg NETWORK_${side}_ADDRESS) netmask $(cfg NETWORK_${side}_NETMASK)" ;;
             dhcp) command="$(path /sbin/udhcpc) -i $iface" ;;
             *) continue ;;
         esac
@@ -98,9 +101,10 @@ firewall_validate() {
 ssh_status() { echo "ssh.binary=$(if [ -x "$(path /bin/sshd)" ]; then echo present; else echo absent; fi)"; echo "ssh.enabled=$(cfg SSH_ENABLE)"; echo "ssh.bind=$(cfg SSH_BIND)"; }
 ssh_validate() { validate_config || return 1; [ "$(cfg SSH_ENABLE)" != enabled ] || [ -x "$(path /bin/sshd)" ] || { echo "SSH enabled but vendor sshd is absent"; return 1; }; bind=$(cfg SSH_BIND); [ -z "$bind" ] || valid_ipv4 "$bind" || { echo "SSH_BIND invalid"; return 1; }; echo "SSH configuration valid; service remains disabled unless explicitly started"; }
 
-monitor() { for item in uptime loadavg meminfo mounts; do file=$(path /proc/$item); if [ -r "$file" ]; then echo "[$item]"; sed -n '1,12p' "$file"; else echo "[$item] unavailable"; fi; done; }
+monitor() { for item in uptime loadavg meminfo mounts; do file=$(path /proc/$item); if [ -r "$file" ]; then echo "[$item]"; awk 'NR <= 12 { print }' "$file"; else echo "[$item] unavailable"; fi; done; }
 logs_status() { echo "logs.path=$LOG"; echo "logs.max_bytes=$(cfg LOG_MAX_BYTES)"; echo "logs.exists=$(if [ -f "$LOG" ]; then echo yes; else echo no; fi)"; echo "logs.oem_untouched=yes"; }
-status() { validate_config || return 1; for service in network dns ssh firewall web; do key=$(echo "$service" | tr '[:lower:]' '[:upper:]'); echo "$service=$(cfg SERVICE_$key)"; done; }
+service_key() { case "$1" in network) echo NETWORK;; dns) echo DNS;; ssh) echo SSH;; firewall) echo FIREWALL;; web) echo WEB;; esac; }
+status() { validate_config || return 1; for service in network dns ssh firewall web; do echo "$service=$(cfg SERVICE_$(service_key "$service"))"; done; }
 
 case "$1:$2" in
     validate:) validate_config ;;
@@ -116,6 +120,6 @@ case "$1:$2" in
     ssh:validate) ssh_validate ;;
     monitor:) validate_config && monitor ;;
     logs:status) logs_status ;;
-    boot:) validate_config || exit 1; for service in network dns ssh firewall web; do key=$(echo "$service" | tr '[:lower:]' '[:upper:]'); state=$(cfg SERVICE_$key); if [ "$state" = enabled ]; then script=${ROOT}/usr/libexec/openlinux-services/$service; if [ -x "$script" ]; then "$script" >> "$LOG" 2>&1 || log "$service failed: $?"; else log "$service enabled but implementation is absent"; fi; else log "$service disabled"; fi; done ;;
+    boot:) validate_config || exit 1; for service in network dns ssh firewall web; do state=$(cfg SERVICE_$(service_key "$service")); if [ "$state" = enabled ]; then script=${ROOT}/usr/libexec/openlinux-services/$service; if [ -x "$script" ]; then "$script" >> "$LOG" 2>&1 || log "$service failed: $?"; else log "$service enabled but implementation is absent"; fi; else log "$service disabled"; fi; done ;;
     *) echo "usage: $0 {validate|status|network|dhcp|firewall|ssh|monitor|logs|boot}" >&2; exit 2 ;;
 esac

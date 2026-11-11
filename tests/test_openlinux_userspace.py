@@ -1,4 +1,5 @@
 import os
+import re
 import subprocess
 import tempfile
 import unittest
@@ -133,6 +134,14 @@ class OpenLinuxUserspaceTests(unittest.TestCase):
             result = self.run_ctl(root, "boot")
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn("network disabled", (root / "var/log/test.log").read_text())
+
+    def test_scripts_use_only_verified_runtime_commands(self):
+        script = CTL.read_text()
+        for unavailable in ("sed", "wc", " mv ", "tr"):
+            if unavailable.strip() in ("sed", "wc", "tr"):
+                self.assertIsNone(re.search(r"(^|[;&|\s])" + unavailable.strip() + r"([\s;&|]|$)", script))
+            else:
+                self.assertNotIn(unavailable, script)
 
 
 if __name__ == "__main__":

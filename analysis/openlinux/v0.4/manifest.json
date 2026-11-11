@@ -1,0 +1,18 @@
+{
+  "status": "EXPERIMENTAL_NON_FLASHABLE",
+  "rootfs": {
+    "path": "/home/ayad/build-output/custom-build/run-013/rootfs.squashfs",
+    "sha256": "db620f72a514c62cccc9cd3ae6cb7d27151abec59cb4cb58b4c1aee393777785",
+    "size": 5931008,
+    "bcj_filter": "arm",
+    "padding_bytes": 147456,
+    "validation": "SQUASHFS_STRUCTURE_AND_EXTRACTION"
+  },
+  "firmware": {
+    "path": "/home/ayad/build-output/custom-build/firmware-run-004/HG630V2-v0.4-experimental.bin",
+    "sha256": "9ec2d00ffa546c7b0d3be228c0867fba7ffac2a5e354c6b22d249d1035ab5cb1",
+    "size": 7563600,
+    "manifest": "/home/ayad/build-output/custom-build/firmware-run-004/HG630V2-v0.4-experimental.bin.manifest.json"
+  },
+  "preservation": {"kernel": true, "metadata_prefix": true, "suffix": true, "physical_mtd_access": false, "router_flash_attempt": false}
+}
