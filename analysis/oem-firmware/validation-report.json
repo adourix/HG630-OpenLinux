@@ -1,0 +1,42 @@
+{
+  "file": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+  "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+  "checks": [
+    {
+      "name": "sha256",
+      "valid": true,
+      "expected": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+      "actual": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222"
+    },
+    {
+      "name": "squashfs[0] superblock/bounds",
+      "valid": true
+    },
+    {
+      "name": "uimage[0] bounds/header CRC/data CRC",
+      "valid": true
+    },
+    {
+      "name": "metadata syntax and bounds",
+      "valid": false,
+      "issues": [
+        "out-of-range region [20002] slave: 0x7c0000+0x160000 exceeds file",
+        "out-of-range region [20001] main: 0x1a0000+0x620000 exceeds file",
+        "out-of-range region [20001] slave: 0x920000+0x620000 exceeds file",
+        "out-of-range region [20100] main: 0xf40000+0x0 exceeds file",
+        "out-of-range region [20101] main: 0xf40000+0x0 exceeds file",
+        "out-of-range region [20005] main: 0xf40000+0x60000 exceeds file",
+        "out-of-range region [20004] main: 0xf70000+0x60000 exceeds file",
+        "out-of-range region [30002] main: 0xf70000+0x60000 exceeds file",
+        "overlap: [20005] main and [20004] main",
+        "overlap: [20005] main and [30002] main",
+        "overlap: [20004] main and [30002] main"
+      ]
+    },
+    {
+      "name": "known embedded signatures present",
+      "valid": true
+    }
+  ],
+  "valid": false
+}

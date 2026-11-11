@@ -123,3 +123,32 @@ python3 tools/validate_rootfs.py .../run-007/rootfs.squashfs \
 ```
 
 Next concrete task: inspect the original firmware/container parser coverage and add explicit structural tests for the observed SquashFS-to-uImage layout without inventing an OEM checksum or flash format.
+
+## OEM metadata parser milestone — 2026-11-10
+
+### VERIFIED
+
+- Added `tools/inspect_firmware.py` for read-only byte parsing, header capture, metadata field locations/raw bytes, region boundary and overlap checks, SquashFS recognition, and uImage header/data CRC checks.
+- Added `tools/validate_firmware.py` to verify the expected original SHA-256, metadata/bounds, SquashFS superblock extent, and uImage bounds and CRC32 values.
+- Added seven synthetic OEM parser tests. Full repository suite: 22 passed.
+- Original firmware SHA-256 remains `d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222` (7,563,600 bytes).
+- Metadata begins around offset `0x314`. `board_id=1212` is decimal at value offset `0x33e` (830). Offset and size values use explicit `0x` hexadecimal syntax. The report preserves every field value and surrounding raw bytes.
+- SquashFS starts at `0x305cf`, reports 5,930,917 bytes, and ends at `0x5d85b4`, within the package. Its version is 4.0 and compression ID is 4.
+- uImage starts at `0x5d85cf`; payload is 1,434,088 bytes and ends at `0x7368b7`. Header and payload CRC32 checks pass.
+- Some metadata ranges extend beyond the update package file boundary. The validator flags the bounds check while all embedded SquashFS/uImage checks pass. This is a warning about unresolved metadata semantics, not evidence that the metadata should be edited.
+- Reports saved at `analysis/oem-firmware/metadata-report.json`, `analysis/oem-firmware/metadata-report.md`, and `analysis/oem-firmware/validation-report.json`.
+
+### UNKNOWN
+
+- The metadata region table may describe physical flash regions, a larger device address space, or another layout; its semantics are unverified. The parser labels these as metadata ranges, not proven partitions.
+- Outer container checksums/authentication, encryption, bootloader acceptance behavior, and a reconstructable OEM packaging recipe remain unknown.
+
+### Commands
+
+```text
+python3 tools/inspect_firmware.py /home/ayad/firmware-input/HG630V2-12V100R001.bin --json analysis/oem-firmware/metadata-report.json
+python3 tools/validate_firmware.py /home/ayad/firmware-input/HG630V2-12V100R001.bin
+/tmp/hg630-test-venv/bin/python -m pytest -q tests
+```
+
+Next task: investigate metadata range address-space semantics through exact offset arithmetic, independent image carving, and comparison with any available trusted board/flash documentation. Do not infer a physical partition map from names alone.

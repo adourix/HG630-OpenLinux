@@ -1,0 +1,472 @@
+{
+  "file": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+  "size_bytes": 7563600,
+  "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+  "header": {
+    "range": [
+      0,
+      1536
+    ],
+    "hex": "10325476484736333020563200000000000000000000000000000000000000000000000056313030523030314332393842303130000000000000000000000000000000000102000000000000000000050003000100000314000002bb76312e300000000000000000000000000000000000000000000000000000000000020011000005cf00020000484736333056325631303052303031433239384230313000000000000000000000020003000205cf0001000076312e300000000000000000000000000000000000000000000000000000000000020001000305cf005a8000484736333056325631303052303031433239384230313000000000000000000000020002005d85cf0015e228484736333056325631303052303031433239384230313000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b1a94d8f5b676c6f62616c5d0a626173653d3078383030303030300a736563746f723d300a626f6172645f69643d313231320a73797374656d5f747970653d310a6d756c74695f7570675f73746172745f747970653d310a6867775f736f667476657273696f6e3d48473633305632563130305230303143323938423031300a6867775f736f667476657273696f6e5f7765623d56313030523030314332393842303130535030310a5b32303031315d0a6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d307832303030300a5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a5b32303130305d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b32303130315d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b32303030355d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d307836303030300a5b32303030345d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a5b33303030325d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a021000000c000000f1020100d102010000000000011000003000000098d1901576140000060201002cdc90a65400000005",
+    "latin1": "\u00102TvHG630 V2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000V100R001C298B010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0005\u0000\u0003\u0000\u0001\u0000\u0000\u0003\u0014\u0000\u0000\u0002\u00bbv1.0\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0011\u0000\u0000\u0005\u00cf\u0000\u0002\u0000\u0000HG630V2V100R001C298B010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0003\u0000\u0002\u0005\u00cf\u0000\u0001\u0000\u0000v1.0\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0001\u0000\u0003\u0005\u00cf\u0000Z\u0080\u0000HG630V2V100R001C298B010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0002\u0000]\u0085\u00cf\u0000\u0015\u00e2(HG630V2V100R001C298B010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00b1\u00a9M\u008f[global]\nbase=0x8000000\nsector=0\nboard_id=1212\nsystem_type=1\nmulti_upg_start_type=1\nhgw_softversion=HG630V2V100R001C298B010\nhgw_softversion_web=V100R001C298B010SP01\n[20011]\nmain_offset=0x0\nmain_size=0x20000\n[20003]\nmain_offset=0x20000\nmain_size=0x10000\nslave_offset=0x30000\nslave_size=0x10000\n[20002]\nmain_offset=0x40000\nmain_size=0x160000\nslave_offset=0x7c0000\nslave_size=0x160000\n[20001]\nmain_offset=0x1a0000\nmain_size=0x620000\nslave_offset=0x920000\nslave_size=0x620000\n[20100]\nmain_offset=0xf40000\nmain_size=0x0\n[20101]\nmain_offset=0xf40000\nmain_size=0x0\n[20005]\nmain_offset=0xf40000\nmain_size=0x60000\n[20004]\nmain_offset=0xf70000\nmain_size=0x60000\n[30002]\nmain_offset=0xf70000\nmain_size=0x60000\n\u0002\u0010\u0000\u0000\f\u0000\u0000\u0000\u00f1\u0002\u0001\u0000\u00d1\u0002\u0001\u0000\u0000\u0000\u0000\u0000\u0001\u0010\u0000\u00000\u0000\u0000\u0000\u0098\u00d1\u0090\u0015v\u0014\u0000\u0000\u0006\u0002\u0001\u0000,\u00dc\u0090\u00a6T\u0000\u0000\u0000\u0005"
+  },
+  "metadata": {
+    "field_records": [
+      {
+        "key": "board_id",
+        "value_raw": "1212",
+        "value": 1212,
+        "radix": "decimal",
+        "key_offset": 821,
+        "value_offset": 830,
+        "raw_record_hex": "3030303030300a736563746f723d300a626f6172645f69643d313231320a73797374656d5f747970653d310a6d",
+        "raw_record_text": "000000\nsector=0\nboard_id=1212\nsystem_type=1\nm"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0x0",
+        "value": 0,
+        "radix": "hexadecimal",
+        "key_offset": 961,
+        "value_offset": 973,
+        "raw_record_hex": "303130535030310a5b32303031315d0a6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d3078323030",
+        "raw_record_text": "010SP01\n[20011]\nmain_offset=0x0\nmain_size=0x200"
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x20000",
+        "value": 131072,
+        "radix": "hexadecimal",
+        "key_offset": 977,
+        "value_offset": 987,
+        "raw_record_hex": "6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d307832303030300a5b32303030335d0a6d61696e5f6f66",
+        "raw_record_text": "main_offset=0x0\nmain_size=0x20000\n[20003]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0x20000",
+        "value": 131072,
+        "radix": "hexadecimal",
+        "key_offset": 1003,
+        "value_offset": 1015,
+        "raw_record_hex": "307832303030300a5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d3078313030",
+        "raw_record_text": "0x20000\n[20003]\nmain_offset=0x20000\nmain_size=0x100"
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x10000",
+        "value": 65536,
+        "radix": "hexadecimal",
+        "key_offset": 1023,
+        "value_offset": 1033,
+        "raw_record_hex": "5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d3078",
+        "raw_record_text": "_offset=0x20000\nmain_size=0x10000\nslave_offset=0x"
+      },
+      {
+        "key": "slave_offset",
+        "value_raw": "0x30000",
+        "value": 196608,
+        "radix": "hexadecimal",
+        "key_offset": 1041,
+        "value_offset": 1054,
+        "raw_record_hex": "696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d30783130",
+        "raw_record_text": "in_size=0x10000\nslave_offset=0x30000\nslave_size=0x10"
+      },
+      {
+        "key": "slave_size",
+        "value_raw": "0x10000",
+        "value": 65536,
+        "radix": "hexadecimal",
+        "key_offset": 1062,
+        "value_offset": 1073,
+        "raw_record_hex": "5f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a5b32303030325d0a6d61696e5f6f66",
+        "raw_record_text": "_offset=0x30000\nslave_size=0x10000\n[20002]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0x40000",
+        "value": 262144,
+        "radix": "hexadecimal",
+        "key_offset": 1089,
+        "value_offset": 1101,
+        "raw_record_hex": "307831303030300a5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d3078313630",
+        "raw_record_text": "0x10000\n[20002]\nmain_offset=0x40000\nmain_size=0x160"
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x160000",
+        "value": 1441792,
+        "radix": "hexadecimal",
+        "key_offset": 1109,
+        "value_offset": 1119,
+        "raw_record_hex": "5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d3078",
+        "raw_record_text": "_offset=0x40000\nmain_size=0x160000\nslave_offset=0x"
+      },
+      {
+        "key": "slave_offset",
+        "value_raw": "0x7c0000",
+        "value": 8126464,
+        "radix": "hexadecimal",
+        "key_offset": 1128,
+        "value_offset": 1141,
+        "raw_record_hex": "6e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136",
+        "raw_record_text": "n_size=0x160000\nslave_offset=0x7c0000\nslave_size=0x16"
+      },
+      {
+        "key": "slave_size",
+        "value_raw": "0x160000",
+        "value": 1441792,
+        "radix": "hexadecimal",
+        "key_offset": 1150,
+        "value_offset": 1161,
+        "raw_record_hex": "6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a5b32303030315d0a6d61696e5f6f66",
+        "raw_record_text": "offset=0x7c0000\nslave_size=0x160000\n[20001]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0x1a0000",
+        "value": 1703936,
+        "radix": "hexadecimal",
+        "key_offset": 1178,
+        "value_offset": 1190,
+        "raw_record_hex": "783136303030300a5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d3078363230",
+        "raw_record_text": "x160000\n[20001]\nmain_offset=0x1a0000\nmain_size=0x620"
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x620000",
+        "value": 6422528,
+        "radix": "hexadecimal",
+        "key_offset": 1199,
+        "value_offset": 1209,
+        "raw_record_hex": "6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d3078",
+        "raw_record_text": "offset=0x1a0000\nmain_size=0x620000\nslave_offset=0x"
+      },
+      {
+        "key": "slave_offset",
+        "value_raw": "0x920000",
+        "value": 9568256,
+        "radix": "hexadecimal",
+        "key_offset": 1218,
+        "value_offset": 1231,
+        "raw_record_hex": "6e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632",
+        "raw_record_text": "n_size=0x620000\nslave_offset=0x920000\nslave_size=0x62"
+      },
+      {
+        "key": "slave_size",
+        "value_raw": "0x620000",
+        "value": 6422528,
+        "radix": "hexadecimal",
+        "key_offset": 1240,
+        "value_offset": 1251,
+        "raw_record_hex": "6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a5b32303130305d0a6d61696e5f6f66",
+        "raw_record_text": "offset=0x920000\nslave_size=0x620000\n[20100]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0xf40000",
+        "value": 15990784,
+        "radix": "hexadecimal",
+        "key_offset": 1268,
+        "value_offset": 1280,
+        "raw_record_hex": "783632303030300a5b32303130305d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b",
+        "raw_record_text": "x620000\n[20100]\nmain_offset=0xf40000\nmain_size=0x0\n["
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x0",
+        "value": 0,
+        "radix": "hexadecimal",
+        "key_offset": 1289,
+        "value_offset": 1299,
+        "raw_record_hex": "6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b32303130315d0a6d61696e5f6f66",
+        "raw_record_text": "offset=0xf40000\nmain_size=0x0\n[20101]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0xf40000",
+        "value": 15990784,
+        "radix": "hexadecimal",
+        "key_offset": 1311,
+        "value_offset": 1323,
+        "raw_record_hex": "697a653d3078300a5b32303130315d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b",
+        "raw_record_text": "ize=0x0\n[20101]\nmain_offset=0xf40000\nmain_size=0x0\n["
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x0",
+        "value": 0,
+        "radix": "hexadecimal",
+        "key_offset": 1332,
+        "value_offset": 1342,
+        "raw_record_hex": "6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b32303030355d0a6d61696e5f6f66",
+        "raw_record_text": "offset=0xf40000\nmain_size=0x0\n[20005]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0xf40000",
+        "value": 15990784,
+        "radix": "hexadecimal",
+        "key_offset": 1354,
+        "value_offset": 1366,
+        "raw_record_hex": "697a653d3078300a5b32303030355d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078363030",
+        "raw_record_text": "ize=0x0\n[20005]\nmain_offset=0xf40000\nmain_size=0x600"
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x60000",
+        "value": 393216,
+        "radix": "hexadecimal",
+        "key_offset": 1375,
+        "value_offset": 1385,
+        "raw_record_hex": "6f66667365743d30786634303030300a6d61696e5f73697a653d307836303030300a5b32303030345d0a6d61696e5f6f66",
+        "raw_record_text": "offset=0xf40000\nmain_size=0x60000\n[20004]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0xf70000",
+        "value": 16187392,
+        "radix": "hexadecimal",
+        "key_offset": 1401,
+        "value_offset": 1413,
+        "raw_record_hex": "307836303030300a5b32303030345d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d3078363030",
+        "raw_record_text": "0x60000\n[20004]\nmain_offset=0xf70000\nmain_size=0x600"
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x60000",
+        "value": 393216,
+        "radix": "hexadecimal",
+        "key_offset": 1422,
+        "value_offset": 1432,
+        "raw_record_hex": "6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a5b33303030325d0a6d61696e5f6f66",
+        "raw_record_text": "offset=0xf70000\nmain_size=0x60000\n[30002]\nmain_of"
+      },
+      {
+        "key": "main_offset",
+        "value_raw": "0xf70000",
+        "value": 16187392,
+        "radix": "hexadecimal",
+        "key_offset": 1448,
+        "value_offset": 1460,
+        "raw_record_hex": "307836303030300a5b33303030325d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d3078363030",
+        "raw_record_text": "0x60000\n[30002]\nmain_offset=0xf70000\nmain_size=0x600"
+      },
+      {
+        "key": "main_size",
+        "value_raw": "0x60000",
+        "value": 393216,
+        "radix": "hexadecimal",
+        "key_offset": 1469,
+        "value_offset": 1479,
+        "raw_record_hex": "6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a021000000c000000f1020100d10201",
+        "raw_record_text": "offset=0xf70000\nmain_size=0x60000\n\u0002\u0010\u0000\u0000\f\u0000\u0000\u0000\u00f1\u0002\u0001\u0000\u00d1\u0002\u0001"
+      }
+    ],
+    "regions": [
+      {
+        "section": "20011",
+        "kind": "main",
+        "offset": 0,
+        "size": 131072,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": true,
+        "end": 131072,
+        "within_file": true,
+        "raw_section_hex": "5b32303031315d0a6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d307832303030300a"
+      },
+      {
+        "section": "20003",
+        "kind": "main",
+        "offset": 131072,
+        "size": 65536,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": true,
+        "end": 196608,
+        "within_file": true,
+        "raw_section_hex": "5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a"
+      },
+      {
+        "section": "20003",
+        "kind": "slave",
+        "offset": 196608,
+        "size": 65536,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": true,
+        "end": 262144,
+        "within_file": true,
+        "raw_section_hex": "5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a"
+      },
+      {
+        "section": "20002",
+        "kind": "main",
+        "offset": 262144,
+        "size": 1441792,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": true,
+        "end": 1703936,
+        "within_file": true,
+        "raw_section_hex": "5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a"
+      },
+      {
+        "section": "20002",
+        "kind": "slave",
+        "offset": 8126464,
+        "size": 1441792,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 9568256,
+        "within_file": false,
+        "raw_section_hex": "5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a"
+      },
+      {
+        "section": "20001",
+        "kind": "main",
+        "offset": 1703936,
+        "size": 6422528,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 8126464,
+        "within_file": false,
+        "raw_section_hex": "5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a"
+      },
+      {
+        "section": "20001",
+        "kind": "slave",
+        "offset": 9568256,
+        "size": 6422528,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 15990784,
+        "within_file": false,
+        "raw_section_hex": "5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a"
+      },
+      {
+        "section": "20100",
+        "kind": "main",
+        "offset": 15990784,
+        "size": 0,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 15990784,
+        "within_file": false,
+        "raw_section_hex": "5b32303130305d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a"
+      },
+      {
+        "section": "20101",
+        "kind": "main",
+        "offset": 15990784,
+        "size": 0,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 15990784,
+        "within_file": false,
+        "raw_section_hex": "5b32303130315d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a"
+      },
+      {
+        "section": "20005",
+        "kind": "main",
+        "offset": 15990784,
+        "size": 393216,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 16384000,
+        "within_file": false,
+        "raw_section_hex": "5b32303030355d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d307836303030300a"
+      },
+      {
+        "section": "20004",
+        "kind": "main",
+        "offset": 16187392,
+        "size": 393216,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 16580608,
+        "within_file": false,
+        "raw_section_hex": "5b32303030345d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a"
+      },
+      {
+        "section": "30002",
+        "kind": "main",
+        "offset": 16187392,
+        "size": 393216,
+        "offset_radix": "hexadecimal",
+        "size_radix": "hexadecimal",
+        "semantics": "UNKNOWN; metadata label only",
+        "valid": false,
+        "end": 16580608,
+        "within_file": false,
+        "raw_section_hex": "5b33303030325d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a021000000c000000f1020100d102010000000000011000003000000098d1901576140000060201002cdc90a65400000005"
+      }
+    ],
+    "region_semantics": "UNKNOWN; not established as physical flash addresses"
+  },
+  "signatures": {
+    "squashfs": [
+      {
+        "offset": 198095,
+        "version": "4.0",
+        "inode_count": 1257,
+        "compression_id": 4,
+        "block_size": 1048576,
+        "bytes_used": 5930917,
+        "end": 6129012,
+        "within_file": true,
+        "superblock_hex": "68737173e9040000275ddb58000010000e00000004001400c002070004000000a71e8c1b00000000a57f5a00000000009d7f5a0000000000ffffffffffffffff6f265a000000000071495a0000000000d3765a00000000006f7f5a0000000000"
+      }
+    ],
+    "uimage": [
+      {
+        "offset": 6129103,
+        "header_size": 64,
+        "payload_size": 1434088,
+        "end": 7563255,
+        "within_file": true,
+        "header_crc_stored": "0e3295ab",
+        "data_crc_stored": "88c1e0b5",
+        "header_crc_valid": true,
+        "data_crc_valid": true,
+        "load_address": 2166390784,
+        "entry_address": 2166390784,
+        "name": "Linux-2.6.30",
+        "header_hex": "270519560e3295ab58db5ce20015e1e8812080008120800088c1e0b5050202034c696e75782d322e362e33300000000000000000000000000000000000000000"
+      }
+    ]
+  },
+  "issues": [
+    "out-of-range region [20002] slave: 0x7c0000+0x160000 exceeds file",
+    "out-of-range region [20001] main: 0x1a0000+0x620000 exceeds file",
+    "out-of-range region [20001] slave: 0x920000+0x620000 exceeds file",
+    "out-of-range region [20100] main: 0xf40000+0x0 exceeds file",
+    "out-of-range region [20101] main: 0xf40000+0x0 exceeds file",
+    "out-of-range region [20005] main: 0xf40000+0x60000 exceeds file",
+    "out-of-range region [20004] main: 0xf70000+0x60000 exceeds file",
+    "out-of-range region [30002] main: 0xf70000+0x60000 exceeds file",
+    "overlap: [20005] main and [20004] main",
+    "overlap: [20005] main and [30002] main",
+    "overlap: [20004] main and [30002] main"
+  ],
+  "structurally_valid": false
+}
