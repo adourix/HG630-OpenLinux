@@ -1,0 +1,5 @@
+#!/bin/sh
+# Additive hook: the original rcS and vendor startup remain authoritative.
+if [ -x /usr/sbin/openlinuxctl ]; then
+    /usr/sbin/openlinuxctl boot
+fi

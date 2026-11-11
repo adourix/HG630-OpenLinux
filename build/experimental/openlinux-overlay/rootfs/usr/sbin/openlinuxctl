@@ -1,0 +1,58 @@
+#!/bin/sh
+# Minimal, vendor-preserving OpenLinux service supervisor.
+ROOT=${OPENLINUX_ROOT:-}
+CONFIG=${OPENLINUX_CONFIG:-${ROOT}/etc/openlinux/openlinux.conf}
+LOG=${OPENLINUX_LOG:-${ROOT}/var/log/openlinux.log}
+SERVICES="network dns ssh firewall web"
+
+log() {
+    dir=${LOG%/*}
+    [ "$dir" = "$LOG" ] || mkdir -p "$dir"
+    echo "openlinuxctl: $*" >> "$LOG"
+}
+
+value() {
+    awk -F= -v key="SERVICE_$1" '$1 == key { print $2; found=1 } END { if (!found) print "disabled" }' "$CONFIG"
+}
+
+validate() {
+    [ -f "$CONFIG" ] || { echo "missing config: $CONFIG" >&2; return 1; }
+    awk -F= '
+        /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
+        NF != 2 || $1 !~ /^SERVICE_(NETWORK|DNS|SSH|FIREWALL|WEB)$/ || $2 !~ /^(enabled|disabled)$/ { bad=1 }
+        END { exit bad ? 1 : 0 }
+    ' "$CONFIG" || { echo "invalid config: $CONFIG" >&2; return 1; }
+}
+
+status() {
+    validate || return 1
+    for service in $SERVICES; do
+        key=$(echo "$service" | tr '[:lower:]' '[:upper:]')
+        printf '%s %s\n' "$service" "$(value "$key")"
+    done
+}
+
+boot() {
+    validate || return 1
+    for service in $SERVICES; do
+        key=$(echo "$service" | tr '[:lower:]' '[:upper:]')
+        state=$(value "$key")
+        if [ "$state" = enabled ]; then
+            script=${ROOT}/usr/libexec/openlinux-services/$service
+            if [ -x "$script" ]; then
+                "$script" >> "$LOG" 2>&1 || log "$service failed: $?"
+            else
+                log "$service enabled but implementation is absent"
+            fi
+        else
+            log "$service disabled"
+        fi
+    done
+}
+
+case "$1" in
+    validate) validate ;;
+    status) status ;;
+    boot) boot ;;
+    *) echo "usage: $0 {validate|status|boot}" >&2; exit 2 ;;
+esac

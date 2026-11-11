@@ -1,0 +1,7 @@
+#!/bin/sh
+# Dry-run until SD5610x network device names and vendor startup ordering are verified.
+if [ "${OPENLINUX_APPLY_NETWORK:-0}" = 1 ]; then
+    echo "network apply requested but hardware mapping is not verified"
+    exit 2
+fi
+echo "network dry-run: vendor network initialization remains authoritative"

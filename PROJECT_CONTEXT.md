@@ -308,3 +308,25 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 
 - No compatible QEMU machine model, kernel boot arguments, root device, or mount parameters were established. Bounded `versatilepb` and `virt` attempts produced no kernel console output; passing the original LZMA uImage directly was rejected by QEMU's image loader as compression type 3.
 - Kernel boot, RootFS mount during kernel boot, service initialization with vendor devices, and hardware boot remain UNKNOWN/BLOCKED. User-mode BusyBox execution must not be treated as kernel or hardware boot evidence.
+
+## OpenLinux userspace and V0.2 build milestone — 2026-11-10
+
+### VERIFIED
+
+- Added the first additive OpenLinux userspace component under [build/experimental/openlinux-overlay/rootfs](build/experimental/openlinux-overlay/rootfs): BusyBox-compatible `openlinuxctl`, service configuration, a dry-run network hook, and an additive init hook. The original vendor kernel, libraries, modules, DSL stack, and original `rcS` remain untouched.
+- `openlinuxctl` validates `SERVICE_NETWORK`, `SERVICE_DNS`, `SERVICE_SSH`, `SERVICE_FIREWALL`, and `SERVICE_WEB` values, reports status, and only invokes explicitly enabled hooks. All services default to disabled; the network hook refuses hardware changes unless an explicit test variable is set, and still exits with an unverified-hardware warning.
+- Added host tests in `tests/test_openlinux_userspace.py`; the full suite passes **39/39**.
+- The component executed under ARM user-mode QEMU from the newly built RootFS: status output reported all five services disabled and boot logging completed successfully. This is userspace-only validation.
+- Built RootFS V0.2 at `/home/ayad/build-output/custom-build/run-008/rootfs.squashfs`, size `5931008`, SHA256 `c2d9dfe353e01da7be59ab32efe0b8465cecb6a5f13c480846a390d9b6b677ea`.
+- Assembled a new experimental firmware at `/home/ayad/build-output/custom-build/firmware-run-002/HG630V2-v0.2-experimental.bin`, SHA256 `c0fbddcdbf524878a07826544a44dfaeaf3dbfa2c3c57606ac03dd3e9faf8d4a`. The original kernel and same-offset container structure were preserved; the builder manifest marks it `EXPERIMENTAL_NON_FLASHABLE`.
+- Added [analysis/platform/report.md](analysis/platform/report.md), [analysis/openlinux/README.md](analysis/openlinux/README.md), and [build/experimental/README.md](build/experimental/README.md).
+
+### INFERRED
+
+- The additive supervisor is a safe integration seam for future DHCP/DNS/SSH/firewall/web components because it does not assume vendor device names or replace the vendor startup path.
+
+### UNKNOWN / BLOCKED
+
+- The new init hook is not claimed to run during actual router boot: the original `rcS` does not currently invoke it, and wiring service startup into vendor boot ordering requires further static/hardware evidence.
+- DHCP, DNS, SSH, firewall, web administration, service dependency ordering, and kernel-device integration remain unimplemented or UNKNOWN. No service is enabled by default.
+- Exact SD5610x machine ID, ATAGS/device-tree protocol, RAM layout, UART, interrupt controller, timer, clock, and RootFS mount parameters remain UNKNOWN.
