@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "status": "EXPERIMENTAL_NON_FLASHABLE",
+  "reserved_span": 5931008,
+  "tool": "SquashFS-tools 4.2",
+  "build_profile": {"compression": "xz", "block_size": 1048576, "xattrs": false, "duplicates": true, "fragments": true, "bcj": "none", "processors": 1},
+  "matrix": [
+    {"label": "base", "bytes_used": 5935161, "difference_from_reserved": 4153, "comparison_match": true},
+    {"label": "dict-75pct", "bytes_used": 5937063, "difference_from_reserved": 6055, "comparison_match": true},
+    {"label": "dict-50pct", "bytes_used": 5946143, "difference_from_reserved": 15135, "comparison_match": true},
+    {"label": "noI", "bytes_used": 5988918, "difference_from_reserved": 57910, "comparison_match": true, "oem_compatible": false},
+    {"label": "noF", "bytes_used": 14167193, "difference_from_reserved": 8236185, "comparison_match": true, "oem_compatible": false},
+    {"label": "noD", "bytes_used": 7671491, "difference_from_reserved": 1740483, "comparison_match": true, "oem_compatible": false},
+    {"label": "no-fragments", "bytes_used": 6429053, "difference_from_reserved": 498045, "comparison_match": true, "oem_compatible": false},
+    {"label": "always-use-fragments", "bytes_used": 5937466, "difference_from_reserved": 6458, "comparison_match": true, "oem_compatible": false},
+    {"label": "no-duplicates", "bytes_used": 5936869, "difference_from_reserved": 5861, "comparison_match": true, "oem_compatible": false},
+    {"label": "sort-overlay-first", "bytes_used": 5914501, "difference_from_reserved": -16507, "comparison_match": true},
+    {"label": "sort-overlay-last", "bytes_used": 5914229, "difference_from_reserved": -16779, "comparison_match": true},
+    {"label": "sort-controller-first", "bytes_used": 5914533, "difference_from_reserved": -16475, "comparison_match": true},
+    {"label": "sort-controller-last", "bytes_used": 5914473, "difference_from_reserved": -16535, "comparison_match": true}
+  ],
+  "winning_candidate": {
+    "bytes_used": 5914229,
+    "outer_file_size": 5914624,
+    "margin_inside_reserved": 16779,
+    "sha256": "1f0760422f5f94b5da8ad7670725e1c2fc6fe0134d6649b96e5f2a2dbca2515e",
+    "repeat_sha256": "1f0760422f5f94b5da8ad7670725e1c2fc6fe0134d6649b96e5f2a2dbca2515e",
+    "inodes": 1264,
+    "fragments": 14,
+    "sort_file": ["etc/init.d/openlinux 100", "etc/openlinux/openlinux.conf 100", "usr/libexec/openlinux-services/network 100", "usr/sbin/openlinuxctl 100"],
+    "oem_paths_match": true,
+    "overlay_behavior_match": true,
+    "mkfs_timestamp_normalized": 1490771239
+  },
+  "runtime_evidence": {"oem_busybox_version": "1.9.1", "required_applets_observed_under_qemu_arm": ["awk", "mkdir", "echo", "kill", "sleep", "cp", "test", "rm", "sh", "ifconfig", "udhcpc", "cat"], "shell_builtins_used": ["command", "printf"], "comment_stripping_behavior_equal": true, "comment_stripping_source_reduction": 533},
+  "conclusion": "A valid size-fitting host-side candidate exists using deterministic SquashFS file ordering. It retains ordinary XZ, fragments, duplicate checking, OEM files, and the complete overlay. This does not prove kernel mount, updater acceptance, boot, flashability, or hardware behavior."
+}

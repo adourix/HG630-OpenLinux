@@ -26,7 +26,7 @@ def inventory(root: Path) -> dict[str, dict[str, object]]:
         relative = "." if path == root else str(path.relative_to(root))
         info = path.lstat()
         kind = "directory" if stat.S_ISDIR(info.st_mode) else "regular" if stat.S_ISREG(info.st_mode) else "symlink" if stat.S_ISLNK(info.st_mode) else "fifo" if stat.S_ISFIFO(info.st_mode) else "character" if stat.S_ISCHR(info.st_mode) else "block" if stat.S_ISBLK(info.st_mode) else "unsupported"
-        entry: dict[str, object] = {"kind": kind, "mode": stat.S_IMODE(info.st_mode), "uid": info.st_uid, "gid": info.st_gid}
+        entry: dict[str, object] = {"kind": kind, "mode": stat.S_IMODE(info.st_mode), "uid": info.st_uid, "gid": info.st_gid, "mtime": int(info.st_mtime)}
         if kind == "regular":
             entry["sha256"] = digest(path)
             entry["size"] = info.st_size

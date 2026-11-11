@@ -132,6 +132,17 @@ def _apply_overlay_entry(source: Path, target: Path) -> None:
     _copy_entry(source, target, {})
 
 
+def _restore_oem_directory_metadata(rootfs: Path, stage: Path) -> None:
+    """Restore OEM directory metadata changed by creating overlay children."""
+    for source in [rootfs, *rootfs.rglob("*")]:
+        if not source.is_dir() or source.is_symlink():
+            continue
+        relative = source.relative_to(rootfs)
+        destination = stage / relative
+        if destination.is_dir() and not destination.is_symlink():
+            _copy_metadata(str(source), str(destination), source.lstat())
+
+
 def validate_image(image: Path) -> str:
     """Validate both the SquashFS superblock and full extraction."""
     summary = subprocess.run(
@@ -185,6 +196,7 @@ def build(
             target = stage / relative
             _apply_overlay_entry(source, target)
         applied.append(str(overlay))
+    _restore_oem_directory_metadata(rootfs, stage)
 
     image = output / "rootfs.squashfs"
     if processors < 1:

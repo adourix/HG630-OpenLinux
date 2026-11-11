@@ -25,6 +25,28 @@ Updated: 2026-11-10 20:00 America/New_York
 - The Huawei kernel's `tbcj` strings do not prove ARM BCJ registration or safe support. Do not enable BCJ.
 - No host-side result proves kernel mount, boot, updater acceptance, flashability, or hardware behavior. Keep `EXPERIMENTAL_NON_FLASHABLE` / `RESEARCH_ONLY`.
 
+## Complete overlay fit milestone — 2026-11-10
+
+### VERIFIED
+
+- A complete OpenLinux overlay built with SquashFS-tools 4.2 and ordinary XZ fits using deterministic `-sort` ordering. The winning candidate is 5,914,229 internal bytes, leaving 16,779 bytes in the 5,931,008-byte span; SHA-256 is `1f0760422f5f94b5da8ad7670725e1c2fc6fe0134d6649b96e5f2a2dbca2515e`.
+- The candidate retains 1,264 inodes, 14 fragments, no xattrs, duplicate checking, ordinary XZ, and all four overlay files. A repeat build produced the same hash after normalizing the 4.2 superblock creation timestamp to the OEM value.
+- OEM-path comparison found no missing, extra, or changed OEM entries/metadata. Extracted candidate behavior matched the original overlay behavior tests.
+- Tested XZ dictionaries and metadata/fragment settings; none improved size or preserved the original profile. 4.2 `-sort` variants were the successful optimization.
+- Fixed overlay builds to restore timestamps on existing OEM directories after adding children; strict validation now records and compares integer mtimes.
+- Verified required BusyBox applets and shell behavior under `qemu-arm`; no OEM file/library/kernel/driver was changed. Comment/blank-line stripping was behavior-equivalent and saved 533 source bytes, but original readable sources were retained.
+- Added `analysis/server-run/overlay-fit-report.md`, `analysis/server-run/overlay-fit-results.json`, optimization/behavior scripts, and regression tests.
+
+### INFERRED
+
+- The size gain comes from SquashFS file-order/compressor packing under `-sort`, not from a different XZ filter or removed functionality. Sorting is format-compatible because it changes inode/order packing only.
+- Existing OEM directories are not a safe alternate host for the overlay; using them does not remove the payload and risks vendor semantics. RAM/network loading remains a fallback architecture requiring post-boot transport and is not a reliable early-boot path.
+
+### UNKNOWN / BLOCKED
+
+- Target Huawei kernel mount behavior, updater acceptance, flash mapping, boot, and hardware behavior remain unverified. The fitting candidate is still `EXPERIMENTAL_NON_FLASHABLE` / `RESEARCH_ONLY`.
+- ARM BCJ and exact target XZ dictionary support remain UNKNOWN; the fitting candidate uses neither BCJ nor alternate metadata semantics.
+
 ## RootFS size and compatibility investigation — 2026-11-10
 
 ### VERIFIED

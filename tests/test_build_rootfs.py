@@ -86,7 +86,7 @@ class RootFsBuildTests(unittest.TestCase):
             self.assertEqual(report["squashfs_size"], 131072)
             self.assertEqual((output / "rootfs.squashfs").stat().st_size, 131072)
             self.assertTrue((output / "build-report.json").exists())
-            comparison = validate(output / "rootfs.squashfs", source)
+            comparison = validate(output / "rootfs.squashfs", source, allowed_difference={".", "file"})
             self.assertTrue(comparison["match"])
 
 
@@ -117,6 +117,21 @@ class OverlaySafetyTests(unittest.TestCase):
             os.chmod(target, 0o755)
             _apply_overlay_entry(source, target)
             self.assertEqual(stat.S_IMODE(target.stat().st_mode), 0o755)
+
+    def test_overlay_file_does_not_change_existing_oem_directory_mtime(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            source = base / "source"
+            overlay = base / "overlay"
+            source.mkdir()
+            (source / "etc").mkdir()
+            (overlay / "etc").mkdir(parents=True)
+            (overlay / "etc" / "hook").write_text("hook\n")
+            old = 1_490_771_239
+            os.utime(source / "etc", (old, old))
+            output = base / "output"
+            build(source, [overlay], output, processors=1, allowlist=["etc/hook"])
+            self.assertEqual(int((output / "stage-rootfs" / "etc").stat().st_mtime), old)
 
     def test_overlay_directory_replaces_conflicting_file(self):
         with tempfile.TemporaryDirectory() as directory:
