@@ -1,5 +1,13 @@
 # HG630-OpenLinux project context
 
+## V1.3 USB runtime investigation — 2026-11-11
+
+- **VERIFIED from operator observation:** USB is recognized, `bftpd` FTP login/download/upload works, and the FTP root shows two Lexar partitions. The V1.2 archive SHA-256 matches the expected `727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409`.
+- **VERIFIED from extracted firmware:** USB CMS strings map storage management through `/mnt`; the explicit NTFS, VFAT, HFS+, and ext3 mount options include `noexec`. The ext2 mount string has no visible options. FTP-generated configuration includes chroot and a configurable starting folder.
+- **UNKNOWN:** live local mount paths, filesystem types/options, FTP user's local mapping, execution of uploaded files, and an operator-accessible shell on this exact VER.B unit. SSH binary exists without an inspected startup launch; telnet has a dynamic-app request but live activation/access is unproven. `inittab` respawns `/bin/sh` without proving an accessible tty.
+- **BLOCKED:** safe USB runtime deployment is not established. FTP transfer is not shell execution, and no live `exec` support was tested. Obtain the documented authorized exact-board console method, then inspect live mount information read-only.
+- Details: [V1.3 USB runtime investigation](analysis/openlinux/v1.3/usb-runtime-investigation.md) and [machine-readable options](analysis/openlinux/v1.3/usb-runtime-options.json). No router configuration or service was changed; no target runtime test was performed.
+
 Updated: 2026-11-11 America/New_York
 
 ## OEM-preserving runtime scaffold milestone — 2026-11-11

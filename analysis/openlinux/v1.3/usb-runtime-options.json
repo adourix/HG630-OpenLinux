@@ -1,0 +1,143 @@
+{
+  "schema": "openlinux-v1.3-usb-runtime-investigation-v1",
+  "date": "2026-11-11",
+  "target": {
+    "model": "Huawei HG630 V2",
+    "hardware_revision": "VER.B (operator-reported)",
+    "firmware": "V100R001C298B010 (operator-confirmed; supplied extracted firmware inspected)",
+    "router_ip": "192.168.1.1 (operator-reported)",
+    "physical_target_tested": false
+  },
+  "scope": {
+    "firmware_rootfs": "/home/ayad/build-output/rootfs",
+    "runtime_archive": "/home/ayad/build-output/openlinux-runtime-v1.2.tar.gz",
+    "runtime_sha256": "727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409",
+    "router_commands_run": false,
+    "configuration_changed": false,
+    "service_enabled": false,
+    "runtime_executed_on_target": false,
+    "qemu_implies_target_compatibility": false
+  },
+  "classifications": {
+    "ftp_transfer": {
+      "status": "CONFIRMED",
+      "evidence": [
+        {"source": "operator observation", "claim": "bftpd banner, ayad login, download and test.txt upload succeeded; root lists Lexar___-21C40209_usb1_1 and usb1_2"},
+        {"path": "/home/ayad/build-output/rootfs/bin/cms", "claim": "FTP config generation strings, bftpd config/password paths, DO_CHROOT=yes and StartingFolder setting"}
+      ],
+      "limit": "File transfer does not demonstrate local shell access or execution."
+    },
+    "ftp_to_local_path_visibility": {
+      "status": "POSSIBLE_BUT_UNVERIFIED",
+      "evidence": [
+        {"path": "/home/ayad/build-output/rootfs/etc/webimg", "claim": "USB user/folder paths default to /mnt"},
+        {"path": "/home/ayad/build-output/rootfs/bin/cms", "claim": "USB mount path patterns include /mnt/%s and /mnt%s"}
+      ],
+      "limit": "Active FTP user mapping/chroot and live local path were not read from target."
+    },
+    "usb_mount_paths": {
+      "status": "POSSIBLE_BUT_UNVERIFIED",
+      "evidence": [
+        {"path": "/home/ayad/build-output/rootfs/etc/profile", "claim": "initial tmpfs mount at /mnt"},
+        {"path": "/home/ayad/build-output/rootfs/bin/cms", "claim": "USB mount index, generated mount naming, /mnt path, mount command and /proc/mounts strings"},
+        {"path": "/home/ayad/build-output/rootfs/etc/devicetable", "claim": "SCSI block nodes /dev/sda through /dev/sdh"}
+      ],
+      "limit": "Firmware strings do not establish which partitions are live-mounted where."
+    },
+    "usb_execution": {
+      "status": "POSSIBLE_BUT_UNVERIFIED",
+      "filesystem_options": {
+        "ntfs": {"status": "PRESENT_BUT_DISABLED", "detail": "CMS command string includes ntfs-3g -o big_writes,noexec,...", "evidence": "/home/ayad/build-output/rootfs/bin/cms"},
+        "ext3": {"status": "PRESENT_BUT_DISABLED", "detail": "CMS mount string specifies -o rw,noexec", "evidence": "/home/ayad/build-output/rootfs/bin/cms"},
+        "vfat": {"status": "PRESENT_BUT_DISABLED", "detail": "CMS mount string specifies iocharset=utf8,shortname=winnt,noexec", "evidence": "/home/ayad/build-output/rootfs/bin/cms"},
+        "hfsplus": {"status": "PRESENT_BUT_DISABLED", "detail": "CMS mount string specifies nls=utf8,rw,noexec", "evidence": "/home/ayad/build-output/rootfs/bin/cms"},
+        "ext2": {"status": "POSSIBLE_BUT_UNVERIFIED", "detail": "Mount string is present without visible options; actual flags and disk filesystem are unknown.", "evidence": "/home/ayad/build-output/rootfs/bin/cms"}
+      },
+      "limit": "Connected Lexar filesystem types, live mount flags, and execution behavior were not verified. FTP success is not execution evidence."
+    },
+    "ssh_shell": {
+      "status": "PRESENT_BUT_DISABLED",
+      "evidence": [
+        {"path": "/home/ayad/build-output/rootfs/bin/sshd", "claim": "ARM sshd binary exists"},
+        {"path": "/home/ayad/build-output/rootfs/bin/cms", "claim": "sshusers config and killall sshd strings"},
+        {"path": "/home/ayad/build-output/rootfs/etc/inittab", "claim": "no sshd launch"},
+        {"path": "/home/ayad/build-output/rootfs/etc/profile", "claim": "no sshd launch"},
+        {"path": "/home/ayad/build-output/rootfs/etc/init.d/rcS", "claim": "no sshd launch"},
+        {"path": "/home/ayad/build-output/rootfs/etc/insmod_all.sh", "claim": "no sshd launch"}
+      ],
+      "limit": "No live service, authorized login, key/config state, or safe activation method established."
+    },
+    "telnet_shell": {
+      "status": "POSSIBLE_BUT_UNVERIFIED",
+      "evidence": [
+        {"path": "/home/ayad/build-output/rootfs/bin/telnetd", "claim": "ARM telnetd binary exists"},
+        {"path": "/home/ayad/build-output/rootfs/etc/insmod_all.sh", "claim": "atpsync dynapp telnetd true request"},
+        {"path": "/home/ayad/build-output/rootfs/etc/passwd1", "claim": "telnetd account shell is /bin/false"}
+      ],
+      "limit": "Dynamic-app request semantics, live state, auth, and shell access are not established. No enabling or connection attempt performed."
+    },
+    "inittab_shell": {
+      "status": "POSSIBLE_BUT_UNVERIFIED",
+      "evidence": [
+        {"path": "/home/ayad/build-output/rootfs/etc/inittab", "claim": "respawn:-/bin/sh; tty2 askfirst shell is commented"},
+        {"path": "/home/ayad/build-output/rootfs/etc/devicetable", "claim": "ttyAMA0 and ttyAMA1 device nodes provisioned"}
+      ],
+      "limit": "No exposed tty, physical routing, authorization, or interactive access is proven."
+    },
+    "serial_console_documentation": {
+      "status": "NOT_FOUND",
+      "evidence": [
+        {"path": "analysis/openlinux/v0.6/hardware-discovery.md", "claim": "project records UART/hardware-console details as unknown"},
+        {"path": "/home/ayad/build-output/rootfs/etc/securetty", "claim": "generic tty names only, not exact board procedure"}
+      ],
+      "limit": "No exact VER.B authorized vendor console procedure/pinout identified. Similar HG630B reports do not establish this board's pinout."
+    },
+    "debug_web_shell": {
+      "status": "NOT_FOUND",
+      "evidence": [
+        {"path": "/home/ayad/build-output/rootfs/etc/webimg", "claim": "static web app contains storage/config/upgrade functions but no evidenced general shell route"},
+        {"path": "/home/ayad/build-output/rootfs/etc/diagnose.lua", "claim": "internal sys.exec calls are maintenance implementation, not a documented remote shell"}
+      ],
+      "limit": "Static inspection cannot prove absence of every hidden server behavior. No endpoint invocation permitted or performed."
+    },
+    "busybox_shell": {
+      "status": "CONFIRMED",
+      "evidence": [
+        {"path": "/home/ayad/build-output/rootfs/bin/busybox", "claim": "ARM ELF with ash and shell strings"},
+        {"path": "/home/ayad/build-output/rootfs/etc/inittab", "claim": "/bin/sh respawn entry"}
+      ],
+      "limit": "Shell binary availability does not establish operator access."
+    }
+  },
+  "runtime": {
+    "version": "V1.2",
+    "archive_sha256_verified": true,
+    "shell_only_scaffold": true,
+    "network_services_implemented": false,
+    "network_mode_required": "disabled",
+    "busybox_dependencies": ["date", "mkdir", "rm", "sleep", "kill", "rmdir via busybox"],
+    "dependencies_status": "PRESENT_IN_STATIC_BUSYBOX_STRINGS; NOT TARGET_EXECUTION_TESTED",
+    "readiness_checks": ["/dev/caldata is symlink", "some /proc/<pid>/comm equals mic"],
+    "state_location": "package-contained $BASE/var (must be writable)",
+    "start_status_stop_uninstall": "IMPLEMENTED_BUT_NOT_TARGET_TESTED",
+    "usb_execution_supported": null,
+    "usb_execution_established": false,
+    "usb_execution_reason": "Current partition filesystem/live mount flags unknown; all listed mount implementations except inconclusive ext2 specify noexec.",
+    "target_compatibility": "UNKNOWN",
+    "qemu_vexpress_proves_hg630": false,
+    "evidence": [
+      {"path": "analysis/openlinux/v1.2/runtime-implementation.md", "claim": "runtime behavior, dependencies, readiness checks"},
+      {"path": "analysis/openlinux/v1.2/runtime-validation.json", "claim": "VExpress-only host/emulator scope"},
+      {"path": "/home/ayad/build-output/openlinux-runtime-v1.2.tar.gz", "claim": "actual package inspected and hash matches operator value"}
+    ]
+  },
+  "storage": {
+    "initial_mnt": {"status": "CONFIRMED_IN_FIRMWARE", "detail": "tmpfs configured at /mnt by profile; volatile; later USB mount may cover/add directories"},
+    "external_usb_mount": {"status": "POSSIBLE_BUT_UNVERIFIED", "detail": "Operator confirms FTP storage; local mount path and type unknown"},
+    "persistent_writable_runtime_location": false,
+    "ram_state_required_outside_usb": false,
+    "conditional_deployment_destination": "Only a newly verified writable and executable mount path after an authorized shell is obtained."
+  },
+  "deployment_established": false,
+  "recommended_next_operator_action": "Obtain through Huawei or the authorized service provider the documented service-console method and exact HG630 V2 VER.B pinout/electrical levels; after authorized shell access is established, collect read-only live mount/type/options for both Lexar partitions."
+}
