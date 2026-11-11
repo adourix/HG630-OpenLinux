@@ -1,0 +1,138 @@
+{
+  "flashable": false,
+  "inputs": {
+    "custom_rootfs": {
+      "path": "/home/ayad/build-output/custom-build/run-007/rootfs.squashfs",
+      "sha256": "05240eabcc5f559fe92ef5a89f08ae33bcd978dc4977ae85143ab1a50de8f97b",
+      "size": 5931008,
+      "validation": {
+        "generated_entries": 1258,
+        "image": "/home/ayad/build-output/custom-build/run-007/rootfs.squashfs",
+        "image_sha256": "05240eabcc5f559fe92ef5a89f08ae33bcd978dc4977ae85143ab1a50de8f97b",
+        "image_size": 5931008,
+        "unsquashfs_summary": "Found a valid SQUASHFS 4:0 superblock on /home/ayad/build-output/custom-build/run-007/rootfs.squashfs.\nCreation or last append time Wed Mar 29 03:07:19 2017\nFilesystem size 5929393 bytes (5790.42 Kbytes / 5.65 Mbytes)\nCompression xz\nBlock size 1048576\nFilesystem is exportable via NFS\nInodes are compressed\nData is compressed\nUids/Gids (Id table) are compressed\nFragments are compressed\nAlways-use-fragments option is not specified\nXattrs are compressed\nDuplicates are removed\nNumber of fragments 14\nNumber of inodes 1258\nNumber of ids 7\nNumber of xattr ids 0\n",
+        "validation_level": "SQUASHFS_STRUCTURE_AND_EXTRACTION"
+      }
+    },
+    "original_firmware": {
+      "path": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+      "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+      "size": 7563600
+    }
+  },
+  "layout": {
+    "original_squashfs_bytes_used": 5930917,
+    "reserved_rootfs_span": 5931008,
+    "same_offsets": true,
+    "squashfs_offset": 198095,
+    "uimage_end": 7563255,
+    "uimage_offset": 6129103
+  },
+  "original_inspection": {
+    "issues": [
+      "out-of-range region [20002] slave: 0x7c0000+0x160000 exceeds file",
+      "out-of-range region [20001] main: 0x1a0000+0x620000 exceeds file",
+      "out-of-range region [20001] slave: 0x920000+0x620000 exceeds file",
+      "out-of-range region [20100] main: 0xf40000+0x0 exceeds file",
+      "out-of-range region [20101] main: 0xf40000+0x0 exceeds file",
+      "out-of-range region [20005] main: 0xf40000+0x60000 exceeds file",
+      "out-of-range region [20004] main: 0xf70000+0x60000 exceeds file",
+      "out-of-range region [30002] main: 0xf70000+0x60000 exceeds file",
+      "overlap: [20005] main and [20004] main",
+      "overlap: [20005] main and [30002] main",
+      "overlap: [20004] main and [30002] main"
+    ],
+    "squashfs": {
+      "block_size": 1048576,
+      "bytes_used": 5930917,
+      "compression_id": 4,
+      "end": 6129012,
+      "inode_count": 1257,
+      "offset": 198095,
+      "superblock_hex": "68737173e9040000275ddb58000010000e00000004001400c002070004000000a71e8c1b00000000a57f5a00000000009d7f5a0000000000ffffffffffffffff6f265a000000000071495a0000000000d3765a00000000006f7f5a0000000000",
+      "version": "4.0",
+      "within_file": true
+    },
+    "uimage": {
+      "data_crc_stored": "88c1e0b5",
+      "data_crc_valid": true,
+      "end": 7563255,
+      "entry_address": 2166390784,
+      "header_crc_stored": "0e3295ab",
+      "header_crc_valid": true,
+      "header_hex": "270519560e3295ab58db5ce20015e1e8812080008120800088c1e0b5050202034c696e75782d322e362e33300000000000000000000000000000000000000000",
+      "header_size": 64,
+      "load_address": 2166390784,
+      "name": "Linux-2.6.30",
+      "offset": 6129103,
+      "payload_size": 1434088,
+      "within_file": true
+    }
+  },
+  "output": {
+    "manifest": "/home/ayad/build-output/custom-build/firmware-run-001/HG630V2-experimental.bin.manifest.json",
+    "path": "/home/ayad/build-output/custom-build/firmware-run-001/HG630V2-experimental.bin",
+    "sha256": "349d448549c468145df58176c4e787d5a192b5dbde6135496fa8e4027f84fcc4",
+    "sha256_report": "/home/ayad/build-output/custom-build/firmware-run-001/HG630V2-experimental.bin.sha256",
+    "size": 7563600
+  },
+  "output_inspection": {
+    "issues": [
+      "out-of-range region [20002] slave: 0x7c0000+0x160000 exceeds file",
+      "out-of-range region [20001] main: 0x1a0000+0x620000 exceeds file",
+      "out-of-range region [20001] slave: 0x920000+0x620000 exceeds file",
+      "out-of-range region [20100] main: 0xf40000+0x0 exceeds file",
+      "out-of-range region [20101] main: 0xf40000+0x0 exceeds file",
+      "out-of-range region [20005] main: 0xf40000+0x60000 exceeds file",
+      "out-of-range region [20004] main: 0xf70000+0x60000 exceeds file",
+      "out-of-range region [30002] main: 0xf70000+0x60000 exceeds file",
+      "overlap: [20005] main and [20004] main",
+      "overlap: [20005] main and [30002] main",
+      "overlap: [20004] main and [30002] main"
+    ],
+    "squashfs": {
+      "block_size": 1048576,
+      "bytes_used": 5929393,
+      "compression_id": 4,
+      "end": 6127488,
+      "inode_count": 1258,
+      "offset": 198095,
+      "superblock_hex": "68737173ea040000275ddb58000010000e00000004001400c000070004000000c71e941a00000000b1795a0000000000a9795a0000000000ffffffffffffffff7f265a000000000029485a0000000000eb735a00000000007b795a0000000000",
+      "version": "4.0",
+      "within_file": true
+    },
+    "uimage": {
+      "data_crc_stored": "88c1e0b5",
+      "data_crc_valid": true,
+      "end": 7563255,
+      "entry_address": 2166390784,
+      "header_crc_stored": "0e3295ab",
+      "header_crc_valid": true,
+      "header_hex": "270519560e3295ab58db5ce20015e1e8812080008120800088c1e0b5050202034c696e75782d322e362e33300000000000000000000000000000000000000000",
+      "header_size": 64,
+      "load_address": 2166390784,
+      "name": "Linux-2.6.30",
+      "offset": 6129103,
+      "payload_size": 1434088,
+      "within_file": true
+    }
+  },
+  "preservation": {
+    "kernel_uimage_preserved": true,
+    "kernel_uimage_sha256": "13a3432e8d2bbce07c5d0a49e157d77c3c183cad445dfb16be3c3bcaaa75ebc7",
+    "metadata_prefix_preserved": true,
+    "suffix_preserved": true,
+    "unknown_header_fields_preserved": true
+  },
+  "reason": "OEM signature and outer-container integrity requirements remain UNKNOWN; this output must not be flashed.",
+  "status": "EXPERIMENTAL_NON_FLASHABLE",
+  "tool": "build_firmware.py",
+  "validation_levels": {
+    "container_structure_and_embedded_components": "VERIFIED",
+    "hardware_boot": "UNKNOWN",
+    "kernel_boot": "UNKNOWN",
+    "kernel_structure_and_crc": "VERIFIED",
+    "oem_update_acceptance": "UNKNOWN",
+    "rootfs_build_and_extraction": "VERIFIED"
+  }
+}

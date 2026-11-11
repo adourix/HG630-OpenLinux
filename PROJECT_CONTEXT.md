@@ -268,3 +268,26 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - No exact update-section-to-MTD mapping is proven. Calibration exclusion, bootloader protection policy, erase geometry, and full-vs-partial package selection remain unresolved.
 - A Python signature-verification tool is BLOCKED: the public key, signature bytes/format, digest coverage, and padding are not sufficiently established. No private key was generated or extracted, and no cryptographic bypass was attempted.
 - Generated JSON reports are preserved outside Git under `analysis/generated/upgrade-re/`; the requested human-readable Markdown reports are committed under `analysis/upgrade-re/`.
+
+## Integrated custom firmware build milestone — 2026-11-10
+
+### VERIFIED
+
+- Added `tools/build_firmware.py` and three synthetic assembly tests. Full repository suite passes **36/36**.
+- The builder requires the known original firmware SHA-256 by default, validates the custom RootFS through SquashFS structure plus complete extraction, and refuses to overwrite an existing output.
+- It preserves the original metadata prefix, unknown header bytes, original uImage, and suffix. It rejects a replacement RootFS whose size would move the original uImage or require invented gap/offset semantics.
+- Run-007 custom RootFS is exactly `5,931,008` bytes, matching the original SquashFS-to-uImage reserved span. A same-layout experimental image was assembled at `/home/ayad/build-output/custom-build/firmware-run-001/HG630V2-experimental.bin`.
+- Experimental image SHA-256: `349d448549c468145df58176c4e787d5a192b5dbde6135496fa8e4027f84fcc4`, size 7,563,600 bytes.
+- The preserved uImage remains byte-identical with SHA-256 `13a3432e8d2bbce07c5d0a49e157d77c3c183cad445dfb16be3c3bcaaa75ebc7`; its header and payload CRC32 checks pass. Kernel name is `Linux-2.6.30`, LZMA compression, load/entry `0x81208000`.
+- Added [analysis/build-feasibility/report.md](analysis/build-feasibility/report.md) and [analysis/build-feasibility/manifest.json](analysis/build-feasibility/manifest.json).
+
+### INFERRED
+
+- Same-offset assembly is the safest currently justified integration strategy because it leaves all unresolved metadata coordinates and the original kernel position untouched.
+- The resulting RootFS preserves the original hardware-specific files because the existing overlay build starts from the complete extracted RootFS and run-007 had already passed source comparison with only the intentional overlay difference.
+
+### UNKNOWN / BLOCKED
+
+- OEM update acceptance remains UNKNOWN: signature, outer checksum/authentication, and metadata-to-MTD semantics are unresolved.
+- Kernel boot arguments, root device, mount parameters, QEMU boot, and actual HG630 V2 hardware boot remain UNKNOWN/BLOCKED.
+- The generated image is explicitly `EXPERIMENTAL_NON_FLASHABLE`; no flashing, MTD access, or cryptographic bypass was attempted.
