@@ -106,6 +106,26 @@ logs_status() { echo "logs.path=$LOG"; echo "logs.max_bytes=$(cfg LOG_MAX_BYTES)
 service_key() { case "$1" in network) echo NETWORK;; dns) echo DNS;; ssh) echo SSH;; firewall) echo FIREWALL;; web) echo WEB;; esac; }
 status() { validate_config || return 1; for service in network dns ssh firewall web; do echo "$service=$(cfg SERVICE_$(service_key "$service"))"; done; }
 
+service_pid() { echo "${ROOT}/var/run/openlinux-$1.pid"; }
+service_start() {
+    name=$1; case "$name" in network|dns|ssh|firewall|web) ;; *) echo "unknown service: $name" >&2; return 2;; esac
+    validate_config || return 1
+    state=$(cfg SERVICE_$(service_key "$name")); [ "$state" = enabled ] || { echo "$name is disabled in configuration"; return 1; }
+    pidfile=$(service_pid "$name"); [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null && { echo "$name already running"; return 0; }
+    script=${ROOT}/usr/libexec/openlinux-services/$name
+    [ -x "$script" ] || { echo "$name implementation unavailable" >&2; return 1; }
+    "$script" >> "$LOG" 2>&1 & echo $! > "$pidfile"
+    echo "$name started pid=$(cat "$pidfile")"
+}
+service_stop() {
+    name=$1; pidfile=$(service_pid "$name"); [ -f "$pidfile" ] || { echo "$name not running"; return 0; }
+    pid=$(cat "$pidfile"); kill "$pid" 2>/dev/null || :; rm -f "$pidfile"; echo "$name stopped"
+}
+service_status() {
+    name=$1; pidfile=$(service_pid "$name"); if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then echo "$name=running pid=$(cat "$pidfile")"; else echo "$name=stopped"; fi
+}
+diagnostics() { validate_config || return 1; echo '[openlinux]'; status; echo '[network]'; network_status; echo '[services]'; for name in network dns ssh firewall web; do service_status "$name"; done; echo '[logging]'; logs_status; }
+
 case "$1:$2" in
     validate:) validate_config ;;
     status:) status ;;
@@ -120,6 +140,11 @@ case "$1:$2" in
     ssh:validate) ssh_validate ;;
     monitor:) validate_config && monitor ;;
     logs:status) logs_status ;;
+    service:start) service_start "$3" ;;
+    service:stop) service_stop "$3" ;;
+    service:restart) service_stop "$3"; service_start "$3" ;;
+    service:status) service_status "$3" ;;
+    diagnostics:) diagnostics ;;
     boot:) validate_config || exit 1; for service in network dns ssh firewall web; do state=$(cfg SERVICE_$(service_key "$service")); if [ "$state" = enabled ]; then script=${ROOT}/usr/libexec/openlinux-services/$service; if [ -x "$script" ]; then "$script" >> "$LOG" 2>&1 || log "$service failed: $?"; else log "$service enabled but implementation is absent"; fi; else log "$service disabled"; fi; done ;;
-    *) echo "usage: $0 {validate|status|network|dhcp|firewall|ssh|monitor|logs|boot}" >&2; exit 2 ;;
+    *) echo "usage: $0 {validate|status|network|dhcp|firewall|ssh|monitor|logs|service {start|stop|restart|status} NAME|diagnostics|boot}" >&2; exit 2 ;;
 esac

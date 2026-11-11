@@ -10,6 +10,7 @@ import shutil
 import stat
 import subprocess
 import tempfile
+import fnmatch
 from pathlib import Path
 
 
@@ -82,8 +83,10 @@ def _apply_overlay_entry(source: Path, target: Path) -> None:
     """Apply one overlay entry, including special files and its metadata."""
     source_stat = source.lstat()
     if source.is_dir() and not source.is_symlink():
+        existed = target.is_dir() and not target.is_symlink()
         target.mkdir(parents=True, exist_ok=True)
-        _copy_metadata(str(source), str(target), source_stat)
+        if not existed:
+            _copy_metadata(str(source), str(target), source_stat)
         return
     if target.exists() or target.is_symlink():
         if target.is_dir() and not target.is_symlink():
@@ -118,6 +121,7 @@ def build(
     processors: int = 1,
     bcj: str | None = None,
     pad_to: int | None = None,
+    allowlist: list[str] | None = None,
 ) -> dict[str, object]:
     rootfs = rootfs.resolve()
     output = output.resolve()
@@ -129,12 +133,18 @@ def build(
         shutil.rmtree(stage)
     copy_rootfs(rootfs, stage)
     applied = []
+    allowlist = allowlist or []
     for overlay in overlays:
         overlay = overlay.resolve()
         if not overlay.is_dir():
             raise ValueError(f"overlay directory does not exist: {overlay}")
         for source in sorted(overlay.rglob("*")):
             relative = source.relative_to(overlay)
+            reltext = relative.as_posix()
+            allowed = any(fnmatch.fnmatchcase(reltext, pattern) for pattern in allowlist)
+            implicit_parent = any(pattern.startswith(reltext.rstrip('/') + '/') for pattern in allowlist)
+            if allowlist and not (allowed or implicit_parent):
+                raise ValueError(f"overlay path is not allowlisted: {reltext}")
             target = stage / relative
             _apply_overlay_entry(source, target)
         applied.append(str(overlay))
@@ -147,7 +157,7 @@ def build(
         if bcj != "arm":
             raise ValueError("only the explicitly supported BCJ filter is arm")
         command.extend(["-Xbcj", bcj])
-    command.extend(["-b", "1M", "-all-time", "1490771239", "-mkfs-time", "1490771239", "-no-progress", "-processors", str(processors)])
+    command.extend(["-no-xattrs", "-b", "1M", "-all-time", "1490771239", "-mkfs-time", "1490771239", "-no-progress", "-processors", str(processors)])
     subprocess.run(command, check=True, capture_output=True, text=True)
     validation = validate_image(image)
     padding = 0
@@ -167,6 +177,8 @@ def build(
         "squashfs_sha256": sha256(image), "mksquashfs_command": command,
         "unsquashfs_validation": validation,
         "original_kernel_preserved": True,
+        "filesystem_profile": {"version": "4.0", "compression": "xz", "endianness": "little", "block_size": 1048576, "fragments": True, "xattrs": False, "duplicate_checking": "mksquashfs default enabled", "bcj": bcj or "none"},
+        "overlay_allowlist": allowlist,
     }
     if source_image:
         report["source_squashfs"] = str(source_image)
@@ -185,8 +197,9 @@ def main() -> int:
     parser.add_argument("--processors", type=int, default=1, help="mksquashfs worker count (default: 1)")
     parser.add_argument("--bcj", choices=["arm"], help="optional XZ ARM BCJ filter")
     parser.add_argument("--pad-to", type=int, help="append deterministic zero padding to this image size")
+    parser.add_argument("--allow", action="append", default=[], help="allowlisted overlay relative path/glob; repeat as needed")
     args = parser.parse_args()
-    print(json.dumps(build(args.rootfs, args.overlay, args.output, args.source_squashfs, args.processors, args.bcj, args.pad_to), indent=2))
+    print(json.dumps(build(args.rootfs, args.overlay, args.output, args.source_squashfs, args.processors, args.bcj, args.pad_to, args.allow), indent=2))
     return 0
 
 

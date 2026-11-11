@@ -59,7 +59,8 @@ def validate(image: Path, source: Path | None = None, allowed_extra: set[str] | 
             missing = sorted(set(expected) - set(generated))
             extra = sorted(set(generated) - set(expected) - allowed_extra)
             changed = sorted(path for path in set(expected) & set(generated) if expected[path] != generated[path] and path not in allowed_difference)
-            report.update({"source": str(source.resolve()), "source_entries": len(expected), "missing": missing, "extra": extra, "changed": changed, "match": not (missing or extra or changed)})
+            intentional = sorted((set(generated) - set(expected)) & allowed_extra)
+            report.update({"source": str(source.resolve()), "source_entries": len(expected), "missing": missing, "extra": extra, "intentional_additions": intentional, "changed": changed, "match": not (missing or extra or changed)})
         return report
 
 
