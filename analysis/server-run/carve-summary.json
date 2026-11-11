@@ -1,0 +1,29 @@
+{
+  "source": "HG630V2-12V100R001.bin",
+  "source_size": 7563600,
+  "source_sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+  "squashfs": {
+    "offset": 198095,
+    "size": 5930917,
+    "end": 6129012,
+    "version": "4.0",
+    "inodes": 1257,
+    "block_size": 1048576,
+    "compression_id": 4,
+    "sha256": "68dcfa5c1b53bd09fcd00ea52bdcd3fb1da25d53446915cd6fd2f3aba22bb534"
+  },
+  "uimage": {
+    "offset": 6129103,
+    "size": 1434152,
+    "payload_size": 1434088,
+    "load": "0x81208000",
+    "entry": "0x81208000",
+    "arch_id": 2,
+    "type_id": 2,
+    "compression_id": 3,
+    "name": "Linux-2.6.30",
+    "header_crc_valid": true,
+    "data_crc_valid": true
+  },
+  "gap_between_squashfs_and_kernel": 91
+}

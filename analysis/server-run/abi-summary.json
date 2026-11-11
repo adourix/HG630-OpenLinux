@@ -1,0 +1,8 @@
+{
+  "rootfs": "/home/ayad/build-output/rootfs",
+  "elf_count": 227,
+  "hard_float_elf_count": 0,
+  "soft_float_elf_count": 0,
+  "recommended_cross_prefix": "undetermined; inspect representative dynamically linked ELF files",
+  "basis": "ELF e_flags/AEABI attributes via readelf; no hardware assumptions"
+}

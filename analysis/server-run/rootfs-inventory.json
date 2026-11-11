@@ -1,0 +1,1905 @@
+{
+  "root": "/home/ayad/build-output/rootfs",
+  "files": 1140,
+  "elf_files": [
+    {
+      "path": "bin/arpsender",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 11100,
+      "sha256": "66b4ec13acfa40114146065068c99c2ca8715df06c81c21835489b5a2d5dd052"
+    },
+    {
+      "path": "bin/ash",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/atcmd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 29300,
+      "sha256": "0d79e72a8f490b9a170154cd1ca712243a10a95f5c33852ab06e295771831aec"
+    },
+    {
+      "path": "bin/atpsync",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 40448,
+      "sha256": "6c85f04066f8a4619ae1267b691899b891b70274399b0834d13899d79a090b65"
+    },
+    {
+      "path": "bin/atserver",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 22468,
+      "sha256": "2bf1b45bbb54d5c5611bd3273f47bffa4bafcd76e713f0e8a13742f4c9328291"
+    },
+    {
+      "path": "bin/auth",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 105476,
+      "sha256": "3712e97f368f6cca5dcb5026555d02b1d5df79d55531f0202b74f331dd4468c9"
+    },
+    {
+      "path": "bin/bftpd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 67804,
+      "sha256": "73f327829bc0f0123b44575cf5f375d00f1741ff171e41b49c4c5016cd33197c"
+    },
+    {
+      "path": "bin/brctl",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 31340,
+      "sha256": "8c616d96de93db08cbe8c45ad4532d68a9d8f21653a5bcba2f686b80d31aecf9"
+    },
+    {
+      "path": "bin/busybox",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/cat",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/chmod",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/chown",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/cli",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 84064,
+      "sha256": "99a4340d50860599cfd2f6fed8ea32412747ed345d1a45f649ceabe02b65f320"
+    },
+    {
+      "path": "bin/cms",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 990036,
+      "sha256": "e2649580f2afe8caf30514da1e29a15da5e4ca3fea0cf9216723fe9f14c29a2a"
+    },
+    {
+      "path": "bin/console",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 84064,
+      "sha256": "99a4340d50860599cfd2f6fed8ea32412747ed345d1a45f649ceabe02b65f320"
+    },
+    {
+      "path": "bin/cp",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/crash",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4552,
+      "sha256": "b10969ab45727ea09ad2938fa116b6ba6fabc10d2a1d09caeb38290dcc1c3882"
+    },
+    {
+      "path": "bin/cwmp",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 65948,
+      "sha256": "8466173b28fb493d3470efdec5f128629af477eb252aecb6c8d3b410a2dea7ce"
+    },
+    {
+      "path": "bin/date",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/ddnsc",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 39204,
+      "sha256": "0e8ba42431fc36f252a8395658f61b60eb58be08e58ca7db78b84e0520b4c289"
+    },
+    {
+      "path": "bin/debug",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 84064,
+      "sha256": "99a4340d50860599cfd2f6fed8ea32412747ed345d1a45f649ceabe02b65f320"
+    },
+    {
+      "path": "bin/dhcp6c",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 129292,
+      "sha256": "5bc1110ce67019c69789ba7e402392d8865ada4fe7a0afd1ce598daffb1e5876"
+    },
+    {
+      "path": "bin/dhcp6s",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 92068,
+      "sha256": "d290511c79a844e99b3db9d1d845cd81aacff211417b2d3522f3db42db665483"
+    },
+    {
+      "path": "bin/dhcpc",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 37356,
+      "sha256": "d6308061d0993dfc16e10a0051662b60e14d316b87e9f43b55bd852261460676"
+    },
+    {
+      "path": "bin/dhcps",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 38812,
+      "sha256": "b695469b2c882bc0ee6941f9f6d62c4c68421d07658327954a63e17338cfd948"
+    },
+    {
+      "path": "bin/dms",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 62840,
+      "sha256": "63cc279a12892bd59d58306cc731f1c2553cd2ee92864a178d6fe8ede8cd0f03"
+    },
+    {
+      "path": "bin/dns",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 37612,
+      "sha256": "8006eaa935503a1c010477111ca34fdf3118d61d9c452c153f740cc16cfb9be9"
+    },
+    {
+      "path": "bin/ebtables",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 62008,
+      "sha256": "0cf1e5ec1da7cbb2bcf0dcb1a7bc079fa4e3193a423a69c9ca68009db148c102"
+    },
+    {
+      "path": "bin/echo",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/equipcmd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5760,
+      "sha256": "dc282c8b65c42e71492fb77dadf1db149b81f8f52c00363037e0daa9df163395"
+    },
+    {
+      "path": "bin/ethcmd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 10196,
+      "sha256": "41257214be30e13b02a9b506fc84a03821befbd856fb65a8609adee035ad26f6"
+    },
+    {
+      "path": "bin/hi_cli",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 20608,
+      "sha256": "a04aa3197d9bde74b382a8f848894560165d258023d58ff5d4928de4e137284d"
+    },
+    {
+      "path": "bin/hi_xpon",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 6872,
+      "sha256": "886c294741d3e8a6bc938f2b3ef1b7cbd1ce374406c7aa50aa7eac75f8d07910"
+    },
+    {
+      "path": "bin/hsanportinit",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8736,
+      "sha256": "228362008485928812cfeea8bba74140f54ebe89bc8856e4da5bb515e2174640"
+    },
+    {
+      "path": "bin/igmp",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 32716,
+      "sha256": "7685bbdff092a92658d6f915cfa76c55c5e0fffbd3e5b26ac9482f0f86a76884"
+    },
+    {
+      "path": "bin/ip",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 191640,
+      "sha256": "c1adc2c5278d081c8d8443545e0c8efe647a3945dd9e54292c02f88715bcb015"
+    },
+    {
+      "path": "bin/ip6tables",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 138212,
+      "sha256": "f0d93e5af6c53506a813a438c86aac0f7cc06f43ecb7b9e918c82d6ba24a962a"
+    },
+    {
+      "path": "bin/ipcheck",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 22844,
+      "sha256": "b0d9348c3f23d453404095ab284b5efbb00b63ab122f78ef28efc625bb980686"
+    },
+    {
+      "path": "bin/ipp",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 19948,
+      "sha256": "b0abb923fda837adaa08fa83b6aba81aec01b2901414846a5418bc97b58887d3"
+    },
+    {
+      "path": "bin/iptables",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 164844,
+      "sha256": "214a3423c07ef6a5f06b41f0ebf66d4fe7e87e3a7756388d4bed42ec84330acf"
+    },
+    {
+      "path": "bin/iwcontrol",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 22332,
+      "sha256": "01abe224d5e17ab4b46bc83fc24bb94e2047d4fa648800da85c98961653b5546"
+    },
+    {
+      "path": "bin/iwpriv",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 22324,
+      "sha256": "d5642da7b671ee908ad7a8a2df8982ca7261c25e49da2531449e7e3e078455ed"
+    },
+    {
+      "path": "bin/kill",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/ln",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/log",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 15344,
+      "sha256": "0f276bc6bf6d219864514943387b82e35b47e1ea7f5344d278eb31d9b008bced"
+    },
+    {
+      "path": "bin/ls",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/mic",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 40448,
+      "sha256": "6c85f04066f8a4619ae1267b691899b891b70274399b0834d13899d79a090b65"
+    },
+    {
+      "path": "bin/mini_upnpd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 15420,
+      "sha256": "a3792d6793bfdec346f8711785a154310e857a5b429be3d686bc2d4becae376f"
+    },
+    {
+      "path": "bin/mirror",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8708,
+      "sha256": "e20e5b594328b4a72d41edc6a557d55322a806759e8a49ed4c903e640dde8fa9"
+    },
+    {
+      "path": "bin/mkdir",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/mknod",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/mld",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 30444,
+      "sha256": "045bb554041dc68dbd8ee9883e8b261816d296aac26079eee818f85efcb63e50"
+    },
+    {
+      "path": "bin/mount",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/netstat",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/ntfs-3g",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 143564,
+      "sha256": "7a44e5d108a1cbf2ccf9d382f461bf0a3d2a7015910ecc665eb706e8f0cb8ad6"
+    },
+    {
+      "path": "bin/oam",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 6476,
+      "sha256": "e2a0f0eff7d447e5d24d7b80d8093aaadbd0bc66e00b2caa29883d0f962e406e"
+    },
+    {
+      "path": "bin/ping",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/ping6",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/pppc",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 211588,
+      "sha256": "ab43c910887d2fad13d604f22462b195e5f0f4b9e160315bc03ed7205f2df041"
+    },
+    {
+      "path": "bin/ps",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/qmi",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 43024,
+      "sha256": "e69ea820f21c226c0cad7ce44926fd5746df1f445574b0dbf92d4dfd66238908"
+    },
+    {
+      "path": "bin/radvd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 78736,
+      "sha256": "ef158992a27b1512d860a376de0d38c419ff7f35e25d369750a2277a96612b91"
+    },
+    {
+      "path": "bin/ripd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 52128,
+      "sha256": "123ef75731a8139709a7d03c7e7310a06cf32687f323ceee5febec658b589a5b"
+    },
+    {
+      "path": "bin/rm",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/scanner",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 36712,
+      "sha256": "bbcdcf49bb3f9c2ef356bfaf451ffc28166b5161104e0b36a6ad04b351d3dd4a"
+    },
+    {
+      "path": "bin/sh",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/siproxd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 389360,
+      "sha256": "335094c70505bfc93363cefd537f4b7bcfab1f1a312dcdde82a54585037a9f63"
+    },
+    {
+      "path": "bin/sleep",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/sntp",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 18936,
+      "sha256": "4d1a4672d1dc81e1e7e7df4ebfb3c9276e2fef40e00615e19d68743b05229023"
+    },
+    {
+      "path": "bin/sshd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 158508,
+      "sha256": "a9d072dac7e64f432b51e4c7c335084f6cea01991fba6dfc0e8fbafd47ce0ddb"
+    },
+    {
+      "path": "bin/su",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/tar",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/tc",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 211480,
+      "sha256": "ca8505b96fa556dee39fd284844151f3fa8e805a09810ba43ac0b27cc14b079a"
+    },
+    {
+      "path": "bin/telnetd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 6760,
+      "sha256": "5741bd73588f3828475d1a7b6597add382ea32d33ae5545345c490c8f6d622ea"
+    },
+    {
+      "path": "bin/tr111",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8200,
+      "sha256": "1bdf2dbd0888d363860ba8ea43f6f4647c908c4af9a6965772f343f3bd891ad8"
+    },
+    {
+      "path": "bin/tr111part2",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8200,
+      "sha256": "1bdf2dbd0888d363860ba8ea43f6f4647c908c4af9a6965772f343f3bd891ad8"
+    },
+    {
+      "path": "bin/traceroute6",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/triboot",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8004,
+      "sha256": "0d7b47161ce81b8bb66e0b25214f9f4dae7b3f72015d767129254e335b1f9e14"
+    },
+    {
+      "path": "bin/tricmd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 38040,
+      "sha256": "51118a5cc395cde01ed0e7685ef539f33d556324125a08b22c1a90abc64f5b61"
+    },
+    {
+      "path": "bin/tridiag",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 11444,
+      "sha256": "496cc0790729015df8174d731fa84023ad77216b1132caa2add6119c8f3606a9"
+    },
+    {
+      "path": "bin/udpecho",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 17208,
+      "sha256": "bbb78d50fce6d3205d90c5500f6fed318a7252e06e925b2751f89687e39cdc63"
+    },
+    {
+      "path": "bin/umount",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "bin/upg",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 27648,
+      "sha256": "73ea3d4711d481599e58e5737ab80ce08e032ddd7ca48803063df4dedb6ba385"
+    },
+    {
+      "path": "bin/upnp",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 77208,
+      "sha256": "4d8b2dfdc0a9044cdb67869124b533ca7dab364caa92bb5f7d4ec6055d44e1e4"
+    },
+    {
+      "path": "bin/usbmount",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 3852,
+      "sha256": "d5d7189c67f1c495a80d4fc676041aae93ac2f65422358585c2b20b803445b93"
+    },
+    {
+      "path": "bin/web",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 106092,
+      "sha256": "883fed733956175ecbc3c655201a630e653005d4c434cd36521e2525875a0c5e"
+    },
+    {
+      "path": "bin/wscd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 213572,
+      "sha256": "37f6877a26c37cd8e2458c8b307ecb02bc5ff1572b50c9dcd77b4f8c82a73afa"
+    },
+    {
+      "path": "bin/xdslcmd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 43992,
+      "sha256": "5e4900249b9d25f6a9bded95af6783c957d11ed3ca82a3501b623e89a70b26f5"
+    },
+    {
+      "path": "bin/xtmcmd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 29120,
+      "sha256": "13c94afac3ccf4982346c0f0f3b10f90b3ecad2849d7f44e219e40992b01cd6b"
+    },
+    {
+      "path": "bin/zebra",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 44648,
+      "sha256": "341584d7b91cd3d85287f6c4377e1eedb28cc286360604e16e34e872fce58c3f"
+    },
+    {
+      "path": "init",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "lib/extra/hi_kbasic.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 25864,
+      "sha256": "519190d55ea8515fdf8a7955f46d3a820224fb23041a5a5417338e5c15573d02"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_fw_deliver.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4464,
+      "sha256": "59a6128baf23c799835852535aaa95bd2c362da3e23b87735b91cd0de81d4cc0"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_lrn_br.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 7516,
+      "sha256": "c69bedb8a01776fbedc47dbbd02cc167d37013a5fc404815f9102630d7a6f186"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_lrn_diagnose.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5468,
+      "sha256": "33bbbbc6cd1b805e3801ef598c6ec80d7a97b88e9d50e33f88a04d0b4e238190"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_lrn_mc.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 44924,
+      "sha256": "87b416badca86fc79a3fb08cb785321701992c089219a305d7a6aacab67c4806"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_lrn_napt.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 9128,
+      "sha256": "2348bf4ec5269e2cd0866d2289c1a1ba0ca8ec07edde744f1f21d9b7f044d56e"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_lrn_rt.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5676,
+      "sha256": "4b3f74263c7fcf0c2389e04a9d1650c9da4f9ef872a6fe7f1efc612c06657e5a"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_lrn_tnl.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 7744,
+      "sha256": "1f0f6fdf0513690b96630d74d3b6b8385be87a54dfb97979ee983de6ccb6202f"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_res.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 131668,
+      "sha256": "007652de3607fc651a11ea0cb2052b97591afb91a14f7112829164dd12fc2a83"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_srv_ifusb.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 2464,
+      "sha256": "faa9de1da0edf1ea95f2f18129af3a717adae3bbdafa1471721337ea94675c39"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_srv_ifwifi_bcm43217.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 2516,
+      "sha256": "37c26b3d2c1d35e20c18bb0f43245a59c7aa8f6a5321009981f5d9f212587086"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_srv_ifwifi_qualcomma9880.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 2476,
+      "sha256": "ffc83774ebb35863ad263a81f3e587e53457a26d55bc895a562b65ba737c557f"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_srv_ifwifi_ralink3593.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 2536,
+      "sha256": "1c6caf99bc8b9d1d24215971c5d52323609a7fff57bfc8380431b5415736a167"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_srv_ifwifi_rt5392.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 2508,
+      "sha256": "c5a7f676dd732cd0ce640befb192484a97e2d8f4eb1f7865081b20bcc2f81809"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_srv_mark.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 7220,
+      "sha256": "446aae90f54af145247287bcb26c70ac98597924e3482799e7aec321ae909f09"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_srv_qos.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 20008,
+      "sha256": "bb48dd5256416b424e96fa8b548e9e7e3bf9dbfbfc0dc1a0b3e7ce9189898914"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_sw_mc.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4152,
+      "sha256": "9698fa4e5dd0ebee51d956251aa0841c0c0cf5282219ab746eb894c75802e1cd"
+    },
+    {
+      "path": "lib/extra/hi_kcfe_sw_normal.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4356,
+      "sha256": "4e4236b78996ede89767287534a135ae12f266ee4dbf4475938acf15eb7062fa"
+    },
+    {
+      "path": "lib/extra/hi_kdying_gasp.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 3656,
+      "sha256": "6a6bb921966ef4ab5a3f875367dd776fe3e81b91bd12721bc66a480ff6fdf674"
+    },
+    {
+      "path": "lib/extra/hi_keth.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 24732,
+      "sha256": "a02a1442901924525c77ee50ecfdc60edf656d25f5e21e0c178fbc981bf5e527"
+    },
+    {
+      "path": "lib/extra/hi_kgpio.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8516,
+      "sha256": "a4905e325ca616dc8c2626e444b8f92c13c443a0647217324993b7444ae4ceb2"
+    },
+    {
+      "path": "lib/extra/hi_khw.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5428,
+      "sha256": "ac4de74d255566b6e29f9423ca963c95a2239bfdce03c0d060418e1b410fd7d3"
+    },
+    {
+      "path": "lib/extra/hi_kmdio.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8976,
+      "sha256": "7df424f127edbb7d8dc9f6b2a902d6ef864cbf22f067f5de9a21e6cf3f35309d"
+    },
+    {
+      "path": "lib/extra/hi_kmisc.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5844,
+      "sha256": "dd152666c4e2209405980cf93a4ae4d4247d05eb2503c2a78a4f4e424cf285f8"
+    },
+    {
+      "path": "lib/extra/hi_kphy.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 24256,
+      "sha256": "308c71661d1a4ad14fdacf533a736be9b6c95f57d7ee1fbfab7dcfdeb3e96fa2"
+    },
+    {
+      "path": "lib/extra/hi_kphy_ar8035.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 9388,
+      "sha256": "4349a738e65ddc00e7f108b9a30fde9aaef9b9a0c03f62a6e40a0a5f552b3969"
+    },
+    {
+      "path": "lib/extra/hi_kphy_stub.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 9048,
+      "sha256": "dab8d4311c39a5444fa175dbe3a740262e7fa197e6a562d971aa0a8b19833cb3"
+    },
+    {
+      "path": "lib/extra/hi_kport.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 54120,
+      "sha256": "eae07d89b19c5c1476167cff08290daae4006de2fd404383fe20d9d6d97b5460"
+    },
+    {
+      "path": "lib/extra/hi_kpower.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 34940,
+      "sha256": "e1d5cbe3b47097b4c4616bc16768f00d6dd67bc52e485a725c7aa8fd4acec2a3"
+    },
+    {
+      "path": "lib/extra/hi_ksci.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 41860,
+      "sha256": "be15bd05a291270e31a6a2d8f01433db373b5902e5676bc01f7c996feeef626f"
+    },
+    {
+      "path": "lib/extra/hi_kspi.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5488,
+      "sha256": "3ef668e3016c2aa5a8eef5b71949fb854e0cf4d18d7b0a021fa2b542f2afd7db"
+    },
+    {
+      "path": "lib/extra/hi_ktest.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4728,
+      "sha256": "2bf20e3f4695c09c20e73d7b2cea58e24e5ef5e02be3efb9dcb604ed091234fe"
+    },
+    {
+      "path": "lib/extra/hi_sdk_l0.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 144632,
+      "sha256": "06793f80aff07c505c797020f68efa0852e917aedfa4fde5de001b7665c4848b"
+    },
+    {
+      "path": "lib/extra/hi_sdk_l0_dump.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 122264,
+      "sha256": "7ac3385f231d408da5043231c788801106aa0ee3dffcf8eb673d9ab0d69d980b"
+    },
+    {
+      "path": "lib/extra/hi_sdk_l1.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 66460,
+      "sha256": "1105c9a96067fbe8ed35838f8649b64911b18f696152bfa6c2986a739f3186c6"
+    },
+    {
+      "path": "lib/extra/hi_sdk_l2.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 67840,
+      "sha256": "aa4d46ba79148f8c176fc72a7f1c3bddae69e21d013ab43d07d5215186ff1564"
+    },
+    {
+      "path": "lib/extra/hisihwfirewall.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5887,
+      "sha256": "19bafa50ab31cbb77584d577179a3f2332d38d46e9620bbeb041d0a780da7cfc"
+    },
+    {
+      "path": "lib/extra/ipcdrv.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 18114,
+      "sha256": "832f90f43fdeb5491bb93b34904063b5f840a9b217f9a32c9ed80c76eff12efe"
+    },
+    {
+      "path": "lib/extra/rtl8192cd.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 858402,
+      "sha256": "cb40a0dc82ebdd2e24e0278fc4be443cf1fc0a8b9eb1015c4a4af5222e434c6e"
+    },
+    {
+      "path": "lib/extra/tri_ctl.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 5110,
+      "sha256": "19805917c8c6d3f5ebfd67ba8b1f8cdfb52c0a2d6c787293ddefef4689aaa153"
+    },
+    {
+      "path": "lib/kernel/drivers/scsi/scsi_wait_scan.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 2288,
+      "sha256": "c40fb744aa6dcadea53c444da7854f7be680c188724a1993ba39b7d23b8c905b"
+    },
+    {
+      "path": "lib/kernel/drivers/usb/serial/option.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 39990,
+      "sha256": "75eb1a02b9a33d01842db8635b9fd4f495678bc678e405be7c6e7ff0a9bd8bfc"
+    },
+    {
+      "path": "lib/kernel/net/softqos/hi_ksoft_qos.ko",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4398,
+      "sha256": "47fb1634823983929a5ebe7f1cd6c49ebd9b63a5a3de3392543cb74015ab5437"
+    },
+    {
+      "path": "lib/ld-uClibc-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 29404,
+      "sha256": "6028452c7cd2cd8841688059633cabd9d244766d9c2a59069231e37ac71aff55"
+    },
+    {
+      "path": "lib/ld-uClibc.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 29404,
+      "sha256": "6028452c7cd2cd8841688059633cabd9d244766d9c2a59069231e37ac71aff55"
+    },
+    {
+      "path": "lib/libatserversdk.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 19116,
+      "sha256": "0d639befb50f6a54f41b4bf75f6d81695cea29a5f82d424136e3f40fe736a373"
+    },
+    {
+      "path": "lib/libatshared.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 59116,
+      "sha256": "27eba870e0b8421196ebb7461256034b1621d4677031aa61c1d3a7148a72660e"
+    },
+    {
+      "path": "lib/libavcodec.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 412348,
+      "sha256": "0a0c4e797563c1dafb804801882ab67226af2595571b3d396eaa5e3a0715a1ce"
+    },
+    {
+      "path": "lib/libavcodec.so.52",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 412348,
+      "sha256": "0a0c4e797563c1dafb804801882ab67226af2595571b3d396eaa5e3a0715a1ce"
+    },
+    {
+      "path": "lib/libavformat.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 172668,
+      "sha256": "1257e3c7c3b3f7c28e71604ee7636e3b06514c09fa0190a86a4bd484450c8727"
+    },
+    {
+      "path": "lib/libavformat.so.52",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 172668,
+      "sha256": "1257e3c7c3b3f7c28e71604ee7636e3b06514c09fa0190a86a4bd484450c8727"
+    },
+    {
+      "path": "lib/libavutil.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 34444,
+      "sha256": "c0f013fcab963a3d66949870c5de3af6da2306e950ca05296f8d8b4f4f13cc21"
+    },
+    {
+      "path": "lib/libavutil.so.49",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 34444,
+      "sha256": "c0f013fcab963a3d66949870c5de3af6da2306e950ca05296f8d8b4f4f13cc21"
+    },
+    {
+      "path": "lib/libbhalapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 51548,
+      "sha256": "c65abdae2c89df3054b11b3f9465f7639e985f7759ecb327f8258b41541cbcd2"
+    },
+    {
+      "path": "lib/libc.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 368336,
+      "sha256": "064ea2ba84aef5f650453e9bdbc14d3fcc79c617ce7807f2ee36f05f1644510a"
+    },
+    {
+      "path": "lib/libcfmapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 102060,
+      "sha256": "e1a5b6b9c7f34ece50a7bccf0e87b960929f1061790b4cf03e5600a36d1c23af"
+    },
+    {
+      "path": "lib/libcrypt-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 13040,
+      "sha256": "333d6f7262094a05f9b63de31901d58c7e0071f937658a4f123be98d77f3c64c"
+    },
+    {
+      "path": "lib/libcrypt.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 13040,
+      "sha256": "333d6f7262094a05f9b63de31901d58c7e0071f937658a4f123be98d77f3c64c"
+    },
+    {
+      "path": "lib/libcrypto.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 183724,
+      "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463"
+    },
+    {
+      "path": "lib/libcyassl.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 183724,
+      "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463"
+    },
+    {
+      "path": "lib/libcyassl.so.5",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 183724,
+      "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463"
+    },
+    {
+      "path": "lib/libcyassl.so.5.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 183724,
+      "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463"
+    },
+    {
+      "path": "lib/libcyassl.so.5.0.5",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 183724,
+      "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463"
+    },
+    {
+      "path": "lib/libdhcpsstack.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8264,
+      "sha256": "bf23f895e033e7a03529fa7a8d3c5e46d024f44c37e1a4d95678a17186136931"
+    },
+    {
+      "path": "lib/libdl-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 9208,
+      "sha256": "a9d067578a74d32da5a0115ff906f2893e335bd09d5ccb82e963fc62a601ecfa"
+    },
+    {
+      "path": "lib/libdl.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 9208,
+      "sha256": "a9d067578a74d32da5a0115ff906f2893e335bd09d5ccb82e963fc62a601ecfa"
+    },
+    {
+      "path": "lib/libdlnaapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 45048,
+      "sha256": "0ca05eecd449bc2767fc421cc01b367fd8cbd917c52dd8b681d7ddea6b7d6374"
+    },
+    {
+      "path": "lib/libdmsapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 20868,
+      "sha256": "dda10191bb4a08f7ef4ab7b242d78943f7299d5a6e3de1971e3f96b78ac2aeb9"
+    },
+    {
+      "path": "lib/libgcc_s.so.1",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 42736,
+      "sha256": "46e400c4e94142c7d6a178dfe8f7762be8dfa1e0207380895d48bba24b4f5b89"
+    },
+    {
+      "path": "lib/libgplutil.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 38584,
+      "sha256": "629d9f7e17750069ba2e535aa4e57e6543c0f1e79c311f78af7a239a02c5d0d9"
+    },
+    {
+      "path": "lib/libhttpapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 52816,
+      "sha256": "887504abf6f29f58187708a0d0246ff1f10155612c86d7bb3ec7bef0518fdce2"
+    },
+    {
+      "path": "lib/libiconv.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 294612,
+      "sha256": "10fab0d79a5f19cdfef8373911ac0162e805177ebeab3523b71110b580f4ca3f"
+    },
+    {
+      "path": "lib/libiconv.so.2",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 294612,
+      "sha256": "10fab0d79a5f19cdfef8373911ac0162e805177ebeab3523b71110b580f4ca3f"
+    },
+    {
+      "path": "lib/libiconv.so.2.5.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 294612,
+      "sha256": "10fab0d79a5f19cdfef8373911ac0162e805177ebeab3523b71110b580f4ca3f"
+    },
+    {
+      "path": "lib/libiupnp.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 143848,
+      "sha256": "35229f0b053c31330b3378a4581f9c3feafd66f5d73886e6c5cd868e7d00da30"
+    },
+    {
+      "path": "lib/libixml.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 35448,
+      "sha256": "ac17a88b581b3da0aad079af2181e04b2884356dba38f0a907fcdb43a900c4a4"
+    },
+    {
+      "path": "lib/liblgplutil.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 7736,
+      "sha256": "98d3f6cdc743f07acc02b267a941f74668a8dbe4134242c2df791a44916a7b6a"
+    },
+    {
+      "path": "lib/liblua.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 139212,
+      "sha256": "0ec7111a96fdd0d4c3e2a09955dcad607de6d4e90eafba97dc567647477b5b1d"
+    },
+    {
+      "path": "lib/libm-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 62316,
+      "sha256": "14c314d35005b50b7a56d409847e209acdf950570f930c5f5d4d9b2be6e9673d"
+    },
+    {
+      "path": "lib/libm.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 62316,
+      "sha256": "14c314d35005b50b7a56d409847e209acdf950570f930c5f5d4d9b2be6e9673d"
+    },
+    {
+      "path": "lib/libmdbcore.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 53188,
+      "sha256": "aaec31619154c40e9d17ec5432007d008b8b037261107a882b4d5a9fb26579e6"
+    },
+    {
+      "path": "lib/libmini_upnp.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 36424,
+      "sha256": "4be0b2e8f8dd01618c7b28b35e8fc9748c56a187e9908ed7cb8e9fc73b2be712"
+    },
+    {
+      "path": "lib/libmsgapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 154868,
+      "sha256": "94afcbb979b50e7737f89055ea930310fa48b6146a19d8a5d815c05be14eb4dc"
+    },
+    {
+      "path": "lib/libnsl-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4852,
+      "sha256": "64b960f02431fd7f2dc666168cf05b754bf67f8ef7e1c01e94b9fa871a62cb5d"
+    },
+    {
+      "path": "lib/libnsl.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4852,
+      "sha256": "64b960f02431fd7f2dc666168cf05b754bf67f8ef7e1c01e94b9fa871a62cb5d"
+    },
+    {
+      "path": "lib/libntfs-3g.so.84",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 483868,
+      "sha256": "8d67689ad0c78d1739baa6aa40d168435dd82579b0ab442f24f0f85bbd27303c"
+    },
+    {
+      "path": "lib/liboamsdk.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 17596,
+      "sha256": "3397f486365e2452cb5058b4ddd309f8777bc48782f58cbd6426a26850f56497"
+    },
+    {
+      "path": "lib/libpthread-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 71504,
+      "sha256": "423141a91ea695ebceb45917db7d1d781a722d40df2c7966c41a6b7f2ee2aa78"
+    },
+    {
+      "path": "lib/libpthread.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 71504,
+      "sha256": "423141a91ea695ebceb45917db7d1d781a722d40df2c7966c41a6b7f2ee2aa78"
+    },
+    {
+      "path": "lib/libresolv-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4760,
+      "sha256": "e65be081659c8aa78892026127de370ecd26c0521c4a21cc5b6a8ad4e551613d"
+    },
+    {
+      "path": "lib/libresolv.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4760,
+      "sha256": "e65be081659c8aa78892026127de370ecd26c0521c4a21cc5b6a8ad4e551613d"
+    },
+    {
+      "path": "lib/librestcore.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 22868,
+      "sha256": "e7aa6f132b13c093d0e560ff1b5bd105bbfe5fb425d7e413dfb5bb3345bb8ade"
+    },
+    {
+      "path": "lib/librt-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 13452,
+      "sha256": "b81ba75d3e94b06b245f7f610b651cf160256b5f271d4517a308d933a30ca2f2"
+    },
+    {
+      "path": "lib/librt.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 13452,
+      "sha256": "b81ba75d3e94b06b245f7f610b651cf160256b5f271d4517a308d933a30ca2f2"
+    },
+    {
+      "path": "lib/libsqlite.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 511312,
+      "sha256": "f6cf32672389818b8e2b79b10ce9ce2f629aa652d1b3929603bbf50e277e351d"
+    },
+    {
+      "path": "lib/libssl.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 183724,
+      "sha256": "0fcccd41bfb71eb72c4d84a354f7149e8c4e4937986c79688a25d88f3da83463"
+    },
+    {
+      "path": "lib/libstuncapir.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 13264,
+      "sha256": "2fcab58ce462ea5952393e013a76e0197406d2d2af8d546479d3f6e5cfb3b337"
+    },
+    {
+      "path": "lib/libthreadutil.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 19744,
+      "sha256": "7e23c353085fc953464e2614e3ed4268119ee95d4379a77508c2bae4afff54f7"
+    },
+    {
+      "path": "lib/libtriapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 64540,
+      "sha256": "f3be5ecaf211b186441c01f56a7d76f8ba1633935613ef93216fd4f40f30b5c6"
+    },
+    {
+      "path": "lib/libuClibc-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 368336,
+      "sha256": "064ea2ba84aef5f650453e9bdbc14d3fcc79c617ce7807f2ee36f05f1644510a"
+    },
+    {
+      "path": "lib/libupnpcommon.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 8976,
+      "sha256": "e3826a7e73a61e1b438e95388d6e4ca4f541eb95263be3eca4778b2186464707"
+    },
+    {
+      "path": "lib/libutil-0.9.32.1-git.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4968,
+      "sha256": "71951c46350bbda1fd5d92d0463d080c3232ef85d640d960eff433bad306490b"
+    },
+    {
+      "path": "lib/libutil.so.0",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 4968,
+      "sha256": "71951c46350bbda1fd5d92d0463d080c3232ef85d640d960eff433bad306490b"
+    },
+    {
+      "path": "lib/libxmlapi.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 23180,
+      "sha256": "0bb2544c7e9f2ec915dded7415894055e6d7ed355c5bb1c40decd914e3405984"
+    },
+    {
+      "path": "lib/libz.so",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 60560,
+      "sha256": "dec03433b70a5b899a945e6b62e454cccc1926e369ef7090c3179f79263d3756"
+    },
+    {
+      "path": "lib/libz.so.1",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 60560,
+      "sha256": "dec03433b70a5b899a945e6b62e454cccc1926e369ef7090c3179f79263d3756"
+    },
+    {
+      "path": "linuxrc",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/arp",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/halt",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/ifconfig",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/init",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/insmod",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/makedevs",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/poweroff",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/reboot",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/rmmod",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/route",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/setconsole",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/smuxctl",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/udhcpc",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/vconfig",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "sbin/zcip",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/[",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/[[",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/awk",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/ftpget",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/ftpput",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/killall",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/renice",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/taskset",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/test",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/top",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/traceroute",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/bin/wget",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    {
+      "path": "usr/sbin/makedevs",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 15073,
+      "sha256": "36796a975af9f5994dfe5ccce75116c3603f62690e06321495290156a8b3f230"
+    },
+    {
+      "path": "usr/sbin/udhcpd",
+      "class": "ELF32",
+      "endian": "little",
+      "machine_id": 40,
+      "size": 274568,
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    }
+  ],
+  "kernel_modules": [
+    "lib/extra/hi_kbasic.ko",
+    "lib/extra/hi_kcfe_fw_deliver.ko",
+    "lib/extra/hi_kcfe_lrn_br.ko",
+    "lib/extra/hi_kcfe_lrn_diagnose.ko",
+    "lib/extra/hi_kcfe_lrn_mc.ko",
+    "lib/extra/hi_kcfe_lrn_napt.ko",
+    "lib/extra/hi_kcfe_lrn_rt.ko",
+    "lib/extra/hi_kcfe_lrn_tnl.ko",
+    "lib/extra/hi_kcfe_res.ko",
+    "lib/extra/hi_kcfe_srv_ifusb.ko",
+    "lib/extra/hi_kcfe_srv_ifwifi_bcm43217.ko",
+    "lib/extra/hi_kcfe_srv_ifwifi_qualcomma9880.ko",
+    "lib/extra/hi_kcfe_srv_ifwifi_ralink3593.ko",
+    "lib/extra/hi_kcfe_srv_ifwifi_rt5392.ko",
+    "lib/extra/hi_kcfe_srv_mark.ko",
+    "lib/extra/hi_kcfe_srv_qos.ko",
+    "lib/extra/hi_kcfe_sw_mc.ko",
+    "lib/extra/hi_kcfe_sw_normal.ko",
+    "lib/extra/hi_kdying_gasp.ko",
+    "lib/extra/hi_keth.ko",
+    "lib/extra/hi_kgpio.ko",
+    "lib/extra/hi_khw.ko",
+    "lib/extra/hi_kmdio.ko",
+    "lib/extra/hi_kmisc.ko",
+    "lib/extra/hi_kphy.ko",
+    "lib/extra/hi_kphy_ar8035.ko",
+    "lib/extra/hi_kphy_stub.ko",
+    "lib/extra/hi_kport.ko",
+    "lib/extra/hi_kpower.ko",
+    "lib/extra/hi_ksci.ko",
+    "lib/extra/hi_kspi.ko",
+    "lib/extra/hi_ktest.ko",
+    "lib/extra/hi_sdk_l0.ko",
+    "lib/extra/hi_sdk_l0_dump.ko",
+    "lib/extra/hi_sdk_l1.ko",
+    "lib/extra/hi_sdk_l2.ko",
+    "lib/extra/hisihwfirewall.ko",
+    "lib/extra/ipcdrv.ko",
+    "lib/extra/rtl8192cd.ko",
+    "lib/extra/tri_ctl.ko",
+    "lib/kernel/drivers/scsi/scsi_wait_scan.ko",
+    "lib/kernel/drivers/usb/serial/option.ko",
+    "lib/kernel/net/softqos/hi_ksoft_qos.ko"
+  ],
+  "keyword_paths": [
+    "bin/xdslcmd",
+    "etc/qos_test_wlan_driver.sh",
+    "etc/upnp/UpnpWanPppConn.xml",
+    "etc/upnp/WLANCfg.xml",
+    "etc/upnp/WanCommonIfc1.xml",
+    "etc/upnp/WanDslIfCfg.xml",
+    "etc/upnp/WanDslLink.xml",
+    "etc/upnp/WanIpConn.xml",
+    "etc/upnp/WanPppConn.xml",
+    "home/cli/api/ecs/power/get_dsl_status",
+    "home/cli/api/ecs/power/set_dsl_status",
+    "home/cli/api/qos/dsl_down_set_flush",
+    "home/cli/debug/driver/slic/kernel_get_line_state",
+    "home/cli/debug/sdk/sd56xx/level_0/port/clr_wan_sta",
+    "home/cli/debug/sdk/sd56xx/level_0/port/get_wan_sta",
+    "home/cli/debug/sdk/sd56xx/level_0/port/get_wan_sta_attr",
+    "home/cli/debug/sdk/sd56xx/level_0/port/set_wan_sta_attr",
+    "home/cli/debug/sdk/sd56xx/level_0/sta/clr_wan",
+    "home/cli/debug/sdk/sd56xx/level_0/sta/get_wan",
+    "home/cli/debug/sdk/sd56xx/level_0/table/get_wan_sta_attr",
+    "home/cli/debug/sdk/sd56xx/level_2/if_get_wanid",
+    "home/cli/debug/sdk/sd56xx/level_2/if_set_wanid",
+    "home/cli/debug/test/port/display_workmode",
+    "home/cli/debug/test/port/set_workmode",
+    "home/cli/debug/test/power/get_dsl_status",
+    "home/cli/debug/test/power/set_dsl_status",
+    "lib/extra/hi_kcfe_srv_ifwifi_bcm43217.ko",
+    "lib/extra/hi_kcfe_srv_ifwifi_qualcomma9880.ko",
+    "lib/extra/hi_kcfe_srv_ifwifi_ralink3593.ko",
+    "lib/extra/hi_kcfe_srv_ifwifi_rt5392.ko",
+    "lib/kernel/drivers/scsi/scsi_wait_scan.ko",
+    "lib/kernel/drivers/usb/serial/option.ko",
+    "lib/kernel/net/softqos/hi_ksoft_qos.ko"
+  ],
+  "firmware_candidates": [
+    "etc/tri_image.bin"
+  ]
+}

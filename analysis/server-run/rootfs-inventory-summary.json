@@ -1,0 +1,8 @@
+{
+  "root": "/home/ayad/build-output/rootfs",
+  "files": 1140,
+  "elf_files": 227,
+  "kernel_modules": 43,
+  "keyword_paths": 33,
+  "firmware_candidates": 1
+}

@@ -1,0 +1,62 @@
+{
+  "file": "HG630V2-12V100R001.bin",
+  "size_bytes": 7563600,
+  "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+  "squashfs": [
+    {
+      "offset": 198095,
+      "version": "4.0",
+      "inode_count": 1257,
+      "mkfs_time": 1490771239,
+      "block_size": 1048576,
+      "fragment_count": 14,
+      "compression_id": 4,
+      "block_log": 20,
+      "flags": 704,
+      "id_count": 7,
+      "bytes_used": 5930917,
+      "filesystem_end": 6129012,
+      "filesystem_within_input": true,
+      "inode_table_start_relative": 5908079,
+      "directory_table_start_relative": 5917041
+    }
+  ],
+  "uimage": [
+    {
+      "offset": 6129103,
+      "header_size": 64,
+      "timestamp": 1490771170,
+      "payload_size": 1434088,
+      "payload_offset": 6129167,
+      "payload_end": 7563255,
+      "load_address": 2166390784,
+      "entry_address": 2166390784,
+      "header_crc32": "0e3295ab",
+      "data_crc32": "88c1e0b5",
+      "header_crc_valid": true,
+      "data_crc_valid": true,
+      "os_id": 5,
+      "architecture_id": 2,
+      "image_type_id": 2,
+      "compression_id": 3,
+      "name": "Linux-2.6.30"
+    }
+  ],
+  "markers": {
+    "board_id=": [
+      "0x335"
+    ],
+    "hgw_softversion=": [
+      "0x368"
+    ],
+    "HG630V2": [
+      "0x88",
+      "0xe0",
+      "0x10c",
+      "0x378"
+    ],
+    "Linux-2.6.30": [
+      "0x5d85ef"
+    ]
+  }
+}
