@@ -39,6 +39,44 @@ class FirmwareInspectTests(unittest.TestCase):
         data = b"abc" + module.SQUASHFS_MAGIC + b"xyz" + module.SQUASHFS_MAGIC
         self.assertEqual(module.find_all(data, module.SQUASHFS_MAGIC), [3, 10])
 
+    def test_hg630_component_table(self):
+        data = bytearray(0x736950)
+        data[:4] = module.HUAWEI_PACKAGE_MAGIC
+        records = [
+            (2, 17, 0x5CF, 0x20000, b"HG630V2V100R001C298B010"),
+            (2, 3, 0x205CF, 0x10000, b"v1.0"),
+            (2, 1, 0x305CF, 0x5A8000, b"HG630V2V100R001C298B010"),
+            (2, 2, 0x5D85CF, 0x15E228, b"HG630V2V100R001C298B010"),
+        ]
+        for index, (kind, component_id, offset, size, name) in enumerate(records):
+            struct.pack_into(
+                ">HHII32s", data, 0x7C + index * 44,
+                kind, component_id, offset, size, name.ljust(32, b"\\\\0"),
+            )
+        parsed = module.parse_hg630_component_table(bytes(data))
+        self.assertEqual(parsed["record_count"], 4)
+        self.assertEqual(parsed["records"][2]["payload_offset"], 0x305CF)
+        self.assertEqual(parsed["records"][2]["payload_size"], 0x5A8000)
+        self.assertEqual(parsed["records"][3]["payload_offset"], 0x5D85CF)
+        self.assertEqual(parsed["trailing_bytes_after_components"], 345)
+
+    def test_hg630_component_table_rejects_non_contiguous_records(self):
+        data = bytearray(0x736950)
+        data[:4] = module.HUAWEI_PACKAGE_MAGIC
+        records = [
+            (2, 17, 0x5CF, 0x20000, b"first"),
+            (2, 3, 0x205D0, 0xFFFF, b"second"),
+            (2, 1, 0x305CF, 0x5A8000, b"rootfs"),
+            (2, 2, 0x5D85CF, 0x15E228, b"kernel"),
+        ]
+        for index, (kind, component_id, offset, size, name) in enumerate(records):
+            struct.pack_into(
+                ">HHII32s", data, 0x7C + index * 44,
+                kind, component_id, offset, size, name.ljust(32, b"\\\\0"),
+            )
+        with self.assertRaisesRegex(ValueError, "not contiguous"):
+            module.parse_hg630_component_table(bytes(data))
+
 
 if __name__ == "__main__":
     unittest.main()
