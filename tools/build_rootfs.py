@@ -11,7 +11,7 @@ import stat
 import subprocess
 import tempfile
 import fnmatch
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 
 def sha256(path: Path) -> str:
@@ -79,10 +79,46 @@ def copy_rootfs(source: Path, destination: Path) -> None:
     visit(source, destination)
 
 
+def _overlay_path_allowed(relative: str, patterns: list[str]) -> bool:
+    """Allow an exact/glob match, or a directory that is an ancestor of one."""
+    path = PurePosixPath(relative)
+    if path.is_absolute() or ".." in path.parts or not path.parts:
+        return False
+    for raw in patterns:
+        pattern = PurePosixPath(raw)
+        if pattern.is_absolute() or ".." in pattern.parts or not pattern.parts:
+            raise ValueError(f"unsafe overlay allowlist pattern: {raw}")
+        parts = pattern.parts
+        if fnmatch.fnmatchcase(relative, raw):
+            return True
+        if len(path.parts) < len(parts) and all(
+            fnmatch.fnmatchcase(part, pattern_part)
+            for part, pattern_part in zip(path.parts, parts)
+        ):
+            return True
+    return False
+
+
+def _assert_no_symlink_parents(stage: Path, relative: Path) -> None:
+    """An overlay must never follow a vendor symlink while resolving its target."""
+    current = stage
+    for part in relative.parts[:-1]:
+        current = current / part
+        if current.is_symlink():
+            raise ValueError(f"overlay target traverses symlink parent: {relative}")
+        if current.exists() and not current.is_dir():
+            raise ValueError(f"overlay target traverses non-directory parent: {relative}")
+
+
 def _apply_overlay_entry(source: Path, target: Path) -> None:
-    """Apply one overlay entry, including special files and its metadata."""
+    """Apply one overlay entry; existing OEM directory metadata is immutable."""
     source_stat = source.lstat()
-    if source.is_dir() and not source.is_symlink():
+    if stat.S_ISDIR(source_stat.st_mode):
+        if target.is_symlink() or (target.exists() and not target.is_dir()):
+            if target.is_dir() and not target.is_symlink():
+                shutil.rmtree(target)
+            else:
+                target.unlink()
         existed = target.is_dir() and not target.is_symlink()
         target.mkdir(parents=True, exist_ok=True)
         if not existed:
@@ -134,6 +170,8 @@ def build(
     copy_rootfs(rootfs, stage)
     applied = []
     allowlist = allowlist or []
+    if overlays and not allowlist:
+        raise ValueError("overlay builds require an explicit path allowlist")
     for overlay in overlays:
         overlay = overlay.resolve()
         if not overlay.is_dir():
@@ -141,10 +179,9 @@ def build(
         for source in sorted(overlay.rglob("*")):
             relative = source.relative_to(overlay)
             reltext = relative.as_posix()
-            allowed = any(fnmatch.fnmatchcase(reltext, pattern) for pattern in allowlist)
-            implicit_parent = any(pattern.startswith(reltext.rstrip('/') + '/') for pattern in allowlist)
-            if allowlist and not (allowed or implicit_parent):
+            if not _overlay_path_allowed(reltext, allowlist):
                 raise ValueError(f"overlay path is not allowlisted: {reltext}")
+            _assert_no_symlink_parents(stage, relative)
             target = stage / relative
             _apply_overlay_entry(source, target)
         applied.append(str(overlay))
