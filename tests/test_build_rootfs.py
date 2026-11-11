@@ -4,7 +4,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.build_rootfs import build, copy_rootfs
+from tools.build_rootfs import (
+    _apply_overlay_entry,
+    _overlay_path_allowed,
+    _assert_no_symlink_parents,
+    build,
+    copy_rootfs,
+)
 from tools.validate_rootfs import validate
 
 
@@ -82,6 +88,67 @@ class RootFsBuildTests(unittest.TestCase):
             self.assertTrue((output / "build-report.json").exists())
             comparison = validate(output / "rootfs.squashfs", source)
             self.assertTrue(comparison["match"])
+
+
+
+class OverlaySafetyTests(unittest.TestCase):
+    def test_allowlist_glob_allows_only_matching_paths_and_ancestors(self):
+        patterns = ["usr/libexec/openlinux-services/*", "usr/sbin/openlinuxctl"]
+        self.assertTrue(_overlay_path_allowed("usr", patterns))
+        self.assertTrue(_overlay_path_allowed("usr/libexec", patterns))
+        self.assertTrue(_overlay_path_allowed("usr/libexec/openlinux-services", patterns))
+        self.assertTrue(_overlay_path_allowed("usr/libexec/openlinux-services/network", patterns))
+        self.assertTrue(_overlay_path_allowed("usr/sbin/openlinuxctl", patterns))
+        self.assertFalse(_overlay_path_allowed("etc/passwd", patterns))
+        self.assertFalse(_overlay_path_allowed("../outside", patterns))
+
+    def test_allowlist_rejects_unsafe_patterns(self):
+        with self.assertRaisesRegex(ValueError, "unsafe overlay allowlist"):
+            _overlay_path_allowed("usr/bin/tool", ["../*"])
+
+    def test_existing_oem_directory_metadata_is_not_overwritten(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            source = base / "overlay-dir"
+            target = base / "oem-dir"
+            source.mkdir()
+            target.mkdir()
+            os.chmod(source, 0o700)
+            os.chmod(target, 0o755)
+            _apply_overlay_entry(source, target)
+            self.assertEqual(stat.S_IMODE(target.stat().st_mode), 0o755)
+
+    def test_overlay_directory_replaces_conflicting_file(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            source = base / "overlay-dir"
+            target = base / "target"
+            source.mkdir()
+            target.write_text("old")
+            _apply_overlay_entry(source, target)
+            self.assertTrue(target.is_dir())
+
+    def test_overlay_cannot_traverse_vendor_symlink_parent(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            stage = base / "stage"
+            outside = base / "outside"
+            stage.mkdir()
+            outside.mkdir()
+            (stage / "etc").symlink_to(outside, target_is_directory=True)
+            with self.assertRaisesRegex(ValueError, "symlink parent"):
+                _assert_no_symlink_parents(stage, Path("etc/openlinux/config"))
+
+    def test_overlay_build_requires_explicit_allowlist(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            source = base / "source"
+            overlay = base / "overlay"
+            source.mkdir()
+            overlay.mkdir()
+            (overlay / "file").write_text("payload")
+            with self.assertRaisesRegex(ValueError, "explicit path allowlist"):
+                build(source, [overlay], base / "output")
 
 
 if __name__ == "__main__":
