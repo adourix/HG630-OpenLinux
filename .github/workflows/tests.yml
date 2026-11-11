@@ -18,4 +18,4 @@ jobs:
       - name: Run parser unit tests
         run: python -m unittest discover -s tests -v
       - name: Check CLI syntax
-        run: python -m py_compile tools/firmware_inspect.py
+        run: python -m py_compile tools/firmware_inspect.py tools/rebuild_firmware.py
