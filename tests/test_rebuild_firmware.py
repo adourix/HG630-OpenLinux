@@ -116,7 +116,7 @@ class FirmwareRebuildTests(unittest.TestCase):
 
     def test_rejects_non_oem_squashfs_flags(self):
         candidate = bytearray(make_squashfs())
-        struct.pack_into("<H", candidate, 26, 0)
+        struct.pack_into("<H", candidate, 24, 0)
         with self.assertRaisesRegex(ValueError, "flags differ"):
             assemble(
                 make_package(), bytes(candidate),
