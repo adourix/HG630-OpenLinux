@@ -379,3 +379,26 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - Exact vendor service launch order, shutdown order, watchdog behavior, machine boot integration, and kernel RootFS mounting remain UNKNOWN.
 - ARM BCJ XZ filter acceptance by the original 2.6.30 SquashFS decoder remains UNKNOWN/BLOCKED; no production default was changed.
 - User-mode QEMU validated selected ARM userspace commands only. Kernel boot, mounts, modules, DSL, Wi-Fi, firewall kernel behavior, OEM update acceptance, and hardware boot remain UNKNOWN/BLOCKED.
+
+## OpenLinux V0.5 boot compatibility research — 2026-11-10
+
+### VERIFIED
+
+- Current HEAD at milestone start was `4216636`, on `codex/hybrid-server-work`, with a clean working tree and `origin` configured.
+- Original uImage fields were revalidated: legacy U-Boot ARM/Linux kernel, LZMA compression, valid header/data CRCs, payload 1,434,088 bytes, load/entry `0x81208000`, name `Linux-2.6.30`.
+- Decompressed kernel evidence confirms Linux 2.6.30/ARMv7, HiSilicon SD56xx/SD5610x strings, generic `root=`/`console=` parameters, generic ATAGS parser strings, SquashFS XZ support, and XZ decoder symbols. No FDT magic was found in the payload.
+- Original and V0.4 SquashFS are version 4.0, little-endian, XZ, 1 MiB blocks. V0.4's `unsquashfs -s` output proves an ARM BCJ filter is present; the original has no reported filter.
+- Added [analysis/openlinux/v0.5/evidence.json](analysis/openlinux/v0.5/evidence.json), [report.md](analysis/openlinux/v0.5/report.md), [squashfs-deep-analysis.md](analysis/openlinux/v0.5/squashfs-deep-analysis.md), [kernel-analysis.md](analysis/openlinux/v0.5/kernel-analysis.md), [boot-protocol.md](analysis/openlinux/v0.5/boot-protocol.md), [qemu-feasibility.md](analysis/openlinux/v0.5/qemu-feasibility.md), and [hardware-test-plan.md](analysis/openlinux/v0.5/hardware-test-plan.md).
+
+### PARTIALLY VERIFIED
+
+- The kernel supports generic ATAGS parsing, but no artifact proves that the HG630 bootloader supplies ATAGS. No artifact proves a device-tree handoff either.
+- Ordinary XZ is strongly supported by kernel strings and the original filesystem. ARM BCJ is proven in the V0.4 image but not in the target kernel.
+- ARM user-mode execution remains useful for selected userspace checks; it is not kernel or hardware boot validation.
+
+### UNKNOWN / BLOCKED
+
+- Kernel `.config`, machine ID, RAM base/size, UART address/IRQ/baud, command line, initrd use, root MTD partition, mount flags, and bootloader handoff remain UNKNOWN.
+- V0.4 ARM BCJ XZ compatibility is UNKNOWN/BLOCKED. The recommended proven format is ordinary XZ without BCJ, but its expanded image may exceed the verified fixed span.
+- No QEMU system machine models HiSilicon SD56xx/SD5610x; meaningful kernel boot emulation is BLOCKED.
+- Hardware validation requires read-only UART/proc/dmesg observation and an independent recovery path. No physical MTD, flash, bootloader environment, or router was accessed.

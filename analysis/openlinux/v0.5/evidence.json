@@ -1,0 +1,45 @@
+{
+  "milestone": "V0.5",
+  "head_at_start": "4216636",
+  "classification_legend": ["VERIFIED", "PARTIALLY VERIFIED", "UNKNOWN", "BLOCKED"],
+  "uimage": {
+    "path": "/home/ayad/build-output/carved/kernel.uimage",
+    "magic": "0x27051956",
+    "header_crc_valid": true,
+    "data_crc_valid": true,
+    "compression": "LZMA",
+    "architecture": "ARM",
+    "os": "Linux",
+    "type": "Kernel",
+    "payload_size": 1434088,
+    "load_address": "0x81208000",
+    "entry_address": "0x81208000",
+    "name": "Linux-2.6.30",
+    "status": "VERIFIED"
+  },
+  "kernel": {
+    "version": "2.6.30",
+    "arm": "ARMv7",
+    "platform": "HiSilicon SD56xx/SD5610x family",
+    "machine_id": "UNKNOWN",
+    "default_cmdline": "UNKNOWN",
+    "fdt_magic_found": false,
+    "atag_parser_strings": true,
+    "atag_handoff": "UNKNOWN",
+    "kernel_config": "UNKNOWN",
+    "uart_address": "UNKNOWN",
+    "ram_layout": "UNKNOWN",
+    "status": "PARTIALLY VERIFIED"
+  },
+  "squashfs": {
+    "original": {"version": "4.0", "compression": "xz", "block_size": 1048576, "flags_raw": 704, "bytes_used": 5930917, "status": "VERIFIED"},
+    "v04": {"version": "4.0", "compression": "xz", "block_size": 1048576, "bcj_filter": "arm", "bytes_used": 5780643, "padding_bytes": 150365, "status": "VERIFIED"},
+    "original_kernel_xz_support": "VERIFIED_STATIC",
+    "original_kernel_arm_bcj_support": "UNKNOWN",
+    "recommendation": "Use ordinary XZ without BCJ for maximum proven compatibility; BCJ remains experimental and may not fit the fixed span.",
+    "status": "PARTIALLY VERIFIED"
+  },
+  "qemu": {"sd5610x_machine": false, "system_boot": "BLOCKED", "user_mode_openlinux": "VERIFIED_PARTIAL"},
+  "rootfs_boot": {"init": "VERIFIED", "oem_mounts": "VERIFIED_STATIC", "root_mtd": "UNKNOWN", "kernel_mount": "UNKNOWN", "hardware_boot": "BLOCKED"},
+  "safety": {"physical_mtd_access": false, "router_flash_attempt": false, "original_firmware_modified": false}
+}
