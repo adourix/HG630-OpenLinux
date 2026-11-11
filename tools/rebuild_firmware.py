@@ -224,18 +224,21 @@ def rebuild(
     original = original_path.read_bytes()
     candidate = rootfs_path.read_bytes()
     package, report = assemble(original, candidate)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_bytes(package)
-    report["source_paths"] = {
-        "original_firmware": str(original_path),
-        "candidate_rootfs": str(rootfs_path),
-    }
-    report["host_validation"] = (
+    report_path = output_path.with_suffix(output_path.suffix + ".report.json")
+    if report_path.exists():
+        raise FileExistsError(f"refusing to overwrite existing report: {report_path}")
+    host_validation = (
         {"skipped": True, "reason": "explicit --skip-extraction-validation"}
         if skip_extraction_validation
         else validate_extraction(rootfs_path, expected_rootfs)
     )
-    report_path = output_path.with_suffix(output_path.suffix + ".report.json")
+    report["source_paths"] = {
+        "original_firmware": str(original_path),
+        "candidate_rootfs": str(rootfs_path),
+    }
+    report["host_validation"] = host_validation
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_bytes(package)
     report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report
 
