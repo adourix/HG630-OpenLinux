@@ -116,6 +116,8 @@ def build(
     output: Path,
     source_image: Path | None = None,
     processors: int = 1,
+    bcj: str | None = None,
+    pad_to: int | None = None,
 ) -> dict[str, object]:
     rootfs = rootfs.resolve()
     output = output.resolve()
@@ -140,13 +142,28 @@ def build(
     image = output / "rootfs.squashfs"
     if processors < 1:
         raise ValueError("processors must be positive")
-    command = ["mksquashfs", str(stage), str(image), "-noappend", "-comp", "xz", "-b", "1M", "-all-time", "1490771239", "-mkfs-time", "1490771239", "-no-progress", "-processors", str(processors)]
+    command = ["mksquashfs", str(stage), str(image), "-noappend", "-comp", "xz"]
+    if bcj:
+        if bcj != "arm":
+            raise ValueError("only the explicitly supported BCJ filter is arm")
+        command.extend(["-Xbcj", bcj])
+    command.extend(["-b", "1M", "-all-time", "1490771239", "-mkfs-time", "1490771239", "-no-progress", "-processors", str(processors)])
     subprocess.run(command, check=True, capture_output=True, text=True)
     validation = validate_image(image)
+    padding = 0
+    if pad_to is not None:
+        if pad_to < image.stat().st_size:
+            raise ValueError(f"pad_to {pad_to} is smaller than generated SquashFS {image.stat().st_size}")
+        padding = pad_to - image.stat().st_size
+        if padding:
+            with image.open("ab") as stream:
+                stream.write(b"\0" * padding)
+            validate_image(image)
     report: dict[str, object] = {
         "rootfs_source": str(rootfs), "overlays": applied,
         "rootfs_file_count": sum(1 for p in stage.rglob("*") if p.is_file() or p.is_symlink()),
         "squashfs": str(image), "squashfs_size": image.stat().st_size,
+        "squashfs_padding": padding, "bcj_filter": bcj,
         "squashfs_sha256": sha256(image), "mksquashfs_command": command,
         "unsquashfs_validation": validation,
         "original_kernel_preserved": True,
@@ -166,8 +183,10 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--source-squashfs", type=Path)
     parser.add_argument("--processors", type=int, default=1, help="mksquashfs worker count (default: 1)")
+    parser.add_argument("--bcj", choices=["arm"], help="optional XZ ARM BCJ filter")
+    parser.add_argument("--pad-to", type=int, help="append deterministic zero padding to this image size")
     args = parser.parse_args()
-    print(json.dumps(build(args.rootfs, args.overlay, args.output, args.source_squashfs, args.processors), indent=2))
+    print(json.dumps(build(args.rootfs, args.overlay, args.output, args.source_squashfs, args.processors, args.bcj, args.pad_to), indent=2))
     return 0
 
 

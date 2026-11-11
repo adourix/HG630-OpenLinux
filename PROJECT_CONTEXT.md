@@ -330,3 +330,25 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - The new init hook is not claimed to run during actual router boot: the original `rcS` does not currently invoke it, and wiring service startup into vendor boot ordering requires further static/hardware evidence.
 - DHCP, DNS, SSH, firewall, web administration, service dependency ordering, and kernel-device integration remain unimplemented or UNKNOWN. No service is enabled by default.
 - Exact SD5610x machine ID, ATAGS/device-tree protocol, RAM layout, UART, interrupt controller, timer, clock, and RootFS mount parameters remain UNKNOWN.
+
+## OpenLinux V0.3 core services milestone — 2026-11-10
+
+### VERIFIED
+
+- Extended `openlinuxctl` with network status/validation/dry-run application, DHCP/DNS generation, static lease/local host inputs, firewall backend/rule validation, SSH status/validation, `/proc` monitoring, bounded OpenLinux logging, and service-supervisor boot logging.
+- RootFS inventory verified the preserved `/bin/ip`, `/sbin/udhcpc`, vendor `/bin/iptables`, `/bin/sshd`, and vendor `dns`/`dhcps` binaries. No OEM `dnsmasq` or `nft` binary was found. OEM files and daemons remain untouched.
+- Added component tests covering invalid configuration, interface validation, DHCP generation, static leases/local hosts, firewall rules, SSH validation, monitoring, dry-run guarantees, and supervisor logging.
+- V0.3 RootFS built and extracted successfully at `/home/ayad/build-output/custom-build/run-012/rootfs.squashfs`, size `5931008`, SHA256 `80304d7848b7732b46e290f8f8845129340da31a7cfd7831e3ee25c89dd7e79e`.
+- V0.3 firmware assembled separately at `/home/ayad/build-output/custom-build/firmware-run-003/HG630V2-v0.3-experimental.bin`, SHA256 `cfe1afd5f628db281fbefe36da0936995e8deb05c8de4d76fbb164244417fb74`; manifest/hash verification passed and the artifact is `EXPERIMENTAL_NON_FLASHABLE`.
+- ARM user-mode QEMU executed the V0.3 status, network validation, DHCP generation, firewall backend detection, SSH status, and dry-run commands. This validates userspace execution only.
+- Added [analysis/openlinux/v0.3-report.md](analysis/openlinux/v0.3-report.md). The fixed-span build required explicit XZ ARM BCJ compression and deterministic zero padding; the exact kernel's BCJ support remains unverified.
+
+### INFERRED
+
+- The preserved vendor `iptables` binary is the only verified firewall backend suitable for a future integration path; the OpenLinux abstraction avoids assuming nftables.
+- OpenLinux-owned generated configuration can coexist with OEM configuration because no OEM file or daemon is replaced.
+
+### UNKNOWN / BLOCKED
+
+- Actual DHCP/DNS daemon operation, firewall rule application, SSH exposure, vendor interface names, init-time service ordering, kernel SquashFS BCJ support, kernel boot, OEM update acceptance, and hardware compatibility remain UNKNOWN/BLOCKED.
+- The prior run-009/run-010 default-compressor builds exceeded the fixed span and were safely rejected by the assembly tool; those external build directories remain preserved as evidence. No previous artifact was overwritten.

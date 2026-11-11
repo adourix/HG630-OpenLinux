@@ -1,58 +1,121 @@
 #!/bin/sh
-# Minimal, vendor-preserving OpenLinux service supervisor.
+# OpenLinux core service CLI. Runtime is POSIX sh + BusyBox only.
+# OPENLINUX_ROOT is used by offline tests; it is empty on the router.
 ROOT=${OPENLINUX_ROOT:-}
 CONFIG=${OPENLINUX_CONFIG:-${ROOT}/etc/openlinux/openlinux.conf}
+RULES=${OPENLINUX_RULES:-${ROOT}/etc/openlinux/firewall.rules}
+LEASES=${OPENLINUX_LEASES:-${ROOT}/etc/openlinux/dhcp.leases}
+HOSTS=${OPENLINUX_HOSTS:-${ROOT}/etc/openlinux/hosts}
 LOG=${OPENLINUX_LOG:-${ROOT}/var/log/openlinux.log}
-SERVICES="network dns ssh firewall web"
+GEN=${OPENLINUX_GENERATED:-${ROOT}/etc/openlinux/generated}
+SERVICES="network dhcp firewall ssh monitor logs"
+
+path() { echo "${ROOT}$1"; }
+cfg() { awk -F= -v key="$1" '$1 == key { value=$2 } END { if (value != "") print value }' "$CONFIG"; }
 
 log() {
-    dir=${LOG%/*}
-    [ "$dir" = "$LOG" ] || mkdir -p "$dir"
+    dir=${LOG%/*}; [ "$dir" = "$LOG" ] || mkdir -p "$dir"
+    max=$(cfg LOG_MAX_BYTES); [ -n "$max" ] || max=65536
+    if [ -f "$LOG" ] && [ "$(wc -c < "$LOG")" -ge "$max" ]; then mv "$LOG" "$LOG.1" 2>/dev/null || :; fi
     echo "openlinuxctl: $*" >> "$LOG"
 }
 
-value() {
-    awk -F= -v key="SERVICE_$1" '$1 == key { print $2; found=1 } END { if (!found) print "disabled" }' "$CONFIG"
-}
+valid_ipv4() { echo "$1" | awk -F. 'NF == 4 && $1 ~ /^[0-9]+$/ && $2 ~ /^[0-9]+$/ && $3 ~ /^[0-9]+$/ && $4 ~ /^[0-9]+$/ && $1 <= 255 && $2 <= 255 && $3 <= 255 && $4 <= 255 { ok=1 } END { exit ok ? 0 : 1 }'; }
+valid_iface() { echo "$1" | awk '/^[A-Za-z0-9_.-]+$/ { ok=1 } END { exit ok ? 0 : 1 }'; }
 
-validate() {
+validate_config() {
     [ -f "$CONFIG" ] || { echo "missing config: $CONFIG" >&2; return 1; }
     awk -F= '
-        /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
-        NF != 2 || $1 !~ /^SERVICE_(NETWORK|DNS|SSH|FIREWALL|WEB)$/ || $2 !~ /^(enabled|disabled)$/ { bad=1 }
-        END { exit bad ? 1 : 0 }
+      /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
+      NF != 2 || $1 !~ /^(SERVICE_(NETWORK|DNS|SSH|FIREWALL|WEB)|NETWORK_(LAN|WAN)_(IFACE|MODE|ADDRESS|NETMASK|GATEWAY)|DHCP_(ENABLE|START|END|LEASE_SECONDS)|DNS_(UPSTREAM|DOMAIN)|FIREWALL_BACKEND|SSH_(ENABLE|BIND)|LOG_(LEVEL|MAX_BYTES))$/ { bad=1 }
+      $1 ~ /_MODE$/ && $2 !~ /^(static|dhcp|disabled)$/ { bad=1 }
+      $1 ~ /_ENABLE$/ && $2 !~ /^(enabled|disabled)$/ { bad=1 }
+      $1 ~ /_IFACE$/ && $2 !~ /^[A-Za-z0-9_.-]+$/ { bad=1 }
+      $1 ~ /_(ADDRESS|NETMASK|GATEWAY|START|END)$/ && $2 !~ /^[0-9.]+$/ && $2 != "" { bad=1 }
+      $1 == "DHCP_LEASE_SECONDS" && $2 !~ /^[0-9]+$/ { bad=1 }
+      $1 == "LOG_MAX_BYTES" && $2 !~ /^[0-9]+$/ { bad=1 }
+      END { exit bad ? 1 : 0 }
     ' "$CONFIG" || { echo "invalid config: $CONFIG" >&2; return 1; }
+    for key in NETWORK_LAN_IFACE NETWORK_WAN_IFACE; do value=$(cfg "$key"); [ -z "$value" ] || valid_iface "$value" || { echo "invalid interface: $key" >&2; return 1; }; done
+    for key in NETWORK_LAN_ADDRESS NETWORK_LAN_NETMASK NETWORK_LAN_GATEWAY NETWORK_WAN_ADDRESS NETWORK_WAN_NETMASK NETWORK_WAN_GATEWAY DHCP_START DHCP_END; do value=$(cfg "$key"); [ -z "$value" ] || valid_ipv4 "$value" || { echo "invalid IPv4 value: $key" >&2; return 1; }; done
 }
 
-status() {
-    validate || return 1
-    for service in $SERVICES; do
-        key=$(echo "$service" | tr '[:lower:]' '[:upper:]')
-        printf '%s %s\n' "$service" "$(value "$key")"
+network_status() {
+    validate_config || return 1
+    echo "network.lan_iface=$(cfg NETWORK_LAN_IFACE)"; echo "network.wan_iface=$(cfg NETWORK_WAN_IFACE)"
+    file=$(path /proc/net/dev); echo "network.proc_net_dev=$file"
+    if [ -r "$file" ]; then awk 'NR > 2 { gsub(":", "", $1); print "interface." $1 "=present" }' "$file"; else echo "interface.status=unavailable"; fi
+}
+
+network_validate() {
+    validate_config || return 1
+    for side in LAN WAN; do
+        mode=$(cfg NETWORK_${side}_MODE); [ -n "$mode" ] || mode=disabled
+        case "$mode" in
+            disabled) ;;
+            static) valid_ipv4 "$(cfg NETWORK_${side}_ADDRESS)" || { echo "network.$side static address invalid"; return 1; }; valid_ipv4 "$(cfg NETWORK_${side}_NETMASK)" || { echo "network.$side netmask invalid"; return 1; } ;;
+            dhcp) [ -n "$(cfg NETWORK_${side}_IFACE)" ] || { echo "network.$side DHCP interface missing"; return 1; } ;;
+            *) echo "network.$side mode invalid"; return 1 ;;
+        esac
+    done
+    echo "network configuration valid (dry-run)"
+}
+
+network_apply() {
+    dry=1; [ "$1" = "--apply" ] && dry=0; network_validate || return 1
+    [ "$dry" = 1 ] || [ "${OPENLINUX_ALLOW_APPLY:-0}" = 1 ] || { echo "apply requires OPENLINUX_ALLOW_APPLY=1" >&2; return 1; }
+    for side in LAN WAN; do
+        iface=$(cfg NETWORK_${side}_IFACE); mode=$(cfg NETWORK_${side}_MODE); [ -n "$iface" ] || continue
+        case "$mode" in
+            static) command="$(path /bin/ifconfig) $iface $(cfg NETWORK_${side}_ADDRESS) netmask $(cfg NETWORK_${side}_NETMASK)" ;;
+            dhcp) command="$(path /sbin/udhcpc) -i $iface" ;;
+            *) continue ;;
+        esac
+        if [ "$dry" = 1 ]; then echo "DRY-RUN: $command"; else echo "APPLY: $command"; sh -c "$command"; fi
     done
 }
 
-boot() {
-    validate || return 1
-    for service in $SERVICES; do
-        key=$(echo "$service" | tr '[:lower:]' '[:upper:]')
-        state=$(value "$key")
-        if [ "$state" = enabled ]; then
-            script=${ROOT}/usr/libexec/openlinux-services/$service
-            if [ -x "$script" ]; then
-                "$script" >> "$LOG" 2>&1 || log "$service failed: $?"
-            else
-                log "$service enabled but implementation is absent"
-            fi
-        else
-            log "$service disabled"
-        fi
-    done
+dhcp_status() { validate_config || return 1; echo "dhcp.enabled=$(cfg DHCP_ENABLE)"; echo "dhcp.backend=$(if [ -x "$(path /bin/dnsmasq)" ]; then echo dnsmasq; elif [ -x "$(path /bin/dhcps)" ]; then echo vendor-dhcps; else echo unavailable; fi)"; echo "dhcp.config=$GEN/dnsmasq.conf"; }
+
+dhcp_validate() {
+    validate_config || return 1
+    if [ "$(cfg DHCP_ENABLE)" = enabled ]; then valid_ipv4 "$(cfg DHCP_START)" || { echo "DHCP_START invalid"; return 1; }; valid_ipv4 "$(cfg DHCP_END)" || { echo "DHCP_END invalid"; return 1; }; fi
+    mkdir -p "$GEN"
+    if [ -f "$LEASES" ]; then awk ' /^[[:space:]]*#/ || /^[[:space:]]*$/ { next } $1 !~ /^[0-9A-Fa-f:.-]+,[0-9.]+,[A-Za-z0-9_.-]+$/ { bad=1 } END { exit bad ? 1 : 0 }' "$LEASES" || { echo "invalid DHCP static lease file: $LEASES"; return 1; }; fi
+    if [ -f "$HOSTS" ]; then awk ' /^[[:space:]]*#/ || /^[[:space:]]*$/ { next } NF != 2 || $1 !~ /^[0-9.]+$/ || $2 !~ /^[A-Za-z0-9_.-]+$/ { bad=1 } END { exit bad ? 1 : 0 }' "$HOSTS" || { echo "invalid DNS local hosts file: $HOSTS"; return 1; }; fi
+    { echo "# OpenLinux-owned generated file; OEM configuration is untouched"; [ "$(cfg DHCP_ENABLE)" = enabled ] && echo "dhcp-range=$(cfg DHCP_START),$(cfg DHCP_END),$(cfg DHCP_LEASE_SECONDS)s"; echo "domain=$(cfg DNS_DOMAIN)"; upstream=$(cfg DNS_UPSTREAM); [ -z "$upstream" ] || echo "server=$upstream"; [ -f "$LEASES" ] && awk ' /^[[:space:]]*#/ || /^[[:space:]]*$/ { next } { gsub(/,/, " "); print "dhcp-host=" $0 }' "$LEASES"; [ -f "$HOSTS" ] && awk ' /^[[:space:]]*#/ || /^[[:space:]]*$/ { next } { print "address=/" $2 "/" $1 }' "$HOSTS"; } > "$GEN/dnsmasq.conf"
+    echo "DHCP/DNS configuration valid; generated $GEN/dnsmasq.conf"
 }
 
-case "$1" in
-    validate) validate ;;
-    status) status ;;
-    boot) boot ;;
-    *) echo "usage: $0 {validate|status|boot}" >&2; exit 2 ;;
+firewall_backend() { if [ -x "$(path /bin/nft)" ]; then echo nftables; elif [ -x "$(path /bin/iptables)" ]; then echo vendor-iptables; elif command -v iptables >/dev/null 2>&1; then echo host-iptables; else echo unavailable; fi; }
+firewall_status() { echo "firewall.backend=$(firewall_backend)"; echo "firewall.rules=$RULES"; }
+firewall_validate() {
+    backend=$(firewall_backend); [ "$backend" != unavailable ] || { echo "no firewall backend available"; return 1; }
+    if [ -f "$RULES" ]; then awk '/^[[:space:]]*#/ || /^[[:space:]]*$/ { next } $1 !~ /^(allow|deny)$/ || $2 !~ /^(tcp|udp|all)$/ || $3 !~ /^[0-9]+$/ || $3 > 65535 { bad=1 } END { exit bad ? 1 : 0 }' "$RULES" || { echo "invalid firewall rule file: $RULES"; return 1; }; fi
+    echo "firewall rules valid for backend $backend (dry-run)"
+}
+
+ssh_status() { echo "ssh.binary=$(if [ -x "$(path /bin/sshd)" ]; then echo present; else echo absent; fi)"; echo "ssh.enabled=$(cfg SSH_ENABLE)"; echo "ssh.bind=$(cfg SSH_BIND)"; }
+ssh_validate() { validate_config || return 1; [ "$(cfg SSH_ENABLE)" != enabled ] || [ -x "$(path /bin/sshd)" ] || { echo "SSH enabled but vendor sshd is absent"; return 1; }; bind=$(cfg SSH_BIND); [ -z "$bind" ] || valid_ipv4 "$bind" || { echo "SSH_BIND invalid"; return 1; }; echo "SSH configuration valid; service remains disabled unless explicitly started"; }
+
+monitor() { for item in uptime loadavg meminfo mounts; do file=$(path /proc/$item); if [ -r "$file" ]; then echo "[$item]"; sed -n '1,12p' "$file"; else echo "[$item] unavailable"; fi; done; }
+logs_status() { echo "logs.path=$LOG"; echo "logs.max_bytes=$(cfg LOG_MAX_BYTES)"; echo "logs.exists=$(if [ -f "$LOG" ]; then echo yes; else echo no; fi)"; echo "logs.oem_untouched=yes"; }
+status() { validate_config || return 1; for service in network dns ssh firewall web; do key=$(echo "$service" | tr '[:lower:]' '[:upper:]'); echo "$service=$(cfg SERVICE_$key)"; done; }
+
+case "$1:$2" in
+    validate:) validate_config ;;
+    status:) status ;;
+    network:status) network_status ;;
+    network:validate) network_validate ;;
+    network:apply) network_apply "$3" ;;
+    dhcp:status) dhcp_status ;;
+    dhcp:validate) dhcp_validate ;;
+    firewall:status) firewall_status ;;
+    firewall:validate) firewall_validate ;;
+    ssh:status) ssh_status ;;
+    ssh:validate) ssh_validate ;;
+    monitor:) validate_config && monitor ;;
+    logs:status) logs_status ;;
+    boot:) validate_config || exit 1; for service in network dns ssh firewall web; do key=$(echo "$service" | tr '[:lower:]' '[:upper:]'); state=$(cfg SERVICE_$key); if [ "$state" = enabled ]; then script=${ROOT}/usr/libexec/openlinux-services/$service; if [ -x "$script" ]; then "$script" >> "$LOG" 2>&1 || log "$service failed: $?"; else log "$service enabled but implementation is absent"; fi; else log "$service disabled"; fi; done ;;
+    *) echo "usage: $0 {validate|status|network|dhcp|firewall|ssh|monitor|logs|boot}" >&2; exit 2 ;;
 esac

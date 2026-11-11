@@ -68,6 +68,17 @@ class RootFsBuildTests(unittest.TestCase):
             (source / "etc" / "release").write_text("HG630 test\n")
             report = build(source, [], output, processors=1)
             self.assertEqual(report["squashfs_size"], (output / "rootfs.squashfs").stat().st_size)
+
+    def test_padding_is_deterministic_and_reported(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "source"
+            source.mkdir()
+            (source / "file").write_text("payload")
+            output = Path(directory) / "output"
+            report = build(source, [], output, processors=1, pad_to=131072)
+            self.assertGreater(report["squashfs_padding"], 0)
+            self.assertEqual(report["squashfs_size"], 131072)
+            self.assertEqual((output / "rootfs.squashfs").stat().st_size, 131072)
             self.assertTrue((output / "build-report.json").exists())
             comparison = validate(output / "rootfs.squashfs", source)
             self.assertTrue(comparison["match"])

@@ -12,9 +12,20 @@ untouched.
 
 Status:
 
-- configuration validation: implemented and host-testable;
-- ARM user-mode execution: covered where `qemu-arm` and the preserved RootFS
-  are available;
-- service dependency ordering: UNKNOWN until the vendor boot sequence is mapped;
-- DHCP/DNS/SSH/firewall/web implementations: not yet implemented;
+- configuration validation: VERIFIED by host tests and ARM user-mode execution;
+- network inspection, static/DHCP validation, and dry-run command generation:
+  VERIFIED; no default state changes;
+- DHCP/DNS generation with OpenLinux-owned static lease and host inputs:
+  VERIFIED; no dnsmasq binary exists in the OEM RootFS, so no daemon restart is
+  attempted;
+- firewall backend detection and proposed-rule validation: VERIFIED against the
+  preserved vendor `/bin/iptables`; no rules are flushed or applied;
+- SSH status/config validation: VERIFIED against the preserved `/bin/sshd`, but
+  SSH remains disabled by default;
+- `/proc` monitor and bounded log status interfaces: implemented and tested;
+- service dependency ordering and actual boot-time invocation: UNKNOWN until
+  the vendor boot sequence is mapped;
 - kernel or hardware integration: UNKNOWN/BLOCKED.
+
+The V0.3 component report is [v0.3-report.md](v0.3-report.md), with the small
+build summary in [v0.3-manifest.json](v0.3-manifest.json).

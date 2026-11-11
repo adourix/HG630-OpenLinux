@@ -16,13 +16,16 @@ pgrep -af 'tools/build_rootfs.py' || true
 python3 tools/build_rootfs.py \
   /home/ayad/build-output/custom-build/run-007/stage-rootfs \
   --overlay build/experimental/openlinux-overlay/rootfs \
-  --output /home/ayad/build-output/custom-build/run-008 \
-  --source-squashfs /home/ayad/build-output/custom-build/run-007/rootfs.squashfs
+  --output /home/ayad/build-output/custom-build/run-V03 \
+  --source-squashfs /home/ayad/build-output/custom-build/run-007/rootfs.squashfs \
+  --bcj arm --pad-to 5931008
 python3 tools/build_firmware.py \
   /home/ayad/firmware-input/HG630V2-12V100R001.bin \
-  /home/ayad/build-output/custom-build/run-008/rootfs.squashfs \
-  --output /home/ayad/build-output/custom-build/firmware-run-002/HG630V2-v0.2-experimental.bin
+  /home/ayad/build-output/custom-build/run-V03/rootfs.squashfs \
+  --output /home/ayad/build-output/custom-build/firmware-run-003/HG630V2-v0.3-experimental.bin
 ```
 
 The firmware result remains experimental and non-flashable while OEM signature
-and outer-container requirements are unresolved.
+and outer-container requirements are unresolved. `--bcj arm` is an explicit
+experimental XZ filter choice; the kernel's acceptance of this filter has not
+been proven by actual HG630 V2 boot.
