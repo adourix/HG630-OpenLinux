@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import struct
 from pathlib import Path
 
@@ -13,6 +14,7 @@ EM_ARM = 40
 SHT_ARM_ATTRIBUTES = 0x70000003
 TAG_ABI_HARDFP_USE = 27
 TAG_ABI_VFP_ARGS = 28
+ATTRIBUTE_STRING_TAGS = {4, 5, 65, 67}
 
 
 def _uleb(data: bytes, offset: int) -> tuple[int, int]:
@@ -28,7 +30,7 @@ def _uleb(data: bytes, offset: int) -> tuple[int, int]:
     raise ValueError("truncated ULEB128")
 
 
-def parse_arm_attributes(data: bytes) -> dict[str, object]:
+def parse_arm_attributes(data: bytes, endian: str = "little") -> dict[str, object]:
     """Decode the AEABI tags relevant to float calling convention."""
     result: dict[str, object] = {"format": None, "vendor": None, "tags": {}}
     if not data:
@@ -37,12 +39,13 @@ def parse_arm_attributes(data: bytes) -> dict[str, object]:
         result["error"] = "invalid ARM attributes format"
         return result
     result["format"] = 1
+    prefix = "<" if endian == "little" else ">"
     offset = 1
     tags: dict[str, object] = {}
     try:
         while offset + 4 <= len(data):
             subsection_start = offset
-            subsection_length = struct.unpack_from("<I", data, offset)[0]
+            subsection_length = struct.unpack_from(prefix + "I", data, offset)[0]
             if subsection_length < 5 or subsection_start + subsection_length > len(data):
                 raise ValueError("invalid ARM attributes subsection length")
             offset += 4
@@ -50,24 +53,29 @@ def parse_arm_attributes(data: bytes) -> dict[str, object]:
             result["vendor"] = data[offset:vendor_end].decode("ascii", "replace")
             offset = vendor_end + 1
             end = subsection_start + subsection_length
-            while offset + 4 <= end:
-                file_length = struct.unpack_from("<I", data, offset)[0]
+            while offset < end:
+                if offset + 5 > end:
+                    raise ValueError("truncated ARM attributes subsection header")
+                subsection_tag = data[offset]
+                if subsection_tag != 1:
+                    raise ValueError(f"unsupported ARM attributes subsection tag {subsection_tag}")
+                offset += 1
+                file_length = struct.unpack_from(prefix + "I", data, offset)[0]
                 file_start = offset
-                if file_length < 4 or file_start + file_length > end:
+                if file_length < 5 or file_start - 1 + file_length > end:
                     raise ValueError("invalid ARM attributes file subsection length")
                 offset += 4
-                while offset < file_start + file_length:
+                file_end = file_start - 1 + file_length
+                while offset < file_end:
                     tag, offset = _uleb(data, offset)
-                    if tag in (TAG_ABI_HARDFP_USE, TAG_ABI_VFP_ARGS):
+                    if tag in ATTRIBUTE_STRING_TAGS:
+                        end_string = data.index(b"\0", offset, file_end)
+                        tags[str(tag)] = data[offset:end_string].decode("ascii", "replace")
+                        offset = end_string + 1
+                    else:
                         value, offset = _uleb(data, offset)
                         tags[str(tag)] = value
-                    elif offset < file_start + file_length:
-                        if tag in (4, 5, 32, 34, 36, 65):
-                            end_string = data.index(b"\0", offset, file_start + file_length)
-                            offset = end_string + 1
-                        else:
-                            _, offset = _uleb(data, offset)
-                offset = file_start + file_length
+                offset = file_end
             offset = end
     except (ValueError, IndexError) as exc:
         result["error"] = str(exc)
@@ -98,6 +106,68 @@ def _arm_attributes_from_elf(data: bytes, endian: str, elf_class: int) -> bytes 
         if section_type == SHT_ARM_ATTRIBUTES or name == b".ARM.attributes":
             return data[section_offset:section_offset + section_size]
     return None
+
+
+def _dynamic_metadata(data: bytes, prefix: str) -> dict[str, object]:
+    """Read PT_INTERP and DT_NEEDED without depending on host architecture tools."""
+    result: dict[str, object] = {
+        "interpreter": None, "needed_libraries": [], "libc_family": None,
+        "libc_version": None, "libc_version_evidence": [],
+    }
+    if len(data) < 52:
+        return result
+    phoff = struct.unpack_from(prefix + "I", data, 28)[0]
+    phentsize, phnum = struct.unpack_from(prefix + "HH", data, 42)
+    for index in range(phnum):
+        start = phoff + index * phentsize
+        if start + 32 > len(data):
+            break
+        p_type, p_offset, _, _, p_filesz = struct.unpack_from(prefix + "IIIII", data, start)
+        if p_type == 3 and p_offset + p_filesz <= len(data):
+            result["interpreter"] = data[p_offset:p_offset + p_filesz].split(b"\0", 1)[0].decode("utf-8", "replace")
+            break
+
+    e_shoff = struct.unpack_from(prefix + "I", data, 32)[0]
+    e_shentsize, e_shnum = struct.unpack_from(prefix + "HH", data, 46)
+    if not e_shoff or e_shentsize < 40:
+        return result
+    sections = []
+    for index in range(e_shnum):
+        start = e_shoff + index * e_shentsize
+        if start + 40 > len(data):
+            return result
+        sections.append(struct.unpack_from(prefix + "IIIIIIIIII", data, start))
+    dynamic = next((s for s in sections if s[1] == 6), None)
+    if dynamic is None:
+        return result
+    dynstr_index = dynamic[6]
+    if dynstr_index >= len(sections):
+        return result
+    dynstr = sections[dynstr_index]
+    strings = data[dynstr[4]:dynstr[4] + dynstr[5]]
+    needed_offsets = []
+    entry_size = dynamic[9] or 8
+    for offset in range(dynamic[4], dynamic[4] + dynamic[5], entry_size):
+        if offset + 8 > len(data):
+            break
+        tag, value = struct.unpack_from(prefix + "II", data, offset)
+        if tag == 0:
+            break
+        if tag == 1:
+            needed_offsets.append(value)
+    needed = []
+    for string_offset in needed_offsets:
+        if string_offset < len(strings):
+            needed.append(strings[string_offset:].split(b"\0", 1)[0].decode("utf-8", "replace"))
+    result["needed_libraries"] = needed
+    names = " ".join(needed + ([result["interpreter"]] if result["interpreter"] else []))
+    if re.search(r"uClibc|ld-uClibc", names, re.I):
+        result["libc_family"] = "uClibc"
+        result["libc_version_evidence"] = [f"interpreter/NEEDED: {name}" for name in needed + ([result["interpreter"]] if result["interpreter"] else []) if "uClibc" in name]
+    elif re.search(r"glibc|ld-linux", names, re.I):
+        result["libc_family"] = "glibc"
+        result["libc_version_evidence"] = [f"interpreter/NEEDED: {name}" for name in needed + ([result["interpreter"]] if result["interpreter"] else []) if "ld-linux" in name or "glibc" in name]
+    return result
 
 
 def classify_abi(e_flags: int | None, attributes: dict[str, object] | None) -> tuple[str | None, list[str]]:
@@ -144,14 +214,22 @@ def inspect_elf(path: Path) -> dict[str, object]:
         machine = struct.unpack_from(prefix + "H", data, 18)[0]
         e_flags = struct.unpack_from(prefix + "I", data, 36)[0]
         attributes_raw = _arm_attributes_from_elf(data, endian, elf_class)
-        attributes = parse_arm_attributes(attributes_raw) if attributes_raw else None
+        attributes = parse_arm_attributes(attributes_raw, endian) if attributes_raw else None
         abi, evidence = classify_abi(e_flags, attributes)
+        dynamic = _dynamic_metadata(data, prefix)
+        filename_version = re.search(r"uClibc[-.]([0-9][^/]*)", path.name, re.I)
+        libc_version = filename_version.group(1).removesuffix(".so") if filename_version else dynamic["libc_version"]
         result.update({
             "architecture": "ARM" if machine == EM_ARM else f"machine-{machine}",
             "machine": "ARM" if machine == EM_ARM else f"machine-{machine}",
             "machine_id": machine, "class": "ELF32", "endianness": endian,
             "raw_elf_flags": f"0x{e_flags:08x}", "elf_flags": e_flags,
             "abi": abi, "abi_evidence": evidence, "arm_attributes": attributes,
+            "interpreter": dynamic["interpreter"],
+            "needed_libraries": dynamic["needed_libraries"],
+            "libc_family": dynamic["libc_family"],
+            "libc_version": libc_version,
+            "libc_version_evidence": dynamic["libc_version_evidence"] + ([f"filename: {path.name}"] if filename_version else []),
         })
     except OSError as exc:
         result["error"] = str(exc)

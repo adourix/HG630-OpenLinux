@@ -11,6 +11,11 @@ from tools.detect_abi import (
     parse_arm_attributes,
 )
 
+REAL_AEABI_ATTRIBUTES = bytes.fromhex(
+    "412c00000061656162690001220000000541524d20763454000602080109011204"
+    "14011501170318011a022c01"
+)
+
 
 def elf32(flags: int, machine: int = 40) -> bytes:
     header = bytearray(52)
@@ -25,8 +30,8 @@ def elf32(flags: int, machine: int = 40) -> bytes:
 
 
 def attrs(vfp_args: int) -> bytes:
-    file_subsection = struct.pack("<I", 6) + bytes((28, vfp_args))
-    subsection = struct.pack("<I", 4 + 6 + len(file_subsection)) + b"aeabi\0" + file_subsection
+    file_subsection = struct.pack("<I", 7) + bytes((28, vfp_args))
+    subsection = struct.pack("<I", 4 + 6 + 1 + len(file_subsection)) + b"aeabi\0\x01" + file_subsection
     return b"A" + subsection
 
 
@@ -57,6 +62,25 @@ class DetectAbiTests(unittest.TestCase):
         self.assertEqual(hard["tags"]["28"], 1)
         self.assertEqual(classify_abi(None, hard)[0], "hard")
         self.assertEqual(classify_abi(None, soft)[0], "soft")
+
+    def test_real_server_attribute_encoding_is_valid(self):
+        result = parse_arm_attributes(REAL_AEABI_ATTRIBUTES)
+        self.assertNotIn("error", result)
+        self.assertEqual(result["vendor"], "aeabi")
+        self.assertEqual(result["tags"]["5"], "ARM v4T")
+        self.assertNotIn("28", result["tags"])
+        self.assertIsNone(classify_abi(None, result)[0])
+
+    def test_malformed_attribute_lengths_are_reported(self):
+        malformed = b"A" + struct.pack("<I", 15) + b"aeabi\0\x01" + struct.pack("<I", 99)
+        result = parse_arm_attributes(malformed)
+        self.assertIn("invalid ARM attributes file subsection length", result["error"])
+
+    def test_conflicting_flags_and_attribute_are_ambiguous(self):
+        hard_attributes = parse_arm_attributes(attrs(1))
+        abi, evidence = classify_abi(EF_ARM_ABI_FLOAT_SOFT, hard_attributes)
+        self.assertIsNone(abi)
+        self.assertIn("conflicting hard/soft evidence", evidence)
 
 
     def test_missing_float_evidence_is_ambiguous(self):

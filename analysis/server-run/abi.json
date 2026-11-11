@@ -22,9 +22,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ash",
@@ -41,9 +63,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/atcmd",
@@ -60,9 +106,41 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libatshared.so",
+        "libmsgapi.so",
+        "liblua.so",
+        "libm.so.0",
+        "libdl.so.0",
+        "libiconv.so.2",
+        "libcyassl.so.5",
+        "libxmlapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libcfmapi.so",
+        "libz.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/atpsync",
@@ -79,9 +157,40 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libhttpapi.so",
+        "libcfmapi.so",
+        "libmsgapi.so",
+        "libxmlapi.so",
+        "libcyassl.so.5",
+        "libbhalapi.so",
+        "libm.so.0",
+        "libz.so.1",
+        "librestcore.so",
+        "liblua.so",
+        "libupnpcommon.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/atserver",
@@ -98,9 +207,36 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libatshared.so",
+        "libatserversdk.so",
+        "libcyassl.so.5",
+        "libcfmapi.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/auth",
@@ -117,9 +253,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/bftpd",
@@ -136,9 +292,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libpthread.so.0",
+        "libcyassl.so.5",
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/brctl",
@@ -155,9 +336,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/busybox",
@@ -174,9 +376,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cat",
@@ -193,9 +419,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/chmod",
@@ -212,9 +462,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/chown",
@@ -231,9 +505,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cli",
@@ -250,9 +548,38 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcfmapi.so",
+        "libmsgapi.so",
+        "libxmlapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libm.so.0",
+        "libiconv.so.2",
+        "libcyassl.so.5",
+        "libz.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cms",
@@ -269,9 +596,43 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libtriapi.so",
+        "libmsgapi.so",
+        "libhttpapi.so",
+        "libcfmapi.so",
+        "libxmlapi.so",
+        "libbhalapi.so",
+        "liblgplutil.so",
+        "libm.so.0",
+        "libpthread.so.0",
+        "libcrypt.so.0",
+        "libcyassl.so.5",
+        "libz.so.1",
+        "liblua.so",
+        "libiconv.so.2",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/console",
@@ -288,9 +649,38 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcfmapi.so",
+        "libmsgapi.so",
+        "libxmlapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libm.so.0",
+        "libiconv.so.2",
+        "libcyassl.so.5",
+        "libz.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cp",
@@ -307,9 +697,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/crash",
@@ -326,9 +740,38 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "libhttpapi.so",
+        "libxmlapi.so",
+        "libbhalapi.so",
+        "libm.so.0",
+        "liblua.so",
+        "librestcore.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cwmp",
@@ -345,9 +788,41 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "libhttpapi.so",
+        "liblgplutil.so",
+        "libxmlapi.so",
+        "libbhalapi.so",
+        "libm.so.0",
+        "libcyassl.so.5",
+        "libz.so.1",
+        "libdl.so.0",
+        "libiconv.so.2",
+        "liblua.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/date",
@@ -364,9 +839,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ddnsc",
@@ -383,9 +882,35 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libcfmapi.so",
+        "liblgplutil.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/debug",
@@ -402,9 +927,38 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcfmapi.so",
+        "libmsgapi.so",
+        "libxmlapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libm.so.0",
+        "libiconv.so.2",
+        "libcyassl.so.5",
+        "libz.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcp6c",
@@ -421,9 +975,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "liblgplutil.so",
+        "libpthread.so.0",
+        "libcyassl.so.5",
+        "libmsgapi.so",
+        "libhttpapi.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcp6s",
@@ -440,9 +1019,35 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "liblgplutil.so",
+        "libbhalapi.so",
+        "libmsgapi.so",
+        "libhttpapi.so",
+        "libcyassl.so.5",
+        "libcfmapi.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcpc",
@@ -459,9 +1064,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcps",
@@ -478,9 +1105,41 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libhttpapi.so",
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "libxmlapi.so",
+        "libbhalapi.so",
+        "libdhcpsstack.so",
+        "libcyassl.so.5",
+        "libm.so.0",
+        "libdl.so.0",
+        "libiconv.so.2",
+        "liblua.so",
+        "libz.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dms",
@@ -497,9 +1156,48 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libdmsapi.so",
+        "libmdbcore.so",
+        "libdlnaapi.so",
+        "libpthread.so.0",
+        "libdl.so.0",
+        "libz.so.1",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libixml.so",
+        "libiupnp.so",
+        "libthreadutil.so",
+        "libsqlite.so",
+        "libavformat.so.52",
+        "libavutil.so.49",
+        "libavcodec.so.52",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libiconv.so.2",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dns",
@@ -516,9 +1214,35 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libhttpapi.so",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "liblgplutil.so",
+        "libcfmapi.so",
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ebtables",
@@ -535,9 +1259,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libgplutil.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/echo",
@@ -554,9 +1299,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/equipcmd",
@@ -573,9 +1342,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libbhalapi.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ethcmd",
@@ -592,9 +1382,38 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libm.so.0",
+        "libxmlapi.so",
+        "libcfmapi.so",
+        "libbhalapi.so",
+        "libhttpapi.so",
+        "libiconv.so.2",
+        "libz.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/hi_cli",
@@ -611,9 +1430,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/hi_xpon",
@@ -630,9 +1469,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/hsanportinit",
@@ -649,9 +1508,35 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libhttpapi.so",
+        "libmsgapi.so",
+        "libxmlapi.so",
+        "libcyassl.so.5",
+        "libbhalapi.so",
+        "libcfmapi.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/igmp",
@@ -668,9 +1553,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ip",
@@ -687,9 +1594,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libresolv.so.0",
+        "libdl.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ip6tables",
@@ -706,9 +1636,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libgplutil.so",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ipcheck",
@@ -725,9 +1677,37 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libhttpapi.so",
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "libxmlapi.so",
+        "libbhalapi.so",
+        "libz.so.1",
+        "libm.so.0",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ipp",
@@ -744,9 +1724,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/iptables",
@@ -763,9 +1763,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libgplutil.so",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/iwcontrol",
@@ -782,9 +1804,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/iwpriv",
@@ -801,9 +1843,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/kill",
@@ -820,9 +1882,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ln",
@@ -839,9 +1925,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/log",
@@ -858,9 +1968,36 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libcfmapi.so",
+        "liblgplutil.so",
+        "libm.so.0",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ls",
@@ -877,9 +2014,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mic",
@@ -896,9 +2057,40 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libhttpapi.so",
+        "libcfmapi.so",
+        "libmsgapi.so",
+        "libxmlapi.so",
+        "libcyassl.so.5",
+        "libbhalapi.so",
+        "libm.so.0",
+        "libz.so.1",
+        "librestcore.so",
+        "liblua.so",
+        "libupnpcommon.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mini_upnpd",
@@ -915,9 +2107,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmini_upnp.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mirror",
@@ -934,9 +2147,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mkdir",
@@ -953,9 +2186,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mknod",
@@ -972,9 +2229,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mld",
@@ -991,9 +2272,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mount",
@@ -1010,9 +2313,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/netstat",
@@ -1029,9 +2356,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ntfs-3g",
@@ -1048,9 +2399,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libpthread.so.0",
+        "libntfs-3g.so.84",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/oam",
@@ -1067,9 +2441,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "liboamsdk.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ping",
@@ -1086,9 +2485,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ping6",
@@ -1105,9 +2528,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/pppc",
@@ -1124,9 +2571,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ps",
@@ -1143,9 +2612,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/qmi",
@@ -1162,9 +2655,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libbhalapi.so",
+        "libmsgapi.so",
+        "libatshared.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/radvd",
@@ -1181,9 +2697,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libgplutil.so",
+        "libc.so.0",
+        "libgcc_s.so.1"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ripd",
@@ -1200,9 +2738,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libm.so.0",
+        "libcrypt.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/rm",
@@ -1219,9 +2779,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/scanner",
@@ -1238,9 +2822,45 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmdbcore.so",
+        "libdlnaapi.so",
+        "libpthread.so.0",
+        "libdl.so.0",
+        "libz.so.1",
+        "libmsgapi.so",
+        "libsqlite.so",
+        "libavformat.so.52",
+        "libavutil.so.49",
+        "libavcodec.so.52",
+        "libixml.so",
+        "libiupnp.so",
+        "libthreadutil.so",
+        "libcyassl.so.5",
+        "libiconv.so.2",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sh",
@@ -1257,9 +2877,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/siproxd",
@@ -1276,9 +2920,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libgplutil.so",
+        "libdl.so.0",
+        "libresolv.so.0",
+        "libpthread.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sleep",
@@ -1295,9 +2963,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sntp",
@@ -1314,9 +3006,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libgplutil.so",
+        "liblgplutil.so",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sshd",
@@ -1333,9 +3049,35 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libz.so.1",
+        "libgplutil.so",
+        "libdl.so.0",
+        "libutil.so.0",
+        "libcrypt.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/su",
@@ -1352,9 +3094,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tar",
@@ -1371,9 +3137,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tc",
@@ -1390,9 +3180,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libresolv.so.0",
+        "libm.so.0",
+        "libdl.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/telnetd",
@@ -1409,9 +3223,40 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libxmlapi.so",
+        "libhttpapi.so",
+        "libcyassl.so.5",
+        "libcfmapi.so",
+        "libbhalapi.so",
+        "libz.so.1",
+        "libm.so.0",
+        "libdl.so.0",
+        "libiconv.so.2",
+        "liblua.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tr111",
@@ -1428,9 +3273,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libstuncapir.so",
+        "libcyassl.so.5",
+        "libmsgapi.so",
+        "liblgplutil.so",
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tr111part2",
@@ -1447,9 +3317,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libstuncapir.so",
+        "libcyassl.so.5",
+        "libmsgapi.so",
+        "liblgplutil.so",
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/traceroute6",
@@ -1466,9 +3361,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/triboot",
@@ -1485,9 +3404,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libtriapi.so",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libz.so.1",
+        "libiconv.so.2",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tricmd",
@@ -1504,9 +3448,42 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libtriapi.so",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libm.so.0",
+        "libdl.so.0",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libxmlapi.so",
+        "libcfmapi.so",
+        "libz.so.1",
+        "liblgplutil.so",
+        "libiconv.so.2",
+        "liblua.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tridiag",
@@ -1523,9 +3500,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libtriapi.so",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/udpecho",
@@ -1542,9 +3542,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "libhttpapi.so",
+        "libcyassl.so.5",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/umount",
@@ -1561,9 +3585,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/upg",
@@ -1580,9 +3628,38 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcyassl.so.5",
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "liblgplutil.so",
+        "libxmlapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libm.so.0",
+        "libz.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/upnp",
@@ -1599,9 +3676,43 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libupnpcommon.so",
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "libhttpapi.so",
+        "libbhalapi.so",
+        "libxmlapi.so",
+        "libcyassl.so.5",
+        "libm.so.0",
+        "libz.so.1",
+        "libiconv.so.2",
+        "libpthread.so.0",
+        "libdl.so.0",
+        "libsqlite.so",
+        "liblua.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/usbmount",
@@ -1618,9 +3729,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libiconv.so.2",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/web",
@@ -1637,9 +3771,42 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libm.so.0",
+        "librestcore.so",
+        "libmsgapi.so",
+        "libcfmapi.so",
+        "libxmlapi.so",
+        "libhttpapi.so",
+        "libcyassl.so.5",
+        "libbhalapi.so",
+        "liblgplutil.so",
+        "libiconv.so.2",
+        "libz.so.1",
+        "liblua.so",
+        "libdl.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/wscd",
@@ -1656,9 +3823,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libmini_upnp.so",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/xdslcmd",
@@ -1675,9 +3864,41 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libtriapi.so",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libiconv.so.2",
+        "libhttpapi.so",
+        "libcfmapi.so",
+        "libxmlapi.so",
+        "libz.so.1",
+        "libbhalapi.so",
+        "liblua.so",
+        "libm.so.0",
+        "libdl.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/xtmcmd",
@@ -1694,9 +3915,36 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libtriapi.so",
+        "libmsgapi.so",
+        "libcyassl.so.5",
+        "libm.so.0",
+        "libdl.so.0",
+        "libiconv.so.2",
+        "liblua.so",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/zebra",
@@ -1713,9 +3961,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libm.so.0",
+        "libcrypt.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/init",
@@ -1732,9 +4002,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kbasic.ko",
@@ -1751,9 +4045,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_fw_deliver.ko",
@@ -1770,9 +4083,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_br.ko",
@@ -1789,9 +4121,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_diagnose.ko",
@@ -1808,9 +4159,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_mc.ko",
@@ -1827,9 +4197,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_napt.ko",
@@ -1846,9 +4235,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_rt.ko",
@@ -1865,9 +4273,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_tnl.ko",
@@ -1884,9 +4311,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_res.ko",
@@ -1903,9 +4349,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifusb.ko",
@@ -1922,9 +4387,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_bcm43217.ko",
@@ -1941,9 +4425,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_qualcomma9880.ko",
@@ -1960,9 +4463,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_ralink3593.ko",
@@ -1979,9 +4501,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_rt5392.ko",
@@ -1998,9 +4539,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_mark.ko",
@@ -2017,9 +4577,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_qos.ko",
@@ -2036,9 +4615,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_sw_mc.ko",
@@ -2055,9 +4653,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_sw_normal.ko",
@@ -2074,9 +4691,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kdying_gasp.ko",
@@ -2093,9 +4729,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_keth.ko",
@@ -2112,9 +4767,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kgpio.ko",
@@ -2131,9 +4805,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_khw.ko",
@@ -2150,9 +4843,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kmdio.ko",
@@ -2169,9 +4881,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kmisc.ko",
@@ -2188,9 +4919,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kphy.ko",
@@ -2207,9 +4957,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kphy_ar8035.ko",
@@ -2226,9 +4995,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kphy_stub.ko",
@@ -2245,9 +5033,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kport.ko",
@@ -2264,9 +5071,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kpower.ko",
@@ -2283,9 +5109,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_ksci.ko",
@@ -2302,9 +5147,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kspi.ko",
@@ -2321,9 +5185,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_ktest.ko",
@@ -2340,9 +5223,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l0.ko",
@@ -2359,9 +5261,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l0_dump.ko",
@@ -2378,9 +5299,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l1.ko",
@@ -2397,9 +5337,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l2.ko",
@@ -2416,9 +5375,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hisihwfirewall.ko",
@@ -2435,9 +5413,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/ipcdrv.ko",
@@ -2454,9 +5451,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/rtl8192cd.ko",
@@ -2473,9 +5489,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/tri_ctl.ko",
@@ -2492,9 +5527,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/kernel/drivers/scsi/scsi_wait_scan.ko",
@@ -2511,9 +5565,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/kernel/drivers/usb/serial/option.ko",
@@ -2530,9 +5603,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/kernel/net/softqos/hi_ksoft_qos.ko",
@@ -2549,9 +5641,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "7-A",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/ld-uClibc-0.9.32.1-git.so",
@@ -2568,9 +5679,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": "0.9.32.1-git",
+      "libc_version_evidence": [
+        "filename: ld-uClibc-0.9.32.1-git.so"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/ld-uClibc.so.0",
@@ -2587,9 +5717,26 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libatserversdk.so",
@@ -2606,9 +5753,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libatshared.so",
@@ -2625,9 +5791,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavcodec.so",
@@ -2644,9 +5829,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "Cortex-A9",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "42": 1,
+          "44": 1,
+          "68": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libavutil.so.49",
+        "libz.so.1",
+        "libm.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavcodec.so.52",
@@ -2663,9 +5873,34 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "Cortex-A9",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "42": 1,
+          "44": 1,
+          "68": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libavutil.so.49",
+        "libz.so.1",
+        "libm.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavformat.so",
@@ -2682,9 +5917,35 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "Cortex-A9",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "42": 1,
+          "44": 1,
+          "68": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libavcodec.so.52",
+        "libavutil.so.49",
+        "libz.so.1",
+        "libm.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavformat.so.52",
@@ -2701,9 +5962,35 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "Cortex-A9",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "42": 1,
+          "44": 1,
+          "68": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libavcodec.so.52",
+        "libavutil.so.49",
+        "libz.so.1",
+        "libm.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavutil.so",
@@ -2720,9 +6007,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "Cortex-A9",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "42": 1,
+          "44": 1,
+          "68": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavutil.so.49",
@@ -2739,9 +6049,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "Cortex-A9",
+          "6": 10,
+          "7": 65,
+          "8": 1,
+          "9": 2,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "42": 1,
+          "44": 1,
+          "68": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libbhalapi.so",
@@ -2758,9 +6091,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libc.so.0",
@@ -2777,9 +6129,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "ld-uClibc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0",
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcfmapi.so",
@@ -2796,9 +6170,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcrypt-0.9.32.1-git.so",
@@ -2815,9 +6208,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcrypt.so.0",
@@ -2834,9 +6248,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcrypto.so",
@@ -2853,9 +6288,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so",
@@ -2872,9 +6326,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5",
@@ -2891,9 +6364,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5.0",
@@ -2910,9 +6402,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5.0.5",
@@ -2929,9 +6440,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdhcpsstack.so",
@@ -2948,9 +6478,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdl-0.9.32.1-git.so",
@@ -2967,9 +6516,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0",
+        "ld-uClibc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0",
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdl.so.0",
@@ -2986,9 +6558,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0",
+        "ld-uClibc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0",
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdlnaapi.so",
@@ -3005,9 +6600,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdmsapi.so",
@@ -3024,9 +6638,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libgcc_s.so.1",
@@ -3043,9 +6676,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libgplutil.so",
@@ -3062,9 +6713,31 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0",
+        "ld-uClibc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libhttpapi.so",
@@ -3081,9 +6754,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiconv.so",
@@ -3100,9 +6792,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiconv.so.2",
@@ -3119,9 +6829,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiconv.so.2.5.0",
@@ -3138,9 +6866,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiupnp.so",
@@ -3157,9 +6903,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libixml.so",
@@ -3176,9 +6942,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/liblgplutil.so",
@@ -3195,9 +6980,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/liblua.so",
@@ -3214,9 +7018,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libm-0.9.32.1-git.so",
@@ -3233,9 +7055,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libm.so.0",
@@ -3252,9 +7095,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libmdbcore.so",
@@ -3271,9 +7135,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libmini_upnp.so",
@@ -3290,9 +7173,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "25": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libmsgapi.so",
@@ -3309,9 +7210,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.0",
+        "ld-uClibc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libnsl-0.9.32.1-git.so",
@@ -3328,9 +7252,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libnsl.so.0",
@@ -3347,9 +7292,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libntfs-3g.so.84",
@@ -3366,9 +7332,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/liboamsdk.so",
@@ -3385,9 +7370,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libpthread-0.9.32.1-git.so",
@@ -3404,9 +7408,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "ld-uClibc.so.0",
+        "libdl.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0",
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libpthread.so.0",
@@ -3423,9 +7451,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "ld-uClibc.so.0",
+        "libdl.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0",
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libresolv-0.9.32.1-git.so",
@@ -3442,9 +7494,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libresolv.so.0",
@@ -3461,9 +7534,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/librestcore.so",
@@ -3480,9 +7574,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/librt-0.9.32.1-git.so",
@@ -3499,9 +7611,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0",
+        "libdl.so.0",
+        "libpthread.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/librt.so.0",
@@ -3518,9 +7653,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0",
+        "libdl.so.0",
+        "libpthread.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libsqlite.so",
@@ -3537,9 +7695,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libssl.so",
@@ -3556,9 +7734,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libm.so.0",
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libstuncapir.so",
@@ -3575,9 +7772,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libthreadutil.so",
@@ -3594,9 +7810,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libtriapi.so",
@@ -3613,9 +7848,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libuClibc-0.9.32.1-git.so",
@@ -3632,9 +7885,32 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "ld-uClibc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": "0.9.32.1-git",
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0",
+        "interpreter/NEEDED: ld-uClibc.so.0",
+        "filename: libuClibc-0.9.32.1-git.so"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libupnpcommon.so",
@@ -3651,9 +7927,27 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libutil-0.9.32.1-git.so",
@@ -3670,9 +7964,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libutil.so.0",
@@ -3689,9 +8004,30 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": "ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libxmlapi.so",
@@ -3708,9 +8044,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 4,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libz.so",
@@ -3727,9 +8082,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libz.so.1",
@@ -3746,9 +8120,28 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM9TDMI",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "30": 2,
+          "44": 1
+        }
+      },
+      "interpreter": null,
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": null,
+      "libc_version": null,
+      "libc_version_evidence": []
     },
     {
       "path": "/home/ayad/build-output/rootfs/linuxrc",
@@ -3765,9 +8158,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/arp",
@@ -3784,9 +8201,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/halt",
@@ -3803,9 +8244,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/ifconfig",
@@ -3822,9 +8287,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/init",
@@ -3841,9 +8330,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/insmod",
@@ -3860,9 +8373,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/makedevs",
@@ -3879,9 +8416,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/poweroff",
@@ -3898,9 +8459,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/reboot",
@@ -3917,9 +8502,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/rmmod",
@@ -3936,9 +8545,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/route",
@@ -3955,9 +8588,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/setconsole",
@@ -3974,9 +8631,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/smuxctl",
@@ -3993,9 +8674,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/udhcpc",
@@ -4012,9 +8717,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/vconfig",
@@ -4031,9 +8760,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/zcip",
@@ -4050,9 +8803,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/[",
@@ -4069,9 +8846,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/[[",
@@ -4088,9 +8889,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/awk",
@@ -4107,9 +8932,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/ftpget",
@@ -4126,9 +8975,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/ftpput",
@@ -4145,9 +9018,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/killall",
@@ -4164,9 +9061,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/renice",
@@ -4183,9 +9104,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/taskset",
@@ -4202,9 +9147,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/test",
@@ -4221,9 +9190,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/top",
@@ -4240,9 +9233,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/traceroute",
@@ -4259,9 +9276,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/wget",
@@ -4278,9 +9319,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/sbin/makedevs",
@@ -4297,9 +9362,29 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/sbin/udhcpd",
@@ -4316,9 +9401,33 @@
       "arm_attributes": {
         "format": 1,
         "vendor": "aeabi",
-        "tags": {},
-        "error": "invalid ARM attributes file subsection length"
-      }
+        "tags": {
+          "5": "ARM v4T",
+          "6": 2,
+          "8": 1,
+          "9": 1,
+          "18": 4,
+          "20": 1,
+          "21": 1,
+          "23": 3,
+          "24": 1,
+          "26": 2,
+          "44": 1
+        }
+      },
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "needed_libraries": [
+        "libcrypt.so.0",
+        "libgplutil.so",
+        "libcyassl.so.5",
+        "libgcc_s.so.1",
+        "libc.so.0"
+      ],
+      "libc_family": "uClibc",
+      "libc_version": null,
+      "libc_version_evidence": [
+        "interpreter/NEEDED: /lib/ld-uClibc.so.0"
+      ]
     }
   ]
 }

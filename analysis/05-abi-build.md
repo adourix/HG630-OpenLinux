@@ -1,6 +1,14 @@
 # Report 5 — ARM ABI and isolated build design
 
-The package-level uImage evidence records ARM architecture ID 2. The server-run inventory records 227 little-endian ARM ELF files, but its committed ABI result contains no raw ELF flags or attributes and therefore does not identify the float ABI. The corrected `tools/detect_abi.py` parses each ELF header directly, records architecture and raw `e_flags`, and decodes `.ARM.attributes` when present. It distinguishes:
+The package-level uImage evidence records ARM architecture ID 2. The corrected server run records 227 little-endian ARM ELF files. All 227 have raw `e_flags=0x05000002` (`Version5 EABI`) and valid `aeabi` attribute sections, but none has `Tag_ABI_VFP_args` or an explicit hard/soft float flag. The result is therefore still inconclusive; `e_flags=0x05000002` alone is not a calling-convention decision.
+
+The corrected `tools/detect_abi.py` parses each ELF header directly, records architecture and raw `e_flags`, decodes `.ARM.attributes` using the AEABI subsection tag and length boundaries, and records dynamic metadata separately:
+
+- representative executables use `/lib/ld-uClibc.so.0` and list their `DT_NEEDED` libraries;
+- `libtriapi.so` needs `libc.so.0` and has no interpreter, as expected for a shared library;
+- the uClibc shared object provides filename evidence for version `0.9.32.1-git`.
+
+The detector distinguishes:
 
 - `arm-linux-gnueabi` for base AAPCS/soft-float binaries;
 - `arm-linux-gnueabihf` for binaries using VFP hard-float calling conventions;
