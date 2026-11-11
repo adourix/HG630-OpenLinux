@@ -240,3 +240,7 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - The exact signature padding/mode, digest coverage, public-key source, firmware-header field offsets consumed by the wrappers, and acceptance return-code policy remain UNKNOWN.
 - The exact mapping from update section IDs (`20001`, `20002`, etc.) to MTD device numbers or flash areas remains UNKNOWN.
 - Generated library reports are preserved locally under ignored `analysis/generated/upg-static/`; proprietary binaries remain outside Git.
+
+### Phase 2 report update
+
+- Updated `analysis/flash-layout/report.md` with the verified `libbhalapi.so` export list and `/dev/mtd0`–`/dev/mtd15`/`MEMERASE` string evidence. The flash map remains `layout_verified=false`; no MTD number has been assigned to an OEM metadata section.

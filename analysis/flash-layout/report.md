@@ -30,6 +30,8 @@ The overlaps may reflect aliases, separate selection modes, or metadata inconsis
 - **VERIFIED from package metadata:** `board_id=1212`, product text `HG630V2`, software string `V100R001C298B010`.
 - **VERIFIED static RootFS reference:** `/etc/profile` creates `/dev/caldata` as a symlink to `/dev/mtd9`.
 - **VERIFIED static binary symbols:** vendor utilities/libraries expose names including `ATP_MTD_Getfd`, `ATP_MTD_ReadBuffromOffset`, `ATP_FLASH_WriteArea`, `UPG_FlashPartWrite`, `ATP_DEBUG_KillActivePartition`, `UPG_GetRunCurrentSystem`, and `FOMGetAllFlashSize`.
+- **VERIFIED static `libbhalapi.so` evidence:** the library exports `ATP_MTD_Getfd`, `ATP_MTD_Erase`, `ATP_MTD_WriteBufToOffset_Upg`, `ATP_FLASH_Write`, `ATP_FLASH_WriteArea`, `ATP_FLASH_Upgrade`, `ATP_FLASH_UpgradeCfg`, `ATP_FLASH_UpgradeBootloader`, `UPG_FlashPartWrite`, and `FOMGetAllFlashSize`.
+- **VERIFIED static MTD device references:** `libbhalapi.so` contains `/dev/mtd0` through `/dev/mtd15`, plus `MEMERASE` and low-level read/write failure messages. This establishes support for a device-number range in vendor code, not the board's partition assignment.
 - **Not found in the searched extracted RootFS strings:** a concrete `/proc/mtd` table or `mtdparts=` command line.
 - These findings show MTD/upgrade functionality exists in vendor userspace. They do not reveal the actual MTD names, physical chip model/capacity, bootloader version, or erase geometry. Unknown binaries were inspected statically and not executed.
 
