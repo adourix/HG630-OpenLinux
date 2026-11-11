@@ -570,3 +570,34 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - A genuinely installable HG630 V2 image is **BLOCKED**. No artifact is labeled
   FLASHABLE, no OEM trust mechanism was bypassed, and no physical router/MTD or
   bootloader environment was accessed.
+
+
+## Firmware package reconstruction milestone — 2026-11-11
+
+### VERIFIED FROM OWNER-PROVIDED OEM BINARY
+
+- Exact OEM package SHA-256: `d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222`; size 7,563,600 bytes.
+- Package magic: `10 32 54 76`; product/version strings identify HG630 V2 / V100R001C298B010.
+- Four observed 44-byte big-endian component records begin at `0x7c). They are contiguous: component 17 at `0x5cf` size `0x20000`; component 3 at `0x205cf` size `0x10000`; RootFS component 1 at `0x305cf` size `0x5a8000`; kernel component 2 at `0x5d85cf` size `0x15e228`.
+- RootFS internal bytes_used is 5,930,917; its calculated end is `0x5d8574`, leaving 91 bytes before the uImage header.
+- Original uImage header and payload CRC32 both validate. It is Linux 2.6.30, payload size 1,434,088, load/entry `0x81208000`.
+- uImage ends at `0x7367f7`; 345 bytes remain. The first 89 bytes are zero and final 256 bytes are high entropy. Treat the latter only as a possible signature blob; signature semantics/key are unknown.
+- Component table parser was added to `tools/firmware_inspect.py`, scoped only to this observed HG630 V2 package layout.
+
+### IMPLEMENTED
+
+- Added `tools/rebuild_firmware.py` to replace only the reserved RootFS slot while preserving the package prefix and all bytes from the original kernel offset through EOF.
+- The reconstruction tool verifies exact OEM SHA-256/size, observed component table and RootFS/kernel extents, candidate SquashFS 4.0/XZ/1 MiB profile and fit, and original uImage CRCs.
+- It emits a JSON report and remains hard-coded to `EXPERIMENTAL_NON_FLASHABLE`; it does not rewrite unknown Huawei checksums or signatures.
+- By default it runs `unsquashfs` structural/extraction validation and can compare the extracted candidate against the staged RootFS.
+- Added `tests/test_rebuild_firmware.py` and component-table tests in `tests/test_firmware_inspect.py`.
+- Corrected the decimal RootFS start/end arithmetic in `docs/ANALYSIS.md` (198,095 start; 6,129,012 end; 91-byte gap).
+- Added `analysis/server-run/firmware-reconstruction-report.md` and README instructions.
+
+### UNKNOWN / BLOCKED
+
+- Huawei header fields before the observed component table and any package-level checksum semantics remain unknown.
+- The final 256-byte high-entropy tail may be signature material, but no signature algorithm, signed range, or public key has been identified.
+- The reconstruction utility has not yet been executed against the winning RootFS artifact on the user's build host; that artifact is not stored in the Git repository.
+- No updater acceptance, target-kernel mount, router boot, flash map, recovery path, or hardware behavior has been demonstrated.
+- Keep `EXPERIMENTAL_NON_FLASHABLE` / `RESEARCH_ONLY`. Do not flash.
