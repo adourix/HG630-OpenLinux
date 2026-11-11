@@ -1,0 +1,115 @@
+{
+  "schema": "openlinux-v1.5-full-deployment-strategy-v1",
+  "date": "2026-11-11",
+  "target": {
+    "model": "Huawei HG630 V2",
+    "hardware_revision": "VER.B (operator reported)",
+    "firmware": "V100R001C298B010",
+    "platform_from_firmware": "ARM EABI5, HiSilicon SD56xx/SD5610x family, Linux 2.6.30",
+    "exact_soc_revision": "UNKNOWN",
+    "exact_pcb_identity": "UNKNOWN"
+  },
+  "scope": {
+    "router_contacted": false,
+    "services_or_configuration_changed": false,
+    "image_uploaded": false,
+    "mtd_or_bootloader_accessed": false,
+    "firmware_flashed": false,
+    "target_runtime_tested": false,
+    "web_search_as_of": "2026-11-11",
+    "search_absence_is_exhaustive": false
+  },
+  "ranking": [
+    {"rank": 1, "approach": "A", "name": "OEM userspace deployment", "status": "TECHNICALLY_PLAUSIBLE_BUT_BLOCKED", "summary": "Best eventual preservation path: add isolated manually started userspace processes on the OEM kernel while retaining Huawei hardware/network services.", "primary_blocker": "No authorized shell method for this exact unit; no target run; V1.2 is only a monitor scaffold."},
+    {"rank": 2, "approach": "B", "name": "USB-based deployment", "status": "TRANSFER_CONFIRMED_EXECUTION_UNVERIFIED", "summary": "FTP staging is confirmed; USB-to-/tmp extraction is the leading conditional experiment once shell access and tmpfs flags are verified.", "primary_blocker": "No shell access, live USB mapping/filesystem options, or live /tmp execution verification."},
+    {"rank": 3, "approach": "D", "name": "OEM RootFS integration", "status": "HOST_FIT_PARTIAL_DEPLOYMENT_BLOCKED", "summary": "A historical additive OEM RootFS candidate fits the fixed span while retaining OEM content; startup and target boot remain unproven.", "primary_blocker": "No supported one-shot init or mic extension point, no authenticated update contract, no recovery or target boot."},
+    {"rank": 4, "approach": "E", "name": "Modified firmware image", "status": "EXPERIMENTAL_NON_FLASHABLE", "summary": "Host builders can assemble a same-size container preserving the original kernel bytes; this does not prove updater acceptance or hardware function.", "primary_blocker": "Unknown package authentication, MTD/boot mapping, exact boot protocol, recovery and target validation."},
+    {"rank": 5, "approach": "C", "name": "Existing third-party firmware", "status": "NO_EXACT_COMPATIBLE_IMAGE_FOUND", "summary": "Public OpenWrt HG630 support refers to Broadcom/MIPS variants; no exact ARM/SD5610x HG630 V2 VER.B DSL-capable image found.", "primary_blocker": "No exact board support, image, DSL/Wi-Fi stack, boot adaptation or verified recovery."}
+  ],
+  "approaches": {
+    "A": {
+      "options": [
+        {"name": "SSH", "status": "PRESENT_BUT_NOT_LAUNCHED_IN_INSPECTED_STARTUP", "evidence": ["/home/ayad/build-output/rootfs/bin/sshd", "/home/ayad/build-output/rootfs/etc/profile", "/home/ayad/build-output/rootfs/etc/inittab", "/home/ayad/build-output/rootfs/etc/insmod_all.sh"], "live_state": "UNKNOWN", "authorized_access": false},
+        {"name": "Telnet", "status": "POSSIBLE_BUT_UNVERIFIED", "evidence": ["/home/ayad/build-output/rootfs/bin/telnetd", "/home/ayad/build-output/rootfs/etc/insmod_all.sh", "/home/ayad/build-output/rootfs/etc/passwd1"], "detail": "insmod_all.sh requests atpsync dynapp telnetd true; runtime effect/live state unknown, telnetd passwd shell is /bin/false", "authorized_access": false},
+        {"name": "UART/service console", "status": "POSSIBLE_BUT_UNVERIFIED", "evidence": ["/home/ayad/build-output/rootfs/etc/inittab", "/home/ayad/build-output/rootfs/etc/devicetable", "analysis/openlinux/v1.1/hardware-platform.md"], "detail": "Respawn shell and ttyAMA nodes do not identify board pads, levels, tty binding, authentication, or approved procedure.", "exact_ver_b_documentation": "NOT_FOUND"},
+        {"name": "mic/dynamic app", "status": "PRESENT_NO_EXTENSION_CONTRACT_FOUND", "evidence": ["/home/ayad/build-output/rootfs/etc/profile", "/home/ayad/build-output/rootfs/bin/mic", "analysis/openlinux/v0.4/init-order.md"], "detail": "OEM manager starts after platform setup; no supported custom-app registration interface established."},
+        {"name": "Admin web/maintenance shell", "status": "NOT_FOUND", "evidence": ["/home/ayad/build-output/rootfs/etc/webimg", "/home/ayad/build-output/rootfs/etc/diagnose.lua"], "detail": "Typed upload/storage flows and internal diagnostics do not establish a supported remote shell."},
+        {"name": "FTP", "status": "CONFIRMED_TRANSFER_ONLY", "evidence": ["operator-confirmed successful FTP login/download/upload", "analysis/openlinux/v1.3/usb-runtime-investigation.md"], "detail": "No command execution demonstrated."}
+      ],
+      "oem_userspace_result": "Plausible as shared-kernel userspace; requires authorized shell, target storage checks and target service tests.",
+      "isolation": "No container boundary proven; processes share OEM kernel, global network stack and devices.",
+      "current_openlinux_payload": "V1.2 monitor scaffold only; NETWORK_MODE disabled; no OpenLinux network service payload.",
+      "compatibility_evidence": ["ARM EABI5 userspace", "OEM uClibc 0.9.32.1-git", "BusyBox 1.9.1", "analysis/openlinux/v1.2/runtime-implementation.md"]
+    },
+    "B": {
+      "ftp_transfer": "CONFIRMED",
+      "usb_direct_execution": "NOT_ESTABLISHED",
+      "filesystem_mount_options": {
+        "ntfs": "noexec embedded in CMS command string",
+        "vfat": "noexec embedded in CMS command string",
+        "hfsplus": "noexec embedded in CMS command string",
+        "ext3": "rw,noexec embedded in CMS command string",
+        "ext2": "mount command visible without options; current filesystem and effective flags unknown"
+      },
+      "evidence": ["/home/ayad/build-output/rootfs/bin/cms", "/home/ayad/build-output/rootfs/etc/profile", "/home/ayad/build-output/rootfs/etc/devicetable", "analysis/openlinux/v1.3/usb-runtime-investigation.md"],
+      "options": [
+        {"name": "USB archive then extract to /tmp", "status": "CONDITIONAL_LEADING_OPTION", "reason": "OEM profile mounts /tmp as tmpfs with no explicit noexec option; live flags, available capacity and shell execution still require verification."},
+        {"name": "ext2 USB", "status": "POSSIBLE_BUT_UNVERIFIED", "reason": "CMS mount string lacks explicit options; actual filesystem, effective mount flags, write permissions and target exec unknown."},
+        {"name": "Run directly from NTFS/VFAT/HFS+/ext3", "status": "UNSUPPORTED_ASSUMPTION", "reason": "Firmware CMS strings explicitly request noexec; executable mode behavior also unverified."}
+      ],
+      "shell_access_required": true,
+      "ftp_implies_execution": false
+    },
+    "C": {
+      "search_result": "NO_EXACT_COMPATIBLE_IMAGE_FOUND",
+      "candidates": [
+        {"project": "OpenWrt Table of Hardware Huawei HG630", "url": "https://openwrt.org/toh/huawei/hg630", "exact_ver_b_support": false, "reported_family": "Broadcom BCM63168/MIPS variants", "status": "NOT_SUPPORTED; different platform than supplied ARM/HiSilicon firmware", "kernel_image_format_flash_layout_recovery": "No matching exact VER.B deployment evidence found."},
+        {"project": "OpenWrt HG658c V2 issue #25771", "url": "https://github.com/openwrt/openwrt/issues/25771", "exact_ver_b_support": false, "reported_hardware": "Different HG658c V2 VER.A, HiSilicon SD5116/Hi5610", "status": "PORTING DISCUSSION, NOT AN IMAGE", "dsl_ethernet_wifi_support": "Not established for HG630 V2 VER.B; issue discusses lack of upstream HiSilicon/DSL support."},
+        {"project": "Huawei MUT unbrick tool", "url": "https://github.com/Rezurmas/huawei-mut-unbrick-tool", "exact_ver_b_support": false, "reported_hg630v2_soc": "Broadcom per its README preset, conflicting with inspected target firmware", "status": "HOST RECOVERY UTILITY, NOT FIRMWARE; compatibility unverified", "recovery": "Not accepted as proven recovery for target."},
+        {"project": "Firmware Mod Kit request #182", "url": "https://github.com/rampageX/firmware-mod-kit/issues/182", "exact_ver_b_support": false, "status": "GENERIC TOOLING REQUEST, NO IMAGE OR RECOVERY PROCEDURE"}
+      ],
+      "search_scope": ["OpenWrt device support", "HG630 V2/VER.B/firmware exact strings", "SD5610x/SD56xx", "public GitHub projects", "community firmware/recovery references"],
+      "absence_exhaustive": false
+    },
+    "D": {
+      "fixed_rootfs_span_bytes": 5931008,
+      "original_squashfs_bytes_used": 5930917,
+      "historical_additive_candidate": {
+        "path": "/home/ayad/build-output/custom-build/overlay-final-4.2-sort-20261110/rootfs.squashfs",
+        "file_size_bytes": 5914624,
+        "internal_bytes_used": 5914229,
+        "remaining_internal_margin_bytes": 16779,
+        "status": "HOST_BUILT_AND_EXTRACTED; NOT TARGET TESTED",
+        "scope": "Older four-file overlay, not the V1.2 runtime package."
+      },
+      "abi": {"userspace": "ARM EABI5, little endian", "libc": "uClibc 0.9.32.1-git", "busybox": "1.9.1", "native_payload_sysroot": "Matching compiler/sysroot and library audit required"},
+      "startup": {
+        "rcS": "Only PATH and RCS DONE; does not launch OpenLinux hook.",
+        "profile": "Performs critical hardware startup through startbsp, hi_xpon, hsanportinit, insmod_all, calibration symlink, mic.",
+        "mic_registration": "No documented third-party app registration ABI found.",
+        "safe_automatic_hook": "UNKNOWN_BLOCKED",
+        "manual_after_oem_ready": "Least coupled future test after authorized shell exists."
+      },
+      "oem_component_policy": "Retain vendor binaries, kernel, libraries, drivers and startup order; no OEM replacements shown necessary.",
+      "preservation_proven": false,
+      "evidence": ["analysis/server-run/rootfs-size-investigation.md", "analysis/server-run/overlay-fit-report.md", "analysis/openlinux/v0.4/init-order.md", "analysis/openlinux/v1.1/driver-compatibility.json"]
+    },
+    "E": {
+      "container_size_bytes": 7563600,
+      "rootfs_offset": "0x305cf",
+      "kernel_offset": "0x5d85cf",
+      "image_assembly": "Same-size experimental containers can be built while retaining original kernel bytes.",
+      "experimental_image": {"path": "/home/ayad/build-output/HG630V2-12V100R001-openlinux-final-experimental.bin", "sha256": "222cc9cd1aa0406826dd81d5237e1634690564014fcafa4e072451193dce4e3e", "classification": "EXPERIMENTAL_NON_FLASHABLE"},
+      "blocked_gates": ["OEM section-to-MTD mapping", "outer checksum/signature coverage and legitimate key", "physical flash geometry and partition map", "exact boot args/handoff and target RootFS mount", "full backup and tested independent recovery", "DSL/Ethernet/Wi-Fi/calibration validation on identical test hardware"],
+      "flash_authorized": false,
+      "evidence": ["analysis/openlinux/v1.0/flash-format.md", "analysis/openlinux/v1.1/updater-static-analysis.md", "analysis/openlinux/v1.1/recovery-status.md", "docs/RECOVERY.md"]
+    }
+  },
+  "recommended_route": {
+    "near_term": "Authorized OEM shell -> read-only target inventory -> FTP-stage unchanged V1.2 archive on USB -> verify /tmp tmpfs is executable/writable/sufficient -> extract into new /tmp directory -> run only network-disabled monitor manually -> inspect logs/status -> stop/uninstall.",
+    "persistent_later": "Only after recovery/update gates: additive RootFS integration preserving OEM kernel, vendor stack and data, tested first on a spare identical unit.",
+    "next_operator_action": "Obtain a documented authorized shell/service-console procedure and exact VER.B board details from Huawei or an authorized service provider."
+  },
+  "deployment_established": false,
+  "safety": {"no_flash": true, "no_mtd_write": true, "no_bootloader_change": true, "no_oem_startup_change": true, "no_service_enablement": true, "no_upload_endpoint_use": true}
+}

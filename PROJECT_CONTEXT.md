@@ -1,5 +1,14 @@
 # HG630-OpenLinux project context
 
+## V1.5 full deployment strategy — 2026-11-11
+
+- **VERIFIED from the supplied OEM firmware analyses:** target userspace is ARM EABI5/uClibc on the HiSilicon SD56xx/SD5610x Linux 2.6.30 platform. The OEM `profile`/`startbsp`/`mic` path owns hardware and network initialization. No safe supported `mic` extension or one-shot automatic OpenLinux hook is known.
+- **VERIFIED from prior host build evidence:** an older additive RootFS overlay fit the fixed span with 16,779 internal bytes remaining, preserving OEM files in host comparisons. It is not the V1.2 payload and was not target booted. Existing same-size firmware assemblies remain `EXPERIMENTAL_NON_FLASHABLE`.
+- **INFERRED:** best future route is an additive userspace on the OEM kernel, manually started after an authorized shell and OEM readiness checks. USB-to-`/tmp` is the leading conditional staging option; live mount flags and target execution remain unknown.
+- **UNKNOWN/BLOCKED:** no exact-board authorized shell, third-party image, verified flash/recovery procedure, OEM signing contract, or physical target deployment is established. OpenWrt's public HG630 profile describes Broadcom/MIPS variants, not this extracted ARM/HiSilicon firmware.
+- **BLOCKED:** V1.2 is a monitor scaffold, not the full OpenLinux service payload; tracked `build/runtime/etc/openlinux.conf` is absent although the prior archive contains a config. Do not integrate/flash until the source/archive discrepancy and firmware/recovery gates are resolved.
+- Details: [V1.5 deployment strategy](analysis/openlinux/v1.5/deployment-strategy.md) and [machine-readable options](analysis/openlinux/v1.5/deployment-options.json). No device, service, firmware, or MTD was modified.
+
 ## V1.3 USB runtime investigation — 2026-11-11
 
 - **VERIFIED from operator observation:** USB is recognized, `bftpd` FTP login/download/upload works, and the FTP root shows two Lexar partitions. The V1.2 archive SHA-256 matches the expected `727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409`.
