@@ -74,6 +74,8 @@ def _validate_candidate(rootfs: bytes) -> dict[str, Any]:
     if len(rootfs) < 96 or rootfs[:4] != SQUASHFS_MAGIC:
         raise ValueError("candidate is not a complete SquashFS image")
     parsed = parse_squashfs(rootfs, 0)
+    if not parsed["filesystem_within_input"]:
+        raise ValueError("candidate SquashFS bytes_used extends beyond the supplied file")
     if parsed["version"] != "4.0":
         raise ValueError(f"candidate SquashFS version must be 4.0, got {parsed['version']}")
     if parsed["compression_id"] != 4:
