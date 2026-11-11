@@ -106,6 +106,23 @@ class FirmwareRebuildTests(unittest.TestCase):
                 expected_sha256=None, expected_size=OEM_SIZE,
             )
 
+    def test_rejects_candidate_hash_when_pinned(self):
+        with self.assertRaisesRegex(ValueError, "candidate RootFS SHA-256"):
+            assemble(
+                make_package(), make_squashfs(),
+                expected_sha256=None, expected_size=OEM_SIZE,
+                expected_rootfs_sha256="1" * 64,
+            )
+
+    def test_rejects_non_oem_squashfs_flags(self):
+        candidate = bytearray(make_squashfs())
+        struct.pack_into("<H", candidate, 26, 0)
+        with self.assertRaisesRegex(ValueError, "flags differ"):
+            assemble(
+                make_package(), bytes(candidate),
+                expected_sha256=None, expected_size=OEM_SIZE,
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
