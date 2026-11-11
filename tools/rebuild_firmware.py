@@ -16,7 +16,7 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from tools.firmware_inspect import parse_squashfs, parse_uimage
+from tools.firmware_inspect import parse_hg630_component_table, parse_squashfs, parse_uimage
 
 OEM_SHA256 = "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222"
 OEM_SIZE = 7_563_600
@@ -41,6 +41,13 @@ def _validate_layout(original: bytes, expected_sha256: str | None, expected_size
         raise ValueError("SquashFS magic is absent at the verified OEM RootFS offset")
     if original[KERNEL_OFFSET:KERNEL_OFFSET + 4] != UIMAGE_MAGIC:
         raise ValueError("uImage magic is absent at the verified OEM kernel offset")
+    components = parse_hg630_component_table(original)
+    rootfs_record = next((r for r in components["records"] if r["component_id"] == 1), None)
+    kernel_record = next((r for r in components["records"] if r["component_id"] == 2), None)
+    if rootfs_record is None or (rootfs_record["payload_offset"], rootfs_record["payload_size"]) != (ROOTFS_OFFSET, ROOTFS_RESERVED):
+        raise ValueError("HG630 component table does not describe the verified RootFS slot")
+    if kernel_record is None or kernel_record["payload_offset"] != KERNEL_OFFSET:
+        raise ValueError("HG630 component table does not describe the verified kernel offset")
     rootfs = parse_squashfs(original, ROOTFS_OFFSET)
     kernel = parse_uimage(original, KERNEL_OFFSET)
     if not kernel["header_crc_valid"] or not kernel["data_crc_valid"]:
@@ -55,6 +62,7 @@ def _validate_layout(original: bytes, expected_sha256: str | None, expected_size
         "original_size": len(original),
         "rootfs": rootfs,
         "kernel": kernel,
+        "components": components,
         "kernel_end": kernel_end,
         "trailing_bytes": len(original) - kernel_end,
     }
@@ -140,9 +148,10 @@ def assemble(
             "uimage_data_crc_valid": rebuilt_kernel["data_crc_valid"],
             "kernel_payload_end": original_info["kernel_end"],
             "trailing_bytes_preserved": original_info["trailing_bytes"],
+            "component_table_preserved": True,
         },
         "unverified": [
-            "Huawei package header semantics and any package-level checksum",
+            "Huawei package header fields outside the observed component table and any package-level checksum",
             "OEM signature/authentication coverage and verification key",
             "updater acceptance and anti-rollback behavior",
             "physical flash partition map and erase geometry",
