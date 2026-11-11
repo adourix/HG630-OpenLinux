@@ -20,6 +20,7 @@ from tools.firmware_inspect import parse_hg630_component_table, parse_squashfs, 
 
 OEM_SHA256 = "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222"
 OEM_SIZE = 7_563_600
+WINNING_ROOTFS_SHA256 = "1f0760422f5f94b5da8ad7670725e1c2fc6fe0134d6649b96e5f2a2dbca2515e"
 ROOTFS_OFFSET = 0x305CF
 KERNEL_OFFSET = 0x5D85CF
 ROOTFS_RESERVED = KERNEL_OFFSET - ROOTFS_OFFSET
@@ -70,10 +71,12 @@ def _validate_layout(original: bytes, expected_sha256: str | None, expected_size
     }
 
 
-def _validate_candidate(rootfs: bytes) -> dict[str, Any]:
+def _validate_candidate(rootfs: bytes, expected_sha256: str | None = None) -> dict[str, Any]:
     if len(rootfs) < 96 or rootfs[:4] != SQUASHFS_MAGIC:
         raise ValueError("candidate is not a complete SquashFS image")
     parsed = parse_squashfs(rootfs, 0)
+    if expected_sha256 is not None and sha256_bytes(rootfs) != expected_sha256:
+        raise ValueError("candidate RootFS SHA-256 does not match the recorded winning artifact")
     if not parsed["filesystem_within_input"]:
         raise ValueError("candidate SquashFS bytes_used extends beyond the supplied file")
     if parsed["version"] != "4.0":
@@ -82,6 +85,8 @@ def _validate_candidate(rootfs: bytes) -> dict[str, Any]:
         raise ValueError("candidate must use the OEM XZ compression ID (4)")
     if parsed["block_size"] != 1_048_576:
         raise ValueError("candidate block size differs from the OEM 1 MiB profile")
+    if parsed["flags"] != 704:
+        raise ValueError("candidate SquashFS flags differ from the verified OEM-compatible profile")
     if parsed["bytes_used"] > ROOTFS_RESERVED:
         raise ValueError(
             f"candidate bytes_used {parsed['bytes_used']} exceeds reserved span {ROOTFS_RESERVED}"
@@ -99,10 +104,11 @@ def assemble(
     *,
     expected_sha256: str | None = OEM_SHA256,
     expected_size: int | None = OEM_SIZE,
+    expected_rootfs_sha256: str | None = None,
 ) -> tuple[bytes, dict[str, Any]]:
     """Return a package with only the reserved RootFS slot replaced."""
     original_info = _validate_layout(original, expected_sha256, expected_size)
-    candidate_info = _validate_candidate(candidate_rootfs)
+    candidate_info = _validate_candidate(candidate_rootfs, expected_rootfs_sha256)
 
     output = bytearray(original)
     slot_end = ROOTFS_OFFSET + ROOTFS_RESERVED
@@ -225,7 +231,7 @@ def rebuild(
         raise FileExistsError(f"refusing to overwrite existing output: {output_path}")
     original = original_path.read_bytes()
     candidate = rootfs_path.read_bytes()
-    package, report = assemble(original, candidate)
+    package, report = assemble(original, candidate, expected_rootfs_sha256=WINNING_ROOTFS_SHA256)
     report_path = output_path.with_suffix(output_path.suffix + ".report.json")
     if report_path.exists():
         raise FileExistsError(f"refusing to overwrite existing report: {report_path}")
