@@ -71,6 +71,54 @@ def parse_squashfs(data: bytes, offset: int) -> dict[str, Any]:
     }
 
 
+# Observed in HG630 V2 V100R001C298B010. This is a narrowly scoped parser,
+# not a claim that all Huawei packages share this container format.
+HUAWEI_PACKAGE_MAGIC = b"\x10\x32\x54\x76"
+HG630_COMPONENT_TABLE_OFFSET = 0x7C
+HG630_COMPONENT_RECORD_SIZE = 44
+HG630_COMPONENT_COUNT = 4
+
+
+def parse_hg630_component_table(data: bytes) -> dict[str, Any]:
+    """Parse the four observed big-endian component records in this HG630 package."""
+    if len(data) < HG630_COMPONENT_TABLE_OFFSET + HG630_COMPONENT_RECORD_SIZE * HG630_COMPONENT_COUNT:
+        raise ValueError("Truncated HG630 component table")
+    if data[:4] != HUAWEI_PACKAGE_MAGIC:
+        raise ValueError("Unrecognized HG630 package magic")
+    records = []
+    for index in range(HG630_COMPONENT_COUNT):
+        offset = HG630_COMPONENT_TABLE_OFFSET + index * HG630_COMPONENT_RECORD_SIZE
+        kind, component_id, payload_offset, payload_size, raw_name = struct.unpack_from(
+            ">HHII32s", data, offset
+        )
+        name = raw_name.split(b"\\0", 1)[0].decode("ascii", "replace")
+        if not name or payload_size == 0:
+            raise ValueError(f"Invalid HG630 component record {index}")
+        end = payload_offset + payload_size
+        if end > len(data):
+            raise ValueError(f"HG630 component {name} extends beyond package")
+        records.append({
+            "record_offset": offset,
+            "type": kind,
+            "component_id": component_id,
+            "payload_offset": payload_offset,
+            "payload_size": payload_size,
+            "payload_end": end,
+            "name": name,
+        })
+    for previous, current in zip(records, records[1:]):
+        if previous["payload_end"] != current["payload_offset"]:
+            raise ValueError("HG630 component payloads are not contiguous")
+    return {
+        "format_scope": "observed HG630 V2 V100R001C298B010 package only",
+        "table_offset": HG630_COMPONENT_TABLE_OFFSET,
+        "record_size": HG630_COMPONENT_RECORD_SIZE,
+        "record_count": HG630_COMPONENT_COUNT,
+        "records": records,
+        "trailing_bytes_after_components": len(data) - records[-1]["payload_end"],
+    }
+
+
 def inspect(path: Path) -> dict[str, Any]:
     data = path.read_bytes()
     out: dict[str, Any] = {
@@ -78,6 +126,11 @@ def inspect(path: Path) -> dict[str, Any]:
         "sha256": hashlib.sha256(data).hexdigest(),
         "squashfs": [], "uimage": [], "markers": {},
     }
+    if data.startswith(HUAWEI_PACKAGE_MAGIC):
+        try:
+            out["hg630_component_table"] = parse_hg630_component_table(data)
+        except ValueError as exc:
+            out["hg630_component_table"] = {"error": str(exc)}
     for off in find_all(data, SQUASHFS_MAGIC):
         try:
             out["squashfs"].append(parse_squashfs(data, off))
