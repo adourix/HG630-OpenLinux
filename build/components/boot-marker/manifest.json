@@ -1,0 +1,6 @@
+{
+  "name": "boot-marker",
+  "version": "1.0",
+  "description": "Harmless marker proving the overlay install path is included in generated RootFS images.",
+  "files": ["etc/openlinux-build-marker"]
+}
