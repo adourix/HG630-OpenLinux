@@ -471,3 +471,36 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 
 - This image targets QEMU `vexpress-a9`, not HiSilicon SD5610x. It proves no HG630 kernel, RootFS mount, DSL, Ethernet, Wi-Fi, calibration, OEM update, or router hardware behavior.
 - Actual HG630 boot remains blocked by unknown machine handoff, RAM, root MTD, command line, BCJ support, OEM signature, and recovery evidence. No router-specific bootable image was produced.
+
+## OpenLinux V1.0 flashability decision — 2026-11-10
+
+### VERIFIED
+
+- Audited the original package with the existing read-only parser. Original
+  SHA256 is `d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222`.
+- Verified the embedded SquashFS at `0x305cf`, the legacy ARM/LZMA uImage at
+  `0x5d85cf`, uImage header/data CRCs, and original kernel uImage SHA256
+  `13a3432e8d2bbce07c5d0a49e157d77c3c183cad445dfb16be3c3bcaaa75ebc7`.
+- Generated the V1.0 component map, flash-format, signature, preservation,
+  checklist, recovery, and build-manifest documents.
+- Generated `/home/ayad/build-output/custom-build/firmware-run-v10/HG630V2-OpenLinux-v1.0-experimental.bin` using the existing same-span builder. Its SHA256 is
+  `9ec2d00ffa546c7b0d3be228c0867fba7ffac2a5e354c6b22d249d1035ab5cb1`.
+  It preserves the original kernel and unknown package bytes, and is identical
+  to the prior V0.4 experimental artifact because the inputs are unchanged.
+
+### PARTIALLY VERIFIED
+
+- The V0.4-derived RootFS contains the controlled OpenLinux additions while
+  retaining the observed vendor DSL/network/library/module/init inventory.
+  Host extraction and file-level comparison do not prove target-kernel mount or
+  hardware compatibility.
+
+### UNKNOWN / BLOCKED
+
+- The OEM signature key/material, signed byte range, RSA encoding/padding,
+  outer checksum, main/slave semantics, section-to-MTD mapping, RootFS-only
+  update path, root MTD, ARM BCJ support, and recovery procedure remain
+  unresolved.
+- A genuinely installable HG630 V2 image is **BLOCKED**. No artifact is labeled
+  FLASHABLE, no OEM trust mechanism was bypassed, and no physical router/MTD or
+  bootloader environment was accessed.

@@ -1,0 +1,20 @@
+{
+  "classification_legend": ["VERIFIED", "PARTIALLY VERIFIED", "UNKNOWN", "BLOCKED"],
+  "original": {
+    "path": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+    "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+    "size": 7563600
+  },
+  "components": [
+    {"name": "metadata/header", "offset": 0, "size": 1536, "status": "VERIFIED", "semantics": "metadata inspection span; not a proven complete header"},
+    {"name": "rootfs", "offset": 198095, "bytes_used": 5930917, "reserved_to_kernel": 5931008, "format": "SquashFS 4.0, XZ, 1 MiB", "status": "VERIFIED"},
+    {"name": "gap", "offset": 6129012, "size": 91, "status": "VERIFIED", "semantics": "bytes present; purpose UNKNOWN"},
+    {"name": "kernel", "offset": 6129103, "size": 1434152, "payload_size": 1434088, "format": "legacy U-Boot ARM uImage, LZMA", "status": "VERIFIED", "sha256": "13a3432e8d2bbce07c5d0a49e157d77c3c183cad445dfb16be3c3bcaaa75ebc7"},
+    {"name": "suffix", "offset": 7563255, "size": 345, "status": "VERIFIED", "semantics": "preserved bytes; purpose UNKNOWN"}
+  ],
+  "metadata_regions": {"status": "UNKNOWN", "reason": "main/slave extents exceed package size and are not proven file or physical-flash offsets"},
+  "mtd_mapping": "UNKNOWN",
+  "rootfs_only_update": "UNKNOWN",
+  "signature_acceptance": "BLOCKED",
+  "flashability": "BLOCKED"
+}

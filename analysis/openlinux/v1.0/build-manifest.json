@@ -1,0 +1,36 @@
+{
+  "status": "EXPERIMENTAL_NON_FLASHABLE",
+  "flashable": false,
+  "artifact": {
+    "path": "/home/ayad/build-output/custom-build/firmware-run-v10/HG630V2-OpenLinux-v1.0-experimental.bin",
+    "sha256": "9ec2d00ffa546c7b0d3be228c0867fba7ffac2a5e354c6b22d249d1035ab5cb1",
+    "size": 7563600
+  },
+  "original": {
+    "path": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+    "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222"
+  },
+  "rootfs": {
+    "path": "/home/ayad/build-output/custom-build/run-013/rootfs.squashfs",
+    "sha256": "db620f72a514c62cccc9cd3ae6cb7d27151abec59cb4cb58b4c1aee393777785",
+    "size": 5931008,
+    "format": "SquashFS 4.0 XZ, 1 MiB, ARM BCJ present",
+    "validation": "SQUASHFS_STRUCTURE_AND_EXTRACTION"
+  },
+  "kernel": {
+    "status": "VERIFIED_BYTE_IDENTICAL",
+    "uimage_sha256": "13a3432e8d2bbce07c5d0a49e157d77c3c183cad445dfb16be3c3bcaaa75ebc7",
+    "offset": "0x5d85cf",
+    "load_entry": "0x81208000",
+    "name": "Linux-2.6.30"
+  },
+  "verification": {
+    "oem_signature": "BLOCKED",
+    "outer_checksum": "UNKNOWN",
+    "metadata_to_mtd": "UNKNOWN",
+    "rootfs_only_update": "UNKNOWN",
+    "hardware_boot": "BLOCKED",
+    "recovery": "UNKNOWN"
+  },
+  "safety": "No router, physical MTD, bootloader environment, or OEM updater was accessed. Do not flash."
+}
