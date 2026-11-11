@@ -51,7 +51,7 @@ class FirmwareInspectTests(unittest.TestCase):
         for index, (kind, component_id, offset, size, name) in enumerate(records):
             struct.pack_into(
                 ">HHII32s", data, 0x7C + index * 44,
-                kind, component_id, offset, size, name.ljust(32, b"\\\\0"),
+                kind, component_id, offset, size, name.ljust(32, bytes([0])),
             )
         parsed = module.parse_hg630_component_table(bytes(data))
         self.assertEqual(parsed["record_count"], 4)
@@ -72,7 +72,7 @@ class FirmwareInspectTests(unittest.TestCase):
         for index, (kind, component_id, offset, size, name) in enumerate(records):
             struct.pack_into(
                 ">HHII32s", data, 0x7C + index * 44,
-                kind, component_id, offset, size, name.ljust(32, b"\\\\0"),
+                kind, component_id, offset, size, name.ljust(32, bytes([0])),
             )
         with self.assertRaisesRegex(ValueError, "not contiguous"):
             module.parse_hg630_component_table(bytes(data))
