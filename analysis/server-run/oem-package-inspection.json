@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "status": "OEM_PACKAGE_INSPECTED",
+  "input": {
+    "filename": "HG630V2-12V100R001.bin",
+    "size_bytes": 7563600,
+    "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+    "product": "HG630 V2",
+    "firmware_version": "V100R001C298B010",
+    "package_magic_hex": "10325476"
+  },
+  "observed_component_table": {
+    "offset": 124,
+    "record_size": 44,
+    "record_count": 4,
+    "encoding": "big-endian: u16 type, u16 component_id, u32 payload_offset, u32 payload_size, 32-byte name",
+    "records": [
+      {
+        "type": 2,
+        "component_id": 17,
+        "payload_offset": 1487,
+        "payload_offset_hex": "0x5cf",
+        "payload_size": 131072,
+        "payload_size_hex": "0x20000",
+        "payload_end_hex": "0x205cf",
+        "name": "HG630V2V100R001C298B010"
+      },
+      {
+        "type": 2,
+        "component_id": 3,
+        "payload_offset": 132559,
+        "payload_offset_hex": "0x205cf",
+        "payload_size": 65536,
+        "payload_size_hex": "0x10000",
+        "payload_end_hex": "0x305cf",
+        "name": "v1.0"
+      },
+      {
+        "type": 2,
+        "component_id": 1,
+        "payload_offset": 198095,
+        "payload_offset_hex": "0x305cf",
+        "payload_size": 5931008,
+        "payload_size_hex": "0x5a8000",
+        "payload_end_hex": "0x5d85cf",
+        "name": "HG630V2V100R001C298B010"
+      },
+      {
+        "type": 2,
+        "component_id": 2,
+        "payload_offset": 6129103,
+        "payload_offset_hex": "0x5d85cf",
+        "payload_size": 1434152,
+        "payload_size_hex": "0x15e228",
+        "payload_end_hex": "0x7367f7",
+        "name": "HG630V2V100R001C298B010"
+      }
+    ],
+    "contiguous": true,
+    "trailing_bytes_after_last_component": 345
+  },
+  "rootfs": {
+    "offset": 198095,
+    "offset_hex": "0x305cf",
+    "reserved_span": 5931008,
+    "squashfs_version": "4.0",
+    "endian": "little",
+    "compression": "XZ",
+    "compression_id": 4,
+    "block_size": 1048576,
+    "inode_count": 1257,
+    "fragment_count": 14,
+    "bytes_used": 5930917,
+    "filesystem_end_hex": "0x5d8574",
+    "gap_before_kernel": 91
+  },
+  "kernel": {
+    "uimage_offset": 6129103,
+    "uimage_offset_hex": "0x5d85cf",
+    "header_size": 64,
+    "payload_size": 1434088,
+    "total_uimage_size": 1434152,
+    "payload_end": 7563255,
+    "payload_end_hex": "0x7367f7",
+    "name": "Linux-2.6.30",
+    "load_address": "0x81208000",
+    "entry_address": "0x81208000",
+    "timestamp": 1490771170,
+    "header_crc32": "0e3295ab",
+    "header_crc_valid": true,
+    "data_crc32": "88c1e0b5",
+    "data_crc_valid": true,
+    "architecture_id": 2,
+    "compression_id": 3
+  },
+  "trailing_region": {
+    "offset": 7563255,
+    "length": 345,
+    "leading_zero_bytes": 89,
+    "final_256_bytes_sha256": "e9674900fe868050f49741e16e3ef42622748ad730fe2bd8e450baea996d9320",
+    "unique_byte_values_in_final_256": 166,
+    "interpretation": "possible signature material only; format, signed range, and key unknown"
+  },
+  "package_authentication": {
+    "package_level_checksum": "UNKNOWN",
+    "signature_format": "UNKNOWN",
+    "signature_verification_key": "UNKNOWN",
+    "updater_acceptance": "NOT TESTED"
+  },
+  "flashable": false
+}
