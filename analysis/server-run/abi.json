@@ -3,2278 +3,4322 @@
   "elf_count": 227,
   "hard_float_elf_count": 0,
   "soft_float_elf_count": 0,
-  "recommended_cross_prefix": "undetermined; inspect representative dynamically linked ELF files",
-  "basis": "ELF e_flags/AEABI attributes via readelf; no hardware assumptions",
+  "ambiguous_or_unknown_elf_count": 227,
+  "recommended_cross_prefix": "undetermined",
+  "basis": "direct ELF e_flags and .ARM.attributes evidence; no hardware assumptions",
   "elfs": [
     {
       "path": "/home/ayad/build-output/rootfs/bin/arpsender",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ash",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/atcmd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/atpsync",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/atserver",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/auth",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/bftpd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/brctl",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/busybox",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cat",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/chmod",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/chown",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cli",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cms",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/console",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cp",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/crash",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/cwmp",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/date",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ddnsc",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/debug",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcp6c",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcp6s",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcpc",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dhcps",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dms",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/dns",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ebtables",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/echo",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/equipcmd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ethcmd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/hi_cli",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/hi_xpon",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/hsanportinit",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/igmp",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ip",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ip6tables",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ipcheck",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ipp",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/iptables",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/iwcontrol",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/iwpriv",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/kill",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ln",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/log",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ls",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mic",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mini_upnpd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mirror",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mkdir",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mknod",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mld",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/mount",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/netstat",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ntfs-3g",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/oam",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ping",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ping6",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/pppc",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ps",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/qmi",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/radvd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/ripd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/rm",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/scanner",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sh",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/siproxd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sleep",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sntp",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/sshd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/su",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tar",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tc",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/telnetd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tr111",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tr111part2",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/traceroute6",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/triboot",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tricmd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/tridiag",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/udpecho",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/umount",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/upg",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/upnp",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/usbmount",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/web",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/wscd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/xdslcmd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/xtmcmd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/bin/zebra",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/init",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kbasic.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_fw_deliver.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_br.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_diagnose.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_mc.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_napt.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_rt.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_lrn_tnl.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_res.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifusb.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_bcm43217.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_qualcomma9880.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_ralink3593.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_ifwifi_rt5392.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_mark.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_srv_qos.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_sw_mc.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kcfe_sw_normal.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kdying_gasp.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_keth.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kgpio.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_khw.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kmdio.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kmisc.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kphy.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kphy_ar8035.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kphy_stub.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kport.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kpower.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_ksci.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_kspi.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_ktest.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l0.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l0_dump.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l1.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hi_sdk_l2.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/hisihwfirewall.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/ipcdrv.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/rtl8192cd.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/extra/tri_ctl.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/kernel/drivers/scsi/scsi_wait_scan.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/kernel/drivers/usb/serial/option.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/kernel/net/softqos/hi_ksoft_qos.ko",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000000",
+      "elf_flags": 83886080,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/ld-uClibc-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/ld-uClibc.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libatserversdk.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libatshared.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavcodec.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavcodec.so.52",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavformat.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavformat.so.52",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavutil.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libavutil.so.49",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libbhalapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libc.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcfmapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcrypt-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcrypt.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcrypto.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libcyassl.so.5.0.5",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdhcpsstack.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdl-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdl.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdlnaapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libdmsapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libgcc_s.so.1",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libgplutil.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libhttpapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiconv.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiconv.so.2",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiconv.so.2.5.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libiupnp.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libixml.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/liblgplutil.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/liblua.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libm-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libm.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libmdbcore.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libmini_upnp.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libmsgapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libnsl-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libnsl.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libntfs-3g.so.84",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/liboamsdk.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libpthread-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libpthread.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libresolv-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libresolv.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/librestcore.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/librt-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/librt.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libsqlite.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libssl.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libstuncapir.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libthreadutil.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libtriapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libuClibc-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libupnpcommon.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libutil-0.9.32.1-git.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libutil.so.0",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libxmlapi.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libz.so",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/lib/libz.so.1",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/linuxrc",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/arp",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/halt",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/ifconfig",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/init",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/insmod",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/makedevs",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/poweroff",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/reboot",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/rmmod",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/route",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/setconsole",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/smuxctl",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/udhcpc",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/vconfig",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/sbin/zcip",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/[",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/[[",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/awk",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/ftpget",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/ftpput",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/killall",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/renice",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/taskset",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/test",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/top",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/traceroute",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/bin/wget",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/sbin/makedevs",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     },
     {
       "path": "/home/ayad/build-output/rootfs/usr/sbin/udhcpd",
       "readelf": null,
-      "readelf_exit": 0,
+      "abi": null,
+      "abi_evidence": [],
+      "architecture": "ARM",
       "machine": "ARM",
+      "machine_id": 40,
       "class": "ELF32",
-      "endianness": "2's complement, little endian",
-      "hard_float_marker": false,
-      "soft_float_marker": false
+      "endianness": "little",
+      "raw_elf_flags": "0x05000002",
+      "elf_flags": 83886082,
+      "arm_attributes": {
+        "format": 1,
+        "vendor": "aeabi",
+        "tags": {},
+        "error": "invalid ARM attributes file subsection length"
+      }
     }
   ]
 }
