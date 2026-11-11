@@ -23,13 +23,14 @@ def sha256(path: Path) -> str:
 
 def _copy_metadata(source: str, destination: str, source_stat: os.stat_result) -> None:
     """Preserve mode, timestamps and ownership on an already-created entry."""
-    shutil.copystat(source, destination, follow_symlinks=False)
     try:
         os.chown(destination, source_stat.st_uid, source_stat.st_gid, follow_symlinks=False)
     except PermissionError as exc:
         raise PermissionError(
             f"cannot preserve ownership for {source} ({source_stat.st_uid}:{source_stat.st_gid})"
         ) from exc
+    # chown may clear setuid/setgid; restore mode and timestamps last.
+    shutil.copystat(source, destination, follow_symlinks=False)
 
 
 def _copy_entry(source: Path, destination: Path, hardlinks: dict[tuple[int, int], Path]) -> None:

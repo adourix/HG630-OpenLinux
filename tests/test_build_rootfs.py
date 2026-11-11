@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from tools.build_rootfs import build, copy_rootfs
+from tools.validate_rootfs import validate
 
 
 class RootFsCopyTests(unittest.TestCase):
@@ -68,6 +69,8 @@ class RootFsBuildTests(unittest.TestCase):
             report = build(source, [], output, processors=1)
             self.assertEqual(report["squashfs_size"], (output / "rootfs.squashfs").stat().st_size)
             self.assertTrue((output / "build-report.json").exists())
+            comparison = validate(output / "rootfs.squashfs", source)
+            self.assertTrue(comparison["match"])
 
 
 if __name__ == "__main__":

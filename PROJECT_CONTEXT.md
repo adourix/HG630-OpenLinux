@@ -93,4 +93,33 @@ python3 tools/build_rootfs.py ... --output .../run-006 --processors 1
 sha256sum .../run-005/rootfs.squashfs .../run-006/rootfs.squashfs
 ```
 
-Next concrete task: add a standalone RootFS artifact validator/report schema and use it to compare the source inventory against generated images without modifying the original artifacts.
+## Artifact comparison milestone — 2026-11-10
+
+### VERIFIED
+
+- Added `tools/validate_rootfs.py`, which emits a JSON report containing image hash/size, SquashFS summary, extraction evidence, entry counts, and missing/extra/changed path lists.
+- Comparison covers entry type, mode, UID/GID, regular-file SHA-256 and size, symlink targets, and device major/minor numbers. Intentional overlay differences can be named explicitly.
+- The validator detected that the first hardened implementation cleared setuid bits during post-copy ownership restoration. Ownership is now applied before final mode restoration.
+- The complete test suite remains 15/15 passed.
+- Fresh run-007 output: `/home/ayad/build-output/custom-build/run-007/rootfs.squashfs`, SHA-256 `05240eabcc5f559fe92ef5a89f08ae33bcd978dc4977ae85143ab1a50de8f97b`, size 5,931,008 bytes.
+- Run-007 preserves `/bin/busybox` mode `04755`; `unsquashfs` structure and extraction validation pass.
+
+### INFERRED
+
+- The run-007 hash supersedes run-005/run-006 for the corrected builder because it preserves setuid/setgid bits that ownership restoration had cleared in those earlier experimental artifacts. Run-005 and run-006 remain preserved evidence and are not overwritten.
+
+### UNKNOWN / BLOCKED
+
+- Comparing run-007 to the unmodified source reports only `/etc` as changed when the boot-marker overlay is applied; this is an intentional overlay directory metadata difference and can be accepted with `--allow-difference etc`.
+- RootFS comparison still does not establish kernel boot, OEM container integrity, DSL compatibility, or hardware behavior.
+
+### Commands
+
+```text
+python3 tools/validate_rootfs.py .../run-007/rootfs.squashfs \
+  --source /home/ayad/build-output/rootfs \
+  --allow-extra etc/openlinux-build-marker \
+  --allow-difference etc
+```
+
+Next concrete task: inspect the original firmware/container parser coverage and add explicit structural tests for the observed SquashFS-to-uImage layout without inventing an OEM checksum or flash format.
