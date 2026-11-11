@@ -1,6 +1,27 @@
 # HG630-OpenLinux project context
 
-Updated: 2026-11-10 20:00 America/New_York
+Updated: 2026-11-11 America/New_York
+
+## OEM-preserving runtime scaffold milestone — 2026-11-11
+
+### VERIFIED
+
+- Added a relocatable, shell-only runtime under `build/runtime/`, a deterministic packager in `tools/package_runtime.py`, operator launcher/shutdown/uninstall commands, manifest generation, host-mock tests, and V1.2 implementation/validation documentation.
+- Runtime package `openlinux-runtime-v1.2.tar.gz` is outside Git at `/home/ayad/build-output/openlinux-runtime-v1.2.tar.gz`, size 4,417 bytes, SHA-256 `727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409`.
+- Package defaults to network disabled and implements no network binding or interface changes. It verifies `/dev/caldata` symlink and a `mic` process in procfs before starting, uses an atomic package-private lock, refuses duplicates, verifies the child command line before signalling it, and limits state/uninstall actions to OpenLinux-owned paths.
+- The complete repository suite passed 93 tests with the optional VExpress A9 QEMU runtime test enabled, including package extraction/control integration, host process mocks, and clean/unowned-file uninstall coverage. Tests do not execute OEM ARM binaries.
+- `tools/package_runtime.py` manifest includes hashes, sizes, modes, dependencies and ownership rules. Package build is deterministic. No firmware or OEM RootFS file was modified; `EXPERIMENTAL_NON_FLASHABLE` is unchanged.
+
+### INFERRED
+
+- The readiness sentinels indicate the inspected profile advanced past its calibration-link setup and `mic` launch. They do not verify DSL, Wi-Fi, all Huawei services, or hardware compatibility.
+- A writable external or RAM-backed directory can host the relocatable package if the operator independently confirms it. No router storage/transport path is established.
+
+### UNKNOWN / BLOCKED
+
+- No compiled OpenLinux ARM payload or target-compatible shared library set exists in the repository. A matching ARM EABI5/uClibc 0.9.32.1-git cross compiler/sysroot and identified service source/dependencies are still needed.
+- No physical-router test was performed. A fresh runtime initramfs passed on QEMU VExpress A9 using the preserved non-OEM Linux 6.12 kernel/DTB and separately built static BusyBox. VExpress is not the HG630 HiSilicon platform; this QEMU pass does not prove HG630 compatibility.
+- Network, DNS/DHCP, firewall, SSH, interface ownership, routing, vendor-service interactions and runtime behavior on Linux 2.6.30 remain unverified. Keep services disabled and retain `EXPERIMENTAL_NON_FLASHABLE` / `RESEARCH_ONLY`.
 
 ## OEM updater static-analysis milestone — 2026-11-10
 

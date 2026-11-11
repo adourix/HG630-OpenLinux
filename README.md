@@ -109,6 +109,49 @@ The utility checks the known OEM package hash and observed component table, veri
 
 See [analysis/server-run/firmware-reconstruction-report.md](analysis/server-run/firmware-reconstruction-report.md) for the verified layout and limitations.
 
+## V1.2 operator-controlled runtime scaffold
+
+V1.2 adds a relocatable, shell-only monitor scaffold in `build/runtime/`. It
+does not include a compiled OpenLinux ARM service payload: the existing
+OpenLinux components are experimental shell scripts, and no target-compatible
+service binary/library build has been established. The scaffold uses the OEM
+`/bin/sh` and BusyBox commands; it does not replace OEM files or edit startup
+configuration. Network actions are not implemented and remain disabled.
+
+Build the deterministic package outside the Git checkout:
+
+```bash
+python3 tools/package_runtime.py \
+  --source build/runtime \
+  --output /path/outside/repository/openlinux-runtime-v1.2.tar.gz
+```
+
+The archive contains an `openlinux/` directory and `manifest.json` with file
+hashes, modes, dependencies, and ownership rules. On the router, first identify
+a writable external or RAM-backed location yourself; none is assumed by this
+project. After vendor initialization, unpack the archive there and invoke
+`openlinux/bin/openlinuxctl start` by its absolute path. Start requires the
+vendor `/dev/caldata` link and a `/proc` process named `mic`, plus the listed
+shell utilities. `status` and `stop` are idempotent; `bin/openlinux-shutdown`
+is an alias for `stop`. The monitor logs under the package's own `var/log/`.
+
+To uninstall, run the package's `sbin/openlinux-uninstall` by absolute path. It
+checks the ownership marker, refuses symlinked package directories and active
+unverified processes, and removes only manifest-owned package files and
+private runtime state. If other files remain in the package directory, it
+preserves them and reports that the directory could not be removed.
+
+Host tests use fake `/proc` and `/dev` trees and host processes. An optional
+QEMU test boots a fresh runtime initramfs on the available Versatile Express
+kernel and exercises its control commands. It does not execute OEM ARM
+binaries and does not emulate the HG630 HiSilicon platform, so it is not
+evidence of router compatibility.
+Physical-router validation would require an operator-selected writable
+transport path and recovery plan. No firmware image was changed, and all
+firmware outputs remain `EXPERIMENTAL_NON_FLASHABLE` / `RESEARCH_ONLY`.
+
+See [the V1.2 runtime implementation and validation report](analysis/openlinux/v1.2/runtime-implementation.md).
+
 ## Read-only firmware inspection tool
 
 The repository includes a standalone Python parser for the vendor package container. It reports SquashFS and uImage candidates, hashes the input, and validates the legacy uImage CRCs. It does not extract proprietary content or create a flashable image.

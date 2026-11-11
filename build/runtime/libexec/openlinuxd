@@ -1,0 +1,33 @@
+#!/bin/sh
+# Minimal demonstration monitor. No network sockets, routes, mounts or devices.
+BASE=$1
+LOCK=$2
+INTERVAL=$3
+PID=$$
+PIDFILE=$LOCK/pid
+LOG=$BASE/var/log/openlinux-runtime.log
+PROC_ROOT=${OPENLINUX_PROC_ROOT:-/proc}
+
+remove_dir() {
+    if command -v rmdir >/dev/null 2>&1; then rmdir "$@"; else /bin/busybox rmdir "$@"; fi
+}
+
+cleanup() {
+    current=
+    [ -r "$PIDFILE" ] && IFS= read -r current < "$PIDFILE"
+    if [ "$current" = "$PID" ]; then
+        rm -f "$PIDFILE"
+        remove_dir "$LOCK" 2>/dev/null || :
+    fi
+    exit 0
+}
+trap cleanup HUP INT TERM
+
+echo "$(date '+%Y-%m-%dT%H:%M:%S' 2>/dev/null || echo unknown-time) openlinuxd: monitor started pid=$PID" >> "$LOG"
+while :; do
+    uptime=unavailable
+    if [ -r "$PROC_ROOT/uptime" ]; then IFS=' ' read -r uptime rest < "$PROC_ROOT/uptime" || :; fi
+    echo "$(date '+%Y-%m-%dT%H:%M:%S' 2>/dev/null || echo unknown-time) openlinuxd: alive uptime_seconds=$uptime network=disabled" >> "$LOG"
+    sleep "$INTERVAL" &
+    wait $!
+done

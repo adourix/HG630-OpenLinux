@@ -1,0 +1,207 @@
+{
+  "classification": "RESEARCH_ONLY; EXPERIMENTAL_NON_FLASHABLE firmware status preserved",
+  "date": "2026-11-11",
+  "inspected_oem_runtime": {
+    "busybox": {
+      "architecture": "ELF32 ARM little-endian EABI5",
+      "interpreter": "/lib/ld-uClibc.so.0",
+      "libc": "uClibc 0.9.32.1-git",
+      "path": "/home/ayad/build-output/rootfs/bin/busybox",
+      "sha256": "7695b0427fa6c8d24d9181451ae214e54771bba7bd85f00d836c8c872fc36951"
+    },
+    "busybox_command_links": {
+      "cat": "busybox",
+      "date": "busybox",
+      "kill": "busybox",
+      "mkdir": "busybox",
+      "rm": "busybox",
+      "sh": "busybox",
+      "sleep": "busybox"
+    },
+    "compiler": "arm-linux-gnueabi-gcc is installed; matching ARM EABI5/uClibc 0.9.32.1-git toolchain and sysroot were not found/proven.",
+    "openlinux_payload": "Existing components are shell sources; no compiled ARM OpenLinux executable or target shared-library payload located.",
+    "qemu": {
+      "qemu_arm_installed": true,
+      "qemu_system_arm_installed": true,
+      "target_validation": "NOT RUN: available emulator inputs are Versatile Express, not HG630 HiSilicon; no target-compatible runtime binary exists."
+    },
+    "rmdir_applet": "Observed in BusyBox embedded applet strings; standalone symlink absent. Runtime uses /bin/busybox rmdir fallback."
+  },
+  "next_action": "Before any router test, operator must identify and confirm one writable external or RAM-backed destination after vendor startup and have a verified recovery path; neither path is established by host tests.",
+  "package": {
+    "command": "python3 tools/package_runtime.py --source build/runtime --output /home/ayad/build-output/openlinux-runtime-v1.2.tar.gz",
+    "manifest": {
+      "classification": "RESEARCH_ONLY; no physical HG630 V2 compatibility claim",
+      "files": [
+        {
+          "dependencies": [],
+          "mode": "0644",
+          "ownership": "OpenLinux package file",
+          "path": ".openlinux-owner",
+          "sha256": "4c68f9e71f30c25a5fab7e266e1f22f8d05dba4280d9d47879b63dc02ebcd8b5",
+          "size": 27
+        },
+        {
+          "dependencies": [
+            "/bin/sh"
+          ],
+          "mode": "0755",
+          "ownership": "OpenLinux package file",
+          "path": "bin/openlinux-shutdown",
+          "sha256": "d0bd2d22ef30619554c3210c50f991c28faaea41dfdf0fb1e8ee92b73db22895",
+          "size": 288
+        },
+        {
+          "dependencies": [
+            "/bin/sh",
+            "date",
+            "mkdir",
+            "rmdir or /bin/busybox rmdir",
+            "rm",
+            "sleep",
+            "kill",
+            "/proc",
+            "/dev/caldata"
+          ],
+          "mode": "0755",
+          "ownership": "OpenLinux package file",
+          "path": "bin/openlinuxctl",
+          "sha256": "87d1eaa50aac33bd4767660642f22c8b061dc5edfb6b982b6fba3ed0a24ddf24",
+          "size": 6997
+        },
+        {
+          "dependencies": [],
+          "mode": "0644",
+          "ownership": "OpenLinux package file",
+          "path": "etc/openlinux.conf",
+          "sha256": "d323e5790d943f76afc4983f3de95aa5afe5f6f654314ea9ba09860727c752de",
+          "size": 177
+        },
+        {
+          "dependencies": [
+            "/bin/sh",
+            "date",
+            "rm",
+            "rmdir or /bin/busybox rmdir",
+            "sleep",
+            "/proc/uptime"
+          ],
+          "mode": "0755",
+          "ownership": "OpenLinux package file",
+          "path": "libexec/openlinuxd",
+          "sha256": "3cde501e26daaa589f92bd7e9d4f11434139cd5a6ea4657e94797dbe920fed8a",
+          "size": 1002
+        },
+        {
+          "dependencies": [
+            "/bin/sh",
+            "rm",
+            "rmdir or /bin/busybox rmdir"
+          ],
+          "mode": "0755",
+          "ownership": "OpenLinux package file",
+          "path": "sbin/openlinux-uninstall",
+          "sha256": "d65c7ddf1fe32bbcfbe7526b10cd8eec94d5ffaed501fbf03a9952f8296f2846",
+          "size": 1996
+        },
+        {
+          "dependencies": [],
+          "mode": "0644",
+          "ownership": "OpenLinux package metadata; self-hash omitted",
+          "path": "manifest.json",
+          "sha256": null,
+          "size": null
+        }
+      ],
+      "format": "openlinux-runtime-package-v1",
+      "network": {
+        "bind_address_setting_present": true,
+        "bind_address_used": false,
+        "default": "disabled",
+        "network_actions_implemented": false
+      },
+      "ownership_rules": {
+        "manifest_self_hash": "manifest.json is listed with sha256=null to avoid a recursive self-hash.",
+        "oem_files": "No ownership or write permission over OEM files, startup files, services, network state, or devices.",
+        "package_files": "OpenLinux owns only the exact paths listed in manifest.json.",
+        "runtime_state": "OpenLinux owns only var/run/openlinux.lock and var/log/openlinux-runtime.log."
+      },
+      "runtime_requirements": {
+        "filesystem": "chosen extraction directory must be writable; no fixed external storage path is assumed",
+        "kernel_or_library_payload": "none included; this scaffold cannot replace a target-compatible OpenLinux service implementation",
+        "shell": "/bin/sh",
+        "vendor_readiness": "operator runs after /dev/caldata symlink exists and a /proc process comm entry equals mic"
+      },
+      "source_directory": "build/runtime",
+      "target": "POSIX shell runtime scaffold; architecture independent; no compiled target payload"
+    },
+    "path": "/home/ayad/build-output/openlinux-runtime-v1.2.tar.gz",
+    "sha256": "727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409",
+    "size_bytes": 4417
+  },
+  "qemu_evidence": {
+    "busybox": {
+      "path": "/home/ayad/build-output/openlinux-v09/busybox-build/busybox",
+      "sha256": "f0ec78e99da5e6d12dc9d5cdcfa8df5c579c6e340b4e34aacc673b60befb5a6d"
+    },
+    "dtb": {
+      "path": "/home/ayad/build-output/openlinux-v09/image-v09/openlinux-v0.9-vexpress-a9.dtb",
+      "sha256": "cb35d197143510bcdadf022f925c23735c4e453f4aa7a207cfbc2b6fb99cb24d"
+    },
+    "kernel": {
+      "path": "/home/ayad/build-output/openlinux-v09/image-v09/openlinux-v0.9-vexpress-a9.zImage",
+      "sha256": "b7ec99aa772542c52e85bdc2ffd04065a18e6b0b16c3ec519beb5fca2366aca1"
+    },
+    "machine": "vexpress-a9",
+    "result": "PASS: runtime emitted OPENLINUX_RUNTIME_QEMU_PASS after start/status/duplicate start/stop/second stop",
+    "safety": "Non-OEM VExpress kernel and separately built static BusyBox used. Inputs were read only; fresh initramfs was in a temporary directory. No HG630 compatibility inferred."
+  },
+  "runtime_controls": {
+    "duplicate_protection": "atomic mkdir lock with PID file and process command-line verification",
+    "firmware_modified": false,
+    "mtd_accessed": false,
+    "network_mode": "disabled; no sockets, interface configuration, route, firewall, DNS or DHCP actions implemented",
+    "oem_startup_files_modified": false,
+    "shutdown": "SIGTERM only after process command line matches package daemon path; stop is idempotent",
+    "uninstall": "fixed owned-file list; package ownership marker and symlink guards; extra files preserved",
+    "vendor_processes_stopped_or_restarted": false,
+    "vendor_readiness_checks": [
+      "/dev/caldata is a symlink",
+      "at least one /proc/<pid>/comm equals mic"
+    ]
+  },
+  "safety": {
+    "claimed_physical_compatibility": false,
+    "executed_oem_arm_binary": false,
+    "modified_original_firmware": false,
+    "opened_mtd_device": false,
+    "wrote_flash": false
+  },
+  "scope": "Host-side static inspection and mocked runtime tests only; OEM ARM binaries were not executed.",
+  "tests": {
+    "command": "OPENLINUX_QEMU_KERNEL=/home/ayad/build-output/openlinux-v09/image-v09/openlinux-v0.9-vexpress-a9.zImage OPENLINUX_QEMU_DTB=/home/ayad/build-output/openlinux-v09/image-v09/openlinux-v0.9-vexpress-a9.dtb OPENLINUX_QEMU_BUSYBOX=/home/ayad/build-output/openlinux-v09/busybox-build/busybox python3 -m unittest discover -s tests -v",
+    "coverage": [
+      "deterministic archive and manifest hashes/modes",
+      "extracted package start/status/stop integration",
+      "duplicate start refusal",
+      "idempotent shutdown",
+      "missing vendor readiness",
+      "missing dependency before lock/state changes",
+      "unrelated PID not signaled",
+      "owned-file-only uninstall",
+      "VExpress A9 QEMU system boot with actual package; start/status/duplicate/stop/idempotent stop"
+    ],
+    "failed": 0,
+    "passed": 93,
+    "result": "PASS",
+    "runtime_test_count": 9
+  },
+  "validation_scope": {
+    "hardware_compatibility": "UNKNOWN",
+    "host_mock_tests": "PASS",
+    "network_coexistence": "UNKNOWN",
+    "physical_router": "NOT PERFORMED",
+    "qemu_runtime_test": "PASS on VExpress A9 using a fresh temporary initramfs; not HG630 target validation",
+    "writable_transport_path": "UNKNOWN"
+  }
+}

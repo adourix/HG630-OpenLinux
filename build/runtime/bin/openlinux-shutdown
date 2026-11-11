@@ -1,0 +1,9 @@
+#!/bin/sh
+BASE=${OPENLINUX_HOME:-}
+if [ -z "$BASE" ]; then
+    case "$0" in
+        /*/bin/openlinux-shutdown) BASE=${0%/bin/openlinux-shutdown} ;;
+        *) echo "openlinux-shutdown: invoke by absolute package path" >&2; exit 2 ;;
+    esac
+fi
+exec /bin/sh "$BASE/bin/openlinuxctl" stop

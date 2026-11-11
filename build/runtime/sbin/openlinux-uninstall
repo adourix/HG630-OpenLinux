@@ -1,0 +1,37 @@
+#!/bin/sh
+# Remove only the fixed OpenLinux package file list and its private state.
+BASE=${OPENLINUX_HOME:-}
+if [ -z "$BASE" ]; then
+    case "$0" in
+        /*/sbin/openlinux-uninstall) BASE=${0%/sbin/openlinux-uninstall} ;;
+        *) echo "openlinux-uninstall: invoke by absolute package path" >&2; exit 2 ;;
+    esac
+fi
+OWNER=HG630-OPENLINUX-RUNTIME-V1
+remove_dir() {
+    if command -v rmdir >/dev/null 2>&1; then rmdir "$@"; else /bin/busybox rmdir "$@"; fi
+}
+case "$BASE" in /*) ;; *) echo "uninstall: runtime path must be absolute" >&2; exit 1 ;; esac
+[ ! -L "$BASE" ] || { echo "uninstall: runtime directory is a symlink; nothing removed" >&2; exit 1; }
+for owned_dir in bin libexec etc var var/run var/log; do
+    [ ! -L "$BASE/$owned_dir" ] || { echo "uninstall: runtime path contains symlink $BASE/$owned_dir; nothing removed" >&2; exit 1; }
+done
+[ -f "$BASE/.openlinux-owner" ] || { echo "uninstall: ownership marker absent; nothing removed" >&2; exit 1; }
+IFS= read -r owner < "$BASE/.openlinux-owner" || :
+[ "$owner" = "$OWNER" ] || { echo "uninstall: ownership marker mismatch; nothing removed" >&2; exit 1; }
+if [ -x "$BASE/bin/openlinuxctl" ]; then
+    /bin/sh "$BASE/bin/openlinuxctl" stop || { echo "uninstall: runtime did not stop; nothing removed" >&2; exit 1; }
+fi
+rm -f "$BASE/var/run/openlinux.lock/pid" || exit 1
+remove_dir "$BASE/var/run/openlinux.lock" 2>/dev/null || :
+rm -f "$BASE/var/log/openlinux-runtime.log" || exit 1
+rm -f "$BASE/bin/openlinuxctl" "$BASE/bin/openlinux-shutdown" \
+  "$BASE/libexec/openlinuxd" "$BASE/sbin/openlinux-uninstall" \
+  "$BASE/etc/openlinux.conf" "$BASE/manifest.json" "$BASE/.openlinux-owner" || exit 1
+remove_dir "$BASE/var/run" "$BASE/var/log" "$BASE/var" "$BASE/bin" \
+  "$BASE/libexec" "$BASE/sbin" "$BASE/etc" 2>/dev/null || :
+remove_dir "$BASE" 2>/dev/null || {
+    echo "uninstall: owned files removed; non-OpenLinux files remain under $BASE" >&2
+    exit 1
+}
+echo "OpenLinux-owned runtime files and state removed from $BASE"

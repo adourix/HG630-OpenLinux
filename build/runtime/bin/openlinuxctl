@@ -1,0 +1,169 @@
+#!/bin/sh
+# Operator controlled OpenLinux runtime scaffold. This script never changes
+# OEM startup files, network configuration, vendor processes, or flash.
+BASE=${OPENLINUX_HOME:-}
+if [ -z "$BASE" ]; then
+    case "$0" in
+        /*/bin/openlinuxctl) BASE=${0%/bin/openlinuxctl} ;;
+        *) echo "openlinuxctl: invoke by absolute package path" >&2; exit 2 ;;
+    esac
+fi
+PROC_ROOT=${OPENLINUX_PROC_ROOT:-/proc}
+VENDOR_PROC_ROOT=${OPENLINUX_VENDOR_PROC_ROOT:-$PROC_ROOT}
+DEV_ROOT=${OPENLINUX_DEV_ROOT:-/dev}
+STATE=$BASE/var
+RUN=$STATE/run
+LOCK=$RUN/openlinux.lock
+PIDFILE=$LOCK/pid
+LOG=$STATE/log/openlinux-runtime.log
+OWNER=HG630-OPENLINUX-RUNTIME-V1
+
+log() {
+    [ -f "$BASE/.openlinux-owner" ] || return 0
+    [ ! -L "$BASE/var" ] && [ ! -L "$BASE/var/log" ] || return 0
+    [ -d "$STATE/log" ] || return 0
+    stamp=$(date '+%Y-%m-%dT%H:%M:%S' 2>/dev/null) || stamp=unknown-time
+    echo "$stamp openlinuxctl: $*" >> "$LOG" 2>/dev/null || :
+}
+
+fail() { echo "openlinuxctl: $*" >&2; log "ERROR: $*"; return 1; }
+
+remove_dir() {
+    if command -v rmdir >/dev/null 2>&1; then rmdir "$@"; else /bin/busybox rmdir "$@"; fi
+}
+
+check_vendor_ready() {
+    [ -L "$DEV_ROOT/caldata" ] || { fail "vendor readiness not established: $DEV_ROOT/caldata link is absent"; return 1; }
+    found=
+    for commfile in "$VENDOR_PROC_ROOT"/[0-9]*/comm; do
+        [ -r "$commfile" ] || continue
+        IFS= read -r comm < "$commfile" || :
+        if [ "$comm" = mic ]; then found=yes; break; fi
+    done
+    [ "$found" = yes ] || { fail "vendor readiness not established: mic process is absent"; return 1; }
+}
+
+check_dependencies() {
+    for command in date mkdir rm sleep; do
+        command -v "$command" >/dev/null 2>&1 || { fail "required command is missing: $command"; return 1; }
+    done
+    if ! command -v rmdir >/dev/null 2>&1 && [ ! -x /bin/busybox ]; then
+        fail "required command is missing: rmdir (or /bin/busybox rmdir applet)"
+        return 1
+    fi
+    [ -x /bin/sh ] || { fail "required shell is missing: /bin/sh"; return 1; }
+}
+
+check_runtime() {
+    case "$BASE" in /*) ;; *) fail "runtime path must be absolute"; return 1 ;; esac
+    [ -d "$BASE" ] || { fail "runtime directory is missing: $BASE"; return 1; }
+    [ ! -L "$BASE" ] || { fail "runtime directory must not be a symlink"; return 1; }
+    for owned_dir in bin libexec etc var var/run var/log; do
+        [ ! -L "$BASE/$owned_dir" ] || { fail "runtime path contains a symlink: $BASE/$owned_dir"; return 1; }
+    done
+    [ -f "$BASE/.openlinux-owner" ] || { fail "ownership marker is missing; refusing unmanaged directory"; return 1; }
+    IFS= read -r owner < "$BASE/.openlinux-owner" || :
+    [ "$owner" = "$OWNER" ] || { fail "ownership marker is invalid"; return 1; }
+    [ -x "$BASE/libexec/openlinuxd" ] || { fail "runtime daemon is missing or not executable"; return 1; }
+    [ -r "$BASE/etc/openlinux.conf" ] || { fail "runtime configuration is missing"; return 1; }
+    [ -w "$BASE" ] || { fail "runtime location is not writable: $BASE"; return 1; }
+    network_mode=
+    configured_interval=
+    while IFS='=' read -r key value; do
+        case "$key" in
+            NETWORK_MODE) network_mode=$value ;;
+            MONITOR_INTERVAL_SECONDS) configured_interval=$value ;;
+        esac
+    done < "$BASE/etc/openlinux.conf"
+    [ "$network_mode" = disabled ] || { fail "network services are not implemented; NETWORK_MODE must remain disabled"; return 1; }
+    check_dependencies || return 1
+    CONFIGURED_INTERVAL=$configured_interval
+}
+
+valid_interval() {
+    case "$1" in ''|*[!0-9]*) return 1 ;; esac
+    [ "$1" -ge 1 ] 2>/dev/null && [ "$1" -le 3600 ] 2>/dev/null
+}
+
+read_pid() {
+    [ -r "$PIDFILE" ] || return 1
+    IFS= read -r PID < "$PIDFILE" || :
+    case "$PID" in ''|*[!0-9]*) return 1 ;; esac
+    [ "$PID" -gt 1 ] 2>/dev/null
+}
+
+pid_is_our_daemon() {
+    read_pid || return 1
+    [ -r "$PROC_ROOT/$PID/cmdline" ] || return 1
+    IFS= read -r cmdline < "$PROC_ROOT/$PID/cmdline" || :
+    case "$cmdline" in *"/libexec/openlinuxd"*"$BASE"*) return 0 ;; esac
+    return 1
+}
+
+start_runtime() {
+    check_runtime || return 1
+    mkdir -p "$STATE/log" 2>/dev/null || { fail "cannot create OpenLinux log directory under $BASE"; return 1; }
+    log "start requested"
+    check_vendor_ready || return 1
+    interval=${OPENLINUX_INTERVAL:-${CONFIGURED_INTERVAL:-30}}
+    valid_interval "$interval" || { fail "MONITOR_INTERVAL_SECONDS must be 1..3600"; return 1; }
+    mkdir -p "$RUN" "$STATE/log" 2>/dev/null || { fail "cannot create OpenLinux runtime state under $BASE"; return 1; }
+    if ! mkdir "$LOCK" 2>/dev/null; then
+        if pid_is_our_daemon && kill -0 "$PID" 2>/dev/null; then
+            echo "OpenLinux runtime already running (pid $PID)"
+            log "duplicate start refused; pid=$PID"
+            return 0
+        fi
+        if [ -e "$PIDFILE" ]; then
+            rm -f "$PIDFILE" || { fail "cannot clear stale OpenLinux pid file"; return 1; }
+            remove_dir "$LOCK" 2>/dev/null || { fail "runtime lock is busy or contains unowned state"; return 1; }
+        else
+            fail "runtime start is already in progress; lock retained"
+            return 1
+        fi
+        mkdir "$LOCK" 2>/dev/null || { fail "cannot acquire runtime lock"; return 1; }
+    fi
+    /bin/sh "$BASE/libexec/openlinuxd" "$BASE" "$LOCK" "$interval" >> "$LOG" 2>&1 &
+    PID=$!
+    echo "$PID" > "$PIDFILE" || { kill "$PID" 2>/dev/null || :; remove_dir "$LOCK" 2>/dev/null || :; fail "cannot write runtime pid file"; return 1; }
+    sleep 1
+    if ! pid_is_our_daemon || ! kill -0 "$PID" 2>/dev/null; then
+        fail "runtime daemon did not remain active; inspect $LOG"
+        return 1
+    fi
+    echo "OpenLinux runtime started (pid $PID)"
+    log "runtime started; pid=$PID; network mode remains disabled"
+}
+
+stop_runtime() {
+    [ -d "$LOCK" ] || { echo "OpenLinux runtime is not running"; return 0; }
+    pid_is_our_daemon || { fail "lock exists but its PID is not verified as the OpenLinux daemon; no process signaled"; return 1; }
+    log "stop requested; pid=$PID"
+    kill -TERM "$PID" 2>/dev/null || { fail "could not signal OpenLinux daemon pid $PID"; return 1; }
+    count=0
+    while [ "$count" -lt 10 ]; do
+        if ! kill -0 "$PID" 2>/dev/null; then
+            echo "OpenLinux runtime stopped"
+            log "runtime stopped; pid=$PID"
+            return 0
+        fi
+        sleep 1
+        count=$((count + 1))
+    done
+    fail "daemon did not exit after SIGTERM; lock retained"
+}
+
+status_runtime() {
+    log "status requested"
+    if [ ! -d "$LOCK" ]; then echo "OpenLinux runtime is stopped"; return 0; fi
+    if pid_is_our_daemon && kill -0 "$PID" 2>/dev/null; then echo "OpenLinux runtime is running (pid $PID)"; return 0; fi
+    echo "OpenLinux runtime state is stale or unverified" >&2
+    return 1
+}
+
+case "$1" in
+    start) start_runtime ;;
+    stop|shutdown) stop_runtime ;;
+    status) status_runtime ;;
+    *) echo "usage: $0 {start|status|stop}" >&2; exit 2 ;;
+esac
