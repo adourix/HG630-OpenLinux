@@ -1,0 +1,166 @@
+{
+  "capacity_candidates": [
+    {
+      "bytes": 16777216,
+      "hex": "0x1000000",
+      "covers_metadata_extent": true
+    },
+    {
+      "bytes": 33554432,
+      "hex": "0x2000000",
+      "covers_metadata_extent": true
+    }
+  ],
+  "metadata_extent_end": 16580608,
+  "regions": [
+    {
+      "section": "20011",
+      "kind": "main",
+      "start": 0,
+      "end": 131072,
+      "size": 131072,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20003",
+      "kind": "main",
+      "start": 131072,
+      "end": 196608,
+      "size": 65536,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20003",
+      "kind": "slave",
+      "start": 196608,
+      "end": 262144,
+      "size": 65536,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20002",
+      "kind": "main",
+      "start": 262144,
+      "end": 1703936,
+      "size": 1441792,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20002",
+      "kind": "slave",
+      "start": 8126464,
+      "end": 9568256,
+      "size": 1441792,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20001",
+      "kind": "main",
+      "start": 1703936,
+      "end": 8126464,
+      "size": 6422528,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20001",
+      "kind": "slave",
+      "start": 9568256,
+      "end": 15990784,
+      "size": 6422528,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20100",
+      "kind": "main",
+      "start": 15990784,
+      "end": 15990784,
+      "size": 0,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20101",
+      "kind": "main",
+      "start": 15990784,
+      "end": 15990784,
+      "size": 0,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20005",
+      "kind": "main",
+      "start": 15990784,
+      "end": 16384000,
+      "size": 393216,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "20004",
+      "kind": "main",
+      "start": 16187392,
+      "end": 16580608,
+      "size": 393216,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    },
+    {
+      "section": "30002",
+      "kind": "main",
+      "start": 16187392,
+      "end": 16580608,
+      "size": 393216,
+      "evidence_source": "OEM metadata text in firmware header",
+      "confidence": "LOW",
+      "status": "INFERRED",
+      "physical_flash_verified": false,
+      "semantics": "UNKNOWN"
+    }
+  ],
+  "errors": [
+    "overlap 20005:main with 20004:main"
+  ],
+  "layout_verified": false,
+  "interpretation": "Metadata extents are not proven physical flash partitions."
+}

@@ -169,3 +169,24 @@ Next task: investigate metadata range address-space semantics through exact offs
 ### Next evidence needed
 
 - Trusted documentation or source for this exact firmware parser/upgrade implementation, or a verified full flash map from the exact HG630 V2 board. Until then these remain metadata ranges and no reconstruction offset should be derived from them.
+
+## Flash Layout Reconstruction
+
+### VERIFIED
+
+- Implemented `tools/analyze_flash_layout.py`. It emits candidate start/end/size, evidence source, confidence/status, capacity comparisons, and overlap findings while explicitly leaving physical-flash verification false.
+- Saved machine-readable findings to `analysis/flash-layout/evidence.json` and the human-readable analysis to `analysis/flash-layout/report.md`.
+- Static RootFS evidence: `/etc/profile` links `/dev/caldata` to `/dev/mtd9`. Static vendor binary/library symbols include MTD and update operations such as `ATP_MTD_Getfd`, `ATP_MTD_ReadBuffromOffset`, `ATP_FLASH_WriteArea`, `UPG_FlashPartWrite`, and `FOMGetAllFlashSize`.
+- No concrete `/proc/mtd` partition listing or `mtdparts=` declaration was found in the searched extracted RootFS strings. No vendor firmware utilities were executed.
+- Added five synthetic tests for contiguous regions, gaps, partial overlaps, capacity candidates, and unknown semantics. Complete suite passes 27 tests.
+
+### INFERRED
+
+- Metadata extents span `0x000000..0xfd0000`; candidate 16 MiB accommodates that end, while 8 MiB does not. Neither capacity is established for this device.
+- `[20005]` (`0xf40000..0xfa0000`) overlaps `[20004]` and `[30002]` (`0xf70000..0xfd0000`) over `0xf70000..0xfa0000`. This could reflect aliases or update modes; the records alone cannot resolve it.
+
+### UNKNOWN / BLOCKED
+
+- Exact physical flash chip/model/capacity, erase geometry, bootloader type/version, MTD names and boundaries, and the meaning of region section IDs remain unverified. These proposals are not a verified partition map.
+- Required next evidence: exact-board source/config with MTD declarations, or trusted live `/proc/mtd` and boot command line from the exact VER.B hardware, ideally corroborated by chip markings.
+- Next implementation task after delivery: statically inspect the identified upgrade binary and libraries for metadata parsing, validation calls, component selection, and write targets.
