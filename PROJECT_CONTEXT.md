@@ -244,3 +244,27 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 ### Phase 2 report update
 
 - Updated `analysis/flash-layout/report.md` with the verified `libbhalapi.so` export list and `/dev/mtd0`–`/dev/mtd15`/`MEMERASE` string evidence. The flash map remains `layout_verified=false`; no MTD number has been assigned to an OEM metadata section.
+
+## OEM signature and flash-write analysis milestone — 2026-11-10
+
+### VERIFIED
+
+- Added `tools/analyze_upgrade_security.py` and `tools/analyze_mtd_write_path.py`, plus two synthetic tests. Full repository suite passes **33/33**.
+- Security report: [analysis/upgrade-re/security-report.md](analysis/upgrade-re/security-report.md). It traces `ATP_SEC_VerifyData` at `libmsgapi.so+0x14648`, `ATP_SEC_VerifyDataEx` at `+0x14d2c`, and `ATP_SEC_CreateSignatureContext` at `+0x14be8`, including direct calls and unresolved indirect context dispatches.
+- `ATP_SEC_VerifyData` checks input/context lengths, calls `ATP_SEC_DigestDataEx`, then invokes a function pointer from the security context. `ATP_SEC_CreateSignatureContext` allocates 36 bytes and stores mode-dependent fields/callback pointers.
+- `libmsgapi.so` imports CyaSSL RSA, SHA-256, and MD5 primitives. Static paths `/etc/root.pem`, `/etc/servercert.pem`, and `/etc/serverkey.pem` are present, but no path is proven to be the firmware-update public key.
+- Flash report: [analysis/upgrade-re/flash-write-report.md](analysis/upgrade-re/flash-write-report.md). `ATP_MTD_Getfd` at `libbhalapi.so+0x3ce8` compares the logical index with 15 and dispatches indices 0–15 through an ARM jump table to `/dev/mtdN` paths.
+- Function-level call references are recorded for MTD get-fd, erase, read, write, area-write, generic upgrade, configuration upgrade, bootloader upgrade, and partition-write functions.
+- Existing validator evidence remains VERIFIED for embedded uImage header/data CRC32. No OEM outer-container checksum has been identified.
+
+### INFERRED
+
+- SHA-256 and RSA are the strongest candidates for the signature path because the linked security library imports both primitive families alongside the verification wrappers.
+- The MTD path uses logical device indices and static device-name construction; higher-level upgrade functions likely choose between full, area, configuration, bootloader, and partition writes based on runtime arguments/state.
+
+### UNKNOWN / BLOCKED
+
+- RSA modulus/key size, signature encoding/length, padding scheme, public-key source, signed byte range, header exclusions, and exact failure/recovery behavior remain unresolved because the decisive context dispatches and runtime key loading are indirect.
+- No exact update-section-to-MTD mapping is proven. Calibration exclusion, bootloader protection policy, erase geometry, and full-vs-partial package selection remain unresolved.
+- A Python signature-verification tool is BLOCKED: the public key, signature bytes/format, digest coverage, and padding are not sufficiently established. No private key was generated or extracted, and no cryptographic bypass was attempted.
+- Generated JSON reports are preserved outside Git under `analysis/generated/upgrade-re/`; the requested human-readable Markdown reports are committed under `analysis/upgrade-re/`.
