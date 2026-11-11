@@ -292,16 +292,19 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - Kernel boot arguments, root device, mount parameters, QEMU boot, and actual HG630 V2 hardware boot remain UNKNOWN/BLOCKED.
 - The generated image is explicitly `EXPERIMENTAL_NON_FLASHABLE`; no flashing, MTD access, or cryptographic bypass was attempted.
 
-## Kernel/boot feasibility follow-up — 2026-11-10
+## Kernel/boot validation milestone — 2026-11-10
 
 ### VERIFIED
 
 - Preserved kernel is a legacy U-Boot ARM uImage named `Linux-2.6.30`, LZMA-compressed, with load and entry address `0x81208000`, payload size 1,434,088 bytes, and valid header/data CRC32.
 - The extracted RootFS uses BusyBox for `/init` and `/sbin/init`; `/etc/inittab` invokes `/etc/init.d/rcS`, and the current `rcS` only sets `PATH` and prints `RCS DONE`.
 - The extracted RootFS contains three kernel modules under `lib/kernel`; the broader inventory records the vendor DSL/network module set. No kernel module loading or service initialization was executed.
+- The decompressed kernel identifies the vendor platform with `SD56XX`, `sd5610x_iomux_*`, `sd5610x_gpio_*`, `sd56xx System Timer`, and `sd56xx_reboot_reg` strings. Vendor modules reference `hi_kernel_sd56xx_*` and were built with `2.6.30 ... ARMv7` vermagic. The HiSilicon SD56xx/SD5610x family is VERIFIED; the exact silicon revision remains UNKNOWN.
+- QEMU 10.0.13 `qemu-system-arm` and `qemu-arm` were installed from Debian trixie. QEMU exposes no SD56xx/SD5610x machine. The custom artifact hash was rechecked as `349d448549c468145df58176c4e787d5a192b5dbde6135496fa8e4027f84fcc4` without rebuilding.
+- ARM user-mode QEMU executed the preserved RootFS BusyBox and the staged `/etc/init.d/rcS`, which printed `RCS DONE` and returned 0. This is partial user-space validation only.
+- Added [analysis/boot-validation/report.md](analysis/boot-validation/report.md) and [analysis/boot-validation/boot-log.txt](analysis/boot-validation/boot-log.txt).
 
 ### UNKNOWN / BLOCKED
 
-- `qemu-system-arm`, `qemu-arm`, and `mkimage` are unavailable in the current host environment.
-- No compatible QEMU machine model, kernel boot arguments, root device, or mount parameters were established. The vendor kernel and DSL stack are hardware-specific.
-- Kernel boot, RootFS mount during kernel boot, service initialization, and hardware boot remain unvalidated. Static uImage/RootFS checks must not be treated as boot evidence.
+- No compatible QEMU machine model, kernel boot arguments, root device, or mount parameters were established. Bounded `versatilepb` and `virt` attempts produced no kernel console output; passing the original LZMA uImage directly was rejected by QEMU's image loader as compression type 3.
+- Kernel boot, RootFS mount during kernel boot, service initialization with vendor devices, and hardware boot remain UNKNOWN/BLOCKED. User-mode BusyBox execution must not be treated as kernel or hardware boot evidence.

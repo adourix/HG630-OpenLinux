@@ -1,0 +1,66 @@
+HG630 V2 custom firmware boot-validation log
+Date: 2026-11-10
+
+Safety boundary: no physical router, MTD device, or OEM upgrade executable was accessed. All system-emulation commands were bounded with timeout and used only preserved analysis artifacts.
+
+Input artifact verification:
+  sha256sum /home/ayad/build-output/custom-build/firmware-run-001/HG630V2-experimental.bin
+  349d448549c468145df58176c4e787d5a192b5dbde6135496fa8e4027f84fcc4
+  manifest output size: 7563600 bytes
+  preserved kernel uImage SHA256: 13a3432e8d2bbce07c5d0a49e157d77c3c183cad445dfb16be3c3bcaaa75ebc7
+
+Platform evidence:
+  decompressed kernel: /home/ayad/build-output/boot-validation/run-001/kernel.decompressed
+  Linux version 2.6.30, ARMv7, SMP PREEMPT, gcc 4.4.6 crosstool-NG hsan-5115
+  kernel strings: SD56XX, sd5610x_iomux_*, sd5610x_gpio_*, sd56xx System Timer,
+  sd56xx_reboot_reg
+  module vermagic: 2.6.30 SMP preempt mod_unload ARMv7
+  vendor modules reference hi_kernel_sd56xx_* and source tree b062hsp02/hisilicon
+  Classification: HiSilicon SD56xx/SD5610x platform identifier VERIFIED;
+  exact silicon part number beyond that identifier UNKNOWN.
+
+QEMU system machine inventory:
+  qemu-system-arm 10.0.13 was installed from Debian trixie.
+  Available machines include versatilepb, versatileab, realview-pb-a8,
+  realview-pbx-a9, vexpress-a9, vexpress-a15, virt, and other unrelated boards.
+  No HiSilicon SD56xx/SD5610x machine is provided.
+
+Attempt 1:
+  timeout 8s qemu-system-arm -M versatilepb -kernel kernel.decompressed
+  -append 'console=ttyAMA0 root=/dev/ram0' -nographic -monitor none
+  -serial stdio -no-reboot
+  Result: no kernel console output; QEMU terminated by timeout (exit 124).
+
+Attempt 2:
+  timeout 8s qemu-system-arm -M virt -cpu cortex-a7 -kernel kernel.decompressed
+  -append 'console=ttyAMA0 root=/dev/ram0' -nographic -monitor none
+  -serial stdio -no-reboot
+  Result: no kernel console output; QEMU terminated by timeout (exit 124).
+
+Attempt 3:
+  timeout 8s qemu-system-arm -M versatilepb -kernel kernel.uimage
+  -append 'console=ttyAMA0 root=/dev/ram0' -nographic -monitor none
+  -serial stdio -no-reboot
+  Result: Unable to load u-boot images with compression type 3; QEMU terminated
+  by timeout (exit 124). The original uImage payload is LZMA, and this QEMU
+  invocation cannot consume that uImage container directly.
+
+User-mode partial validation:
+  qemu-arm -L /home/ayad/build-output/rootfs rootfs/bin/busybox --help
+  Result: ARM BusyBox 1.9.1 executed and returned exit 0. QEMU reported the
+  staged /etc/ld.so.cache as corrupt, but BusyBox itself ran.
+
+  qemu-arm -L /home/ayad/build-output/rootfs rootfs/bin/busybox sh
+  /home/ayad/build-output/rootfs/etc/init.d/rcS
+  Result: RCS DONE; exit 0.
+
+Validation boundary:
+  RootFS build/extraction: VERIFIED by existing pipeline.
+  Kernel uImage structure and CRCs: VERIFIED.
+  Firmware container structure and manifest/hash: VERIFIED.
+  ARM user-mode BusyBox and rcS execution: VERIFIED (partial).
+  Kernel boot: UNKNOWN/BLOCKED; no compatible machine or console output.
+  RootFS mount under the vendor kernel: UNKNOWN/BLOCKED.
+  Service initialization with kernel devices/modules: UNKNOWN/BLOCKED.
+  OEM update acceptance: UNKNOWN.
+  Actual HG630 V2 hardware boot: BLOCKED by safety policy; not attempted.
