@@ -165,5 +165,10 @@ case "$1" in
     start) start_runtime ;;
     stop|shutdown) stop_runtime ;;
     status) status_runtime ;;
-    *) echo "usage: $0 {start|status|stop}" >&2; exit 2 ;;
+    ssh-check) exec /bin/sh "$BASE/bin/openlinux-ssh-check" ;;
+    ssh-provision) shift; exec /bin/sh "$BASE/bin/openlinux-ssh-provision" "$@" ;;
+    ssh-start) exec /bin/sh "$BASE/bin/openlinux-ssh-start" ;;
+    ssh-stop) exec /bin/sh "$BASE/bin/openlinux-ssh-stop" ;;
+    ssh-status) exec /bin/sh "$BASE/bin/openlinux-ssh-status" ;;
+    *) echo "usage: $0 {start|status|stop|ssh-check|ssh-provision|ssh-start|ssh-stop|ssh-status}" >&2; exit 2 ;;
 esac

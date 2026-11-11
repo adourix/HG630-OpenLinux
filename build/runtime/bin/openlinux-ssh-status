@@ -1,0 +1,15 @@
+#!/bin/sh
+BASE=${OPENLINUX_HOME:-}
+[ -n "$BASE" ] || { case "$0" in /*/bin/openlinux-ssh-status) BASE=${0%/bin/openlinux-ssh-status} ;; esac; }
+[ -n "$BASE" ] || { echo "ssh-status: invoke by absolute package path" >&2; exit 2; }
+[ "$#" -eq 0 ] || { echo "usage: $0" >&2; exit 2; }
+RUN=$BASE/var/run/openlinux-ssh
+PROC_ROOT=${OPENLINUX_PROC_ROOT:-/proc}
+[ -d "$RUN" ] || { echo "OpenLinux SSH is stopped"; exit 0; }
+[ -r "$RUN/pid" ] || { echo "OpenLinux SSH state is stale or unverifiable" >&2; exit 1; }
+IFS= read -r pid < "$RUN/pid" || pid=
+case "$pid" in ''|*[!0-9]*) echo "OpenLinux SSH PID file is invalid" >&2; exit 1 ;; esac
+[ "$pid" -gt 1 ] 2>/dev/null || { echo "OpenLinux SSH PID is invalid" >&2; exit 1; }
+[ -r "$PROC_ROOT/$pid/cmdline" ] || { echo "OpenLinux SSH is stopped (stale pid $pid)"; exit 0; }
+cmd=$(cat "$PROC_ROOT/$pid/cmdline" 2>/dev/null)
+case "$cmd" in *"/bin/sshd"*) echo "OpenLinux SSH process present (pid $pid); live SSH health is not tested" ;; *) echo "PID $pid belongs to another or unverifiable process" >&2; exit 1 ;; esac

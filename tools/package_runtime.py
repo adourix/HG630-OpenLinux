@@ -18,9 +18,16 @@ from pathlib import Path
 DEPENDENCIES = {
     "bin/openlinuxctl": ["/bin/sh", "date", "mkdir", "rmdir or /bin/busybox rmdir", "rm", "sleep", "kill", "/proc", "/dev/caldata"],
     "bin/openlinux-shutdown": ["/bin/sh"],
+    "bin/openlinux-ssh-check": ["/bin/sh", "grep", "/proc/mounts", "/proc/filesystems", "/dev/ptmx", "/bin/sh"],
+    "bin/openlinux-ssh-provision": ["/bin/sh", "awk", "base64", "chmod", "stat", "dropbearkey", "a dedicated non-root account", "external private-key storage"],
+    "bin/openlinux-ssh-start": ["/bin/sh", "OEM /bin/sshd", "ip", "grep", "awk", "stat", "/proc", "mounted devpts", "dedicated non-root account"],
+    "bin/openlinux-ssh-stop": ["/bin/sh", "kill", "sleep", "/proc"],
+    "bin/openlinux-ssh-status": ["/bin/sh", "/proc"],
     "libexec/openlinuxd": ["/bin/sh", "date", "rm", "rmdir or /bin/busybox rmdir", "sleep", "/proc/uptime"],
     "sbin/openlinux-uninstall": ["/bin/sh", "rm", "rmdir or /bin/busybox rmdir"],
     "etc/openlinux.conf": [],
+    "etc/ssh/README.md": [],
+    "docs/SSH.md": [],
     ".openlinux-owner": [],
 }
 OWNER_RULES = {
@@ -75,6 +82,13 @@ def make_manifest(source: Path, entries: list[dict]) -> dict:
         "target": "POSIX shell runtime scaffold; architecture independent; no compiled target payload",
         "classification": "RESEARCH_ONLY; no physical HG630 V2 compatibility claim",
         "network": {"default": "disabled", "bind_address_setting_present": True, "bind_address_used": False, "network_actions_implemented": False},
+        "optional_ssh": {
+            "default": "disabled",
+            "daemon": "reuse OEM /bin/sshd only; never bundle/replace it",
+            "authentication": "password auth disabled (-c); root denied (-w); no blank-password flag",
+            "private_keys_in_archive": False,
+            "target_validation": "not performed; account, keygen, devpts, and patched-policy prerequisites remain unverified",
+        },
         "files": package_entries,
         "ownership_rules": OWNER_RULES,
         "runtime_requirements": {

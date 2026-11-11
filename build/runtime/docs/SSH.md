@@ -1,0 +1,7 @@
+# Optional OEM SSH service
+
+This is an experimental, disabled-by-default integration around the OEM `/bin/sshd`; it does not replace the daemon or install an OpenSSH configuration. Start requires an existing dedicated non-root `openlinux` account, a mounted devpts filesystem, explicit operator-confirmed LAN address, ECDSA host key, and protected external state directory. Current extracted firmware lacks the dedicated account and `dropbearkey`, so the supplied OEM image will fail closed at these checks.
+
+Commands: `openlinuxctl ssh-check`, `ssh-provision USER_PUBLIC_KEY_FILE`, `ssh-provision backup FILE`, `ssh-provision restore FILE`, `ssh-start`, `ssh-status`, `ssh-stop`. Provisioning writes a new ECDSA P-256 host private key into configured `SSH_STATE_DIR` and installs one user ECDSA public key into the configured account home. It never overwrites either. Backup creates a new mode-0600 copy; restore uses target `dropbearkey -y` to validate the type and only restores when no key exists. The destination must be a trusted writable mount outside the firmware image. RootFS integrations ship no private key.
+
+Start passes `-c -w -j -k -F -E`, explicit `-r`, and `-p ADDRESS:PORT`; it does not use `-B`, wildcard bind, or root. `SSH_ENABLE` defaults to `disabled`. Do not treat wrapper tests as an SSH protocol/authentication test. Do not enable this service on a router until vendor account policy, exact patched daemon option behavior, algorithms, and recovery have been independently validated.

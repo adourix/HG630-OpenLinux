@@ -1,0 +1,139 @@
+#!/bin/sh
+# Provision target-local ECDSA host key and one user public key. No key is bundled.
+BASE=${OPENLINUX_HOME:-}
+[ -n "$BASE" ] || { case "$0" in /*/bin/openlinux-ssh-provision) BASE=${0%/bin/openlinux-ssh-provision} ;; esac; }
+[ -n "$BASE" ] || { echo "ssh-provision: invoke by absolute package path" >&2; exit 2; }
+CONF=${OPENLINUX_CONFIG:-$BASE/etc/openlinux.conf}
+PASSWD_FILE=${OPENLINUX_PASSWD_FILE:-/etc/passwd}
+KEYGEN=${OPENLINUX_DROPBEARKEY:-dropbearkey}
+SUCCESS=0 CLEANUP_HOST_KEY= CLEANUP_AUTHORIZED= CLEANUP_BACKUP=
+cleanup() {
+    [ "$SUCCESS" = 1 ] && return 0
+    [ -z "$CLEANUP_AUTHORIZED" ] || rm -f "$CLEANUP_AUTHORIZED"
+    [ -z "$CLEANUP_HOST_KEY" ] || rm -f "$CLEANUP_HOST_KEY"
+    [ -z "$CLEANUP_BACKUP" ] || rm -f "$CLEANUP_BACKUP"
+}
+trap cleanup 0
+fail() { echo "ssh-provision: $*" >&2; exit 1; }
+MODE=provision
+case "${1:-}" in
+    backup|restore) MODE=$1; shift; [ "$#" -eq 1 ] || fail "usage: $0 {backup FILE|restore FILE}"; ARG=$1 ;;
+    *) [ "$#" -eq 1 ] || fail "usage: $0 USER_PUBLIC_KEY_FILE"; ARG=$1 ;;
+esac
+[ -r "$CONF" ] || fail "configuration is missing: $CONF"
+SSH_ENABLE=disabled SSH_USER=openlinux SSH_HOME= SSH_STATE_DIR=
+while IFS='=' read -r name value; do
+    case "$name" in
+        SSH_ENABLE) SSH_ENABLE=$value ;;
+        SSH_USER) SSH_USER=$value ;;
+        SSH_HOME) SSH_HOME=$value ;;
+        SSH_STATE_DIR) SSH_STATE_DIR=$value ;;
+    esac
+done < "$CONF"
+[ "$MODE" != provision ] || [ "$SSH_ENABLE" = enabled ] || fail "SSH_ENABLE is disabled; set it explicitly before provisioning"
+[ "$MODE" != provision ] || [ -n "$SSH_HOME" ] || fail "SSH_HOME must match a dedicated account home; no OEM account is changed"
+[ -n "$SSH_STATE_DIR" ] || fail "SSH_STATE_DIR must name operator-selected storage outside the firmware image"
+case "$SSH_STATE_DIR" in /*) ;; *) fail "SSH_STATE_DIR must be absolute" ;; esac
+case "$SSH_STATE_DIR" in /etc|/etc/*|/bin|/bin/*|/sbin|/sbin/*|/lib|/lib/*|/usr|/usr/*|/root|/root/*) fail "SSH_STATE_DIR points into an OEM firmware path" ;; esac
+command -v chmod >/dev/null 2>&1 || fail "chmod is required"
+command -v stat >/dev/null 2>&1 || fail "stat is required to verify restrictive permissions"
+command -v cp >/dev/null 2>&1 || fail "cp is required"
+command -v rm >/dev/null 2>&1 || fail "rm is required"
+command -v grep >/dev/null 2>&1 || fail "grep is required"
+
+[ -d "$SSH_STATE_DIR" ] && [ ! -L "$SSH_STATE_DIR" ] || fail "SSH_STATE_DIR must be a pre-created, mounted directory outside firmware"
+chmod 700 "$SSH_STATE_DIR" || fail "cannot restrict SSH_STATE_DIR permissions"
+mode=$(stat -c '%a' "$SSH_STATE_DIR" 2>/dev/null) || fail "cannot inspect SSH_STATE_DIR permissions"
+[ "$mode" = 700 ] || fail "SSH_STATE_DIR permissions are $mode, expected 700"
+host_key=$SSH_STATE_DIR/dropbear_ecdsa_host_key
+
+if [ "$MODE" = backup ]; then
+    [ -f "$host_key" ] && [ ! -L "$host_key" ] || fail "provisioned host key is missing"
+    mode=$(stat -c '%a' "$host_key" 2>/dev/null) || fail "cannot inspect host-key permissions"
+    [ "$mode" = 600 ] || fail "host key must have mode 600 before backup"
+    case "$ARG" in /*) ;; *) fail "backup destination must be absolute" ;; esac
+    case "$ARG" in /etc|/etc/*|/bin|/bin/*|/sbin|/sbin/*|/lib|/lib/*|/usr|/usr/*|/root|/root/*) fail "backup destination points into OEM firmware" ;; esac
+    [ ! -e "$ARG" ] && [ ! -L "$ARG" ] || fail "backup destination exists; refusing to overwrite"
+    [ -d "${ARG%/*}" ] || fail "backup destination parent must exist"
+    CLEANUP_BACKUP=$ARG
+    cp "$host_key" "$ARG" || fail "host-key backup failed"
+    chmod 600 "$ARG" || fail "cannot restrict backup permissions"
+    mode=$(stat -c '%a' "$ARG" 2>/dev/null) || fail "cannot verify backup permissions"
+    [ "$mode" = 600 ] || fail "backup permissions are $mode, expected 600"
+    SUCCESS=1; CLEANUP_BACKUP=
+    echo "Private host-key backup written outside firmware; store it securely."
+    exit 0
+fi
+
+if [ "$MODE" = restore ]; then
+    [ -f "$ARG" ] && [ ! -L "$ARG" ] || fail "restore source must be a regular non-symlink file"
+    mode=$(stat -c '%a' "$ARG" 2>/dev/null) || fail "cannot inspect restore source permissions"
+    [ "$mode" = 600 ] || fail "restore source must have mode 600"
+    [ ! -e "$host_key" ] && [ ! -L "$host_key" ] || fail "host key already exists; refusing to overwrite"
+    command -v "$KEYGEN" >/dev/null 2>&1 || fail "dropbearkey is missing; cannot validate restore source"
+    "$KEYGEN" -y -f "$ARG" 2>/dev/null | grep -F 'ecdsa-sha2-nistp256' >/dev/null || fail "restore source is not a readable ECDSA P-256 Dropbear key"
+    CLEANUP_HOST_KEY=$host_key
+    cp "$ARG" "$host_key" || fail "host-key restore failed"
+    chmod 600 "$host_key" || fail "cannot restrict restored host key"
+    mode=$(stat -c '%a' "$host_key" 2>/dev/null) || fail "cannot inspect restored key permissions"
+    [ "$mode" = 600 ] || fail "restored host key permissions are $mode, expected 600"
+    SUCCESS=1; CLEANUP_HOST_KEY=
+    echo "Existing ECDSA host key restored without replacing user data."
+    exit 0
+fi
+
+[ -r "$ARG" ] || fail "public key file is unreadable"
+[ -f "$ARG" ] && [ ! -L "$ARG" ] || fail "public key must be a regular non-symlink file"
+command -v base64 >/dev/null 2>&1 || fail "base64 is required to validate public key data"
+command -v awk >/dev/null 2>&1 || fail "awk is required to validate public key file shape"
+command -v od >/dev/null 2>&1 || fail "od is required to validate the SSH public-key blob type"
+
+# This Dropbear advertises ECDSA key formats. Restrict provisioning to NIST P-256;
+# DSS and legacy ssh-rsa (SHA-1 signature) are intentionally rejected.
+IFS=' ' read -r key_type key_data key_comment < "$ARG" || fail "cannot read public key"
+case "$key_type" in ecdsa-sha2-nistp256) ;; *) fail "only ecdsa-sha2-nistp256 public keys are accepted; supplied type: ${key_type:-empty}" ;; esac
+[ -n "$key_data" ] || fail "public key data is missing"
+case "$key_data" in *[!A-Za-z0-9+/=]*) fail "public key contains invalid base64 characters" ;; esac
+decoded=${TMPDIR:-/tmp}/openlinux-ssh-pub.$$
+[ ! -e "$decoded" ] && [ ! -L "$decoded" ] || fail "temporary validation path already exists"
+(umask 077; printf '%s' "$key_data" | base64 -d > "$decoded") 2>/dev/null || fail "public key data is not valid base64"
+trap 'rm -f "$decoded"; cleanup' 0
+blob_prefix=$(od -An -N 35 -t x1 "$decoded" 2>/dev/null | awk '{ for (i=1; i<=NF; i++) printf "%s", $i }')
+expected_prefix=0000001365636473612d736861322d6e69737470323536000000086e69737470323536
+[ "$blob_prefix" = "$expected_prefix" ] || fail "public key blob does not encode ecdsa-sha2-nistp256/nistp256"
+lines=$(awk 'END { print NR }' "$ARG")
+[ "$lines" = 1 ] || fail "public key file must contain exactly one key line"
+command -v "$KEYGEN" >/dev/null 2>&1 || fail "dropbearkey is missing; OEM RootFS does not include the key generator"
+
+# Require a pre-existing account; do not create or alter OEM account databases.
+[ -r "$PASSWD_FILE" ] || fail "account database is unavailable: $PASSWD_FILE"
+account=$(awk -F: -v user="$SSH_USER" '$1 == user { print $1 ":" $6 ":" $7; found++ } END { if (found != 1) exit 1 }' "$PASSWD_FILE") || fail "dedicated account '$SSH_USER' is absent or ambiguous; account creation is outside this package"
+old_ifs=$IFS; IFS=:; set -- $account; IFS=$old_ifs
+[ "$1" = "$SSH_USER" ] && [ "$2" = "$SSH_HOME" ] && [ "$3" = /bin/sh ] || fail "account home/shell does not match SSH_HOME and /bin/sh"
+[ -d "$SSH_HOME" ] && [ ! -L "$SSH_HOME" ] || fail "account home must exist and must not be a symlink"
+[ ! -e "$host_key" ] && [ ! -L "$host_key" ] || fail "host key already exists; refusing to overwrite"
+CLEANUP_HOST_KEY=$host_key
+keydir=$SSH_HOME/.ssh
+[ ! -L "$keydir" ] || fail "account .ssh path is a symlink"
+mkdir -p "$keydir" || fail "cannot create account .ssh directory"
+chmod 700 "$keydir" || fail "cannot restrict account .ssh permissions"
+mode=$(stat -c '%a' "$keydir" 2>/dev/null) || fail "cannot inspect account .ssh permissions"
+[ "$mode" = 700 ] || fail "account .ssh permissions are $mode, expected 700"
+authorized=$keydir/authorized_keys
+[ ! -e "$authorized" ] && [ ! -L "$authorized" ] || fail "authorized_keys already exists; refusing to overwrite user data"
+CLEANUP_AUTHORIZED=$authorized
+
+umask 077
+"$KEYGEN" -t ecdsa -s 256 -f "$host_key" || fail "Dropbear ECDSA host-key generation failed"
+[ -s "$host_key" ] || fail "Dropbear key generator produced no host key"
+chmod 600 "$host_key" || fail "cannot restrict host-key permissions"
+mode=$(stat -c '%a' "$host_key" 2>/dev/null) || fail "cannot inspect host-key permissions"
+[ "$mode" = 600 ] || fail "host-key permissions are $mode, expected 600"
+# The source line has already been type/shape checked; it contains only key bytes.
+(umask 077; printf '%s %s openlinux-provisioned\n' "$key_type" "$key_data" > "$authorized") || fail "cannot install authorized key"
+chmod 600 "$authorized" || { rm -f "$authorized"; fail "cannot restrict authorized_keys permissions"; }
+mode=$(stat -c '%a' "$authorized" 2>/dev/null) || fail "cannot inspect authorized_keys permissions"
+[ "$mode" = 600 ] || fail "authorized_keys permissions are $mode, expected 600"
+echo "SSH key material provisioned for $SSH_USER. Host private key is outside the firmware image."
+echo "No SSH authentication or target compatibility test was performed."
+SUCCESS=1

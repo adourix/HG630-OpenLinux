@@ -1,6 +1,9 @@
 import struct
+import tempfile
 import unittest
 import zlib
+from pathlib import Path
+from unittest.mock import patch
 
 from tools.rebuild_firmware import (
     KERNEL_OFFSET,
@@ -8,6 +11,7 @@ from tools.rebuild_firmware import (
     ROOTFS_OFFSET,
     ROOTFS_RESERVED,
     assemble,
+    rebuild,
 )
 
 
@@ -113,6 +117,23 @@ class FirmwareRebuildTests(unittest.TestCase):
                 expected_sha256=None, expected_size=OEM_SIZE,
                 expected_rootfs_sha256="1" * 64,
             )
+
+    def test_unpinned_candidate_requires_explicit_experimental_mode(self):
+        def fixture_assemble(original, candidate, expected_rootfs_sha256=None):
+            return assemble(original, candidate, expected_sha256=None, expected_size=OEM_SIZE,
+                            expected_rootfs_sha256=expected_rootfs_sha256)
+        with tempfile.TemporaryDirectory() as directory:
+            temp = Path(directory)
+            original = temp / "original.bin"; original.write_bytes(make_package())
+            candidate = temp / "candidate.squashfs"; candidate.write_bytes(make_squashfs())
+            output = temp / "candidate-experimental.bin"
+            with patch("tools.rebuild_firmware.assemble", side_effect=fixture_assemble):
+                with self.assertRaisesRegex(ValueError, "candidate RootFS SHA-256"):
+                    rebuild(original, candidate, output, skip_extraction_validation=True)
+                report = rebuild(original, candidate, output, skip_extraction_validation=True,
+                                 allow_unpinned_candidate=True)
+            self.assertEqual(report["release_classification"], "EXPERIMENTAL_NON_FLASHABLE")
+            self.assertIn("explicit experimental candidate", report["candidate_hash_policy"])
 
     def test_rejects_non_oem_squashfs_flags(self):
         candidate = bytearray(make_squashfs())

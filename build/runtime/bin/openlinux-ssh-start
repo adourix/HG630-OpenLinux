@@ -1,0 +1,99 @@
+#!/bin/sh
+BASE=${OPENLINUX_HOME:-}
+[ -n "$BASE" ] || { case "$0" in /*/bin/openlinux-ssh-start) BASE=${0%/bin/openlinux-ssh-start} ;; esac; }
+[ -n "$BASE" ] || { echo "ssh-start: invoke by absolute package path" >&2; exit 2; }
+PROC_ROOT=${OPENLINUX_PROC_ROOT:-/proc}
+DEV_ROOT=${OPENLINUX_DEV_ROOT:-/dev}
+OEM_ROOT=${OPENLINUX_OEM_ROOT:-}
+CONF=${OPENLINUX_CONFIG:-$BASE/etc/openlinux.conf}
+RUN=$BASE/var/run/openlinux-ssh
+LOG=$BASE/var/log/openlinux-ssh.log
+fail() { echo "ssh-start: $*" >&2; exit 1; }
+[ "$#" -eq 0 ] || fail "usage: $0"
+case "$BASE" in /*) ;; *) fail "package path must be absolute" ;; esac
+[ -d "$BASE" ] && [ ! -L "$BASE" ] || fail "package directory is missing or symlinked"
+[ -f "$BASE/.openlinux-owner" ] || fail "OpenLinux ownership marker is absent"
+IFS= read -r owner < "$BASE/.openlinux-owner" || owner=
+[ "$owner" = HG630-OPENLINUX-RUNTIME-V1 ] || fail "OpenLinux ownership marker is invalid"
+[ ! -L "$BASE/var" ] && [ ! -L "$BASE/var/run" ] && [ ! -L "$BASE/var/log" ] || fail "package state path contains a symlink"
+[ -r "$CONF" ] || fail "configuration missing: $CONF"
+SSH_ENABLE=disabled SSH_USER=openlinux SSH_HOME= SSH_STATE_DIR= SSH_BIND_ADDRESS= SSH_PORT=2222
+while IFS='=' read -r name value; do
+    case "$name" in
+        SSH_ENABLE) SSH_ENABLE=$value ;;
+        SSH_USER) SSH_USER=$value ;;
+        SSH_HOME) SSH_HOME=$value ;;
+        SSH_STATE_DIR) SSH_STATE_DIR=$value ;;
+        SSH_BIND_ADDRESS) SSH_BIND_ADDRESS=$value ;;
+        SSH_PORT) SSH_PORT=$value ;;
+    esac
+done < "$CONF"
+[ "$SSH_ENABLE" = enabled ] || fail "SSH is disabled (SSH_ENABLE=disabled by default)"
+[ -n "$SSH_BIND_ADDRESS" ] || fail "SSH_BIND_ADDRESS must be set to an operator-verified LAN address"
+case "$SSH_BIND_ADDRESS" in *[!0-9.]*|.*|*..*|*.) fail "SSH_BIND_ADDRESS must be an IPv4 address" ;; esac
+old_ifs=$IFS; IFS=.; set -- $SSH_BIND_ADDRESS; IFS=$old_ifs
+[ "$#" -eq 4 ] || fail "SSH_BIND_ADDRESS must contain four IPv4 octets"
+for octet in "$@"; do case "$octet" in ''|*[!0-9]*) fail "invalid IPv4 octet" ;; esac; [ "$octet" -le 255 ] 2>/dev/null || fail "invalid IPv4 octet"; done
+case "$SSH_PORT" in ''|*[!0-9]*) fail "SSH_PORT must be numeric" ;; esac
+[ "$SSH_PORT" -ge 1024 ] 2>/dev/null && [ "$SSH_PORT" -le 65535 ] 2>/dev/null || fail "SSH_PORT must be in 1024..65535"
+[ -n "$SSH_HOME" ] && [ -n "$SSH_STATE_DIR" ] || fail "SSH_HOME and SSH_STATE_DIR must be explicitly configured"
+case "$SSH_STATE_DIR" in /*) ;; *) fail "SSH_STATE_DIR must be absolute" ;; esac
+case "$SSH_STATE_DIR" in /etc|/etc/*|/bin|/bin/*|/sbin|/sbin/*|/lib|/lib/*|/usr|/usr/*|/root|/root/*) fail "SSH_STATE_DIR points into an OEM firmware path" ;; esac
+[ -r "$OPENLINUX_PASSWD_FILE" ] || [ -r /etc/passwd ] || fail "account database unavailable; dedicated account cannot be verified"
+passwd=${OPENLINUX_PASSWD_FILE:-/etc/passwd}
+account=$(awk -F: -v user="$SSH_USER" '$1 == user { print $1 ":" $6 ":" $7; found++ } END { if (found != 1) exit 1 }' "$passwd") || fail "dedicated account '$SSH_USER' is absent or ambiguous; root login is prohibited"
+old_ifs=$IFS; IFS=:; set -- $account; IFS=$old_ifs
+[ "$1" = "$SSH_USER" ] && [ "$2" = "$SSH_HOME" ] && [ "$3" = /bin/sh ] || fail "account must map to SSH_HOME and /bin/sh"
+[ -d "$SSH_HOME/.ssh" ] && [ -f "$SSH_HOME/.ssh/authorized_keys" ] || fail "authorized_keys is missing"
+[ ! -L "$SSH_HOME/.ssh" ] && [ ! -L "$SSH_HOME/.ssh/authorized_keys" ] || fail "authorized-key path contains a symlink"
+mode=$(stat -c '%a' "$SSH_HOME/.ssh" 2>/dev/null) || fail "cannot verify .ssh directory permissions"
+[ "$mode" = 700 ] || fail ".ssh directory must have mode 700"
+mode=$(stat -c '%a' "$SSH_HOME/.ssh/authorized_keys" 2>/dev/null) || fail "cannot verify authorized_keys permissions"
+[ "$mode" = 600 ] || fail "authorized_keys must have mode 600"
+[ -d "$SSH_STATE_DIR" ] && [ ! -L "$SSH_STATE_DIR" ] || fail "SSH_STATE_DIR missing or symlinked"
+mode=$(stat -c '%a' "$SSH_STATE_DIR" 2>/dev/null) || fail "cannot verify SSH_STATE_DIR permissions"
+[ "$mode" = 700 ] || fail "SSH_STATE_DIR must have mode 700"
+host_key=$SSH_STATE_DIR/dropbear_ecdsa_host_key
+[ -f "$host_key" ] && [ ! -L "$host_key" ] || fail "separately provisioned ECDSA host key missing"
+mode=$(stat -c '%a' "$host_key" 2>/dev/null) || fail "cannot verify host-key permissions"
+[ "$mode" = 600 ] || fail "host key must have mode 600"
+[ -n "$OEM_ROOT" ] || OEM_ROOT=/
+SSHD=$OEM_ROOT/bin/sshd
+[ -x "$SSHD" ] || fail "OEM Huawei Dropbear is missing: $SSHD"
+[ -x /bin/sh ] || fail "/bin/sh is unavailable"
+"$BASE/bin/openlinux-ssh-check" || fail "PTY/devpts or runtime prerequisite missing; no mount was attempted"
+# Require live LAN address evidence from iproute; empty/unknown interfaces fail closed.
+command -v ip >/dev/null 2>&1 || [ -x "$OEM_ROOT/bin/ip" ] || fail "ip utility unavailable; cannot verify local bind address"
+IP=${OPENLINUX_IP:-$(command -v ip 2>/dev/null || echo "$OEM_ROOT/bin/ip")}
+"$IP" addr show 2>/dev/null | grep -F "inet $SSH_BIND_ADDRESS/" >/dev/null 2>&1 || fail "SSH_BIND_ADDRESS is not evidenced as a local address; WAN exposure cannot be excluded"
+# Do not proceed unless the exact key-only options and account restrictions are used.
+umask 077
+mkdir -p "$BASE/var/run" "$BASE/var/log" || fail "cannot create package state directories"
+[ ! -L "$BASE/var/log" ] || fail "package log path is a symlink"
+chmod 700 "$BASE/var/run" "$BASE/var/log" || fail "cannot restrict package state/log permissions"
+[ ! -L "$RUN" ] || fail "SSH run directory is a symlink"
+if [ -d "$RUN" ]; then
+    [ -r "$RUN/pid" ] || fail "SSH run directory exists without a verifiable PID; refusing stale-state cleanup"
+    IFS= read -r oldpid < "$RUN/pid" || oldpid=
+    case "$oldpid" in ''|*[!0-9]*) fail "invalid stale PID file; manual review required" ;; esac
+    [ "$oldpid" -gt 1 ] 2>/dev/null || fail "invalid stale PID; manual review required"
+    if [ -r "$PROC_ROOT/$oldpid/cmdline" ]; then
+        oldcmd=$(cat "$PROC_ROOT/$oldpid/cmdline" 2>/dev/null)
+        case "$oldcmd" in *"$SSHD"*) fail "SSH daemon already appears to be running (pid $oldpid)" ;; esac
+        [ -z "$oldcmd" ] || fail "PID $oldpid is live but does not match this Dropbear service; manual review required"
+    fi
+    rm -f "$RUN/pid" || fail "cannot remove verified stale PID file"
+    rmdir "$RUN" 2>/dev/null || fail "SSH run directory contains unowned files"
+fi
+mkdir "$RUN" || fail "cannot acquire SSH lock"
+chmod 700 "$RUN" || { rmdir "$RUN" 2>/dev/null || :; fail "cannot restrict SSH run directory"; }
+# -c disables password auth, -w rejects root, -j/-k disable forwarding, -F/-E
+# keep lifecycle and logs under OpenLinux control. No -B (blank passwords).
+"$SSHD" -F -E -w -c -j -k -p "$SSH_BIND_ADDRESS:$SSH_PORT" -r "$host_key" >> "$LOG" 2>&1 &
+pid=$!
+printf '%s\n' "$pid" > "$RUN/pid" || { kill "$pid" 2>/dev/null || :; fail "cannot write PID file"; }
+sleep 1
+[ -r "$PROC_ROOT/$pid/cmdline" ] || fail "Dropbear exited before becoming observable; inspect $LOG"
+cmd=$(cat "$PROC_ROOT/$pid/cmdline" 2>/dev/null)
+case "$cmd" in *"$SSHD"*"$SSH_BIND_ADDRESS:$SSH_PORT"*) ;; *) fail "PID does not match the expected OEM Dropbear command; not signaling it" ;; esac
+echo "OpenLinux SSH started (pid $pid, bind $SSH_BIND_ADDRESS:$SSH_PORT; key-only, root denied)"

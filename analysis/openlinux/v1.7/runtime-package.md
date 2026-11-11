@@ -1,0 +1,9 @@
+# V1.7 runtime package
+
+Package: `/home/ayad/build-output/openlinux-v1.7/openlinux-runtime-v1.7.tar.gz`. It contains the existing V1.2 monitor, restored configuration, SSH read-only diagnostic, provisioning wrapper, manual lifecycle commands, package ownership marker, manifest, and usage documentation. It does not include the OEM Dropbear binary, any private key, credentials, generated host key, or replacement library.
+
+SSH defaults to disabled. `openlinuxctl` retains `start`, `status`, `stop`, and adds `ssh-check`, `ssh-provision`, `ssh-start`, `ssh-status`, and `ssh-stop`. The service wrapper uses the OEM command-line options evidenced in the binary: `-F -E -w -c -j -k -p ADDRESS:PORT -r HOST_KEY`; it never uses `-B`, never permits root, and never binds a wildcard. A host OpenSSH `sshd_config` is not used.
+
+Provisioning accepts one ECDSA P-256 user public-key line, refuses RSA/SHA-1 and DSS, checks base64/one-line shape, refuses existing files, and applies 0700/0600 modes. It requires target `dropbearkey`; that executable is absent from the OEM extraction. Provisioning also requires an already-existing `openlinux` account; it does not edit OEM account databases. The generated ECDSA host private key remains in operator-selected external/volatile state storage, outside the firmware. Uninstall preserves external state and does not remove unknown files.
+
+Test boundaries: the full Python suite passed 112 tests with one optional VExpress QEMU test skipped. Tests validate scripts, parser/refusal behavior, mode-setting using a mock key generator, stale/duplicate/unrelated PID handling, process lifecycle using a clearly labeled mock daemon, and package-owned uninstall behavior. They do **not** test SSH protocol negotiation, authentication, a real Dropbear session, or the router. QEMU user-mode was used only to query the OEM ARM binary's `-V`/`-h` output through its uClibc sysroot; it did not start the daemon or authenticate.

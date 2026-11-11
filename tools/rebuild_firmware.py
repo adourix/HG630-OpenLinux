@@ -227,6 +227,7 @@ def rebuild(
     *,
     expected_rootfs: Path | None = None,
     skip_extraction_validation: bool = False,
+    allow_unpinned_candidate: bool = False,
 ) -> dict[str, Any]:
     original_path = original_path.resolve()
     rootfs_path = rootfs_path.resolve()
@@ -237,7 +238,8 @@ def rebuild(
         raise FileExistsError(f"refusing to overwrite existing output: {output_path}")
     original = original_path.read_bytes()
     candidate = rootfs_path.read_bytes()
-    package, report = assemble(original, candidate, expected_rootfs_sha256=WINNING_ROOTFS_SHA256)
+    pinned_hash = None if allow_unpinned_candidate else WINNING_ROOTFS_SHA256
+    package, report = assemble(original, candidate, expected_rootfs_sha256=pinned_hash)
     report_path = output_path.with_suffix(output_path.suffix + ".report.json")
     if report_path.exists():
         raise FileExistsError(f"refusing to overwrite existing report: {report_path}")
@@ -251,6 +253,10 @@ def rebuild(
         "candidate_rootfs": str(rootfs_path),
     }
     report["host_validation"] = host_validation
+    report["candidate_hash_policy"] = (
+        "explicit experimental candidate; OEM package authentication remains unresolved"
+        if allow_unpinned_candidate else "pinned to previously reviewed candidate"
+    )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_bytes(package)
     report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
@@ -264,11 +270,13 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--expected-rootfs", type=Path, help="staged RootFS tree for full path/content/metadata comparison")
     parser.add_argument("--skip-extraction-validation", action="store_true", help="skip unsquashfs extraction check; not recommended")
+    parser.add_argument("--allow-unpinned-experimental-rootfs", action="store_true", help="permit a new host-validated RootFS candidate; output remains EXPERIMENTAL_NON_FLASHABLE and unsigned")
     args = parser.parse_args()
     report = rebuild(
         args.original_firmware, args.candidate_rootfs, args.output,
         expected_rootfs=args.expected_rootfs,
         skip_extraction_validation=args.skip_extraction_validation,
+        allow_unpinned_candidate=args.allow_unpinned_experimental_rootfs,
     )
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0

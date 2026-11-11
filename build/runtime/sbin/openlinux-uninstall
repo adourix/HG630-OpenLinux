@@ -20,16 +20,23 @@ done
 IFS= read -r owner < "$BASE/.openlinux-owner" || :
 [ "$owner" = "$OWNER" ] || { echo "uninstall: ownership marker mismatch; nothing removed" >&2; exit 1; }
 if [ -x "$BASE/bin/openlinuxctl" ]; then
+    /bin/sh "$BASE/bin/openlinux-ssh-stop" || { echo "uninstall: SSH did not stop cleanly; nothing removed" >&2; exit 1; }
     /bin/sh "$BASE/bin/openlinuxctl" stop || { echo "uninstall: runtime did not stop; nothing removed" >&2; exit 1; }
 fi
-rm -f "$BASE/var/run/openlinux.lock/pid" || exit 1
+rm -f "$BASE/var/run/openlinux.lock/pid" "$BASE/var/run/openlinux-ssh/pid" || exit 1
 remove_dir "$BASE/var/run/openlinux.lock" 2>/dev/null || :
+remove_dir "$BASE/var/run/openlinux-ssh" 2>/dev/null || :
 rm -f "$BASE/var/log/openlinux-runtime.log" || exit 1
+rm -f "$BASE/var/log/openlinux-ssh.log" || exit 1
 rm -f "$BASE/bin/openlinuxctl" "$BASE/bin/openlinux-shutdown" \
+  "$BASE/bin/openlinux-ssh-check" "$BASE/bin/openlinux-ssh-provision" \
+  "$BASE/bin/openlinux-ssh-start" "$BASE/bin/openlinux-ssh-stop" \
+  "$BASE/bin/openlinux-ssh-status" \
   "$BASE/libexec/openlinuxd" "$BASE/sbin/openlinux-uninstall" \
-  "$BASE/etc/openlinux.conf" "$BASE/manifest.json" "$BASE/.openlinux-owner" || exit 1
+  "$BASE/etc/openlinux.conf" "$BASE/etc/ssh/README.md" "$BASE/docs/SSH.md" \
+  "$BASE/manifest.json" "$BASE/.openlinux-owner" || exit 1
 remove_dir "$BASE/var/run" "$BASE/var/log" "$BASE/var" "$BASE/bin" \
-  "$BASE/libexec" "$BASE/sbin" "$BASE/etc" 2>/dev/null || :
+  "$BASE/libexec" "$BASE/sbin" "$BASE/etc/ssh" "$BASE/etc" "$BASE/docs" 2>/dev/null || :
 remove_dir "$BASE" 2>/dev/null || {
     echo "uninstall: owned files removed; non-OpenLinux files remain under $BASE" >&2
     exit 1

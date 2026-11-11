@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "target": "Huawei HG630 V2 VER.B V100R001C298B010",
+  "scope": "host-side static analysis, QEMU user-mode CLI query, mocked lifecycle tests, and offline image construction; no hardware operations",
+  "findings": {
+    "dropbear_identity": {"status": "VERIFIED", "evidence": "SSH-2.0-dropbear_2014.65; qemu-arm -L <OEM-rootfs> /bin/sshd -h and -V"},
+    "huawei_modification": {"status": "VERIFIED", "evidence": "ATP imports/logging and /var/sshusers.cfg strings; nonstandard usage/options"},
+    "arm_eabi5_uclibc_abi": {"status": "VERIFIED", "evidence": "ELF header, PT_INTERP, DT_NEEDED; dependencies exist"},
+    "public_key_code_path": {"status": "PARTIALLY_VERIFIED", "evidence": "authorized_keys, ECDSA/RSA/DSA strings; no session/auth test"},
+    "password_disable_flag": {"status": "PARTIALLY_VERIFIED", "evidence": "QEMU user-mode help says -c disables password logins"},
+    "root_deny_flag": {"status": "PARTIALLY_VERIFIED", "evidence": "QEMU user-mode help says -w disallows root logins"},
+    "openlinux_account": {"status": "BLOCKED", "evidence": "not in passwd1/group1; ordinary passwd/group files absent; runtime DB/ATP policy unknown"},
+    "devpts_kernel_support": {"status": "UNKNOWN", "evidence": "no exact kernel config; inspected startup does not mount devpts"},
+    "dropbearkey_generator": {"status": "BLOCKED", "evidence": "not present in supplied OEM RootFS"},
+    "secure_live_ssh": {"status": "BLOCKED", "evidence": "account, keygen, PTY, vendor SSH policy and LAN address/service ownership need target/vendor verification"},
+    "rootfs_candidate": {"status": "VERIFIED_HOST_ONLY", "evidence": "SHA-256 0aa4ef57bafae5bd5b5b8804a30765a348e6acf00eaf64c0dcc2f22f2df22ca3; bytes_used 5919263/5931008; exact extraction/stage match; all original paths and metadata unchanged"},
+    "firmware_candidate": {"status": "EXPERIMENTAL_NON_FLASHABLE", "evidence": "SHA-256 f93e40742d503c1d24a45616471c836321077fdba4689a313c2b5dd50f156ae4; original kernel/suffix preserved and uImage CRCs pass; generic component extent/overlap warnings match original; signature/updater/recovery unknown"},
+    "hardware_validation": {"status": "NOT_PERFORMED", "evidence": "no router contact or command execution"}
+  },
+  "qemu": {
+    "mode": "qemu-arm user mode with OEM RootFS sysroot",
+    "commands": ["qemu-arm -L <OEM-rootfs> /bin/sshd -V", "qemu-arm -L <OEM-rootfs> /bin/sshd -h"],
+    "result": "version/options printed; loader warned about host /etc/ld.so.cache; no listening socket, PTY, shell, or authentication tested"
+  },
+  "security_policy": {
+    "ssh_default": "disabled",
+    "allow_root": false,
+    "password_auth": false,
+    "blank_password_option": false,
+    "private_keys_in_package": false,
+    "network_or_firewall_changes": false,
+    "automatic_start_hook": false
+  }
+}

@@ -1,0 +1,48 @@
+#!/bin/sh
+# Read-only SSH/PTY preflight. It never mounts devpts or starts a daemon.
+PROC_ROOT=${OPENLINUX_PROC_ROOT:-/proc}
+DEV_ROOT=${OPENLINUX_DEV_ROOT:-/dev}
+ROOTFS=${OPENLINUX_OEM_ROOT:-}
+[ "$#" -eq 0 ] || { echo "usage: $0" >&2; exit 2; }
+PASS=0
+FAIL=0
+
+ok() { echo "PASS: $*"; PASS=$((PASS + 1)); }
+missing() { echo "MISSING/UNKNOWN: $*"; FAIL=$((FAIL + 1)); }
+
+if [ -e "$DEV_ROOT/ptmx" ]; then ok "$DEV_ROOT/ptmx exists"; else missing "$DEV_ROOT/ptmx is absent"; fi
+if [ -d "$DEV_ROOT/pts" ]; then ok "$DEV_ROOT/pts directory exists"; else missing "$DEV_ROOT/pts directory is absent"; fi
+if [ -r "$PROC_ROOT/mounts" ] && grep ' devpts ' "$PROC_ROOT/mounts" >/dev/null 2>&1; then
+    ok "devpts is mounted (see $PROC_ROOT/mounts)"
+else
+    missing "no devpts mount is visible in $PROC_ROOT/mounts"
+fi
+if [ -r "$PROC_ROOT/filesystems" ] && grep 'devpts' "$PROC_ROOT/filesystems" >/dev/null 2>&1; then
+    ok "devpts appears in $PROC_ROOT/filesystems"
+else
+    missing "devpts is not evidenced in $PROC_ROOT/filesystems"
+fi
+if [ -r "$PROC_ROOT/version" ]; then
+    IFS= read -r kernel < "$PROC_ROOT/version" || kernel=unreadable
+    echo "INFO: kernel=$kernel"
+elif command -v uname >/dev/null 2>&1; then
+    echo "INFO: uname=$(uname -a 2>/dev/null)"
+else
+    missing "kernel version unavailable (/proc/version and uname absent)"
+fi
+for shell_path in /bin/sh; do
+    if [ -x "$shell_path" ]; then ok "shell executable $shell_path"; else missing "shell executable $shell_path absent"; fi
+done
+if [ -n "$ROOTFS" ]; then
+    if [ -x "$ROOTFS/bin/sshd" ]; then ok "OEM Dropbear executable $ROOTFS/bin/sshd exists"; else missing "OEM Dropbear executable absent under $ROOTFS"; fi
+else
+    if [ -x /bin/sshd ]; then ok "OEM daemon path /bin/sshd exists"; else missing "OEM daemon /bin/sshd is absent"; fi
+fi
+if [ -r "$PROC_ROOT/cmdline" ]; then
+    IFS= read -r cmdline < "$PROC_ROOT/cmdline" || cmdline=
+    echo "INFO: kernel-cmdline=${cmdline:-empty}"
+else
+    missing "kernel command line unavailable"
+fi
+echo "SUMMARY: $PASS evidenced, $FAIL missing or unknown"
+[ "$FAIL" -eq 0 ]

@@ -169,6 +169,7 @@ def build(
     bcj: str | None = None,
     pad_to: int | None = None,
     allowlist: list[str] | None = None,
+    sort_overlay_files: bool = False,
 ) -> dict[str, object]:
     rootfs = rootfs.resolve()
     output = output.resolve()
@@ -202,11 +203,26 @@ def build(
     if processors < 1:
         raise ValueError("processors must be positive")
     command = ["mksquashfs", str(stage), str(image), "-noappend", "-comp", "xz"]
+    sort_file = None
+    if sort_overlay_files:
+        if not applied:
+            raise ValueError("overlay sort priorities require at least one overlay")
+        sort_file = output / "overlay-sort.txt"
+        priority_paths = sorted(
+            path.relative_to(overlay.resolve()).as_posix()
+            for overlay in overlays
+            for path in overlay.resolve().rglob("*")
+            if path.is_file() and not path.is_symlink()
+        )
+        sort_file.write_text("".join(f"{path} 100\n" for path in priority_paths))
+        command.extend(["-sort", str(sort_file)])
     if bcj:
         if bcj != "arm":
             raise ValueError("only the explicitly supported BCJ filter is arm")
         command.extend(["-Xbcj", bcj])
-    command.extend(["-no-xattrs", "-b", "1M", "-all-time", "1490771239", "-mkfs-time", "1490771239", "-no-progress", "-processors", str(processors)])
+    # Preserve source inode mtimes. -all-time would rewrite every OEM timestamp;
+    # only the SquashFS superblock timestamp is normalized for repeatable builds.
+    command.extend(["-no-xattrs", "-b", "1M", "-mkfs-time", "1490771239", "-no-progress", "-processors", str(processors)])
     subprocess.run(command, check=True, capture_output=True, text=True)
     validation = validate_image(image)
     padding = 0
@@ -228,6 +244,8 @@ def build(
         "original_kernel_preserved": True,
         "filesystem_profile": {"version": "4.0", "compression": "xz", "endianness": "little", "block_size": 1048576, "fragments": True, "xattrs": False, "duplicate_checking": "mksquashfs default enabled", "bcj": bcj or "none"},
         "overlay_allowlist": allowlist,
+        "sort_priorities": str(sort_file) if sort_file else None,
+        "timestamp_policy": "preserve source entry mtimes; normalize SquashFS superblock time only",
     }
     if source_image:
         report["source_squashfs"] = str(source_image)
@@ -247,8 +265,9 @@ def main() -> int:
     parser.add_argument("--bcj", choices=["arm"], help="optional XZ ARM BCJ filter")
     parser.add_argument("--pad-to", type=int, help="append deterministic zero padding to this image size")
     parser.add_argument("--allow", action="append", default=[], help="allowlisted overlay relative path/glob; repeat as needed")
+    parser.add_argument("--sort-overlay-files", action="store_true", help="assign deterministic mksquashfs priority 100 to additive overlay files")
     args = parser.parse_args()
-    print(json.dumps(build(args.rootfs, args.overlay, args.output, args.source_squashfs, args.processors, args.bcj, args.pad_to, args.allow), indent=2))
+    print(json.dumps(build(args.rootfs, args.overlay, args.output, args.source_squashfs, args.processors, args.bcj, args.pad_to, args.allow, args.sort_overlay_files), indent=2))
     return 0
 
 
