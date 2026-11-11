@@ -218,3 +218,25 @@ Next task: investigate metadata range address-space semantics through exact offs
 ### Next concrete task
 
 Analyze the linked `libupgapi`, security, flash, and configuration libraries statically if preserved in the extracted RootFS; correlate their call contracts with the `upg` call sites and update the report with only directly supported argument/branch evidence. If the required library is absent, document that evidence gap and continue with static analysis of available bootloader/rootfs binaries.
+
+## Linked-library follow-up — 2026-11-10
+
+### VERIFIED
+
+- The extracted RootFS does not contain a file named `libupgapi.so`; the required upgrade APIs are distributed across available libraries. `upg` needs `libcyassl.so.5`, `libmsgapi.so`, `libcfmapi.so`, `libbhalapi.so`, and other vendor libraries.
+- `libmsgapi.so` exports `ATP_SEC_VerifyData`, `ATP_SEC_CreateSignatureContext`, `ATP_SEC_CreateData`, `ATP_SEC_SignData`, `ATP_SEC_DigestData`, and key-management APIs. Its dynamic symbol table imports CyaSSL RSA primitives (`CyaSSL_RSA_verify`, `CyaSSL_RSA_sign`, RSA key creation/size), SHA-256 primitives, MD5 primitives, and AES/DES3 primitives.
+- `libmsgapi.so` contains direct calls from security wrappers to other security APIs and indirect context callbacks. This proves the security subsystem has digest/signature/encryption paths, but the first-pass call decoder cannot resolve every GOT/function-pointer dispatch.
+- `libbhalapi.so` exports `ATP_MTD_Getfd`, `ATP_MTD_Erase`, `ATP_MTD_WriteBufToOffset_Upg`, `ATP_FLASH_Write`, `ATP_FLASH_WriteArea`, `ATP_FLASH_Upgrade`, `ATP_FLASH_UpgradeCfg`, `ATP_FLASH_UpgradeBootloader`, `UPG_FlashPartWrite`, and `FOMGetAllFlashSize`.
+- `libbhalapi.so` contains literal device names `/dev/mtd0` through `/dev/mtd15`, `MEMERASE` failure handling, low-level MTD read/write errors, and flash protect/unprotect paths. This is direct static evidence that MTD selection supports at least that device-number range; it is not a verified board partition map.
+- The analyzer now accepts ELF shared objects with `.bss`/`SHT_NOBITS` sections and resolves ARM PLT imports in ET_DYN libraries. The full test suite remains 31/31 passing.
+
+### INFERRED
+
+- RSA plus SHA-256 are the strongest current candidates for the firmware/security signature path because both primitive families are imported by `libmsgapi.so` alongside the exported signature wrappers. This remains an inference until the relevant wrapper's indirect context dispatch and data format are traced end-to-end.
+- The flash library's explicit `/dev/mtd0`–`/dev/mtd15` table is consistent with the prior `upg`/RootFS evidence, but names and offsets are likely selected by higher-level area tables or runtime configuration; no exact partition assignment is established.
+
+### UNKNOWN / BLOCKED
+
+- The exact signature padding/mode, digest coverage, public-key source, firmware-header field offsets consumed by the wrappers, and acceptance return-code policy remain UNKNOWN.
+- The exact mapping from update section IDs (`20001`, `20002`, etc.) to MTD device numbers or flash areas remains UNKNOWN.
+- Generated library reports are preserved locally under ignored `analysis/generated/upg-static/`; proprietary binaries remain outside Git.

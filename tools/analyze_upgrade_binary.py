@@ -62,7 +62,8 @@ def _parse_sections(data: bytes) -> tuple[dict, dict[str, dict]]:
     for item in raw:
         name_off, stype, sflags, addr, offset, size, link, info, align, entsize = item
         end = offset + size
-        if end > len(data):
+        # SHT_NOBITS sections (notably .bss) occupy memory but no file bytes.
+        if stype != 8 and end > len(data):
             raise ValueError(f"section at 0x{offset:x} exceeds file")
         name = _cstring(shstr, name_off) or ""
         sections[name] = {"type": stype, "flags": sflags, "address": addr, "offset": offset, "size": size, "link": link, "info": info, "entsize": entsize}
@@ -78,12 +79,30 @@ def _dynamic_symbols(data: bytes, sections: dict[str, dict]) -> list[dict]:
     strtab = data[strings["offset"]:strings["offset"] + strings["size"]]
     entsize = symtab["entsize"] or ELF32_SYM.size
     result = []
-    for offset in range(symtab["offset"], symtab["offset"] + symtab["size"], entsize):
+    for index, offset in enumerate(range(symtab["offset"], symtab["offset"] + symtab["size"], entsize)):
         if offset + ELF32_SYM.size > len(data):
             break
         name_off, value, size, info, other, shndx = ELF32_SYM.unpack_from(data, offset)
         name = _cstring(strtab, name_off) or ""
-        result.append({"name": name, "value": value, "size": size, "type": info & 0xF, "bind": info >> 4, "section": shndx})
+        result.append({"index": index, "name": name, "value": value, "size": size, "type": info & 0xF, "bind": info >> 4, "section": shndx})
+    return result
+
+
+def _plt_imports(data: bytes, sections: dict[str, dict], symbols: list[dict]) -> dict[int, str]:
+    """Map ARM PLT entry addresses to imported names for ET_DYN files."""
+    relplt = sections.get(".rel.plt")
+    plt = sections.get(".plt")
+    if not relplt or not plt:
+        return {}
+    result = {}
+    for index, offset in enumerate(range(relplt["offset"], relplt["offset"] + relplt["size"], relplt["entsize"] or 8)):
+        if offset + 8 > len(data):
+            break
+        _, info = struct.unpack_from("<II", data, offset)
+        symbol_index = info >> 8
+        if symbol_index < len(symbols) and symbols[symbol_index]["name"]:
+            # ARM PLT: 20-byte resolver entry, then 12 bytes per symbol.
+            result[plt["address"] + 20 + index * 12] = symbols[symbol_index]["name"]
     return result
 
 
@@ -106,6 +125,7 @@ def analyze(path: str | Path, *, llvm_objdump: str | None = None) -> dict:
     header, sections = _parse_sections(data)
     symbols = _dynamic_symbols(data, sections)
     imported = {s["value"]: s["name"] for s in symbols if s["name"] and s["section"] == 0 and s["value"]}
+    imported.update(_plt_imports(data, sections, symbols))
     text_section = sections.get(".text")
     text = _section_bytes(data, text_section)
     text_addr = text_section["address"] if text_section else 0
