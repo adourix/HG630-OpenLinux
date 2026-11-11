@@ -47,12 +47,13 @@ Added `tools/rebuild_firmware.py`. It is deliberately conservative:
 
 1. Requires the exact known OEM SHA-256 and package size by default.
 2. Checks SquashFS magic and uImage magic at the verified offsets.
-3. Checks the candidate is SquashFS 4.0, XZ compression ID 4, 1 MiB block size, and fits the reserved RootFS span by both file size and internal `bytes_used`.
-4. Replaces only bytes `[0x305CF, 0x5D85CF)`.
-5. Zero-fills unused bytes inside that reserved RootFS slot.
-6. Preserves the complete package prefix and every byte from the original kernel offset through EOF.
-7. Re-parses the uImage and verifies its header and payload CRCs remain valid.
-8. Writes a JSON report alongside the output and marks the result `EXPERIMENTAL_NON_FLASHABLE`.
+3. Checks the candidate is SquashFS 4.0, XZ compression ID 4, 1 MiB blocks, OEM-compatible flags, and fits the reserved RootFS span by both file size and internal `bytes_used`.
+4. Requires the recorded winning RootFS SHA-256 `1f0760422f5f94b5da8ad7670725e1c2fc6fe0134d6649b96e5f2a2dbca2515e` by default.
+5. Replaces only bytes `[0x305CF, 0x5D85CF)`.
+6. Zero-fills unused bytes inside that reserved RootFS slot.
+7. Preserves the complete package prefix and every byte from the original kernel offset through EOF.
+8. Re-parses the uImage and verifies its header and payload CRCs remain valid.
+9. Writes a JSON report alongside the output and marks the result `EXPERIMENTAL_NON_FLASHABLE`.
 
 The tool refuses to overwrite either input or an existing output. It performs a full `unsquashfs` extraction check by default; optionally, `--expected-rootfs` compares every path, type, mode, UID/GID, timestamp, file hash/size, symlink target and device number against the expected staged RootFS.
 
