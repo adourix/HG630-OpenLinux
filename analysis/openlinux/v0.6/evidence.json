@@ -1,0 +1,35 @@
+{
+  "milestone": "V0.6",
+  "head_at_start": "455c8e0",
+  "classification_legend": ["VERIFIED", "PARTIALLY VERIFIED", "UNKNOWN", "BLOCKED"],
+  "bcj_tests": {
+    "ordinary_xz_sha256": "314597cc60505f289a034494cce6fbc8a89b7f6852a1fd6f63ced4150a2788fc",
+    "ordinary_xz_bytes_used": 128528,
+    "arm_bcj_sha256": "e0de78684603950c897c2890e6359d3e7a2839da0b9dc24e084816566a030c61",
+    "arm_bcj_bytes_used": 123014,
+    "both_extract": true,
+    "extracted_payload_hash_equal": true,
+    "status": "VERIFIED_DEVELOPMENT_HOST_ONLY"
+  },
+  "kernel": {
+    "xz_decoder_strings": ["squashfs_xz_init", "xz_dec_init", "xz_dec_run"],
+    "arm_bcj_symbol_or_config": "not found",
+    "kernel_config": "not found",
+    "ordinary_xz_support": "VERIFIED STATIC",
+    "arm_bcj_support": "UNKNOWN"
+  },
+  "hardware_evidence": {
+    "board_id": 1212,
+    "platform_family": "HiSilicon SD56xx/SD5610x",
+    "uimage_load_entry": "0x81208000",
+    "calibration_reference": "/dev/mtd9",
+    "ram": "UNKNOWN",
+    "flash_type_capacity": "UNKNOWN",
+    "uart": "UNKNOWN",
+    "bootloader_version": "UNKNOWN",
+    "machine_id": "UNKNOWN",
+    "root_mtd": "UNKNOWN"
+  },
+  "candidate": {"created": false, "reason": "ordinary XZ may exceed fixed span; BCJ kernel support is unproven"},
+  "safety": {"router_access": false, "physical_mtd_access": false, "writes": false, "bootloader_changes": false}
+}

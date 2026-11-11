@@ -1,0 +1,38 @@
+{
+  "test_stage": "small stage containing preserved ARM BusyBox, shell symlink, profile, and test text",
+  "development_host_validation": "VERIFIED",
+  "cases": [
+    {
+      "name": "xz_no_bcj",
+      "command_options": ["-comp", "xz", "-b", "1M", "-all-time", "1490771239", "-mkfs-time", "1490771239"],
+      "path": "/home/ayad/build-output/v06-bcj-tests/xz.squashfs",
+      "sha256": "314597cc60505f289a034494cce6fbc8a89b7f6852a1fd6f63ced4150a2788fc",
+      "file_size": 131072,
+      "bytes_used": 128528,
+      "compression": "xz",
+      "filters": [],
+      "version": "4.0",
+      "block_size": 1048576,
+      "extraction": "VERIFIED",
+      "payload_compare_after_extraction": "VERIFIED"
+    },
+    {
+      "name": "xz_arm_bcj",
+      "command_options": ["-comp", "xz", "-Xbcj", "arm", "-b", "1M", "-all-time", "1490771239", "-mkfs-time", "1490771239"],
+      "path": "/home/ayad/build-output/v06-bcj-tests/xz-arm-bcj.squashfs",
+      "sha256": "e0de78684603950c897c2890e6359d3e7a2839da0b9dc24e084816566a030c61",
+      "file_size": 126976,
+      "bytes_used": 123014,
+      "compression": "xz",
+      "filters": ["arm"],
+      "version": "4.0",
+      "block_size": 1048576,
+      "extraction": "VERIFIED",
+      "payload_compare_after_extraction": "VERIFIED"
+    }
+  ],
+  "original": {"compression": "xz", "filters_reported": [], "bytes_used": 5930917, "status": "VERIFIED"},
+  "v04": {"compression": "xz", "filters_reported": ["arm"], "bytes_used": 5780643, "status": "VERIFIED"},
+  "kernel_arm_bcj_support": "UNKNOWN",
+  "recommendation": "Ordinary XZ is the only configuration directly matched by original filesystem and kernel evidence; ARM BCJ remains experimental."
+}

@@ -402,3 +402,25 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 - V0.4 ARM BCJ XZ compatibility is UNKNOWN/BLOCKED. The recommended proven format is ordinary XZ without BCJ, but its expanded image may exceed the verified fixed span.
 - No QEMU system machine models HiSilicon SD56xx/SD5610x; meaningful kernel boot emulation is BLOCKED.
 - Hardware validation requires read-only UART/proc/dmesg observation and an independent recovery path. No physical MTD, flash, bootloader environment, or router was accessed.
+
+## OpenLinux V0.6 hardware discovery and BCJ research — 2026-11-10
+
+### VERIFIED
+
+- Current HEAD at start was `455c8e0`; previous artifacts and firmware were preserved.
+- Controlled development-host SquashFS tests generated ordinary XZ and XZ+ARM-BCJ images from the same stage. Both extracted successfully and produced identical extracted BusyBox hashes. `unsquashfs -s` reported `Filters selected: arm` only for the BCJ image.
+- Original kernel strings contain `squashfs_xz_init`, `xz_dec_init`, and `xz_dec_run`; no kernel config, ARM BCJ config, or BCJ-specific symbol was found.
+- Added [analysis/openlinux/v0.6/bcj-investigation.md](analysis/openlinux/v0.6/bcj-investigation.md), [squashfs-test-matrix.json](analysis/openlinux/v0.6/squashfs-test-matrix.json), [evidence.json](analysis/openlinux/v0.6/evidence.json), and [report.md](analysis/openlinux/v0.6/report.md).
+- Added the BusyBox-ash-compatible, read-only [tools/hardware_discovery.sh](tools/hardware_discovery.sh), with tests. It only reads `/proc`, `/sys`, `/dev`, module directories, and dmesg; it does not write MTD, bootloader state, or router files.
+- Added [hardware-discovery.md](analysis/openlinux/v0.6/hardware-discovery.md) with safe UART identification, passive capture, read-only collection, and recovery requirements.
+- Full test suite passes **54/54** after V0.6 additions.
+
+### PARTIALLY VERIFIED
+
+- Development-host extraction proves the filesystem metadata distinction and host tool behavior, not target-kernel decompressor behavior.
+- Ordinary XZ remains the only filesystem configuration directly matched by original filesystem and kernel evidence. No compatibility candidate was built because ordinary XZ may exceed the fixed component span and BCJ support is unproven.
+
+### UNKNOWN / BLOCKED
+
+- ARM BCJ support in the original 2.6.30 kernel, kernel configuration, machine ID, RAM size/base, flash type/capacity, UART, bootloader version, root MTD partition, and command line remain UNKNOWN pending hardware or matching source artifacts.
+- No compatible QEMU system machine exists. No router, MTD, bootloader, UART, or firmware write was accessed in this milestone.
