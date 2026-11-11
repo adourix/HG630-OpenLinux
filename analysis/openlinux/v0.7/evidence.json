@@ -1,0 +1,748 @@
+{
+  "classification_legend": [
+    "VERIFIED",
+    "PARTIALLY VERIFIED",
+    "UNKNOWN",
+    "BLOCKED"
+  ],
+  "container": {
+    "embedded_component_validation": "VERIFIED",
+    "metadata": {
+      "field_records": [
+        {
+          "key": "board_id",
+          "key_offset": 821,
+          "radix": "decimal",
+          "raw_record_hex": "3030303030300a736563746f723d300a626f6172645f69643d313231320a73797374656d5f747970653d310a6d",
+          "raw_record_text": "000000\nsector=0\nboard_id=1212\nsystem_type=1\nm",
+          "value": 1212,
+          "value_offset": 830,
+          "value_raw": "1212"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 961,
+          "radix": "hexadecimal",
+          "raw_record_hex": "303130535030310a5b32303031315d0a6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d3078323030",
+          "raw_record_text": "010SP01\n[20011]\nmain_offset=0x0\nmain_size=0x200",
+          "value": 0,
+          "value_offset": 973,
+          "value_raw": "0x0"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 977,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d307832303030300a5b32303030335d0a6d61696e5f6f66",
+          "raw_record_text": "main_offset=0x0\nmain_size=0x20000\n[20003]\nmain_of",
+          "value": 131072,
+          "value_offset": 987,
+          "value_raw": "0x20000"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1003,
+          "radix": "hexadecimal",
+          "raw_record_hex": "307832303030300a5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d3078313030",
+          "raw_record_text": "0x20000\n[20003]\nmain_offset=0x20000\nmain_size=0x100",
+          "value": 131072,
+          "value_offset": 1015,
+          "value_raw": "0x20000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1023,
+          "radix": "hexadecimal",
+          "raw_record_hex": "5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d3078",
+          "raw_record_text": "_offset=0x20000\nmain_size=0x10000\nslave_offset=0x",
+          "value": 65536,
+          "value_offset": 1033,
+          "value_raw": "0x10000"
+        },
+        {
+          "key": "slave_offset",
+          "key_offset": 1041,
+          "radix": "hexadecimal",
+          "raw_record_hex": "696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d30783130",
+          "raw_record_text": "in_size=0x10000\nslave_offset=0x30000\nslave_size=0x10",
+          "value": 196608,
+          "value_offset": 1054,
+          "value_raw": "0x30000"
+        },
+        {
+          "key": "slave_size",
+          "key_offset": 1062,
+          "radix": "hexadecimal",
+          "raw_record_hex": "5f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a5b32303030325d0a6d61696e5f6f66",
+          "raw_record_text": "_offset=0x30000\nslave_size=0x10000\n[20002]\nmain_of",
+          "value": 65536,
+          "value_offset": 1073,
+          "value_raw": "0x10000"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1089,
+          "radix": "hexadecimal",
+          "raw_record_hex": "307831303030300a5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d3078313630",
+          "raw_record_text": "0x10000\n[20002]\nmain_offset=0x40000\nmain_size=0x160",
+          "value": 262144,
+          "value_offset": 1101,
+          "value_raw": "0x40000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1109,
+          "radix": "hexadecimal",
+          "raw_record_hex": "5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d3078",
+          "raw_record_text": "_offset=0x40000\nmain_size=0x160000\nslave_offset=0x",
+          "value": 1441792,
+          "value_offset": 1119,
+          "value_raw": "0x160000"
+        },
+        {
+          "key": "slave_offset",
+          "key_offset": 1128,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136",
+          "raw_record_text": "n_size=0x160000\nslave_offset=0x7c0000\nslave_size=0x16",
+          "value": 8126464,
+          "value_offset": 1141,
+          "value_raw": "0x7c0000"
+        },
+        {
+          "key": "slave_size",
+          "key_offset": 1150,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a5b32303030315d0a6d61696e5f6f66",
+          "raw_record_text": "offset=0x7c0000\nslave_size=0x160000\n[20001]\nmain_of",
+          "value": 1441792,
+          "value_offset": 1161,
+          "value_raw": "0x160000"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1178,
+          "radix": "hexadecimal",
+          "raw_record_hex": "783136303030300a5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d3078363230",
+          "raw_record_text": "x160000\n[20001]\nmain_offset=0x1a0000\nmain_size=0x620",
+          "value": 1703936,
+          "value_offset": 1190,
+          "value_raw": "0x1a0000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1199,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d3078",
+          "raw_record_text": "offset=0x1a0000\nmain_size=0x620000\nslave_offset=0x",
+          "value": 6422528,
+          "value_offset": 1209,
+          "value_raw": "0x620000"
+        },
+        {
+          "key": "slave_offset",
+          "key_offset": 1218,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632",
+          "raw_record_text": "n_size=0x620000\nslave_offset=0x920000\nslave_size=0x62",
+          "value": 9568256,
+          "value_offset": 1231,
+          "value_raw": "0x920000"
+        },
+        {
+          "key": "slave_size",
+          "key_offset": 1240,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a5b32303130305d0a6d61696e5f6f66",
+          "raw_record_text": "offset=0x920000\nslave_size=0x620000\n[20100]\nmain_of",
+          "value": 6422528,
+          "value_offset": 1251,
+          "value_raw": "0x620000"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1268,
+          "radix": "hexadecimal",
+          "raw_record_hex": "783632303030300a5b32303130305d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b",
+          "raw_record_text": "x620000\n[20100]\nmain_offset=0xf40000\nmain_size=0x0\n[",
+          "value": 15990784,
+          "value_offset": 1280,
+          "value_raw": "0xf40000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1289,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b32303130315d0a6d61696e5f6f66",
+          "raw_record_text": "offset=0xf40000\nmain_size=0x0\n[20101]\nmain_of",
+          "value": 0,
+          "value_offset": 1299,
+          "value_raw": "0x0"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1311,
+          "radix": "hexadecimal",
+          "raw_record_hex": "697a653d3078300a5b32303130315d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b",
+          "raw_record_text": "ize=0x0\n[20101]\nmain_offset=0xf40000\nmain_size=0x0\n[",
+          "value": 15990784,
+          "value_offset": 1323,
+          "value_raw": "0xf40000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1332,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a5b32303030355d0a6d61696e5f6f66",
+          "raw_record_text": "offset=0xf40000\nmain_size=0x0\n[20005]\nmain_of",
+          "value": 0,
+          "value_offset": 1342,
+          "value_raw": "0x0"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1354,
+          "radix": "hexadecimal",
+          "raw_record_hex": "697a653d3078300a5b32303030355d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078363030",
+          "raw_record_text": "ize=0x0\n[20005]\nmain_offset=0xf40000\nmain_size=0x600",
+          "value": 15990784,
+          "value_offset": 1366,
+          "value_raw": "0xf40000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1375,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30786634303030300a6d61696e5f73697a653d307836303030300a5b32303030345d0a6d61696e5f6f66",
+          "raw_record_text": "offset=0xf40000\nmain_size=0x60000\n[20004]\nmain_of",
+          "value": 393216,
+          "value_offset": 1385,
+          "value_raw": "0x60000"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1401,
+          "radix": "hexadecimal",
+          "raw_record_hex": "307836303030300a5b32303030345d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d3078363030",
+          "raw_record_text": "0x60000\n[20004]\nmain_offset=0xf70000\nmain_size=0x600",
+          "value": 16187392,
+          "value_offset": 1413,
+          "value_raw": "0xf70000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1422,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a5b33303030325d0a6d61696e5f6f66",
+          "raw_record_text": "offset=0xf70000\nmain_size=0x60000\n[30002]\nmain_of",
+          "value": 393216,
+          "value_offset": 1432,
+          "value_raw": "0x60000"
+        },
+        {
+          "key": "main_offset",
+          "key_offset": 1448,
+          "radix": "hexadecimal",
+          "raw_record_hex": "307836303030300a5b33303030325d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d3078363030",
+          "raw_record_text": "0x60000\n[30002]\nmain_offset=0xf70000\nmain_size=0x600",
+          "value": 16187392,
+          "value_offset": 1460,
+          "value_raw": "0xf70000"
+        },
+        {
+          "key": "main_size",
+          "key_offset": 1469,
+          "radix": "hexadecimal",
+          "raw_record_hex": "6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a021000000c000000f1020100d10201",
+          "raw_record_text": "offset=0xf70000\nmain_size=0x60000\n\u0002\u0010\u0000\u0000\f\u0000\u0000\u0000\u00f1\u0002\u0001\u0000\u00d1\u0002\u0001",
+          "value": 393216,
+          "value_offset": 1479,
+          "value_raw": "0x60000"
+        }
+      ],
+      "region_semantics": "UNKNOWN; not established as physical flash addresses",
+      "regions": [
+        {
+          "end": 131072,
+          "kind": "main",
+          "offset": 0,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303031315d0a6d61696e5f6f66667365743d3078300a6d61696e5f73697a653d307832303030300a",
+          "section": "20011",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 131072,
+          "size_radix": "hexadecimal",
+          "valid": true,
+          "within_file": true
+        },
+        {
+          "end": 196608,
+          "kind": "main",
+          "offset": 131072,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a",
+          "section": "20003",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 65536,
+          "size_radix": "hexadecimal",
+          "valid": true,
+          "within_file": true
+        },
+        {
+          "end": 262144,
+          "kind": "slave",
+          "offset": 196608,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030335d0a6d61696e5f6f66667365743d307832303030300a6d61696e5f73697a653d307831303030300a736c6176655f6f66667365743d307833303030300a736c6176655f73697a653d307831303030300a",
+          "section": "20003",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 65536,
+          "size_radix": "hexadecimal",
+          "valid": true,
+          "within_file": true
+        },
+        {
+          "end": 1703936,
+          "kind": "main",
+          "offset": 262144,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a",
+          "section": "20002",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 1441792,
+          "size_radix": "hexadecimal",
+          "valid": true,
+          "within_file": true
+        },
+        {
+          "end": 9568256,
+          "kind": "slave",
+          "offset": 8126464,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030325d0a6d61696e5f6f66667365743d307834303030300a6d61696e5f73697a653d30783136303030300a736c6176655f6f66667365743d30783763303030300a736c6176655f73697a653d30783136303030300a",
+          "section": "20002",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 1441792,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        },
+        {
+          "end": 8126464,
+          "kind": "main",
+          "offset": 1703936,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a",
+          "section": "20001",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 6422528,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        },
+        {
+          "end": 15990784,
+          "kind": "slave",
+          "offset": 9568256,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030315d0a6d61696e5f6f66667365743d30783161303030300a6d61696e5f73697a653d30783632303030300a736c6176655f6f66667365743d30783932303030300a736c6176655f73697a653d30783632303030300a",
+          "section": "20001",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 6422528,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        },
+        {
+          "end": 15990784,
+          "kind": "main",
+          "offset": 15990784,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303130305d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a",
+          "section": "20100",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 0,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        },
+        {
+          "end": 15990784,
+          "kind": "main",
+          "offset": 15990784,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303130315d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d3078300a",
+          "section": "20101",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 0,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        },
+        {
+          "end": 16384000,
+          "kind": "main",
+          "offset": 15990784,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030355d0a6d61696e5f6f66667365743d30786634303030300a6d61696e5f73697a653d307836303030300a",
+          "section": "20005",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 393216,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        },
+        {
+          "end": 16580608,
+          "kind": "main",
+          "offset": 16187392,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b32303030345d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a",
+          "section": "20004",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 393216,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        },
+        {
+          "end": 16580608,
+          "kind": "main",
+          "offset": 16187392,
+          "offset_radix": "hexadecimal",
+          "raw_section_hex": "5b33303030325d0a6d61696e5f6f66667365743d30786637303030300a6d61696e5f73697a653d307836303030300a021000000c000000f1020100d102010000000000011000003000000098d1901576140000060201002cdc90a65400000005",
+          "section": "30002",
+          "semantics": "UNKNOWN; metadata label only",
+          "size": 393216,
+          "size_radix": "hexadecimal",
+          "valid": false,
+          "within_file": false
+        }
+      ]
+    },
+    "metadata_semantics": "UNKNOWN",
+    "package_to_physical_flash_mapping": "UNKNOWN",
+    "squashfs": [
+      {
+        "block_size": 1048576,
+        "bytes_used": 5930917,
+        "compression_id": 4,
+        "end": 6129012,
+        "inode_count": 1257,
+        "offset": 198095,
+        "superblock_hex": "68737173e9040000275ddb58000010000e00000004001400c002070004000000a71e8c1b00000000a57f5a00000000009d7f5a0000000000ffffffffffffffff6f265a000000000071495a0000000000d3765a00000000006f7f5a0000000000",
+        "version": "4.0",
+        "within_file": true
+      }
+    ],
+    "uimage": [
+      {
+        "data_crc_stored": "88c1e0b5",
+        "data_crc_valid": true,
+        "end": 7563255,
+        "entry_address": 2166390784,
+        "header_crc_stored": "0e3295ab",
+        "header_crc_valid": true,
+        "header_hex": "270519560e3295ab58db5ce20015e1e8812080008120800088c1e0b5050202034c696e75782d322e362e33300000000000000000000000000000000000000000",
+        "header_size": 64,
+        "load_address": 2166390784,
+        "name": "Linux-2.6.30",
+        "offset": 6129103,
+        "payload_size": 1434088,
+        "within_file": true
+      }
+    ]
+  },
+  "deployment": {
+    "additional_userspace_without_rootfs_replacement": "PARTIALLY VERIFIED",
+    "oem_signature_acceptance": "UNKNOWN",
+    "physical_mtd_access": "BLOCKED_BY_POLICY",
+    "rootfs_only_oem_update": "UNKNOWN",
+    "same_layout_experimental_replacement": "PARTIALLY VERIFIED"
+  },
+  "inputs": {
+    "firmware": {
+      "path": "/home/ayad/firmware-input/HG630V2-12V100R001.bin",
+      "sha256": "d5fb45d7b8e8fd399bbbfd903a31a0d1026ee8375455d32028129bd04ff2b222",
+      "size": 7563600
+    },
+    "rootfs": "/home/ayad/build-output/rootfs"
+  },
+  "rootfs": {
+    "configuration_files": {
+      "inittab": {
+        "lines": [
+          "::sysinit:/etc/init.d/rcS",
+          "::respawn:-/bin/sh",
+          "",
+          "# tty2::askfirst:-/bin/sh",
+          "#::ctrlaltdel:/bin/umount -a -r",
+          ""
+        ],
+        "path": "/home/ayad/build-output/rootfs/etc/inittab",
+        "sha256": "e36c598c6c364f8e83de3fe40b1bf4f50d16ba031023e06a1934bbd91bc7b64a"
+      },
+      "insmod_all.sh": {
+        "lines": [
+          "# /etc/profile: system-wide .profile file for the Bourne shells",
+          "",
+          "PATH=/bin:/sbin:/usr/bin",
+          "export PATH",
+          "echo -l \"INSMOD base START......\"",
+          " test -e /lib/extra/bcm_ingqos.ko && insmod /lib/extra/bcm_ingqos.ko",
+          " test -e /lib/extra/bcm_bpm.ko && insmod /lib/extra/bcm_bpm.ko",
+          " test -e /lib/extra/pktflow.ko && insmod /lib/extra/pktflow.ko",
+          " test -e /lib/extra/bcmfap.ko && insmod /lib/extra/bcmfap.ko",
+          " test -e /lib/extra/pktcmf.ko && insmod /lib/extra/pktcmf.ko",
+          " test -e /lib/extra/profdrvdd.ko && insmod /lib/extra/profdrvdd.ko",
+          " test -e /lib/extra/bcmxtmcfg.ko && insmod /lib/extra/bcmxtmcfg.ko",
+          " test -e /lib/extra/atmapi.ko && insmod /lib/extra/atmapi.ko",
+          " ",
+          " test -e /lib/extra/atmbonding.ko && insmod /lib/extra/atmbonding.ko",
+          " test -e /lib/extra/atmbondingeth.ko && insmod /lib/extra/atmbondingeth.ko",
+          " test -e /lib/extra/adsldd.ko && insmod /lib/extra/adsldd.ko",
+          " test -e /lib/extra/blaa_dd.ko && insmod /lib/extra/blaa_dd.ko",
+          " test -e /lib/extra/bcmprocfs.ko && insmod /lib/extra/bcmprocfs.ko",
+          " test -e /lib/kernel/net/ipv6/ipv6.ko && insmod /lib/kernel/net/ipv6/ipv6.ko",
+          " test -e /lib/kernel/net/atm/br2684.ko && insmod /lib/kernel/net/atm/br2684.ko",
+          " test -e /lib/extra/bcm_enet.ko && insmod /lib/extra/bcm_enet.ko",
+          " test -e /lib/extra/nciTMSkmod.ko && insmod /lib/extra/nciTMSkmod.ko",
+          " test -e /lib/extra/bcmsw.ko && insmod /lib/extra/bcmsw.ko && ifconfig bcmsw up",
+          "",
+          " test -e /lib/kernel/drivers/usb/core/usbcore.ko && insmod /lib/kernel/drivers/usb/core/usbcore.ko",
+          " test -e /lib/kernel/drivers/usb/host/xhci-hcd.ko && insmod /lib/kernel/drivers/usb/host/xhci-hcd.ko ",
+          " test -e /lib/kernel/drivers/usb/host/ehci-hcd.ko && insmod /lib/kernel/drivers/usb/host/ehci-hcd.ko\t",
+          " ",
+          " #\u00c5\u00d0\u00b6\u00cfWS880 \u00d5\u00eb\u00b6\u00d4USB3.0 u\u00c5\u00cc\u00ca\u00b6\u00b1\u00f0\u00ce\u00ca\u00cc\u00e2\u00d7\u00f6\u00cc\u00d8\u00ca\u00e2\u00b2\u00d9\u00d7\u00f7",
+          " echo \"retry xhci\"",
+          " test -e /bin/emfconf && rmmod xhci-hcd.ko && insmod /lib/kernel/drivers/usb/host/xhci-hcd.ko\t",
+          " echo \"retry xhci done\"",
+          " test -e /lib/kernel/drivers/usb/host/ohci-hcd.ko && insmod /lib/kernel/drivers/usb/host/ohci-hcd.ko",
+          " test -e /lib/kernel/drivers/usb/host/uhci-hcd.ko && insmod /lib/kernel/drivers/usb/host/uhci-hcd.ko",
+          " test -e /lib/kernel/drivers/usb/serial/usbserial.ko && insmod /lib/kernel/drivers/usb/serial/usbserial.ko",
+          " test -e /lib/kernel/drivers/usb/serial/usb_wwan.ko && insmod /lib/kernel/drivers/usb/serial/usb_wwan.ko",
+          " test -e /lib/kernel/drivers/usb/serial/option.ko && insmod /lib/kernel/drivers/usb/serial/option.ko",
+          " test -e /lib/kernel/drivers/usb/class/usblp.ko && insmod /lib/kernel/drivers/usb/class/usblp.ko",
+          " test -e /lib/kernel/drivers/scsi/scsi_mod.ko && insmod /lib/kernel/drivers/scsi/scsi_mod.ko",
+          " test -e /lib/kernel/drivers/scsi/sd_mod.ko && insmod /lib/kernel/drivers/scsi/sd_mod.ko",
+          " test -e /lib/kernel/drivers/scsi/scsi_wait_scan.ko && insmod /lib/kernel/drivers/scsi/scsi_wait_scan.ko",
+          " test -e /lib/kernel/drivers/usb/storage/usb-storage.ko && insmod /lib/kernel/drivers/usb/storage/usb-storage.ko",
+          " test -e /lib/kernel/drivers/net/usb/qmitty.ko && insmod /lib/kernel/drivers/net/usb/qmitty.ko",
+          " test -e /lib/kernel/drivers/net/usb/usbnet.ko && insmod /lib/kernel/drivers/net/usb/usbnet.ko",
+          " test -e /lib/kernel/drivers/net/usb/rmnet_ethernet.ko && insmod /lib/kernel/drivers/net/usb/rmnet_ethernet.ko",
+          " ",
+          " test -e /lib//extra/bcm_usb.ko && insmod /lib/extra/bcm_usb.ko",
+          "# test -e /lib/extra/wl.ko && insmod /lib/extra/wl.ko",
+          "#test -e /lib/extra/dspdd.ko && insmod /lib/extra/dspdd.ko",
+          " test -e /lib/extra/endpointdd.ko && insmod /lib/extra/endpointdd.ko",
+          " test -e /lib/extra/bcmvlan.ko && insmod /lib/extra/bcmvlan.ko",
+          " test -e /lib/extra/p8021ag.ko && insmod /lib/extra/p8021ag.ko",
+          " test -e /lib/extra/pwrmngtd.ko && insmod /lib/extra/pwrmngtd.ko",
+          " test -e /lib/kernel/drivers/net/ctf/ctf.ko && insmod /lib/kernel/drivers/net/ctf/ctf.ko",
+          " test -e /lib/extra/emf.ko && insmod /lib/extra/emf.ko",
+          " test -e /lib/extra/igs.ko && insmod /lib/extra/igs.ko",
+          " test -e /lib/kernel/drivers/net/et/et.ko && insmod /lib/kernel/drivers/net/et/et.ko",
+          " test -e /lib/kernel/drivers/net/proxyarp/proxyarp.ko && insmod /lib/kernel/drivers/net/proxyarp/proxyarp.ko",
+          "# test -e /lib/kernel/drivers/net/wl/wl.ko && insmod /lib/kernel/drivers/net/wl/wl.ko",
+          "",
+          " test -e /lib/extra/ndistty.ko && insmod /lib/extra/ndistty.ko",
+          " test -e /lib/extra/hw_cdc_driver.ko && insmod /lib/extra/hw_cdc_driver.ko",
+          "",
+          "echo -l \"INSMOD base Done\"",
+          "",
+          "atpsync post base",
+          "",
+          "echo -l \"INSMOD wlan START......\"",
+          "test -e /lib/extra/wl.ko && insmod /lib/extra/wl.ko",
+          "test -e /lib/kernel/drivers/net/wl/wl.ko && insmod /lib/kernel/drivers/net/wl/wl.ko",
+          "",
+          "atpsync dynapp console true",
+          "atpsync dynapp telnetd true",
+          "",
+          "atpsync post wlan",
+          "echo -l \"INSMOD wlan Done\""
+        ],
+        "path": "/home/ayad/build-output/rootfs/etc/insmod_all.sh",
+        "sha256": "ad70dfee044e6a2e600f86862c6df34f39ea407fbb7d1ea915b5b813bdf3fe42"
+      },
+      "insmod_eth.sh": {
+        "lines": [
+          "# /etc/profile: system-wide .profile file for the Bourne shells",
+          "",
+          "PATH=/bin:/sbin:/usr/bin",
+          "export PATH",
+          "echo \"INSMOD ETH START......\"",
+          "test -e /lib/extra/tc3162_dmt.ko && (echo \"ethcmd eth0 lanchip enable\";echo \"ethcmd eth0 vlanpt enable\")",
+          "#\ttest -e /lib/extra/bcm_enet.ko && insmod /lib/extra/bcm_enet.ko",
+          "#\ttest -e /lib/extra/bcmsw.ko && insmod /lib/extra/bcmsw.ko && ifconfig bcmsw up",
+          "",
+          "echo \"INSMOD ETH Done\"",
+          "",
+          ""
+        ],
+        "path": "/home/ayad/build-output/rootfs/etc/insmod_eth.sh",
+        "sha256": "6ff0f7c0158d2890696471b26c59e04735ea7286a7d6b0d54179c9864dfed04f"
+      },
+      "profile": {
+        "lines": [
+          "# /etc/profile: system-wide .profile file for the Bourne shells",
+          "",
+          "PATH=/bin:/sbin:/usr/bin:/usr/sbin",
+          "export PATH",
+          "LUA_PATH=\"/etc/lua/?.lua;/html/lib/?.lua;/html/lua/?.lua\"",
+          "export LUA_PATH",
+          "",
+          "echo -l \"boot start running profile...\"",
+          "",
+          "mount -t tmpfs none /dev",
+          "mount -t proc /proc /proc",
+          "mount -t sysfs none /sys",
+          "mount -t tmpfs none /var",
+          "mount -t tmpfs none /tmp",
+          "mount -t tmpfs none /mnt",
+          "",
+          "makedevs -d /etc/devicetable /",
+          "",
+          "echo -l \"boot start running starbsp...\"",
+          "startbsp",
+          "echo -l \"boot running starbsp...\"",
+          "",
+          "cp /etc/passwd1 /var/passwd",
+          "cp /etc/group1 /var/group",
+          "test -e /etc/Wireless/RT2860AP/RT2860AP.dat && cp /etc/Wireless/RT2860AP/RT2860AP.dat /var/Wireless/",
+          "",
+          "echo 32  > /proc/sys/kernel/msgmni",
+          "",
+          "echo \"Loading drivers and kernel modules... \"",
+          "#add by c00164495 for HG622u multi acsurl 2011-01-30",
+          " echo > /var/acsurl",
+          " ifconfig lo 127.0.0.1 netmask 255.0.0.0 broadcast 127.255.255.255 up",
+          " ",
+          "#if exits /etc/webimg1, this is hg633 file system",
+          "test -e /etc/webimg1 && mount -t jffs2 /dev/mtdblock7 /config",
+          "#add for support chinese charset and ntfs fat ntfs filesystem ",
+          "#test -e /lib/kernel/fs/fat/fat.ko && insmod /lib/kernel/fs/fat/fat.ko",
+          "#test -e /lib/kernel/fs/vfat/vfat.ko && insmod /lib/kernel/fs/vfat/vfat.ko",
+          "#test -e /lib/kernel/fs/ntfs/ntfs.ko && insmod /lib/kernel/fs/ntfs/ntfs.ko",
+          "#test -e /lib/kernel/fs/nls/nls_cp936.ko && insmod /lib/kernel/fs/nls/nls_cp936.ko",
+          " ",
+          "#test -e /lib/kernel/drivers/usb/serial/option.ko && insmod /lib/kernel/drivers/usb/serial/option.ko",
+          "#test -e /lib/kernel/fs/fuse/fuse.ko && insmod /lib/kernel/fs/fuse/fuse.ko",
+          "test -e /lib/kernel/net/softqos/hi_ksoft_qos.ko && insmod /lib/kernel/net/softqos/hi_ksoft_qos.ko",
+          "",
+          "#Modified by x00208503, 2014/11/04   PN:DTS2014110405297",
+          "test -d /etc/tri_image_up && mount -t jffs2 /dev/mtdblock12 /etc/tri_image_up",
+          "",
+          "#hi_cli /home/cli/api/diagnose/mem -v addr 0x1300001c data 0x000008bf",
+          "#sleep 2",
+          "",
+          "#hi_cli /home/cli/api/intf/addext -v fatherifname eth0 ifname wl0 extname rt-ssid0 psdport 1",
+          "#hi_cli /home/cli/accel/accel_set -v hw 0 sw 1",
+          "",
+          "#hi_cli /home/cli/api/diagnose/mem -v addr 0x13200010 data 0x00000000",
+          "",
+          "hi_xpon",
+          "",
+          "#Create LAN ETH PORT",
+          "#Create WAN ETH PORT",
+          "#Create WAN DSL PORT",
+          "#Create WLAN PORT",
+          "hsanportinit&",
+          "",
+          "/etc/insmod_all.sh &",
+          "echo -l \"boot running mic...\"",
+          "",
+          "ln -sf /dev/mtd9 /dev/caldata",
+          "",
+          "mic",
+          "",
+          "echo \"Done\"",
+          "",
+          ""
+        ],
+        "path": "/home/ayad/build-output/rootfs/etc/profile",
+        "sha256": "ebce1e5930054326095b6df72101d1c5690854b5750dad225064ccec4695cca2"
+      },
+      "rcS": {
+        "lines": [
+          "#!/bin/sh",
+          "PATH=/sbin:/bin:/usr/bin:/usr/sbin",
+          "export PATH",
+          "",
+          "echo \"RCS DONE\"",
+          ""
+        ],
+        "path": "/home/ayad/build-output/rootfs/etc/init.d/rcS",
+        "sha256": "7c31a33578ddd71ebbaa8f9c79453d00d9762f020a7c035dd8bd09e9ae64e116"
+      }
+    },
+    "init": {
+      "exists": true,
+      "is_symlink": true,
+      "target": "bin/busybox"
+    },
+    "mtdblock_references": [
+      "test -d /etc/tri_image_up && mount -t jffs2 /dev/mtdblock12 /etc/tri_image_up",
+      "test -e /etc/webimg1 && mount -t jffs2 /dev/mtdblock7 /config"
+    ],
+    "rootfs": "/home/ayad/build-output/rootfs",
+    "startup_markers": [
+      "mount -t tmpfs none /dev",
+      "mount -t proc /proc /proc",
+      "mount -t sysfs none /sys",
+      "mount -t tmpfs none /var",
+      "mount -t tmpfs none /tmp",
+      "mount -t tmpfs none /mnt",
+      "startbsp",
+      "test -e /etc/webimg1 && mount -t jffs2 /dev/mtdblock7 /config",
+      "test -e /lib/kernel/net/softqos/hi_ksoft_qos.ko && insmod /lib/kernel/net/softqos/hi_ksoft_qos.ko",
+      "test -d /etc/tri_image_up && mount -t jffs2 /dev/mtdblock12 /etc/tri_image_up",
+      "hi_xpon",
+      "hsanportinit&",
+      "echo -l \"boot running mic...\"",
+      "mic"
+    ],
+    "status": "VERIFIED_STATIC",
+    "vendor_service_entries": {
+      "dhcps": {
+        "path": "/home/ayad/build-output/rootfs/bin/dhcps",
+        "type": "file"
+      },
+      "dns": {
+        "path": "/home/ayad/build-output/rootfs/bin/dns",
+        "type": "file"
+      },
+      "mic": {
+        "path": "/home/ayad/build-output/rootfs/bin/mic",
+        "type": "file"
+      },
+      "sshd": {
+        "path": "/home/ayad/build-output/rootfs/bin/sshd",
+        "type": "file"
+      },
+      "startbsp": {
+        "path": "/home/ayad/build-output/rootfs/bin/startbsp",
+        "type": "file"
+      },
+      "telnetd": {
+        "path": "/home/ayad/build-output/rootfs/bin/telnetd",
+        "type": "file"
+      },
+      "upg": {
+        "path": "/home/ayad/build-output/rootfs/bin/upg",
+        "type": "file"
+      },
+      "web": {
+        "path": "/home/ayad/build-output/rootfs/bin/web",
+        "type": "file"
+      }
+    }
+  },
+  "safety": {
+    "executed_oem_binary": false,
+    "modified_input_firmware": false,
+    "opened_mtd": false,
+    "wrote_flash": false
+  },
+  "tool": "analyze_deployment_feasibility.py"
+}

@@ -1,13 +1,13 @@
-# HG630-OpenLinux recovered mission state
+# HG630-OpenLinux project context
 
 Updated: 2026-11-10 20:00 America/New_York
 
-## Recovery status
+## Historical recovery status
 
 - Recovered after the previous Codex session exited.
 - No `AGENTS.md` exists under `/root/projects` or this repository.
 - No earlier `PROJECT_CONTEXT.md` existed; this file is the recovery record.
-- Git branch: `codex/hybrid-server-work`, at `1ce224a` (`Fix AEABI attributes parsing and ABI evidence`).
+- The recovery snapshot below records an earlier state; current milestone state is recorded in the milestone sections at the end of this document.
 - Initial Git status on recovery was clean relative to the branch except for the existing untracked work:
   - `tools/build_rootfs.py`
   - `build/components/boot-marker/`
@@ -424,3 +424,26 @@ Analyze the linked `libupgapi`, security, flash, and configuration libraries sta
 
 - ARM BCJ support in the original 2.6.30 kernel, kernel configuration, machine ID, RAM size/base, flash type/capacity, UART, bootloader version, root MTD partition, and command line remain UNKNOWN pending hardware or matching source artifacts.
 - No compatible QEMU system machine exists. No router, MTD, bootloader, UART, or firmware write was accessed in this milestone.
+
+## OpenLinux V0.7 OEM-preserving deployment feasibility — 2026-11-10
+
+### VERIFIED
+
+- Current HEAD at milestone start was `588d59c` on `codex/hybrid-server-work`; previous artifacts were preserved.
+- Added `tools/analyze_deployment_feasibility.py` and synthetic tests. It parses the known firmware structures and inventories only extracted RootFS text/configuration files without executing OEM programs or accessing MTD.
+- The original package contains metadata, SquashFS at `0x305cf`, uImage at `0x5d85cf`, and suffix bytes. Embedded uImage header/data CRCs validate. The metadata extents reach `0xfd0000`, beyond the package size, so they are not direct package offsets.
+- Static RootFS evidence confirms BusyBox init, `/etc/inittab` sysinit/respawn, vendor `/etc/profile` startup, conditional `mtdblock7`/`mtdblock12` mounts, `/dev/caldata -> /dev/mtd9`, and preserved vendor services/libraries/modules.
+- Added V0.7 reports and machine-readable [evidence.json](analysis/openlinux/v0.7/evidence.json).
+- Full test suite passes after V0.7 additions; no original firmware, prior artifact, router, MTD, or bootloader was modified/accessed.
+
+### PARTIALLY VERIFIED
+
+- Same-layout RootFS replacement preserves the original kernel and metadata in a non-flashable experimental artifact.
+- An additional userspace layer is viable for staged/operator-controlled testing against the preserved RootFS, but persistent launch and storage are not established.
+- The updater exposes separate generic/area/configuration/bootloader paths and logical MTD indices 0–15, but higher-level selection remains unresolved.
+
+### UNKNOWN / BLOCKED
+
+- Exact meaning of `main_*`/`slave_*`, dual-image behavior, section-to-MTD mapping, RootFS-only update support, root MTD/mount parameters, OEM signature/outer checksum, and recovery behavior remain UNKNOWN/BLOCKED.
+- Original-kernel ARM BCJ support remains UNKNOWN; V0.4 used ARM BCJ and is not claimed kernel-compatible.
+- Recommended current architecture is Approach C: non-persistent, operator-controlled userspace development while preserving the OEM RootFS. No Approach A/B deployment is authorized.
