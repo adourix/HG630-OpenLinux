@@ -50,6 +50,8 @@ def _validate_layout(original: bytes, expected_sha256: str | None, expected_size
         raise ValueError("HG630 component table does not describe the verified kernel offset")
     rootfs = parse_squashfs(original, ROOTFS_OFFSET)
     kernel = parse_uimage(original, KERNEL_OFFSET)
+    if kernel_record["payload_size"] != kernel["header_size"] + kernel["payload_size"]:
+        raise ValueError("HG630 kernel component size does not match the uImage extent")
     if not kernel["header_crc_valid"] or not kernel["data_crc_valid"]:
         raise ValueError("original uImage CRC validation failed")
     if rootfs["bytes_used"] > ROOTFS_RESERVED:
