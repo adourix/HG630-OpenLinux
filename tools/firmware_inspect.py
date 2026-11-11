@@ -91,7 +91,7 @@ def parse_hg630_component_table(data: bytes) -> dict[str, Any]:
         kind, component_id, payload_offset, payload_size, raw_name = struct.unpack_from(
             ">HHII32s", data, offset
         )
-        name = raw_name.split(b"\\0", 1)[0].decode("ascii", "replace")
+        name = raw_name.split(b"\0", 1)[0].decode("ascii", "replace")
         if kind != 2 or not name or payload_size == 0:
             raise ValueError(f"Invalid HG630 component record {index}")
         end = payload_offset + payload_size
