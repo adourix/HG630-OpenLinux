@@ -5,6 +5,7 @@ firmware/original/*
 *.img
 *.trx
 *.conf
+!build/runtime/etc/openlinux.conf
 *.backup
 *.cfg
 *.dump

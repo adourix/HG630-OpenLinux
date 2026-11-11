@@ -1,5 +1,16 @@
 # HG630-OpenLinux project context
 
+## V1.6 OEM SSH/PTTY audit — 2026-11-11
+
+- **VERIFIED static:** `/bin/sshd` is Dropbear 2014.65 with Huawei/ATP-specific customizations, ARM EABI5/uClibc dynamic ABI, and all declared dependency libraries present in the supplied RootFS. It contains public-key, authorized_keys, shell-channel, PTY, and SFTP-related strings; this does not prove those functions work on the router.
+- **VERIFIED static:** inspected OEM startup does not launch `sshd` or mount devpts. `/etc/devicetable` creates `/dev/ptmx` and legacy pty nodes, while extracted `/dev/pts` is empty. The exact HG630 kernel config was not supplied, so Unix98 PTY/devpts support is UNKNOWN.
+- **INFERRED:** missing devpts mount (or missing kernel support) is the strongest explanation for the earlier related-HG630 “Server refused to allocate pty” observation; its exact cause on the exact VER.B target is not established.
+- **SECURITY BLOCKER:** root's supplied shadow field is empty. Never enable SSH password auth or Dropbear `-B`; use of the vendor daemon is not target-ready until its exact key-only policy, unique host key path, account restrictions, PTY behavior, and supported start mechanism are verified.
+- **Disposition:** do not add a second SSH daemon or change OEM startup. Reuse of the existing customized Dropbear is preferred for future evaluation; no SSH enablement or target deployment occurred. See [V1.6 SSH/PTTY audit](analysis/openlinux/v1.6/oem-ssh-pty-audit.md).
+- No exact hardware/kernel config was inferred from the separate VExpress build. Firmware, RootFS, settings, router services, MTD, and flash were not changed.
+- **IMPLEMENTED:** restored the previously missing tracked `build/runtime/etc/openlinux.conf` with network mode disabled and allowed it through `.gitignore`; normalized runtime source modes. `tools/package_runtime.py` now reproduces the known V1.2 archive exactly (4,417 bytes; SHA-256 `727c1ad23a7b729f7b0a2ad1b7dd8f7ce7cf4d98332d7333f840fdee88015409`) at `/home/ayad/build-output/openlinux-runtime-v1.2-rebuilt.tar.gz`.
+- **TESTS:** full suite passes 93 tests (one optional VExpress QEMU test skipped because its inputs were not supplied). The suite does not test target SSH, PTY, or router behavior.
+
 ## V1.5 full deployment strategy — 2026-11-11
 
 - **VERIFIED from the supplied OEM firmware analyses:** target userspace is ARM EABI5/uClibc on the HiSilicon SD56xx/SD5610x Linux 2.6.30 platform. The OEM `profile`/`startbsp`/`mic` path owns hardware and network initialization. No safe supported `mic` extension or one-shot automatic OpenLinux hook is known.
